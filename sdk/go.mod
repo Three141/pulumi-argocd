@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/sdk
+module github.com/three141/pulumi-argocd/sdk
 
 go 1.17
 
