@@ -21,6 +21,7 @@ import (
 	_ "embed"
 
 	argocd "github.com/argoproj-labs/terraform-provider-argocd/shim" // Import the upstream provider
+
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"

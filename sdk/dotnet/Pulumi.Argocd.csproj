@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Pulumi</Authors>
-    <Company>Pulumi</Company>
-    <Description>A Pulumi package for creating and managing xyz cloud resources.</Description>
+    <Authors>Three141</Authors>
+    <Company>Three141</Company>
+    <Description>A Pulumi package for creating and managing Argo CD resources.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://www.pulumi.com</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/pulumi/pulumi-xyz</RepositoryUrl>
+    <PackageProjectUrl>https://argoproj.github.io</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Three141/pulumi-argocd</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
     <Version>1.0.0-alpha.0+dev</Version>
 
