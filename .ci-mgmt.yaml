@@ -1,8 +1,8 @@
 # REQUIRED: provider is the name of the provider without the pulumi-prefix e.g. "aws".
-provider: xyz
+provider: argocd
 
 # The name of the GitHub organization or username the repository lives in. Defaults to 'pulumi'
-organization: pulumi
+organization: Three141
 
 # The external template only includes workflows relevant for non-Pulumi managed providers.
 template: external-bridged-provider

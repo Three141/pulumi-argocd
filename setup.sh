@@ -121,10 +121,10 @@ if [[ -z "${repository}" ]]; then
 fi
 
 # Check if we're in a clean state
-if test ! -d "provider/cmd/pulumi-tfgen-xyz"; then
-  echo "Project already renamed, provider/cmd/pulumi-tfgen-xyz not found"
-  exit 1
-fi
+# if test ! -d "provider/cmd/pulumi-tfgen-xyz"; then
+#   echo "Project already renamed, provider/cmd/pulumi-tfgen-xyz not found"
+#   exit 1
+# fi
 
 # Replace tokens in resources.go and .ci-mgmt.yaml and README.md
 OS=$(uname)
@@ -140,39 +140,39 @@ replace() {
   sed_inplace "${1}" "s,${2},${3},g"
 }
 
-# ci-mgmt
-replace .ci-mgmt.yaml "provider: xyz" "provider: ${provider}"
-replace .ci-mgmt.yaml "organization: pulumi" "organization: ${organization}"
-make ci-mgmt
+# # ci-mgmt
+# replace .ci-mgmt.yaml "provider: xyz" "provider: ${provider}"
+# replace .ci-mgmt.yaml "organization: pulumi" "organization: ${organization}"
+# make ci-mgmt
 
-# Readme
-# Delete README.md prelude up to the provider title line
-provider_title_line_number=$(grep -n '# Xyz Resource Provider' README.md | cut -f1 -d:)
-sed_inplace README.md "1,$((provider_title_line_number-1))d"
-replace README.md "xyz" "${provider}"
-replace README.md "Xyz" "$(echo "${provider}" | awk '{print toupper(substr($0,1,1)) substr($0,2)}' || true)"
-replace README.md "XYZ" "$(echo "${provider}" | awk '{print toupper($0)}' || true)"
+# # Readme
+# # Delete README.md prelude up to the provider title line
+# provider_title_line_number=$(grep -n '# Xyz Resource Provider' README.md | cut -f1 -d:)
+# sed_inplace README.md "1,$((provider_title_line_number-1))d"
+# replace README.md "xyz" "${provider}"
+# replace README.md "Xyz" "$(echo "${provider}" | awk '{print toupper(substr($0,1,1)) substr($0,2)}' || true)"
+# replace README.md "XYZ" "$(echo "${provider}" | awk '{print toupper($0)}' || true)"
 
-# Remove bridge metadata
-rm -f provider/cmd/pulumi-resource-xyz/bridge-metadata.json
+# # Remove bridge metadata
+# rm -f provider/cmd/pulumi-resource-xyz/bridge-metadata.json
 
-# Go modules & code
+# # Go modules & code
 replace_go_src() {
   replace "${1}" github.com/pulumi/terraform-provider-xyz "${upstream}"
   replace "${1}" "github\.com/pulumi/pulumi-xyz" "github\.com/${organization}/${repository}"
   replace "${1}" xyz "${provider}"
 }
-replace provider/go.mod "github\.com/pulumi/pulumi-xyz" "github\.com/${organization}/${repository}"
-replace provider/go.mod "github.com/pulumi/terraform-provider-xyz v.*" "${upstream} latest"
-replace_go_src provider/resources.go
-replace_go_src provider/cmd/pulumi-tfgen-xyz/main.go
-replace_go_src provider/cmd/pulumi-resource-xyz/main.go
-if [[ "${provider}" != "xyz" ]]; then # Don't fail on no-op rename
-  mv provider/cmd/pulumi-tfgen-xyz "provider/cmd/pulumi-tfgen-${provider}"
-  mv provider/cmd/pulumi-resource-xyz "provider/cmd/pulumi-resource-${provider}"
-fi
-# Resolve to a real upstream version in the go.mod
-(cd provider && go get "${upstream}")
+# replace provider/go.mod "github\.com/pulumi/pulumi-xyz" "github\.com/${organization}/${repository}"
+# replace provider/go.mod "github.com/pulumi/terraform-provider-xyz v.*" "${upstream} latest"
+# replace_go_src provider/resources.go
+# replace_go_src provider/cmd/pulumi-tfgen-xyz/main.go
+# replace_go_src provider/cmd/pulumi-resource-xyz/main.go
+# if [[ "${provider}" != "xyz" ]]; then # Don't fail on no-op rename
+#   mv provider/cmd/pulumi-tfgen-xyz "provider/cmd/pulumi-tfgen-${provider}"
+#   mv provider/cmd/pulumi-resource-xyz "provider/cmd/pulumi-resource-${provider}"
+# fi
+# # Resolve to a real upstream version in the go.mod
+# (cd provider && go get "${upstream}@e11b56ab19f5989585591575ea3b4c6b15950722")
 replace examples/go.mod "github\.com/pulumi/pulumi-xyz" "github\.com/${organization}/${repository}"
 replace_go_src examples/examples_test.go
 

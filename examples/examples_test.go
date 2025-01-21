@@ -16,7 +16,7 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			"@pulumi/xyz",
+			"@pulumi/argocd",
 		},
 	})
 
@@ -49,7 +49,7 @@ func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			fmt.Sprintf("github.com/pulumi/pulumi-xyz/sdk=%s", rootSdkPath),
+			fmt.Sprintf("github.com/Three141/pulumi-argocd/sdk=%s", rootSdkPath),
 		},
 		Env: []string{
 			fmt.Sprintf("PULUMI_GO_DEP_ROOT=%s", goDepRoot),
@@ -90,7 +90,7 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	return integration.ProgramTestOptions{
 		LocalProviders: []integration.LocalDependency{
 			{
-				Package: "xyz",
+				Package: "argocd",
 				Path:    binPath,
 			},
 		},

@@ -62,28 +62,28 @@ jobs:
     - name: Download provider assets
       uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
       with:
-        pattern: pulumi-resource-xyz-v${{ inputs.version }}-*
+        pattern: pulumi-resource-argocd-v${{ inputs.version }}-*
         path: dist
         # Don't create a directory for each artifact
         merge-multiple: true
     - name: Calculate checksums
       working-directory: dist
-      run: shasum ./*.tar.gz > "pulumi-xyz_${{ inputs.version }}_checksums.txt"
+      run: shasum ./*.tar.gz > "pulumi-argocd_${{ inputs.version }}_checksums.txt"
     - name: Get Schema Change Summary
       id: schema-summary
       shell: bash
       run: |
         # Get latest stable release. Return only first column from result (tag).
-        LAST_VERSION=$(gh release view --repo pulumi/pulumi-xyz --json tagName -q .tagName || echo "No stable release" )
+        LAST_VERSION=$(gh release view --repo Three141/pulumi-argocd --json tagName -q .tagName || echo "No stable release" )
         {
           echo 'summary<<EOF'
           if [[ "$LAST_VERSION" != "No stable release" ]]; then
-            schema-tools compare --provider="xyz" --old-commit="$LAST_VERSION" --repository="github://api.github.com/pulumi" --new-commit="--local-path=provider/cmd/pulumi-resource-xyz/schema.json"
+            schema-tools compare --provider="argocd" --old-commit="$LAST_VERSION" --repository="github://api.github.com/Three141" --new-commit="--local-path=provider/cmd/pulumi-resource-argocd/schema.json"
           fi
           echo 'EOF'
         } >> "$GITHUB_OUTPUT"
     - name: Create GH Release
-      uses: softprops/action-gh-release@e7a8f85e1c67a31e6ed99a94b41bd0b71bbee6b8 # v2
+      uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2
       if: inputs.isPrerelease == false
       with:
         tag_name: v${{ inputs.version }}
@@ -179,6 +179,6 @@ jobs:
     with:
       providerVersion: ${{ inputs.version }}
       # Prelease is run often but we only have 5 concurrent macos runners, so we only test after the stable release.
-      enableMacosRunner: ${{ inputs.isPrerelease == false }}
+      enableMacRunner: ${{ inputs.isPrerelease == false }}
       skipGoSdk: ${{ inputs.skipGoSdk }}
       pythonVersion: ${{ needs.publish_sdk.outputs.python_version }}

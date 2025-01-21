@@ -5,19 +5,19 @@ runs:
   using: "composite"
   steps:
 
-    - name: Download pulumi-resource-xyz
+    - name: Download pulumi-resource-argocd
       uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
       with:
-        pattern: pulumi-resource-xyz-*-linux-amd64.tar.gz
+        pattern: pulumi-resource-argocd-*-linux-amd64.tar.gz
         path: ${{ github.workspace }}/bin
         merge-multiple: true
 
-    - name: Untar pulumi-resource-xyz
+    - name: Untar pulumi-resource-argocd
       shell: bash
       run: |
         tar -zxf ${{ github.workspace }}/bin/*amd64.tar.gz -C ${{ github.workspace}}/bin
 
-    - name: Mark pulumi-resource-xyz as executable
+    - name: Mark pulumi-resource-argocd as executable
       shell: bash
       run: |
-        find ${{ github.workspace }} -name "pulumi-*-xyz" -print -exec chmod +x {} \;
+        find ${{ github.workspace }} -name "pulumi-*-argocd" -print -exec chmod +x {} \;

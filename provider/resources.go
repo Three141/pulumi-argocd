@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package xyz
+package argocd
 
 import (
 	"path"
@@ -20,25 +20,25 @@ import (
 	// Allow embedding bridge-metadata.json in the provider.
 	_ "embed"
 
+	argocd "github.com/argoproj-labs/terraform-provider-argocd/shim" // Import the upstream provider
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
-	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	xyz "github.com/pulumi/terraform-provider-xyz/provider" // Import the upstream provider
 
-	"github.com/pulumi/pulumi-xyz/provider/pkg/version"
+	"github.com/Three141/pulumi-argocd/provider/pkg/version"
 )
 
 // all of the token components used below.
 const (
 	// This variable controls the default name of the package in the package
 	// registries for nodejs and python:
-	mainPkg = "xyz"
+	mainPkg = "argocd"
 	// modules:
-	mainMod = "index" // the xyz module
+	mainMod = "index" // the argocd module
 )
 
-//go:embed cmd/pulumi-resource-xyz/bridge-metadata.json
+//go:embed cmd/pulumi-resource-argocd/bridge-metadata.json
 var metadata []byte
 
 // Provider returns additional overlaid schema and metadata associated with the provider.
@@ -77,17 +77,17 @@ func Provider() tfbridge.ProviderInfo {
 		//
 		//    - Replace `shimv2.NewProvider` with `pfbridge.ShimProvider`.
 		//
-		//    - In provider/cmd/pulumi-tfgen-xyz/main.go, replace the
+		//    - In provider/cmd/pulumi-tfgen-argocd/main.go, replace the
 		//      "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen" import with
 		//      "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfgen". Remove the `version.Version`
 		//      argument to `tfgen.Main`.
 		//
-		//    - In provider/cmd/pulumi-resource-xyz/main.go, replace the
+		//    - In provider/cmd/pulumi-resource-argocd/main.go, replace the
 		//      "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge" import with
 		//      "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge". Replace the arguments to the
 		//      `tfbridge.Main` so it looks like this:
 		//
-		//      	tfbridge.Main(context.Background(), "xyz", xyz.Provider(),
+		//      	tfbridge.Main(context.Background(), "argocd", argocd.Provider(),
 		//			tfbridge.ProviderMetadata{PulumiSchema: pulumiSchema})
 		//
 		//   Detailed instructions can be found at
@@ -95,7 +95,7 @@ func Provider() tfbridge.ProviderInfo {
 		//   After that, you can proceed as normal.
 		//
 		// This is where you give the bridge a handle to the upstream terraform provider. SDKv2
-		// convention is to have a function at "github.com/pulumi/terraform-provider-xyz/provider".New
+		// convention is to have a function at "github.com/argoproj-labs/terraform-provider-argocd/provider".New
 		// which takes a version and produces a factory function. The provider you are bridging may
 		// not do that. You will need to find the function (generally called in upstream's main.go)
 		// that produces a:
@@ -105,16 +105,16 @@ func Provider() tfbridge.ProviderInfo {
 		// - "github.com/hashicorp/terraform-plugin-framework/provider".Provider (for plugin-framework)
 		//
 		//nolint:lll
-		P: shimv2.NewProvider(xyz.New(version.Version)()),
+		P: pfbridge.ShimProvider(*argocd.Provider(version.Version)),
 
-		Name:    "xyz",
+		Name:    "argocd",
 		Version: version.Version,
 		// DisplayName is a way to be able to change the casing of the provider name when being
 		// displayed on the Pulumi registry
-		DisplayName: "",
+		DisplayName: "Argo CD",
 		// Change this to your personal name (or a company name) that you would like to be shown in
 		// the Pulumi Registry if this package is published there.
-		Publisher: "Pulumi",
+		Publisher: "Three141",
 		// LogoURL is optional but useful to help identify your package in the Pulumi Registry
 		// if this package is published there.
 		//
@@ -125,37 +125,21 @@ func Provider() tfbridge.ProviderInfo {
 		// for use in Pulumi programs
 		// e.g. https://github.com/org/pulumi-provider-name/releases/download/v${VERSION}/
 		PluginDownloadURL: "",
-		Description:       "A Pulumi package for creating and managing xyz cloud resources.",
+		Description:       "A Pulumi package for creating and managing Argo CD resources.",
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in
 		// https://www.pulumi.com/docs/guides/pulumi-packages/schema/#package.
-		Keywords:   []string{"xyz", "category/cloud"},
+		Keywords:   []string{"argocd", "category/cloud"},
 		License:    "Apache-2.0",
-		Homepage:   "https://www.pulumi.com",
-		Repository: "https://github.com/pulumi/pulumi-xyz",
+		Homepage:   "https://argoproj.github.io",
+		Repository: "https://github.com/Three141/pulumi-argocd",
 		// The GitHub Org for the provider - defaults to `terraform-providers`. Note that this should
 		// match the TF provider module's require directive, not any replace directives.
-		GitHubOrg:    "",
+		GitHubOrg:    "argoproj-labs",
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
-		Config: map[string]*tfbridge.SchemaInfo{
-			// Add any required configuration here, or remove the example below if
-			// no additional points are required.
-			"region": {
-				Type: "xyz:region/region:Region",
-			},
-		},
+		Config:       map[string]*tfbridge.SchemaInfo{},
 		// If extra types are needed for configuration, they can be added here.
-		ExtraTypes: map[string]schema.ComplexTypeSpec{
-			"xyz:region/region:Region": {
-				ObjectTypeSpec: schema.ObjectTypeSpec{
-					Type: "string",
-				},
-				Enum: []schema.EnumValueSpec{
-					{Name: "here", Value: "HERE"},
-					{Name: "overThere", Value: "OVER_THERE"},
-				},
-			},
-		},
+		ExtraTypes: map[string]schema.ComplexTypeSpec{},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// RespectSchemaVersion ensures the SDK is generated linking to the correct version of the provider.
 			RespectSchemaVersion: true,
@@ -169,7 +153,7 @@ func Provider() tfbridge.ProviderInfo {
 		Golang: &tfbridge.GolangInfo{
 			// Set where the SDK is going to be published to.
 			ImportBasePath: path.Join(
-				"github.com/pulumi/pulumi-xyz/sdk/",
+				"github.com/Three141/pulumi-argocd/sdk/",
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
 				mainPkg,
@@ -196,7 +180,7 @@ func Provider() tfbridge.ProviderInfo {
 	//
 	// You shouldn't need to override anything, but if you do, use the [tfbridge.ProviderInfo.Resources]
 	// and [tfbridge.ProviderInfo.DataSources].
-	prov.MustComputeTokens(tokens.SingleModule("xyz_", mainMod,
+	prov.MustComputeTokens(tokens.SingleModule("argocd_", mainMod,
 		tokens.MakeStandard(mainPkg)))
 
 	prov.MustApplyAutoAliases()

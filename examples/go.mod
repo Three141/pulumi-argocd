@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/examples
+module github.com/Three141/pulumi-argocd/examples
 
 go 1.21
 

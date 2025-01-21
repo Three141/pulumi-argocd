@@ -1,0 +1,134 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "argocd_gpg_key": {
+                "current": "argocd:index/gpgKey:GpgKey",
+                "majorVersion": 1
+            }
+        },
+        "datasources": {
+            "argocd_application": {
+                "current": "argocd:index/getApplication:getApplication",
+                "majorVersion": 1,
+                "fields": {
+                    "spec": {
+                        "fields": {
+                            "ignore_differences": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "jq_path_expressions": {
+                                            "maxItemsOne": false
+                                        },
+                                        "json_pointers": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "infos": {
+                                "maxItemsOne": false
+                            },
+                            "sources": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "directory": {
+                                            "fields": {
+                                                "jsonnet": {
+                                                    "fields": {
+                                                        "ext_vars": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "libs": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "tlas": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "helm": {
+                                            "fields": {
+                                                "file_parameters": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "parameters": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "value_files": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "kustomize": {
+                                            "fields": {
+                                                "images": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "plugin": {
+                                            "fields": {
+                                                "env": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "parameters": {
+                                                    "maxItemsOne": false,
+                                                    "elem": {
+                                                        "fields": {
+                                                            "array": {
+                                                                "maxItemsOne": false
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "sync_policy": {
+                                "fields": {
+                                    "sync_options": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "status": {
+                        "fields": {
+                            "conditions": {
+                                "maxItemsOne": false
+                            },
+                            "resources": {
+                                "maxItemsOne": false
+                            },
+                            "summary": {
+                                "fields": {
+                                    "external_urls": {
+                                        "maxItemsOne": false
+                                    },
+                                    "images": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "sync": {
+                                "fields": {
+                                    "revisions": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "auto-settings": {}
+}

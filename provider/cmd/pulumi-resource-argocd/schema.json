@@ -1,0 +1,1633 @@
+{
+    "name": "argocd",
+    "displayName": "Argo CD",
+    "description": "A Pulumi package for creating and managing Argo CD resources.",
+    "keywords": [
+        "argocd",
+        "category/cloud"
+    ],
+    "homepage": "https://argoproj.github.io",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`argocd` Terraform Provider](https://github.com/argoproj-labs/terraform-provider-argocd).",
+    "repository": "https://github.com/Three141/pulumi-argocd",
+    "publisher": "Three141",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true
+        },
+        "go": {
+            "importBasePath": "github.com/Three141/pulumi-argocd/sdk/go/argocd",
+            "generateResourceContainerTypes": true,
+            "generateExtraInputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "nodejs": {
+            "packageDescription": "A Pulumi package for creating and managing Argo CD resources.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/argoproj-labs/terraform-provider-argocd)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-argocd` repo](https://github.com/Three141/pulumi-argocd/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-argocd` repo](https://github.com/argoproj-labs/terraform-provider-argocd/issues).",
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "python": {
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/argoproj-labs/terraform-provider-argocd)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-argocd` repo](https://github.com/Three141/pulumi-argocd/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-argocd` repo](https://github.com/argoproj-labs/terraform-provider-argocd/issues).",
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true,
+            "pyproject": {
+                "enabled": true
+            }
+        }
+    },
+    "config": {
+        "variables": {
+            "authToken": {
+                "type": "string",
+                "description": "ArgoCD authentication token, takes precedence over `username`/`password`. Can be set through the `ARGOCD_AUTH_TOKEN`\nenvironment variable.\n",
+                "secret": true
+            },
+            "certFile": {
+                "type": "string",
+                "description": "Additional root CA certificates file to add to the client TLS connection pool.\n"
+            },
+            "clientCertFile": {
+                "type": "string",
+                "description": "Client certificate.\n"
+            },
+            "clientCertKey": {
+                "type": "string",
+                "description": "Client certificate key.\n"
+            },
+            "configPath": {
+                "type": "string",
+                "description": "Override the default config path of `$HOME/.config/argocd/config`. Only relevant when `use_local_config`. Can be set\nthrough the `ARGOCD_CONFIG_PATH` environment variable.\n"
+            },
+            "context": {
+                "type": "string",
+                "description": "Context to choose when using a local ArgoCD config file. Only relevant when `use_local_config`. Can be set through\n`ARGOCD_CONTEXT` environment variable.\n"
+            },
+            "core": {
+                "type": "boolean",
+                "description": "Configure direct access using Kubernetes API server. **Warning**: this feature works by starting a local ArgoCD API\nserver that talks directly to the Kubernetes API using the **current context in the default kubeconfig**\n(`~/.kube/config`). This behavior cannot be overridden using either environment variables or the `kubernetes` block in\nthe provider configuration at present). If the server fails to start (e.g. your kubeconfig is misconfigured) then the\nprovider will fail as a result of the `argocd` module forcing it to exit and no logs will be available to help you debug\nthis. The error message will be similar to \u003e `The plugin encountered an error, and failed to respond to the\nplugin.(*GRPCProvider).ReadResource call. The plugin logs may contain more details.` To debug this, you will need to\nlogin via the ArgoCD CLI using `argocd login --core` and then running an operation. E.g. `argocd app list`.\n"
+            },
+            "grpcWeb": {
+                "type": "boolean",
+                "description": "Whether to use gRPC web proxy client. Useful if Argo CD server is behind proxy which does not support HTTP2.\n"
+            },
+            "grpcWebRootPath": {
+                "type": "string",
+                "description": "Use the gRPC web proxy client and set the web root, e.g. `argo-cd`. Useful if the Argo CD server is behind a proxy at a\nnon-root path.\n"
+            },
+            "headers": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Additional headers to add to each request to the ArgoCD server.\n"
+            },
+            "insecure": {
+                "type": "boolean",
+                "description": "Whether to skip TLS server certificate. Can be set through the `ARGOCD_INSECURE` environment variable.\n"
+            },
+            "kubernetes": {
+                "$ref": "#/types/argocd:config/kubernetes:kubernetes",
+                "description": "Kubernetes configuration overrides. Only relevant when `port_forward = true` or `port_forward_with_namespace = \"foo\"`.\nThe kubeconfig file that is used can be overridden using the [`KUBECONFIG` environment\nvariable](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#the-kubeconfig-environment-variable)).\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "Authentication password. Can be set through the `ARGOCD_AUTH_PASSWORD` environment variable.\n",
+                "secret": true
+            },
+            "plainText": {
+                "type": "boolean",
+                "description": "Whether to initiate an unencrypted connection to ArgoCD server.\n"
+            },
+            "portForward": {
+                "type": "boolean",
+                "description": "Connect to a random argocd-server port using port forwarding.\n"
+            },
+            "portForwardWithNamespace": {
+                "type": "string",
+                "description": "Namespace name which should be used for port forwarding.\n"
+            },
+            "serverAddr": {
+                "type": "string",
+                "description": "ArgoCD server address with port. Can be set through the `ARGOCD_SERVER` environment variable.\n"
+            },
+            "useLocalConfig": {
+                "type": "boolean",
+                "description": "Use the authentication settings found in the local config file. Useful when you have previously logged in using SSO.\nConflicts with `auth_token`, `username` and `password`.\n"
+            },
+            "userAgent": {
+                "type": "string",
+                "description": "User-Agent request header override.\n"
+            },
+            "username": {
+                "type": "string",
+                "description": "Authentication username. Can be set through the `ARGOCD_AUTH_USERNAME` environment variable.\n"
+            }
+        }
+    },
+    "types": {
+        "argocd:config/kubernetes:kubernetes": {
+            "properties": {
+                "clientCertificate": {
+                    "type": "string",
+                    "description": "PEM-encoded client certificate for TLS authentication. Can be sourced from `KUBE_CLIENT_CERT_DATA`.\n"
+                },
+                "clientKey": {
+                    "type": "string",
+                    "description": "PEM-encoded client certificate key for TLS authentication. Can be sourced from `KUBE_CLIENT_KEY_DATA`.\n",
+                    "secret": true
+                },
+                "clusterCaCertificate": {
+                    "type": "string",
+                    "description": "PEM-encoded root certificates bundle for TLS authentication. Can be sourced from `KUBE_CLUSTER_CA_CERT_DATA`.\n"
+                },
+                "configContext": {
+                    "type": "string",
+                    "description": "Context to choose from the config file. Can be sourced from `KUBE_CTX`.\n"
+                },
+                "configContextAuthInfo": {
+                    "type": "string"
+                },
+                "configContextCluster": {
+                    "type": "string"
+                },
+                "exec": {
+                    "$ref": "#/types/argocd:config/kubernetesExec:kubernetesExec",
+                    "description": "Configuration block to use an [exec-based credential plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins), e.g. call an external command to receive user credentials.\n"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "The hostname (in form of URI) of the Kubernetes API. Can be sourced from `KUBE_HOST`.\n"
+                },
+                "insecure": {
+                    "type": "boolean",
+                    "description": "Whether server should be accessed without verifying the TLS certificate. Can be sourced from `KUBE_INSECURE`.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password to use for HTTP basic authentication when accessing the Kubernetes API. Can be sourced from `KUBE_PASSWORD`.\n",
+                    "secret": true
+                },
+                "token": {
+                    "type": "string",
+                    "description": "Token to authenticate an service account. Can be sourced from `KUBE_TOKEN`.\n",
+                    "secret": true
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The username to use for HTTP basic authentication when accessing the Kubernetes API. Can be sourced from `KUBE_USER`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "argocd:config/kubernetesExec:kubernetesExec": {
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "API version to use when decoding the ExecCredentials resource, e.g. `client.authentication.k8s.io/v1beta1`.\n"
+                },
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Map of environment variables to set when executing the plugin.\n"
+                },
+                "command": {
+                    "type": "string",
+                    "description": "Command to execute.\n"
+                },
+                "env": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "List of arguments to pass when executing the plugin.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "apiVersion",
+                "command"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/ProviderKubernetes:ProviderKubernetes": {
+            "properties": {
+                "clientCertificate": {
+                    "type": "string",
+                    "description": "PEM-encoded client certificate for TLS authentication. Can be sourced from `KUBE_CLIENT_CERT_DATA`.\n"
+                },
+                "clientKey": {
+                    "type": "string",
+                    "description": "PEM-encoded client certificate key for TLS authentication. Can be sourced from `KUBE_CLIENT_KEY_DATA`.\n",
+                    "secret": true
+                },
+                "clusterCaCertificate": {
+                    "type": "string",
+                    "description": "PEM-encoded root certificates bundle for TLS authentication. Can be sourced from `KUBE_CLUSTER_CA_CERT_DATA`.\n"
+                },
+                "configContext": {
+                    "type": "string",
+                    "description": "Context to choose from the config file. Can be sourced from `KUBE_CTX`.\n"
+                },
+                "configContextAuthInfo": {
+                    "type": "string"
+                },
+                "configContextCluster": {
+                    "type": "string"
+                },
+                "exec": {
+                    "$ref": "#/types/argocd:index/ProviderKubernetesExec:ProviderKubernetesExec",
+                    "description": "Configuration block to use an [exec-based credential plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins), e.g. call an external command to receive user credentials.\n"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "The hostname (in form of URI) of the Kubernetes API. Can be sourced from `KUBE_HOST`.\n"
+                },
+                "insecure": {
+                    "type": "boolean",
+                    "description": "Whether server should be accessed without verifying the TLS certificate. Can be sourced from `KUBE_INSECURE`.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password to use for HTTP basic authentication when accessing the Kubernetes API. Can be sourced from `KUBE_PASSWORD`.\n",
+                    "secret": true
+                },
+                "token": {
+                    "type": "string",
+                    "description": "Token to authenticate an service account. Can be sourced from `KUBE_TOKEN`.\n",
+                    "secret": true
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The username to use for HTTP basic authentication when accessing the Kubernetes API. Can be sourced from `KUBE_USER`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "argocd:index/ProviderKubernetesExec:ProviderKubernetesExec": {
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "API version to use when decoding the ExecCredentials resource, e.g. `client.authentication.k8s.io/v1beta1`.\n"
+                },
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Map of environment variables to set when executing the plugin.\n"
+                },
+                "command": {
+                    "type": "string",
+                    "description": "Command to execute.\n"
+                },
+                "env": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "List of arguments to pass when executing the plugin.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "apiVersion",
+                "command"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationMetadata:getApplicationMetadata": {
+            "properties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "An unstructured key value map stored with the cluster secret that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations\n"
+                },
+                "generation": {
+                    "type": "integer",
+                    "description": "A sequence number representing a specific generation of the desired state.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of string keys and values that can be used to organize and categorize (scope and select) the cluster secret. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/\n"
+                },
+                "resourceVersion": {
+                    "type": "string",
+                    "description": "An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency\n"
+                },
+                "uid": {
+                    "type": "string",
+                    "description": "The unique in time and space value for this applications.argoproj.io. More info: http://kubernetes.io/docs/user-guide/identifiers#uids\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "annotations",
+                "generation",
+                "labels",
+                "name",
+                "namespace",
+                "resourceVersion",
+                "uid"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": [
+                        "name"
+                    ]
+                }
+            }
+        },
+        "argocd:index/getApplicationSpec:getApplicationSpec": {
+            "properties": {
+                "destination": {
+                    "$ref": "#/types/argocd:index/getApplicationSpecDestination:getApplicationSpecDestination",
+                    "description": "Reference to the Kubernetes server and namespace in which the application will be deployed.\n"
+                },
+                "ignoreDifferences": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationSpecIgnoreDifference:getApplicationSpecIgnoreDifference"
+                    },
+                    "description": "Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.\n"
+                },
+                "infos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationSpecInfo:getApplicationSpecInfo"
+                    },
+                    "description": "List of information (URLs, email addresses, and plain text) that relates to the application.\n"
+                },
+                "project": {
+                    "type": "string",
+                    "description": "The project the application belongs to. Defaults to `default`.\n"
+                },
+                "revisionHistoryLimit": {
+                    "type": "integer",
+                    "description": "Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.\n"
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationSpecSource:getApplicationSpecSource"
+                    },
+                    "description": "Location of the application's manifests or chart.\n"
+                },
+                "syncPolicy": {
+                    "$ref": "#/types/argocd:index/getApplicationSpecSyncPolicy:getApplicationSpecSyncPolicy",
+                    "description": "Controls when and how a sync will be performed.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination",
+                "ignoreDifferences",
+                "infos",
+                "project",
+                "revisionHistoryLimit",
+                "sources",
+                "syncPolicy"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecDestination:getApplicationSpecDestination": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the target cluster. Can be used instead of `server`.\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.\n"
+                },
+                "server": {
+                    "type": "string",
+                    "description": "URL of the target cluster and must be set to the Kubernetes control plane API.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "namespace",
+                "server"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecIgnoreDifference:getApplicationSpecIgnoreDifference": {
+            "properties": {
+                "group": {
+                    "type": "string",
+                    "description": "The Kubernetes resource Group to match for.\n"
+                },
+                "jqPathExpressions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of JQ path expression strings targeting the field(s) to ignore.\n"
+                },
+                "jsonPointers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of JSONPaths strings targeting the field(s) to ignore.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "The Kubernetes resource Kind to match for.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The Kubernetes resource Name to match for.\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes resource Namespace to match for.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "group",
+                "jqPathExpressions",
+                "jsonPointers",
+                "kind",
+                "name",
+                "namespace"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecInfo:getApplicationSpecInfo": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the information.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the information.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSource:getApplicationSpecSource": {
+            "properties": {
+                "chart": {
+                    "type": "string",
+                    "description": "Helm chart name. Must be specified for applications sourced from a Helm repo.\n"
+                },
+                "directory": {
+                    "$ref": "#/types/argocd:index/getApplicationSpecSourceDirectory:getApplicationSpecSourceDirectory",
+                    "description": "Path/directory specific options.\n"
+                },
+                "helm": {
+                    "$ref": "#/types/argocd:index/getApplicationSpecSourceHelm:getApplicationSpecSourceHelm",
+                    "description": "Helm specific options.\n"
+                },
+                "kustomize": {
+                    "$ref": "#/types/argocd:index/getApplicationSpecSourceKustomize:getApplicationSpecSourceKustomize",
+                    "description": "Kustomize specific options.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Directory path within the repository. Only valid for applications sourced from Git.\n"
+                },
+                "plugin": {
+                    "$ref": "#/types/argocd:index/getApplicationSpecSourcePlugin:getApplicationSpecSourcePlugin",
+                    "description": "Config management plugin specific options.\n"
+                },
+                "ref": {
+                    "type": "string",
+                    "description": "Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.\n"
+                },
+                "repoUrl": {
+                    "type": "string",
+                    "description": "URL to the repository (Git or Helm) that contains the application manifests.\n"
+                },
+                "targetRevision": {
+                    "type": "string",
+                    "description": "Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "chart",
+                "directory",
+                "helm",
+                "kustomize",
+                "path",
+                "plugin",
+                "ref",
+                "repoUrl",
+                "targetRevision"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourceDirectory:getApplicationSpecSourceDirectory": {
+            "properties": {
+                "exclude": {
+                    "type": "string",
+                    "description": "Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'\n"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'\n"
+                },
+                "jsonnet": {
+                    "$ref": "#/types/argocd:index/getApplicationSpecSourceDirectoryJsonnet:getApplicationSpecSourceDirectoryJsonnet",
+                    "description": "Jsonnet specific options.\n"
+                },
+                "recurse": {
+                    "type": "boolean",
+                    "description": "Whether to scan a directory recursively for manifests.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "exclude",
+                "include",
+                "jsonnet",
+                "recurse"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourceDirectoryJsonnet:getApplicationSpecSourceDirectoryJsonnet": {
+            "properties": {
+                "extVars": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationSpecSourceDirectoryJsonnetExtVar:getApplicationSpecSourceDirectoryJsonnetExtVar"
+                    },
+                    "description": "List of Jsonnet External Variables.\n"
+                },
+                "libs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Additional library search dirs.\n"
+                },
+                "tlas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationSpecSourceDirectoryJsonnetTla:getApplicationSpecSourceDirectoryJsonnetTla"
+                    },
+                    "description": "List of Jsonnet Top-level Arguments\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "extVars",
+                "libs",
+                "tlas"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourceDirectoryJsonnetExtVar:getApplicationSpecSourceDirectoryJsonnetExtVar": {
+            "properties": {
+                "code": {
+                    "type": "boolean",
+                    "description": "Determines whether the variable should be evaluated as jsonnet code or treated as string.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of Jsonnet variable.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of Jsonnet variable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "code",
+                "name",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourceDirectoryJsonnetTla:getApplicationSpecSourceDirectoryJsonnetTla": {
+            "properties": {
+                "code": {
+                    "type": "boolean",
+                    "description": "Determines whether the variable should be evaluated as jsonnet code or treated as string.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of Jsonnet variable.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of Jsonnet variable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "code",
+                "name",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourceHelm:getApplicationSpecSourceHelm": {
+            "properties": {
+                "fileParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationSpecSourceHelmFileParameter:getApplicationSpecSourceHelmFileParameter"
+                    },
+                    "description": "File parameters for the helm template.\n"
+                },
+                "ignoreMissingValueFiles": {
+                    "type": "boolean",
+                    "description": "Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.\n"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationSpecSourceHelmParameter:getApplicationSpecSourceHelmParameter"
+                    },
+                    "description": "Helm parameters which are passed to the helm template command upon manifest generation.\n"
+                },
+                "passCredentials": {
+                    "type": "boolean",
+                    "description": "If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.\n"
+                },
+                "releaseName": {
+                    "type": "string",
+                    "description": "Helm release name. If omitted it will use the application name.\n"
+                },
+                "skipCrds": {
+                    "type": "boolean",
+                    "description": "Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).\n"
+                },
+                "valueFiles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Helm value files to use when generating a template.\n"
+                },
+                "values": {
+                    "type": "string",
+                    "description": "Helm values to be passed to 'helm template', typically defined as a Attribute.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fileParameters",
+                "ignoreMissingValueFiles",
+                "parameters",
+                "passCredentials",
+                "releaseName",
+                "skipCrds",
+                "valueFiles",
+                "values"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourceHelmFileParameter:getApplicationSpecSourceHelmFileParameter": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Helm parameters.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path to the file containing the values for the Helm parameters.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "path"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourceHelmParameter:getApplicationSpecSourceHelmParameter": {
+            "properties": {
+                "forceString": {
+                    "type": "boolean",
+                    "description": "Determines whether to tell Helm to interpret booleans and numbers as strings.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Helm parameters.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the Helm parameters.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "forceString",
+                "name",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourceKustomize:getApplicationSpecSourceKustomize": {
+            "properties": {
+                "commonAnnotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "List of additional annotations to add to rendered manifests.\n"
+                },
+                "commonLabels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "List of additional labels to add to rendered manifests.\n"
+                },
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Kustomize image override specifications.\n"
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Prefix appended to resources for Kustomize apps.\n"
+                },
+                "nameSuffix": {
+                    "type": "string",
+                    "description": "Suffix appended to resources for Kustomize apps.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Version of Kustomize to use for rendering manifests.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "commonAnnotations",
+                "commonLabels",
+                "images",
+                "namePrefix",
+                "nameSuffix",
+                "version"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourcePlugin:getApplicationSpecSourcePlugin": {
+            "properties": {
+                "envs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationSpecSourcePluginEnv:getApplicationSpecSourcePluginEnv"
+                    },
+                    "description": "Environment variables passed to the plugin.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.\n"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationSpecSourcePluginParameter:getApplicationSpecSourcePluginParameter"
+                    },
+                    "description": "Parameters to supply to config management plugin.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "envs",
+                "name",
+                "parameters"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourcePluginEnv:getApplicationSpecSourcePluginEnv": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the environment variable.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of the environment variable.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSourcePluginParameter:getApplicationSpecSourcePluginParameter": {
+            "properties": {
+                "arrays": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Value of an array type parameters.\n"
+                },
+                "map": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Value of a map type parameters.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name identifying a parameters.\n"
+                },
+                "string": {
+                    "type": "string",
+                    "description": "Value of a string type parameters.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "arrays",
+                "map",
+                "name",
+                "string"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSyncPolicy:getApplicationSpecSyncPolicy": {
+            "properties": {
+                "automated": {
+                    "$ref": "#/types/argocd:index/getApplicationSpecSyncPolicyAutomated:getApplicationSpecSyncPolicyAutomated",
+                    "description": "Whether to automatically keep an application synced to the target revision.\n"
+                },
+                "retry": {
+                    "$ref": "#/types/argocd:index/getApplicationSpecSyncPolicyRetry:getApplicationSpecSyncPolicyRetry",
+                    "description": "Controls failed sync retry behavior.\n"
+                },
+                "syncOptions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "automated",
+                "retry",
+                "syncOptions"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSyncPolicyAutomated:getApplicationSpecSyncPolicyAutomated": {
+            "properties": {
+                "allowEmpty": {
+                    "type": "boolean",
+                    "description": "Allows apps have zero live resources.\n"
+                },
+                "prune": {
+                    "type": "boolean",
+                    "description": "Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.\n"
+                },
+                "selfHeal": {
+                    "type": "boolean",
+                    "description": "Whether to revert resources back to their desired state upon modification in the cluster.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowEmpty",
+                "prune",
+                "selfHeal"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSyncPolicyRetry:getApplicationSpecSyncPolicyRetry": {
+            "properties": {
+                "backoff": {
+                    "$ref": "#/types/argocd:index/getApplicationSpecSyncPolicyRetryBackoff:getApplicationSpecSyncPolicyRetryBackoff",
+                    "description": "Controls how to backoff on subsequent retries of failed syncs.\n"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "backoff",
+                "limit"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationSpecSyncPolicyRetryBackoff:getApplicationSpecSyncPolicyRetryBackoff": {
+            "properties": {
+                "duration": {
+                    "type": "string",
+                    "description": "Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.\n"
+                },
+                "factor": {
+                    "type": "integer",
+                    "description": "Factor to multiply the base duration after each failed retry.\n"
+                },
+                "maxDuration": {
+                    "type": "string",
+                    "description": "Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "factor",
+                "maxDuration"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationStatus:getApplicationStatus": {
+            "properties": {
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationStatusCondition:getApplicationStatusCondition"
+                    },
+                    "description": "List of currently observed application conditions.\n"
+                },
+                "health": {
+                    "$ref": "#/types/argocd:index/getApplicationStatusHealth:getApplicationStatusHealth",
+                    "description": "Application's current health status.\n"
+                },
+                "operationState": {
+                    "$ref": "#/types/argocd:index/getApplicationStatusOperationState:getApplicationStatusOperationState",
+                    "description": "Information about any ongoing operations, such as a sync.\n"
+                },
+                "reconciledAt": {
+                    "type": "string",
+                    "description": "When the application state was reconciled using the latest git version.\n"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/argocd:index/getApplicationStatusResource:getApplicationStatusResource"
+                    },
+                    "description": "List of Kubernetes resources managed by this application.\n"
+                },
+                "summary": {
+                    "$ref": "#/types/argocd:index/getApplicationStatusSummary:getApplicationStatusSummary",
+                    "description": "List of URLs and container images used by this application.\n"
+                },
+                "sync": {
+                    "$ref": "#/types/argocd:index/getApplicationStatusSync:getApplicationStatusSync",
+                    "description": "Application's current sync status\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "conditions",
+                "health",
+                "operationState",
+                "reconciledAt",
+                "resources",
+                "summary",
+                "sync"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationStatusCondition:getApplicationStatusCondition": {
+            "properties": {
+                "lastTransitionTime": {
+                    "type": "string",
+                    "description": "The time the condition was last observed.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable message indicating details about condition.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Application condition type.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "lastTransitionTime",
+                "message",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationStatusHealth:getApplicationStatusHealth": {
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable informational message describing the health status.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status code of the application or resource.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "message",
+                "status"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationStatusOperationState:getApplicationStatusOperationState": {
+            "properties": {
+                "finishedAt": {
+                    "type": "string",
+                    "description": "Time of operation completion.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Any pertinent messages when attempting to perform operation (typically errors).\n"
+                },
+                "phase": {
+                    "type": "string",
+                    "description": "The current phase of the operation.\n"
+                },
+                "retryCount": {
+                    "type": "integer",
+                    "description": "Count of operation retries.\n"
+                },
+                "startedAt": {
+                    "type": "string",
+                    "description": "Time of operation start.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "finishedAt",
+                "message",
+                "phase",
+                "retryCount",
+                "startedAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationStatusResource:getApplicationStatusResource": {
+            "properties": {
+                "group": {
+                    "type": "string",
+                    "description": "The Kubernetes resource Group.\n"
+                },
+                "health": {
+                    "$ref": "#/types/argocd:index/getApplicationStatusResourceHealth:getApplicationStatusResourceHealth",
+                    "description": "Resource health status.\n"
+                },
+                "hook": {
+                    "type": "boolean",
+                    "description": "Indicates whether or not this resource has a hook annotation.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "The Kubernetes resource Kind.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The Kubernetes resource Name.\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes resource Namespace.\n"
+                },
+                "requiresPruning": {
+                    "type": "boolean",
+                    "description": "Indicates if the resources requires pruning or not.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Resource sync status.\n"
+                },
+                "syncWave": {
+                    "type": "integer",
+                    "description": "Sync wave.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The Kubernetes resource Version.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "group",
+                "health",
+                "hook",
+                "kind",
+                "name",
+                "namespace",
+                "requiresPruning",
+                "status",
+                "syncWave",
+                "version"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationStatusResourceHealth:getApplicationStatusResourceHealth": {
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable informational message describing the health status.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status code of the application or resource.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "message",
+                "status"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationStatusSummary:getApplicationStatusSummary": {
+            "properties": {
+                "externalUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "All external URLs of application child resources.\n"
+                },
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "All images of application child resources.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "externalUrls",
+                "images"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "argocd:index/getApplicationStatusSync:getApplicationStatusSync": {
+            "properties": {
+                "revisions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Information about the revision(s) the comparison has been performed to.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Sync state of the comparison.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "revisions",
+                "status"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        }
+    },
+    "provider": {
+        "description": "The provider type for the argocd package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "authToken": {
+                "type": "string",
+                "description": "ArgoCD authentication token, takes precedence over `username`/`password`. Can be set through the `ARGOCD_AUTH_TOKEN`\nenvironment variable.\n",
+                "secret": true
+            },
+            "certFile": {
+                "type": "string",
+                "description": "Additional root CA certificates file to add to the client TLS connection pool.\n"
+            },
+            "clientCertFile": {
+                "type": "string",
+                "description": "Client certificate.\n"
+            },
+            "clientCertKey": {
+                "type": "string",
+                "description": "Client certificate key.\n"
+            },
+            "configPath": {
+                "type": "string",
+                "description": "Override the default config path of `$HOME/.config/argocd/config`. Only relevant when `use_local_config`. Can be set\nthrough the `ARGOCD_CONFIG_PATH` environment variable.\n"
+            },
+            "context": {
+                "type": "string",
+                "description": "Context to choose when using a local ArgoCD config file. Only relevant when `use_local_config`. Can be set through\n`ARGOCD_CONTEXT` environment variable.\n"
+            },
+            "core": {
+                "type": "boolean",
+                "description": "Configure direct access using Kubernetes API server. **Warning**: this feature works by starting a local ArgoCD API\nserver that talks directly to the Kubernetes API using the **current context in the default kubeconfig**\n(`~/.kube/config`). This behavior cannot be overridden using either environment variables or the `kubernetes` block in\nthe provider configuration at present). If the server fails to start (e.g. your kubeconfig is misconfigured) then the\nprovider will fail as a result of the `argocd` module forcing it to exit and no logs will be available to help you debug\nthis. The error message will be similar to \u003e `The plugin encountered an error, and failed to respond to the\nplugin.(*GRPCProvider).ReadResource call. The plugin logs may contain more details.` To debug this, you will need to\nlogin via the ArgoCD CLI using `argocd login --core` and then running an operation. E.g. `argocd app list`.\n"
+            },
+            "grpcWeb": {
+                "type": "boolean",
+                "description": "Whether to use gRPC web proxy client. Useful if Argo CD server is behind proxy which does not support HTTP2.\n"
+            },
+            "grpcWebRootPath": {
+                "type": "string",
+                "description": "Use the gRPC web proxy client and set the web root, e.g. `argo-cd`. Useful if the Argo CD server is behind a proxy at a\nnon-root path.\n"
+            },
+            "headers": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Additional headers to add to each request to the ArgoCD server.\n"
+            },
+            "insecure": {
+                "type": "boolean",
+                "description": "Whether to skip TLS server certificate. Can be set through the `ARGOCD_INSECURE` environment variable.\n"
+            },
+            "kubernetes": {
+                "$ref": "#/types/argocd:index/ProviderKubernetes:ProviderKubernetes",
+                "description": "Kubernetes configuration overrides. Only relevant when `port_forward = true` or `port_forward_with_namespace = \"foo\"`.\nThe kubeconfig file that is used can be overridden using the [`KUBECONFIG` environment\nvariable](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#the-kubeconfig-environment-variable)).\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "Authentication password. Can be set through the `ARGOCD_AUTH_PASSWORD` environment variable.\n",
+                "secret": true
+            },
+            "plainText": {
+                "type": "boolean",
+                "description": "Whether to initiate an unencrypted connection to ArgoCD server.\n"
+            },
+            "portForward": {
+                "type": "boolean",
+                "description": "Connect to a random argocd-server port using port forwarding.\n"
+            },
+            "portForwardWithNamespace": {
+                "type": "string",
+                "description": "Namespace name which should be used for port forwarding.\n"
+            },
+            "serverAddr": {
+                "type": "string",
+                "description": "ArgoCD server address with port. Can be set through the `ARGOCD_SERVER` environment variable.\n"
+            },
+            "useLocalConfig": {
+                "type": "boolean",
+                "description": "Use the authentication settings found in the local config file. Useful when you have previously logged in using SSO.\nConflicts with `auth_token`, `username` and `password`.\n"
+            },
+            "userAgent": {
+                "type": "string",
+                "description": "User-Agent request header override.\n"
+            },
+            "username": {
+                "type": "string",
+                "description": "Authentication username. Can be set through the `ARGOCD_AUTH_USERNAME` environment variable.\n"
+            }
+        },
+        "inputProperties": {
+            "authToken": {
+                "type": "string",
+                "description": "ArgoCD authentication token, takes precedence over `username`/`password`. Can be set through the `ARGOCD_AUTH_TOKEN`\nenvironment variable.\n",
+                "secret": true
+            },
+            "certFile": {
+                "type": "string",
+                "description": "Additional root CA certificates file to add to the client TLS connection pool.\n"
+            },
+            "clientCertFile": {
+                "type": "string",
+                "description": "Client certificate.\n"
+            },
+            "clientCertKey": {
+                "type": "string",
+                "description": "Client certificate key.\n"
+            },
+            "configPath": {
+                "type": "string",
+                "description": "Override the default config path of `$HOME/.config/argocd/config`. Only relevant when `use_local_config`. Can be set\nthrough the `ARGOCD_CONFIG_PATH` environment variable.\n"
+            },
+            "context": {
+                "type": "string",
+                "description": "Context to choose when using a local ArgoCD config file. Only relevant when `use_local_config`. Can be set through\n`ARGOCD_CONTEXT` environment variable.\n"
+            },
+            "core": {
+                "type": "boolean",
+                "description": "Configure direct access using Kubernetes API server. **Warning**: this feature works by starting a local ArgoCD API\nserver that talks directly to the Kubernetes API using the **current context in the default kubeconfig**\n(`~/.kube/config`). This behavior cannot be overridden using either environment variables or the `kubernetes` block in\nthe provider configuration at present). If the server fails to start (e.g. your kubeconfig is misconfigured) then the\nprovider will fail as a result of the `argocd` module forcing it to exit and no logs will be available to help you debug\nthis. The error message will be similar to \u003e `The plugin encountered an error, and failed to respond to the\nplugin.(*GRPCProvider).ReadResource call. The plugin logs may contain more details.` To debug this, you will need to\nlogin via the ArgoCD CLI using `argocd login --core` and then running an operation. E.g. `argocd app list`.\n"
+            },
+            "grpcWeb": {
+                "type": "boolean",
+                "description": "Whether to use gRPC web proxy client. Useful if Argo CD server is behind proxy which does not support HTTP2.\n"
+            },
+            "grpcWebRootPath": {
+                "type": "string",
+                "description": "Use the gRPC web proxy client and set the web root, e.g. `argo-cd`. Useful if the Argo CD server is behind a proxy at a\nnon-root path.\n"
+            },
+            "headers": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Additional headers to add to each request to the ArgoCD server.\n"
+            },
+            "insecure": {
+                "type": "boolean",
+                "description": "Whether to skip TLS server certificate. Can be set through the `ARGOCD_INSECURE` environment variable.\n"
+            },
+            "kubernetes": {
+                "$ref": "#/types/argocd:index/ProviderKubernetes:ProviderKubernetes",
+                "description": "Kubernetes configuration overrides. Only relevant when `port_forward = true` or `port_forward_with_namespace = \"foo\"`.\nThe kubeconfig file that is used can be overridden using the [`KUBECONFIG` environment\nvariable](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#the-kubeconfig-environment-variable)).\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "Authentication password. Can be set through the `ARGOCD_AUTH_PASSWORD` environment variable.\n",
+                "secret": true
+            },
+            "plainText": {
+                "type": "boolean",
+                "description": "Whether to initiate an unencrypted connection to ArgoCD server.\n"
+            },
+            "portForward": {
+                "type": "boolean",
+                "description": "Connect to a random argocd-server port using port forwarding.\n"
+            },
+            "portForwardWithNamespace": {
+                "type": "string",
+                "description": "Namespace name which should be used for port forwarding.\n"
+            },
+            "serverAddr": {
+                "type": "string",
+                "description": "ArgoCD server address with port. Can be set through the `ARGOCD_SERVER` environment variable.\n"
+            },
+            "useLocalConfig": {
+                "type": "boolean",
+                "description": "Use the authentication settings found in the local config file. Useful when you have previously logged in using SSO.\nConflicts with `auth_token`, `username` and `password`.\n"
+            },
+            "userAgent": {
+                "type": "string",
+                "description": "User-Agent request header override.\n"
+            },
+            "username": {
+                "type": "string",
+                "description": "Authentication username. Can be set through the `ARGOCD_AUTH_USERNAME` environment variable.\n"
+            }
+        }
+    },
+    "resources": {
+        "argocd:index/gpgKey:GpgKey": {
+            "description": "Manages [GPG keys](https://argo-cd.readthedocs.io/en/stable/user-guide/gpg-verification/) within ArgoCD.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as argocd from \"@pulumi/argocd\";\n\nconst _this = new argocd.GpgKey(\"this\", {publicKey: `-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nmQINBGSJdlcBEACnza+KvWLyKWUHJPhgs//HRL0EEmA/EcFKioBlrgPNYf/O7hNg\nKT3NDaNrD26pr+bOb4mfaqNNS9no8b9EP3C7Co3Wf2d4xpJ5/hlpIm3V652S5daZ\nI7ylVT8QOrhaqEnHH2hEcOfDaqjrYfrx3qiI8v7DmV6jfGi1tDUUgfJwiOyZk4q1\njiPo5k4+XNp9mCtUAGyidLFcUqQ9XbHKgBwgAoxtIKNSbdPCGhsjgTHHhzswMH/Z\nDhhtcraqrfOhoP9lI4/zyCS+B9OfUy7BS/1SqWKIgdsjFIR+zHIOI69lh77+ZAVE\nMVYJBdFke5/g/tTPaQGuBqaIJ3d/Mi/ZlbTsoBcq5qam73uh7fcgBV5la6NeuNcR\ntvKMVl4DlnkJS8LBtElLEeHEylTCdNltrUFwshDKDBtq6ilTKCK14R6g4lkn8VcE\n9xx7Mhdh77tp66FRZ6ge1E8EUEFwEeFhp240KRyaA5U1/kAarn8083zZ7d4+QObp\nL4KMqgrwLaxyPLgu0J/f946qLewV7XsbZRXE1jQa9Z7W5TEoJwjcC79DXe1wChc6\ncBfCtluDsnklwvldpKTEZU0q/hKE6Zt7NjLUyExV+5guoHllxoVxx7sh+jtKm/J+\n5gh+B3xOTDxRV2XYIx1TM6U1iLxAqchzFec8dfkuTbs/5f++PrddvZfiUQARAQAB\ntD1BcmdvQ0QgVGVycmFmb3JtIFByb3ZpZGVyIDxmYWtldXNlckB1c2Vycy5ub3Jl\ncGx5LmdpdGh1Yi5jb20+iQJOBBMBCgA4FiEEvK9bNlncXDhFAk6kmtkpVUAdOI0F\nAmSJdlcCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQmtkpVUAdOI2FdA//\nYuFYsX6SUVgI4l68ZHE34jLTWU5R2ujB6luErcguAlLyDtrD3melva3V/ETc69/1\n5o7Ayn3a7uz5lCEvUSLsCN+V2o3EjrA81pt8Zs+Z9WYeZE5F5DnKzq81PObdASB7\nPo2X0qLqqKIhpQxc/E7m26xmePCf82H36gtvPiEVmVA5yduk1lLG3aZtNIRCa4VK\ngmDjR8Se+OZeAw7JQCOeJB9/Y8oQ8nVkj1SWNIICaUwIXHtrj7r1z6XTDAEkGeBg\nHXW8IEhZDE1Nq3vQtZvgwftEoPT/Ff+8DwvL1JUov2ObQDolallzKaiiVfGZhPJZ\n4PMtEPEmSL9QWJAG5jiBVC3BdVZtXBNkC1HqTCXwZc/wzp5O9MmMXmCrUFr4FfHu\nIZ560MNpp/SrtUrOahLmvuG0B+Ze96e2nm5ap5wkCDaQouOIqM7Lj+FGq64cu2B/\noSsl7joBZQUYXv8meNOQssm6jArRLG2oFoiEdRqzd2/RjvvJliLN9OCNvV43f38h\n8Ep8RDi9RiHhSKvwrvDD9x/JRm6zQUetjrctmjdIYp8k129LrD0Qr9ULXfphZdrv\nxga7/lyQLmukLu7Mxwp+ss2bY/wjT8mlT5P55kBpXXyYILhLsUESCHG6D8/Ov+vv\nOoZS+BSfe/0vc1aTfDKxj5wAx27a6z5o25X27feEl3U=\n=kqkH\n-----END PGP PUBLIC KEY BLOCK-----\n`});\n```\n```python\nimport pulumi\nimport pulumi_argocd as argocd\n\nthis = argocd.GpgKey(\"this\", public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nmQINBGSJdlcBEACnza+KvWLyKWUHJPhgs//HRL0EEmA/EcFKioBlrgPNYf/O7hNg\nKT3NDaNrD26pr+bOb4mfaqNNS9no8b9EP3C7Co3Wf2d4xpJ5/hlpIm3V652S5daZ\nI7ylVT8QOrhaqEnHH2hEcOfDaqjrYfrx3qiI8v7DmV6jfGi1tDUUgfJwiOyZk4q1\njiPo5k4+XNp9mCtUAGyidLFcUqQ9XbHKgBwgAoxtIKNSbdPCGhsjgTHHhzswMH/Z\nDhhtcraqrfOhoP9lI4/zyCS+B9OfUy7BS/1SqWKIgdsjFIR+zHIOI69lh77+ZAVE\nMVYJBdFke5/g/tTPaQGuBqaIJ3d/Mi/ZlbTsoBcq5qam73uh7fcgBV5la6NeuNcR\ntvKMVl4DlnkJS8LBtElLEeHEylTCdNltrUFwshDKDBtq6ilTKCK14R6g4lkn8VcE\n9xx7Mhdh77tp66FRZ6ge1E8EUEFwEeFhp240KRyaA5U1/kAarn8083zZ7d4+QObp\nL4KMqgrwLaxyPLgu0J/f946qLewV7XsbZRXE1jQa9Z7W5TEoJwjcC79DXe1wChc6\ncBfCtluDsnklwvldpKTEZU0q/hKE6Zt7NjLUyExV+5guoHllxoVxx7sh+jtKm/J+\n5gh+B3xOTDxRV2XYIx1TM6U1iLxAqchzFec8dfkuTbs/5f++PrddvZfiUQARAQAB\ntD1BcmdvQ0QgVGVycmFmb3JtIFByb3ZpZGVyIDxmYWtldXNlckB1c2Vycy5ub3Jl\ncGx5LmdpdGh1Yi5jb20+iQJOBBMBCgA4FiEEvK9bNlncXDhFAk6kmtkpVUAdOI0F\nAmSJdlcCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQmtkpVUAdOI2FdA//\nYuFYsX6SUVgI4l68ZHE34jLTWU5R2ujB6luErcguAlLyDtrD3melva3V/ETc69/1\n5o7Ayn3a7uz5lCEvUSLsCN+V2o3EjrA81pt8Zs+Z9WYeZE5F5DnKzq81PObdASB7\nPo2X0qLqqKIhpQxc/E7m26xmePCf82H36gtvPiEVmVA5yduk1lLG3aZtNIRCa4VK\ngmDjR8Se+OZeAw7JQCOeJB9/Y8oQ8nVkj1SWNIICaUwIXHtrj7r1z6XTDAEkGeBg\nHXW8IEhZDE1Nq3vQtZvgwftEoPT/Ff+8DwvL1JUov2ObQDolallzKaiiVfGZhPJZ\n4PMtEPEmSL9QWJAG5jiBVC3BdVZtXBNkC1HqTCXwZc/wzp5O9MmMXmCrUFr4FfHu\nIZ560MNpp/SrtUrOahLmvuG0B+Ze96e2nm5ap5wkCDaQouOIqM7Lj+FGq64cu2B/\noSsl7joBZQUYXv8meNOQssm6jArRLG2oFoiEdRqzd2/RjvvJliLN9OCNvV43f38h\n8Ep8RDi9RiHhSKvwrvDD9x/JRm6zQUetjrctmjdIYp8k129LrD0Qr9ULXfphZdrv\nxga7/lyQLmukLu7Mxwp+ss2bY/wjT8mlT5P55kBpXXyYILhLsUESCHG6D8/Ov+vv\nOoZS+BSfe/0vc1aTfDKxj5wAx27a6z5o25X27feEl3U=\n=kqkH\n-----END PGP PUBLIC KEY BLOCK-----\n\"\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Argocd = Pulumi.Argocd;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = new Argocd.GpgKey(\"this\", new()\n    {\n        PublicKey = @\"-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nmQINBGSJdlcBEACnza+KvWLyKWUHJPhgs//HRL0EEmA/EcFKioBlrgPNYf/O7hNg\nKT3NDaNrD26pr+bOb4mfaqNNS9no8b9EP3C7Co3Wf2d4xpJ5/hlpIm3V652S5daZ\nI7ylVT8QOrhaqEnHH2hEcOfDaqjrYfrx3qiI8v7DmV6jfGi1tDUUgfJwiOyZk4q1\njiPo5k4+XNp9mCtUAGyidLFcUqQ9XbHKgBwgAoxtIKNSbdPCGhsjgTHHhzswMH/Z\nDhhtcraqrfOhoP9lI4/zyCS+B9OfUy7BS/1SqWKIgdsjFIR+zHIOI69lh77+ZAVE\nMVYJBdFke5/g/tTPaQGuBqaIJ3d/Mi/ZlbTsoBcq5qam73uh7fcgBV5la6NeuNcR\ntvKMVl4DlnkJS8LBtElLEeHEylTCdNltrUFwshDKDBtq6ilTKCK14R6g4lkn8VcE\n9xx7Mhdh77tp66FRZ6ge1E8EUEFwEeFhp240KRyaA5U1/kAarn8083zZ7d4+QObp\nL4KMqgrwLaxyPLgu0J/f946qLewV7XsbZRXE1jQa9Z7W5TEoJwjcC79DXe1wChc6\ncBfCtluDsnklwvldpKTEZU0q/hKE6Zt7NjLUyExV+5guoHllxoVxx7sh+jtKm/J+\n5gh+B3xOTDxRV2XYIx1TM6U1iLxAqchzFec8dfkuTbs/5f++PrddvZfiUQARAQAB\ntD1BcmdvQ0QgVGVycmFmb3JtIFByb3ZpZGVyIDxmYWtldXNlckB1c2Vycy5ub3Jl\ncGx5LmdpdGh1Yi5jb20+iQJOBBMBCgA4FiEEvK9bNlncXDhFAk6kmtkpVUAdOI0F\nAmSJdlcCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQmtkpVUAdOI2FdA//\nYuFYsX6SUVgI4l68ZHE34jLTWU5R2ujB6luErcguAlLyDtrD3melva3V/ETc69/1\n5o7Ayn3a7uz5lCEvUSLsCN+V2o3EjrA81pt8Zs+Z9WYeZE5F5DnKzq81PObdASB7\nPo2X0qLqqKIhpQxc/E7m26xmePCf82H36gtvPiEVmVA5yduk1lLG3aZtNIRCa4VK\ngmDjR8Se+OZeAw7JQCOeJB9/Y8oQ8nVkj1SWNIICaUwIXHtrj7r1z6XTDAEkGeBg\nHXW8IEhZDE1Nq3vQtZvgwftEoPT/Ff+8DwvL1JUov2ObQDolallzKaiiVfGZhPJZ\n4PMtEPEmSL9QWJAG5jiBVC3BdVZtXBNkC1HqTCXwZc/wzp5O9MmMXmCrUFr4FfHu\nIZ560MNpp/SrtUrOahLmvuG0B+Ze96e2nm5ap5wkCDaQouOIqM7Lj+FGq64cu2B/\noSsl7joBZQUYXv8meNOQssm6jArRLG2oFoiEdRqzd2/RjvvJliLN9OCNvV43f38h\n8Ep8RDi9RiHhSKvwrvDD9x/JRm6zQUetjrctmjdIYp8k129LrD0Qr9ULXfphZdrv\nxga7/lyQLmukLu7Mxwp+ss2bY/wjT8mlT5P55kBpXXyYILhLsUESCHG6D8/Ov+vv\nOoZS+BSfe/0vc1aTfDKxj5wAx27a6z5o25X27feEl3U=\n=kqkH\n-----END PGP PUBLIC KEY BLOCK-----\n\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/Three141/pulumi-argocd/sdk/go/argocd\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := argocd.NewGpgKey(ctx, \"this\", \u0026argocd.GpgKeyArgs{\n\t\t\tPublicKey: pulumi.String(`-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nmQINBGSJdlcBEACnza+KvWLyKWUHJPhgs//HRL0EEmA/EcFKioBlrgPNYf/O7hNg\nKT3NDaNrD26pr+bOb4mfaqNNS9no8b9EP3C7Co3Wf2d4xpJ5/hlpIm3V652S5daZ\nI7ylVT8QOrhaqEnHH2hEcOfDaqjrYfrx3qiI8v7DmV6jfGi1tDUUgfJwiOyZk4q1\njiPo5k4+XNp9mCtUAGyidLFcUqQ9XbHKgBwgAoxtIKNSbdPCGhsjgTHHhzswMH/Z\nDhhtcraqrfOhoP9lI4/zyCS+B9OfUy7BS/1SqWKIgdsjFIR+zHIOI69lh77+ZAVE\nMVYJBdFke5/g/tTPaQGuBqaIJ3d/Mi/ZlbTsoBcq5qam73uh7fcgBV5la6NeuNcR\ntvKMVl4DlnkJS8LBtElLEeHEylTCdNltrUFwshDKDBtq6ilTKCK14R6g4lkn8VcE\n9xx7Mhdh77tp66FRZ6ge1E8EUEFwEeFhp240KRyaA5U1/kAarn8083zZ7d4+QObp\nL4KMqgrwLaxyPLgu0J/f946qLewV7XsbZRXE1jQa9Z7W5TEoJwjcC79DXe1wChc6\ncBfCtluDsnklwvldpKTEZU0q/hKE6Zt7NjLUyExV+5guoHllxoVxx7sh+jtKm/J+\n5gh+B3xOTDxRV2XYIx1TM6U1iLxAqchzFec8dfkuTbs/5f++PrddvZfiUQARAQAB\ntD1BcmdvQ0QgVGVycmFmb3JtIFByb3ZpZGVyIDxmYWtldXNlckB1c2Vycy5ub3Jl\ncGx5LmdpdGh1Yi5jb20+iQJOBBMBCgA4FiEEvK9bNlncXDhFAk6kmtkpVUAdOI0F\nAmSJdlcCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQmtkpVUAdOI2FdA//\nYuFYsX6SUVgI4l68ZHE34jLTWU5R2ujB6luErcguAlLyDtrD3melva3V/ETc69/1\n5o7Ayn3a7uz5lCEvUSLsCN+V2o3EjrA81pt8Zs+Z9WYeZE5F5DnKzq81PObdASB7\nPo2X0qLqqKIhpQxc/E7m26xmePCf82H36gtvPiEVmVA5yduk1lLG3aZtNIRCa4VK\ngmDjR8Se+OZeAw7JQCOeJB9/Y8oQ8nVkj1SWNIICaUwIXHtrj7r1z6XTDAEkGeBg\nHXW8IEhZDE1Nq3vQtZvgwftEoPT/Ff+8DwvL1JUov2ObQDolallzKaiiVfGZhPJZ\n4PMtEPEmSL9QWJAG5jiBVC3BdVZtXBNkC1HqTCXwZc/wzp5O9MmMXmCrUFr4FfHu\nIZ560MNpp/SrtUrOahLmvuG0B+Ze96e2nm5ap5wkCDaQouOIqM7Lj+FGq64cu2B/\noSsl7joBZQUYXv8meNOQssm6jArRLG2oFoiEdRqzd2/RjvvJliLN9OCNvV43f38h\n8Ep8RDi9RiHhSKvwrvDD9x/JRm6zQUetjrctmjdIYp8k129LrD0Qr9ULXfphZdrv\nxga7/lyQLmukLu7Mxwp+ss2bY/wjT8mlT5P55kBpXXyYILhLsUESCHG6D8/Ov+vv\nOoZS+BSfe/0vc1aTfDKxj5wAx27a6z5o25X27feEl3U=\n=kqkH\n-----END PGP PUBLIC KEY BLOCK-----\n`),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.argocd.GpgKey;\nimport com.pulumi.argocd.GpgKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var this_ = new GpgKey(\"this\", GpgKeyArgs.builder()\n            .publicKey(\"\"\"\n-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nmQINBGSJdlcBEACnza+KvWLyKWUHJPhgs//HRL0EEmA/EcFKioBlrgPNYf/O7hNg\nKT3NDaNrD26pr+bOb4mfaqNNS9no8b9EP3C7Co3Wf2d4xpJ5/hlpIm3V652S5daZ\nI7ylVT8QOrhaqEnHH2hEcOfDaqjrYfrx3qiI8v7DmV6jfGi1tDUUgfJwiOyZk4q1\njiPo5k4+XNp9mCtUAGyidLFcUqQ9XbHKgBwgAoxtIKNSbdPCGhsjgTHHhzswMH/Z\nDhhtcraqrfOhoP9lI4/zyCS+B9OfUy7BS/1SqWKIgdsjFIR+zHIOI69lh77+ZAVE\nMVYJBdFke5/g/tTPaQGuBqaIJ3d/Mi/ZlbTsoBcq5qam73uh7fcgBV5la6NeuNcR\ntvKMVl4DlnkJS8LBtElLEeHEylTCdNltrUFwshDKDBtq6ilTKCK14R6g4lkn8VcE\n9xx7Mhdh77tp66FRZ6ge1E8EUEFwEeFhp240KRyaA5U1/kAarn8083zZ7d4+QObp\nL4KMqgrwLaxyPLgu0J/f946qLewV7XsbZRXE1jQa9Z7W5TEoJwjcC79DXe1wChc6\ncBfCtluDsnklwvldpKTEZU0q/hKE6Zt7NjLUyExV+5guoHllxoVxx7sh+jtKm/J+\n5gh+B3xOTDxRV2XYIx1TM6U1iLxAqchzFec8dfkuTbs/5f++PrddvZfiUQARAQAB\ntD1BcmdvQ0QgVGVycmFmb3JtIFByb3ZpZGVyIDxmYWtldXNlckB1c2Vycy5ub3Jl\ncGx5LmdpdGh1Yi5jb20+iQJOBBMBCgA4FiEEvK9bNlncXDhFAk6kmtkpVUAdOI0F\nAmSJdlcCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQmtkpVUAdOI2FdA//\nYuFYsX6SUVgI4l68ZHE34jLTWU5R2ujB6luErcguAlLyDtrD3melva3V/ETc69/1\n5o7Ayn3a7uz5lCEvUSLsCN+V2o3EjrA81pt8Zs+Z9WYeZE5F5DnKzq81PObdASB7\nPo2X0qLqqKIhpQxc/E7m26xmePCf82H36gtvPiEVmVA5yduk1lLG3aZtNIRCa4VK\ngmDjR8Se+OZeAw7JQCOeJB9/Y8oQ8nVkj1SWNIICaUwIXHtrj7r1z6XTDAEkGeBg\nHXW8IEhZDE1Nq3vQtZvgwftEoPT/Ff+8DwvL1JUov2ObQDolallzKaiiVfGZhPJZ\n4PMtEPEmSL9QWJAG5jiBVC3BdVZtXBNkC1HqTCXwZc/wzp5O9MmMXmCrUFr4FfHu\nIZ560MNpp/SrtUrOahLmvuG0B+Ze96e2nm5ap5wkCDaQouOIqM7Lj+FGq64cu2B/\noSsl7joBZQUYXv8meNOQssm6jArRLG2oFoiEdRqzd2/RjvvJliLN9OCNvV43f38h\n8Ep8RDi9RiHhSKvwrvDD9x/JRm6zQUetjrctmjdIYp8k129LrD0Qr9ULXfphZdrv\nxga7/lyQLmukLu7Mxwp+ss2bY/wjT8mlT5P55kBpXXyYILhLsUESCHG6D8/Ov+vv\nOoZS+BSfe/0vc1aTfDKxj5wAx27a6z5o25X27feEl3U=\n=kqkH\n-----END PGP PUBLIC KEY BLOCK-----\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  this:\n    type: argocd:GpgKey\n    properties:\n      publicKey: |\n        -----BEGIN PGP PUBLIC KEY BLOCK-----\n\n        mQINBGSJdlcBEACnza+KvWLyKWUHJPhgs//HRL0EEmA/EcFKioBlrgPNYf/O7hNg\n        KT3NDaNrD26pr+bOb4mfaqNNS9no8b9EP3C7Co3Wf2d4xpJ5/hlpIm3V652S5daZ\n        I7ylVT8QOrhaqEnHH2hEcOfDaqjrYfrx3qiI8v7DmV6jfGi1tDUUgfJwiOyZk4q1\n        jiPo5k4+XNp9mCtUAGyidLFcUqQ9XbHKgBwgAoxtIKNSbdPCGhsjgTHHhzswMH/Z\n        DhhtcraqrfOhoP9lI4/zyCS+B9OfUy7BS/1SqWKIgdsjFIR+zHIOI69lh77+ZAVE\n        MVYJBdFke5/g/tTPaQGuBqaIJ3d/Mi/ZlbTsoBcq5qam73uh7fcgBV5la6NeuNcR\n        tvKMVl4DlnkJS8LBtElLEeHEylTCdNltrUFwshDKDBtq6ilTKCK14R6g4lkn8VcE\n        9xx7Mhdh77tp66FRZ6ge1E8EUEFwEeFhp240KRyaA5U1/kAarn8083zZ7d4+QObp\n        L4KMqgrwLaxyPLgu0J/f946qLewV7XsbZRXE1jQa9Z7W5TEoJwjcC79DXe1wChc6\n        cBfCtluDsnklwvldpKTEZU0q/hKE6Zt7NjLUyExV+5guoHllxoVxx7sh+jtKm/J+\n        5gh+B3xOTDxRV2XYIx1TM6U1iLxAqchzFec8dfkuTbs/5f++PrddvZfiUQARAQAB\n        tD1BcmdvQ0QgVGVycmFmb3JtIFByb3ZpZGVyIDxmYWtldXNlckB1c2Vycy5ub3Jl\n        cGx5LmdpdGh1Yi5jb20+iQJOBBMBCgA4FiEEvK9bNlncXDhFAk6kmtkpVUAdOI0F\n        AmSJdlcCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQmtkpVUAdOI2FdA//\n        YuFYsX6SUVgI4l68ZHE34jLTWU5R2ujB6luErcguAlLyDtrD3melva3V/ETc69/1\n        5o7Ayn3a7uz5lCEvUSLsCN+V2o3EjrA81pt8Zs+Z9WYeZE5F5DnKzq81PObdASB7\n        Po2X0qLqqKIhpQxc/E7m26xmePCf82H36gtvPiEVmVA5yduk1lLG3aZtNIRCa4VK\n        gmDjR8Se+OZeAw7JQCOeJB9/Y8oQ8nVkj1SWNIICaUwIXHtrj7r1z6XTDAEkGeBg\n        HXW8IEhZDE1Nq3vQtZvgwftEoPT/Ff+8DwvL1JUov2ObQDolallzKaiiVfGZhPJZ\n        4PMtEPEmSL9QWJAG5jiBVC3BdVZtXBNkC1HqTCXwZc/wzp5O9MmMXmCrUFr4FfHu\n        IZ560MNpp/SrtUrOahLmvuG0B+Ze96e2nm5ap5wkCDaQouOIqM7Lj+FGq64cu2B/\n        oSsl7joBZQUYXv8meNOQssm6jArRLG2oFoiEdRqzd2/RjvvJliLN9OCNvV43f38h\n        8Ep8RDi9RiHhSKvwrvDD9x/JRm6zQUetjrctmjdIYp8k129LrD0Qr9ULXfphZdrv\n        xga7/lyQLmukLu7Mxwp+ss2bY/wjT8mlT5P55kBpXXyYILhLsUESCHG6D8/Ov+vv\n        OoZS+BSfe/0vc1aTfDKxj5wAx27a6z5o25X27feEl3U=\n        =kqkH\n        -----END PGP PUBLIC KEY BLOCK-----\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nGPG Keys can be imported using the key ID.\n\nExample:\n\n```sh\n$ pulumi import argocd:index/gpgKey:GpgKey this 9AD92955401D388D\n```\n\n",
+            "properties": {
+                "fingerprint": {
+                    "type": "string",
+                    "description": "Fingerprint is the fingerprint of the key\n"
+                },
+                "owner": {
+                    "type": "string",
+                    "description": "Owner holds the owner identification, e.g. a name and e-mail address\n"
+                },
+                "publicKey": {
+                    "type": "string",
+                    "description": "Raw key data of the GPG key to create\n"
+                },
+                "subType": {
+                    "type": "string",
+                    "description": "SubType holds the key's sub type (e.g. rsa4096)\n"
+                },
+                "trust": {
+                    "type": "string",
+                    "description": "Trust holds the level of trust assigned to this key\n"
+                }
+            },
+            "required": [
+                "fingerprint",
+                "owner",
+                "publicKey",
+                "subType",
+                "trust"
+            ],
+            "inputProperties": {
+                "publicKey": {
+                    "type": "string",
+                    "description": "Raw key data of the GPG key to create\n"
+                }
+            },
+            "requiredInputs": [
+                "publicKey"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GpgKey resources.\n",
+                "properties": {
+                    "fingerprint": {
+                        "type": "string",
+                        "description": "Fingerprint is the fingerprint of the key\n"
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "Owner holds the owner identification, e.g. a name and e-mail address\n"
+                    },
+                    "publicKey": {
+                        "type": "string",
+                        "description": "Raw key data of the GPG key to create\n"
+                    },
+                    "subType": {
+                        "type": "string",
+                        "description": "SubType holds the key's sub type (e.g. rsa4096)\n"
+                    },
+                    "trust": {
+                        "type": "string",
+                        "description": "Trust holds the level of trust assigned to this key\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "argocd:index/getApplication:getApplication": {
+            "description": "Reads an existing ArgoCD application.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as argocd from \"@pulumi/argocd\";\n\nconst foo = argocd.getApplication({\n    metadata: {\n        name: \"foo\",\n        namespace: \"argocd\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_argocd as argocd\n\nfoo = argocd.get_application(metadata={\n    \"name\": \"foo\",\n    \"namespace\": \"argocd\",\n})\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Argocd = Pulumi.Argocd;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = Argocd.GetApplication.Invoke(new()\n    {\n        Metadata = new Argocd.Inputs.GetApplicationMetadataInputArgs\n        {\n            Name = \"foo\",\n            Namespace = \"argocd\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/Three141/pulumi-argocd/sdk/go/argocd\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := argocd.GetApplication(ctx, \u0026argocd.GetApplicationArgs{\n\t\t\tMetadata: argocd.GetApplicationMetadata{\n\t\t\t\tName:      \"foo\",\n\t\t\t\tNamespace: \"argocd\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.argocd.ArgocdFunctions;\nimport com.pulumi.argocd.inputs.GetApplicationArgs;\nimport com.pulumi.argocd.inputs.GetApplicationMetadataArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var foo = ArgocdFunctions.getApplication(GetApplicationArgs.builder()\n            .metadata(GetApplicationMetadataArgs.builder()\n                .name(\"foo\")\n                .namespace(\"argocd\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  foo:\n    fn::invoke:\n      function: argocd:getApplication\n      arguments:\n        metadata:\n          name: foo\n          namespace: argocd\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getApplication.\n",
+                "properties": {
+                    "metadata": {
+                        "$ref": "#/types/argocd:index/getApplicationMetadata:getApplicationMetadata",
+                        "description": "Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "metadata"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getApplication.\n",
+                "properties": {
+                    "id": {
+                        "description": "ArgoCD application identifier\n",
+                        "type": "string"
+                    },
+                    "metadata": {
+                        "$ref": "#/types/argocd:index/getApplicationMetadata:getApplicationMetadata",
+                        "description": "Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).\n"
+                    },
+                    "spec": {
+                        "$ref": "#/types/argocd:index/getApplicationSpec:getApplicationSpec",
+                        "description": "The application specification.\n"
+                    },
+                    "status": {
+                        "$ref": "#/types/argocd:index/getApplicationStatus:getApplicationStatus",
+                        "description": "Status information for the application.\n"
+                    }
+                },
+                "required": [
+                    "id",
+                    "metadata",
+                    "spec",
+                    "status"
+                ],
+                "type": "object"
+            }
+        }
+    }
+}
