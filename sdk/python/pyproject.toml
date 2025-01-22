@@ -1,16 +1,16 @@
 [project]
-  name = "pulumi_xyz"
-  description = "A Pulumi package for creating and managing xyz cloud resources."
+  name = "pulumi_argocd"
+  description = "A Pulumi package for creating and managing Argo CD resources."
   dependencies = ["parver>=0.2.1", "pulumi>=3.142.0,<4.0.0", "semver>=2.8.1", "typing-extensions>=4.11; python_version < \"3.11\""]
-  keywords = ["xyz", "category/cloud"]
+  keywords = ["argocd", "category/cloud"]
   readme = "README.md"
   requires-python = ">=3.9"
   version = "1.0.0a0+dev"
   [project.license]
     text = "Apache-2.0"
   [project.urls]
-    Homepage = "https://www.pulumi.com"
-    Repository = "https://github.com/pulumi/pulumi-xyz"
+    Homepage = "https://argoproj.github.io"
+    Repository = "https://github.com/Three141/pulumi-argocd"
 
 [build-system]
   requires = ["setuptools>=61.0"]
@@ -19,4 +19,4 @@
 [tool]
   [tool.setuptools]
     [tool.setuptools.package-data]
-      pulumi_xyz = ["py.typed", "pulumi-plugin.json"]
+      pulumi_argocd = ["py.typed", "pulumi-plugin.json"]

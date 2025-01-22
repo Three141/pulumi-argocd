@@ -4,18 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
-import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
- * The provider type for the xyz package. By default, resources use package-wide configuration
+ * The provider type for the argocd package. By default, resources use package-wide configuration
  * settings, however an explicit `Provider` instance may be created and passed during resource
  * construction to achieve fine-grained programmatic control over provider settings. See the
  * [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
  */
 export class Provider extends pulumi.ProviderResource {
     /** @internal */
-    public static readonly __pulumiType = 'xyz';
+    public static readonly __pulumiType = 'argocd';
 
     /**
      * Returns true if the given object is an instance of Provider.  This is designed to work even
@@ -28,6 +27,58 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
+    /**
+     * ArgoCD authentication token, takes precedence over `username`/`password`. Can be set through the `ARGOCD_AUTH_TOKEN`
+     * environment variable.
+     */
+    public readonly authToken!: pulumi.Output<string | undefined>;
+    /**
+     * Additional root CA certificates file to add to the client TLS connection pool.
+     */
+    public readonly certFile!: pulumi.Output<string | undefined>;
+    /**
+     * Client certificate.
+     */
+    public readonly clientCertFile!: pulumi.Output<string | undefined>;
+    /**
+     * Client certificate key.
+     */
+    public readonly clientCertKey!: pulumi.Output<string | undefined>;
+    /**
+     * Override the default config path of `$HOME/.config/argocd/config`. Only relevant when `useLocalConfig`. Can be set
+     * through the `ARGOCD_CONFIG_PATH` environment variable.
+     */
+    public readonly configPath!: pulumi.Output<string | undefined>;
+    /**
+     * Context to choose when using a local ArgoCD config file. Only relevant when `useLocalConfig`. Can be set through
+     * `ARGOCD_CONTEXT` environment variable.
+     */
+    public readonly context!: pulumi.Output<string | undefined>;
+    /**
+     * Use the gRPC web proxy client and set the web root, e.g. `argo-cd`. Useful if the Argo CD server is behind a proxy at a
+     * non-root path.
+     */
+    public readonly grpcWebRootPath!: pulumi.Output<string | undefined>;
+    /**
+     * Authentication password. Can be set through the `ARGOCD_AUTH_PASSWORD` environment variable.
+     */
+    public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * Namespace name which should be used for port forwarding.
+     */
+    public readonly portForwardWithNamespace!: pulumi.Output<string | undefined>;
+    /**
+     * ArgoCD server address with port. Can be set through the `ARGOCD_SERVER` environment variable.
+     */
+    public readonly serverAddr!: pulumi.Output<string | undefined>;
+    /**
+     * User-Agent request header override.
+     */
+    public readonly userAgent!: pulumi.Output<string | undefined>;
+    /**
+     * Authentication username. Can be set through the `ARGOCD_AUTH_USERNAME` environment variable.
+     */
+    public readonly username!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -40,9 +91,30 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["authToken"] = args?.authToken ? pulumi.secret(args.authToken) : undefined;
+            resourceInputs["certFile"] = args ? args.certFile : undefined;
+            resourceInputs["clientCertFile"] = args ? args.clientCertFile : undefined;
+            resourceInputs["clientCertKey"] = args ? args.clientCertKey : undefined;
+            resourceInputs["configPath"] = args ? args.configPath : undefined;
+            resourceInputs["context"] = args ? args.context : undefined;
+            resourceInputs["core"] = pulumi.output(args ? args.core : undefined).apply(JSON.stringify);
+            resourceInputs["grpcWeb"] = pulumi.output(args ? args.grpcWeb : undefined).apply(JSON.stringify);
+            resourceInputs["grpcWebRootPath"] = args ? args.grpcWebRootPath : undefined;
+            resourceInputs["headers"] = pulumi.output(args ? args.headers : undefined).apply(JSON.stringify);
+            resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
+            resourceInputs["kubernetes"] = pulumi.output(args ? args.kubernetes : undefined).apply(JSON.stringify);
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["plainText"] = pulumi.output(args ? args.plainText : undefined).apply(JSON.stringify);
+            resourceInputs["portForward"] = pulumi.output(args ? args.portForward : undefined).apply(JSON.stringify);
+            resourceInputs["portForwardWithNamespace"] = args ? args.portForwardWithNamespace : undefined;
+            resourceInputs["serverAddr"] = args ? args.serverAddr : undefined;
+            resourceInputs["useLocalConfig"] = pulumi.output(args ? args.useLocalConfig : undefined).apply(JSON.stringify);
+            resourceInputs["userAgent"] = args ? args.userAgent : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["authToken", "password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -52,7 +124,97 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * A region which should be used.
+     * ArgoCD authentication token, takes precedence over `username`/`password`. Can be set through the `ARGOCD_AUTH_TOKEN`
+     * environment variable.
      */
-    region?: pulumi.Input<enums.region.Region>;
+    authToken?: pulumi.Input<string>;
+    /**
+     * Additional root CA certificates file to add to the client TLS connection pool.
+     */
+    certFile?: pulumi.Input<string>;
+    /**
+     * Client certificate.
+     */
+    clientCertFile?: pulumi.Input<string>;
+    /**
+     * Client certificate key.
+     */
+    clientCertKey?: pulumi.Input<string>;
+    /**
+     * Override the default config path of `$HOME/.config/argocd/config`. Only relevant when `useLocalConfig`. Can be set
+     * through the `ARGOCD_CONFIG_PATH` environment variable.
+     */
+    configPath?: pulumi.Input<string>;
+    /**
+     * Context to choose when using a local ArgoCD config file. Only relevant when `useLocalConfig`. Can be set through
+     * `ARGOCD_CONTEXT` environment variable.
+     */
+    context?: pulumi.Input<string>;
+    /**
+     * Configure direct access using Kubernetes API server. **Warning**: this feature works by starting a local ArgoCD API
+     * server that talks directly to the Kubernetes API using the **current context in the default kubeconfig**
+     * (`~/.kube/config`). This behavior cannot be overridden using either environment variables or the `kubernetes` block in
+     * the provider configuration at present). If the server fails to start (e.g. your kubeconfig is misconfigured) then the
+     * provider will fail as a result of the `argocd` module forcing it to exit and no logs will be available to help you debug
+     * this. The error message will be similar to > `The plugin encountered an error, and failed to respond to the
+     * plugin.(*GRPCProvider).ReadResource call. The plugin logs may contain more details.` To debug this, you will need to
+     * login via the ArgoCD CLI using `argocd login --core` and then running an operation. E.g. `argocd app list`.
+     */
+    core?: pulumi.Input<boolean>;
+    /**
+     * Whether to use gRPC web proxy client. Useful if Argo CD server is behind proxy which does not support HTTP2.
+     */
+    grpcWeb?: pulumi.Input<boolean>;
+    /**
+     * Use the gRPC web proxy client and set the web root, e.g. `argo-cd`. Useful if the Argo CD server is behind a proxy at a
+     * non-root path.
+     */
+    grpcWebRootPath?: pulumi.Input<string>;
+    /**
+     * Additional headers to add to each request to the ArgoCD server.
+     */
+    headers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether to skip TLS server certificate. Can be set through the `ARGOCD_INSECURE` environment variable.
+     */
+    insecure?: pulumi.Input<boolean>;
+    /**
+     * Kubernetes configuration overrides. Only relevant when `portForward = true` or `portForwardWithNamespace = "foo"`. The
+     * kubeconfig file that is used can be overridden using the [`KUBECONFIG` environment
+     * variable](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#the-kubeconfig-environment-variable)).
+     */
+    kubernetes?: pulumi.Input<inputs.ProviderKubernetes>;
+    /**
+     * Authentication password. Can be set through the `ARGOCD_AUTH_PASSWORD` environment variable.
+     */
+    password?: pulumi.Input<string>;
+    /**
+     * Whether to initiate an unencrypted connection to ArgoCD server.
+     */
+    plainText?: pulumi.Input<boolean>;
+    /**
+     * Connect to a random argocd-server port using port forwarding.
+     */
+    portForward?: pulumi.Input<boolean>;
+    /**
+     * Namespace name which should be used for port forwarding.
+     */
+    portForwardWithNamespace?: pulumi.Input<string>;
+    /**
+     * ArgoCD server address with port. Can be set through the `ARGOCD_SERVER` environment variable.
+     */
+    serverAddr?: pulumi.Input<string>;
+    /**
+     * Use the authentication settings found in the local config file. Useful when you have previously logged in using SSO.
+     * Conflicts with `authToken`, `username` and `password`.
+     */
+    useLocalConfig?: pulumi.Input<boolean>;
+    /**
+     * User-Agent request header override.
+     */
+    userAgent?: pulumi.Input<string>;
+    /**
+     * Authentication username. Can be set through the `ARGOCD_AUTH_USERNAME` environment variable.
+     */
+    username?: pulumi.Input<string>;
 }

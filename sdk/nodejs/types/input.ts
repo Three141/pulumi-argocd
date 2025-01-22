@@ -4,5 +4,131 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 
+export interface GetApplicationMetadata {
+    /**
+     * An unstructured key value map stored with the cluster secret that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * A sequence number representing a specific generation of the desired state.
+     */
+    generation?: number;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the cluster secret. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+     */
+    labels?: {[key: string]: string};
+    /**
+     * Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     */
+    name: string;
+    /**
+     * Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+     */
+    namespace?: string;
+    /**
+     * An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+     */
+    resourceVersion?: string;
+    /**
+     * The unique in time and space value for this applications.argoproj.io. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     */
+    uid?: string;
+}
+
+export interface GetApplicationMetadataArgs {
+    /**
+     * An unstructured key value map stored with the cluster secret that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A sequence number representing a specific generation of the desired state.
+     */
+    generation?: pulumi.Input<number>;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the cluster secret. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+     */
+    resourceVersion?: pulumi.Input<string>;
+    /**
+     * The unique in time and space value for this applications.argoproj.io. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     */
+    uid?: pulumi.Input<string>;
+}
+
+export interface ProviderKubernetes {
+    /**
+     * PEM-encoded client certificate for TLS authentication. Can be sourced from `KUBE_CLIENT_CERT_DATA`.
+     */
+    clientCertificate?: pulumi.Input<string>;
+    /**
+     * PEM-encoded client certificate key for TLS authentication. Can be sourced from `KUBE_CLIENT_KEY_DATA`.
+     */
+    clientKey?: pulumi.Input<string>;
+    /**
+     * PEM-encoded root certificates bundle for TLS authentication. Can be sourced from `KUBE_CLUSTER_CA_CERT_DATA`.
+     */
+    clusterCaCertificate?: pulumi.Input<string>;
+    /**
+     * Context to choose from the config file. Can be sourced from `KUBE_CTX`.
+     */
+    configContext?: pulumi.Input<string>;
+    configContextAuthInfo?: pulumi.Input<string>;
+    configContextCluster?: pulumi.Input<string>;
+    /**
+     * Configuration block to use an [exec-based credential plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins), e.g. call an external command to receive user credentials.
+     */
+    exec?: pulumi.Input<inputs.ProviderKubernetesExec>;
+    /**
+     * The hostname (in form of URI) of the Kubernetes API. Can be sourced from `KUBE_HOST`.
+     */
+    host?: pulumi.Input<string>;
+    /**
+     * Whether server should be accessed without verifying the TLS certificate. Can be sourced from `KUBE_INSECURE`.
+     */
+    insecure?: pulumi.Input<boolean>;
+    /**
+     * The password to use for HTTP basic authentication when accessing the Kubernetes API. Can be sourced from `KUBE_PASSWORD`.
+     */
+    password?: pulumi.Input<string>;
+    /**
+     * Token to authenticate an service account. Can be sourced from `KUBE_TOKEN`.
+     */
+    token?: pulumi.Input<string>;
+    /**
+     * The username to use for HTTP basic authentication when accessing the Kubernetes API. Can be sourced from `KUBE_USER`.
+     */
+    username?: pulumi.Input<string>;
+}
+
+export interface ProviderKubernetesExec {
+    /**
+     * API version to use when decoding the ExecCredentials resource, e.g. `client.authentication.k8s.io/v1beta1`.
+     */
+    apiVersion: pulumi.Input<string>;
+    /**
+     * Map of environment variables to set when executing the plugin.
+     */
+    args?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Command to execute.
+     */
+    command: pulumi.Input<string>;
+    /**
+     * List of arguments to pass when executing the plugin.
+     */
+    env?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+export namespace config {
+}

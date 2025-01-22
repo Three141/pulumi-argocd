@@ -5,29 +5,28 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
-from .get_data_source import *
+from .get_application import *
+from .gpg_key import *
 from .provider import *
-from .resource import *
+from ._inputs import *
+from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_xyz.config as __config
+    import pulumi_argocd.config as __config
     config = __config
-    import pulumi_xyz.region as __region
-    region = __region
 else:
-    config = _utilities.lazy_import('pulumi_xyz.config')
-    region = _utilities.lazy_import('pulumi_xyz.region')
+    config = _utilities.lazy_import('pulumi_argocd.config')
 
 _utilities.register(
     resource_modules="""
 [
  {
-  "pkg": "xyz",
-  "mod": "index/resource",
-  "fqn": "pulumi_xyz",
+  "pkg": "argocd",
+  "mod": "index/gpgKey",
+  "fqn": "pulumi_argocd",
   "classes": {
-   "xyz:index/resource:Resource": "Resource"
+   "argocd:index/gpgKey:GpgKey": "GpgKey"
   }
  }
 ]
@@ -35,9 +34,9 @@ _utilities.register(
     resource_packages="""
 [
  {
-  "pkg": "xyz",
-  "token": "pulumi:providers:xyz",
-  "fqn": "pulumi_xyz",
+  "pkg": "argocd",
+  "token": "pulumi:providers:argocd",
+  "fqn": "pulumi_argocd",
   "class": "Provider"
  }
 ]

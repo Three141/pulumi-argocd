@@ -4,5 +4,633 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 
+export interface GetApplicationMetadata {
+    /**
+     * An unstructured key value map stored with the cluster secret that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+     */
+    annotations: {[key: string]: string};
+    /**
+     * A sequence number representing a specific generation of the desired state.
+     */
+    generation: number;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the cluster secret. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+     */
+    labels: {[key: string]: string};
+    /**
+     * Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     */
+    name: string;
+    /**
+     * Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+     */
+    namespace: string;
+    /**
+     * An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+     */
+    resourceVersion: string;
+    /**
+     * The unique in time and space value for this applications.argoproj.io. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     */
+    uid: string;
+}
+
+export interface GetApplicationSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination: outputs.GetApplicationSpecDestination;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences: outputs.GetApplicationSpecIgnoreDifference[];
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos: outputs.GetApplicationSpecInfo[];
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project: string;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit: number;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources: outputs.GetApplicationSpecSource[];
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy: outputs.GetApplicationSpecSyncPolicy;
+}
+
+export interface GetApplicationSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name: string;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace: string;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server: string;
+}
+
+export interface GetApplicationSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group: string;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions: string[];
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers: string[];
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind: string;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace: string;
+}
+
+export interface GetApplicationSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name: string;
+    /**
+     * Value of the information.
+     */
+    value: string;
+}
+
+export interface GetApplicationSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart: string;
+    /**
+     * Path/directory specific options.
+     */
+    directory: outputs.GetApplicationSpecSourceDirectory;
+    /**
+     * Helm specific options.
+     */
+    helm: outputs.GetApplicationSpecSourceHelm;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize: outputs.GetApplicationSpecSourceKustomize;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path: string;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin: outputs.GetApplicationSpecSourcePlugin;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref: string;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl: string;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision: string;
+}
+
+export interface GetApplicationSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude: string;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include: string;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet: outputs.GetApplicationSpecSourceDirectoryJsonnet;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse: boolean;
+}
+
+export interface GetApplicationSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars: outputs.GetApplicationSpecSourceDirectoryJsonnetExtVar[];
+    /**
+     * Additional library search dirs.
+     */
+    libs: string[];
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas: outputs.GetApplicationSpecSourceDirectoryJsonnetTla[];
+}
+
+export interface GetApplicationSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value: string;
+}
+
+export interface GetApplicationSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value: string;
+}
+
+export interface GetApplicationSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters: outputs.GetApplicationSpecSourceHelmFileParameter[];
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles: boolean;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters: outputs.GetApplicationSpecSourceHelmParameter[];
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials: boolean;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName: string;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds: boolean;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles: string[];
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a Attribute.
+     */
+    values: string;
+}
+
+export interface GetApplicationSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameters.
+     */
+    name: string;
+    /**
+     * Path to the file containing the values for the Helm parameters.
+     */
+    path: string;
+}
+
+export interface GetApplicationSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString: boolean;
+    /**
+     * Name of the Helm parameters.
+     */
+    name: string;
+    /**
+     * Value of the Helm parameters.
+     */
+    value: string;
+}
+
+export interface GetApplicationSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations: {[key: string]: string};
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels: {[key: string]: string};
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images: string[];
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix: string;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix: string;
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version: string;
+}
+
+export interface GetApplicationSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs: outputs.GetApplicationSpecSourcePluginEnv[];
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name: string;
+    /**
+     * Parameters to supply to config management plugin.
+     */
+    parameters: outputs.GetApplicationSpecSourcePluginParameter[];
+}
+
+export interface GetApplicationSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name: string;
+    /**
+     * Value of the environment variable.
+     */
+    value: string;
+}
+
+export interface GetApplicationSpecSourcePluginParameter {
+    /**
+     * Value of an array type parameters.
+     */
+    arrays: string[];
+    /**
+     * Value of a map type parameters.
+     */
+    map: {[key: string]: string};
+    /**
+     * Name identifying a parameters.
+     */
+    name: string;
+    /**
+     * Value of a string type parameters.
+     */
+    string: string;
+}
+
+export interface GetApplicationSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated: outputs.GetApplicationSpecSyncPolicyAutomated;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry: outputs.GetApplicationSpecSyncPolicyRetry;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions: string[];
+}
+
+export interface GetApplicationSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty: boolean;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune: boolean;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal: boolean;
+}
+
+export interface GetApplicationSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff: outputs.GetApplicationSpecSyncPolicyRetryBackoff;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit: number;
+}
+
+export interface GetApplicationSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration: string;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor: number;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration: string;
+}
+
+export interface GetApplicationStatus {
+    /**
+     * List of currently observed application conditions.
+     */
+    conditions: outputs.GetApplicationStatusCondition[];
+    /**
+     * Application's current health status.
+     */
+    health: outputs.GetApplicationStatusHealth;
+    /**
+     * Information about any ongoing operations, such as a sync.
+     */
+    operationState: outputs.GetApplicationStatusOperationState;
+    /**
+     * When the application state was reconciled using the latest git version.
+     */
+    reconciledAt: string;
+    /**
+     * List of Kubernetes resources managed by this application.
+     */
+    resources: outputs.GetApplicationStatusResource[];
+    /**
+     * List of URLs and container images used by this application.
+     */
+    summary: outputs.GetApplicationStatusSummary;
+    /**
+     * Application's current sync status
+     */
+    sync: outputs.GetApplicationStatusSync;
+}
+
+export interface GetApplicationStatusCondition {
+    /**
+     * The time the condition was last observed.
+     */
+    lastTransitionTime: string;
+    /**
+     * Human-readable message indicating details about condition.
+     */
+    message: string;
+    /**
+     * Application condition type.
+     */
+    type: string;
+}
+
+export interface GetApplicationStatusHealth {
+    /**
+     * Human-readable informational message describing the health status.
+     */
+    message: string;
+    /**
+     * Status code of the application or resource.
+     */
+    status: string;
+}
+
+export interface GetApplicationStatusOperationState {
+    /**
+     * Time of operation completion.
+     */
+    finishedAt: string;
+    /**
+     * Any pertinent messages when attempting to perform operation (typically errors).
+     */
+    message: string;
+    /**
+     * The current phase of the operation.
+     */
+    phase: string;
+    /**
+     * Count of operation retries.
+     */
+    retryCount: number;
+    /**
+     * Time of operation start.
+     */
+    startedAt: string;
+}
+
+export interface GetApplicationStatusResource {
+    /**
+     * The Kubernetes resource Group.
+     */
+    group: string;
+    /**
+     * Resource health status.
+     */
+    health: outputs.GetApplicationStatusResourceHealth;
+    /**
+     * Indicates whether or not this resource has a hook annotation.
+     */
+    hook: boolean;
+    /**
+     * The Kubernetes resource Kind.
+     */
+    kind: string;
+    /**
+     * The Kubernetes resource Name.
+     */
+    name: string;
+    /**
+     * The Kubernetes resource Namespace.
+     */
+    namespace: string;
+    /**
+     * Indicates if the resources requires pruning or not.
+     */
+    requiresPruning: boolean;
+    /**
+     * Resource sync status.
+     */
+    status: string;
+    /**
+     * Sync wave.
+     */
+    syncWave: number;
+    /**
+     * The Kubernetes resource Version.
+     */
+    version: string;
+}
+
+export interface GetApplicationStatusResourceHealth {
+    /**
+     * Human-readable informational message describing the health status.
+     */
+    message: string;
+    /**
+     * Status code of the application or resource.
+     */
+    status: string;
+}
+
+export interface GetApplicationStatusSummary {
+    /**
+     * All external URLs of application child resources.
+     */
+    externalUrls: string[];
+    /**
+     * All images of application child resources.
+     */
+    images: string[];
+}
+
+export interface GetApplicationStatusSync {
+    /**
+     * Information about the revision(s) the comparison has been performed to.
+     */
+    revisions: string[];
+    /**
+     * Sync state of the comparison.
+     */
+    status: string;
+}
+
+export namespace config {
+    export interface Kubernetes {
+        /**
+         * PEM-encoded client certificate for TLS authentication. Can be sourced from `KUBE_CLIENT_CERT_DATA`.
+         */
+        clientCertificate?: string;
+        /**
+         * PEM-encoded client certificate key for TLS authentication. Can be sourced from `KUBE_CLIENT_KEY_DATA`.
+         */
+        clientKey?: string;
+        /**
+         * PEM-encoded root certificates bundle for TLS authentication. Can be sourced from `KUBE_CLUSTER_CA_CERT_DATA`.
+         */
+        clusterCaCertificate?: string;
+        /**
+         * Context to choose from the config file. Can be sourced from `KUBE_CTX`.
+         */
+        configContext?: string;
+        configContextAuthInfo?: string;
+        configContextCluster?: string;
+        /**
+         * Configuration block to use an [exec-based credential plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins), e.g. call an external command to receive user credentials.
+         */
+        exec?: outputs.config.KubernetesExec;
+        /**
+         * The hostname (in form of URI) of the Kubernetes API. Can be sourced from `KUBE_HOST`.
+         */
+        host?: string;
+        /**
+         * Whether server should be accessed without verifying the TLS certificate. Can be sourced from `KUBE_INSECURE`.
+         */
+        insecure?: boolean;
+        /**
+         * The password to use for HTTP basic authentication when accessing the Kubernetes API. Can be sourced from `KUBE_PASSWORD`.
+         */
+        password?: string;
+        /**
+         * Token to authenticate an service account. Can be sourced from `KUBE_TOKEN`.
+         */
+        token?: string;
+        /**
+         * The username to use for HTTP basic authentication when accessing the Kubernetes API. Can be sourced from `KUBE_USER`.
+         */
+        username?: string;
+    }
+
+    export interface KubernetesExec {
+        /**
+         * API version to use when decoding the ExecCredentials resource, e.g. `client.authentication.k8s.io/v1beta1`.
+         */
+        apiVersion: string;
+        /**
+         * Map of environment variables to set when executing the plugin.
+         */
+        args?: string[];
+        /**
+         * Command to execute.
+         */
+        command: string;
+        /**
+         * List of arguments to pass when executing the plugin.
+         */
+        env?: {[key: string]: string};
+    }
+
+}
