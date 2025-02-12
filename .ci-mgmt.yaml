@@ -48,5 +48,9 @@ publish:
 # Disables a pulumi-internal-only step for running create_docs_build during the release
 publishRegistry: false
 
+license:
+  ignore:
+    # Internal shim package
+    - github.com/argoproj-labs/terraform-provider-argocd/shim
 # For additional options, please refer to the defaults set in ci-mgmt:
 # https://github.com/pulumi/ci-mgmt/blob/master/provider-ci/internal/pkg/templates/defaults.config.yaml
