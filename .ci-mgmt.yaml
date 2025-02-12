@@ -26,6 +26,14 @@ plugins:
   - name: terraform
     version: "1.0.16"
     kind: converter
+  - name: gcp
+    version: "8.19.0"
+  - name: aws
+    version: "6.68.0"
+  - name: kubernetes
+    version: "4.21.1"
+  - name: std
+    version: "2.1.0"
 
 # providerDefaultBranch is used to customise the default branch for the repo
 providerDefaultBranch: main

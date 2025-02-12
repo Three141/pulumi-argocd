@@ -9,6 +9,156 @@ import * as utilities from "./utilities";
 /**
  * Manages [applications](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#applications) within ArgoCD.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as argocd from "@pulumi/argocd";
+ *
+ * // Kustomize application
+ * const kustomize = new argocd.Application("kustomize", {
+ *     metadata: {
+ *         name: "kustomize-app",
+ *         namespace: "argocd",
+ *         labels: {
+ *             test: "true",
+ *         },
+ *     },
+ *     cascade: false,
+ *     wait: true,
+ *     spec: {
+ *         project: "myproject",
+ *         destination: {
+ *             server: "https://kubernetes.default.svc",
+ *             namespace: "foo",
+ *         },
+ *         sources: [{
+ *             repoUrl: "https://github.com/kubernetes-sigs/kustomize",
+ *             path: "examples/helloWorld",
+ *             targetRevision: "master",
+ *             kustomize: {
+ *                 namePrefix: "foo-",
+ *                 nameSuffix: "-bar",
+ *                 images: ["hashicorp/terraform:light"],
+ *                 commonLabels: {
+ *                     "this.is.a.common": "la-bel",
+ *                     "another.io/one": "true",
+ *                 },
+ *             },
+ *         }],
+ *         syncPolicy: {
+ *             automated: {
+ *                 prune: true,
+ *                 selfHeal: true,
+ *                 allowEmpty: true,
+ *             },
+ *             syncOptions: ["Validate=false"],
+ *             retry: {
+ *                 limit: "5",
+ *                 backoff: {
+ *                     duration: "30s",
+ *                     maxDuration: "2m",
+ *                     factor: "2",
+ *                 },
+ *             },
+ *         },
+ *         ignoreDifferences: [
+ *             {
+ *                 group: "apps",
+ *                 kind: "Deployment",
+ *                 jsonPointers: ["/spec/replicas"],
+ *             },
+ *             {
+ *                 group: "apps",
+ *                 kind: "StatefulSet",
+ *                 name: "someStatefulSet",
+ *                 jsonPointers: [
+ *                     "/spec/replicas",
+ *                     "/spec/template/spec/metadata/labels/bar",
+ *                 ],
+ *                 jqPathExpressions: [
+ *                     ".spec.replicas",
+ *                     ".spec.template.spec.metadata.labels.bar",
+ *                 ],
+ *             },
+ *         ],
+ *     },
+ * });
+ * // Helm application
+ * const helm = new argocd.Application("helm", {
+ *     metadata: {
+ *         name: "helm-app",
+ *         namespace: "argocd",
+ *         labels: {
+ *             test: "true",
+ *         },
+ *     },
+ *     spec: {
+ *         destination: {
+ *             server: "https://kubernetes.default.svc",
+ *             namespace: "default",
+ *         },
+ *         sources: [{
+ *             repoUrl: "https://some.chart.repo.io",
+ *             chart: "mychart",
+ *             targetRevision: "1.2.3",
+ *             helm: {
+ *                 releaseName: "testing",
+ *                 parameters: [
+ *                     {
+ *                         name: "image.tag",
+ *                         value: "1.2.3",
+ *                     },
+ *                     {
+ *                         name: "someotherparameter",
+ *                         value: "true",
+ *                     },
+ *                 ],
+ *                 valueFiles: ["values-test.yml"],
+ *                 values: JSON.stringify({
+ *                     someparameter: {
+ *                         enabled: true,
+ *                         someArray: [
+ *                             "foo",
+ *                             "bar",
+ *                         ],
+ *                     },
+ *                 }),
+ *             },
+ *         }],
+ *     },
+ * });
+ * // Multiple Application Sources with Helm value files from external Git repository
+ * const multipleSources = new argocd.Application("multiple_sources", {
+ *     metadata: {
+ *         name: "helm-app-with-external-values",
+ *         namespace: "argocd",
+ *     },
+ *     spec: {
+ *         project: "default",
+ *         sources: [
+ *             {
+ *                 repoUrl: "https://charts.helm.sh/stable",
+ *                 chart: "wordpress",
+ *                 targetRevision: "9.0.3",
+ *                 helm: {
+ *                     valueFiles: ["$values/helm-dependency/values.yaml"],
+ *                 },
+ *             },
+ *             {
+ *                 repoUrl: "https://github.com/argoproj/argocd-example-apps.git",
+ *                 targetRevision: "HEAD",
+ *                 ref: "values",
+ *             },
+ *         ],
+ *         destination: {
+ *             server: "https://kubernetes.default.svc",
+ *             namespace: "default",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * ArgoCD applications can be imported using an id consisting of `{name}:{namespace}`. E.g.
@@ -65,6 +215,9 @@ export class Application extends pulumi.CustomResource {
      * Whether to validate the application spec before creating or updating the application.
      */
     public readonly validate!: pulumi.Output<boolean | undefined>;
+    /**
+     * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+     */
     public readonly wait!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -130,6 +283,9 @@ export interface ApplicationState {
      * Whether to validate the application spec before creating or updating the application.
      */
     validate?: pulumi.Input<boolean>;
+    /**
+     * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+     */
     wait?: pulumi.Input<boolean>;
 }
 
@@ -153,5 +309,8 @@ export interface ApplicationArgs {
      * Whether to validate the application spec before creating or updating the application.
      */
     validate?: pulumi.Input<boolean>;
+    /**
+     * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+     */
     wait?: pulumi.Input<boolean>;
 }

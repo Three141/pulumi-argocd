@@ -14,6 +14,198 @@ import (
 
 // Manages [applications](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#applications) within ArgoCD.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/Three141/pulumi-argocd/sdk/go/argocd"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Kustomize application
+//			_, err := argocd.NewApplication(ctx, "kustomize", &argocd.ApplicationArgs{
+//				Metadata: &argocd.ApplicationMetadataArgs{
+//					Name:      pulumi.String("kustomize-app"),
+//					Namespace: pulumi.String("argocd"),
+//					Labels: pulumi.StringMap{
+//						"test": pulumi.String("true"),
+//					},
+//				},
+//				Cascade: pulumi.Bool(false),
+//				Wait:    pulumi.Bool(true),
+//				Spec: &argocd.ApplicationSpecArgs{
+//					Project: pulumi.String("myproject"),
+//					Destination: &argocd.ApplicationSpecDestinationArgs{
+//						Server:    pulumi.String("https://kubernetes.default.svc"),
+//						Namespace: pulumi.String("foo"),
+//					},
+//					Sources: argocd.ApplicationSpecSourceArray{
+//						&argocd.ApplicationSpecSourceArgs{
+//							RepoUrl:        pulumi.String("https://github.com/kubernetes-sigs/kustomize"),
+//							Path:           pulumi.String("examples/helloWorld"),
+//							TargetRevision: pulumi.String("master"),
+//							Kustomize: &argocd.ApplicationSpecSourceKustomizeArgs{
+//								NamePrefix: pulumi.String("foo-"),
+//								NameSuffix: pulumi.String("-bar"),
+//								Images: pulumi.StringArray{
+//									pulumi.String("hashicorp/terraform:light"),
+//								},
+//								CommonLabels: pulumi.StringMap{
+//									"this.is.a.common": pulumi.String("la-bel"),
+//									"another.io/one":   pulumi.String("true"),
+//								},
+//							},
+//						},
+//					},
+//					SyncPolicy: &argocd.ApplicationSpecSyncPolicyArgs{
+//						Automated: &argocd.ApplicationSpecSyncPolicyAutomatedArgs{
+//							Prune:      pulumi.Bool(true),
+//							SelfHeal:   pulumi.Bool(true),
+//							AllowEmpty: pulumi.Bool(true),
+//						},
+//						SyncOptions: pulumi.StringArray{
+//							pulumi.String("Validate=false"),
+//						},
+//						Retry: &argocd.ApplicationSpecSyncPolicyRetryArgs{
+//							Limit: pulumi.String("5"),
+//							Backoff: &argocd.ApplicationSpecSyncPolicyRetryBackoffArgs{
+//								Duration:    pulumi.String("30s"),
+//								MaxDuration: pulumi.String("2m"),
+//								Factor:      pulumi.String("2"),
+//							},
+//						},
+//					},
+//					IgnoreDifferences: argocd.ApplicationSpecIgnoreDifferenceArray{
+//						&argocd.ApplicationSpecIgnoreDifferenceArgs{
+//							Group: pulumi.String("apps"),
+//							Kind:  pulumi.String("Deployment"),
+//							JsonPointers: pulumi.StringArray{
+//								pulumi.String("/spec/replicas"),
+//							},
+//						},
+//						&argocd.ApplicationSpecIgnoreDifferenceArgs{
+//							Group: pulumi.String("apps"),
+//							Kind:  pulumi.String("StatefulSet"),
+//							Name:  pulumi.String("someStatefulSet"),
+//							JsonPointers: pulumi.StringArray{
+//								pulumi.String("/spec/replicas"),
+//								pulumi.String("/spec/template/spec/metadata/labels/bar"),
+//							},
+//							JqPathExpressions: pulumi.StringArray{
+//								pulumi.String(".spec.replicas"),
+//								pulumi.String(".spec.template.spec.metadata.labels.bar"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"someparameter": map[string]interface{}{
+//					"enabled": true,
+//					"someArray": []string{
+//						"foo",
+//						"bar",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			// Helm application
+//			_, err = argocd.NewApplication(ctx, "helm", &argocd.ApplicationArgs{
+//				Metadata: &argocd.ApplicationMetadataArgs{
+//					Name:      pulumi.String("helm-app"),
+//					Namespace: pulumi.String("argocd"),
+//					Labels: pulumi.StringMap{
+//						"test": pulumi.String("true"),
+//					},
+//				},
+//				Spec: &argocd.ApplicationSpecArgs{
+//					Destination: &argocd.ApplicationSpecDestinationArgs{
+//						Server:    pulumi.String("https://kubernetes.default.svc"),
+//						Namespace: pulumi.String("default"),
+//					},
+//					Sources: argocd.ApplicationSpecSourceArray{
+//						&argocd.ApplicationSpecSourceArgs{
+//							RepoUrl:        pulumi.String("https://some.chart.repo.io"),
+//							Chart:          pulumi.String("mychart"),
+//							TargetRevision: pulumi.String("1.2.3"),
+//							Helm: &argocd.ApplicationSpecSourceHelmArgs{
+//								ReleaseName: pulumi.String("testing"),
+//								Parameters: argocd.ApplicationSpecSourceHelmParameterArray{
+//									&argocd.ApplicationSpecSourceHelmParameterArgs{
+//										Name:  pulumi.String("image.tag"),
+//										Value: pulumi.String("1.2.3"),
+//									},
+//									&argocd.ApplicationSpecSourceHelmParameterArgs{
+//										Name:  pulumi.String("someotherparameter"),
+//										Value: pulumi.String("true"),
+//									},
+//								},
+//								ValueFiles: pulumi.StringArray{
+//									pulumi.String("values-test.yml"),
+//								},
+//								Values: pulumi.String(json0),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Multiple Application Sources with Helm value files from external Git repository
+//			_, err = argocd.NewApplication(ctx, "multiple_sources", &argocd.ApplicationArgs{
+//				Metadata: &argocd.ApplicationMetadataArgs{
+//					Name:      pulumi.String("helm-app-with-external-values"),
+//					Namespace: pulumi.String("argocd"),
+//				},
+//				Spec: &argocd.ApplicationSpecArgs{
+//					Project: pulumi.String("default"),
+//					Sources: argocd.ApplicationSpecSourceArray{
+//						&argocd.ApplicationSpecSourceArgs{
+//							RepoUrl:        pulumi.String("https://charts.helm.sh/stable"),
+//							Chart:          pulumi.String("wordpress"),
+//							TargetRevision: pulumi.String("9.0.3"),
+//							Helm: &argocd.ApplicationSpecSourceHelmArgs{
+//								ValueFiles: pulumi.StringArray{
+//									pulumi.String("$values/helm-dependency/values.yaml"),
+//								},
+//							},
+//						},
+//						&argocd.ApplicationSpecSourceArgs{
+//							RepoUrl:        pulumi.String("https://github.com/argoproj/argocd-example-apps.git"),
+//							TargetRevision: pulumi.String("HEAD"),
+//							Ref:            pulumi.String("values"),
+//						},
+//					},
+//					Destination: &argocd.ApplicationSpecDestinationArgs{
+//						Server:    pulumi.String("https://kubernetes.default.svc"),
+//						Namespace: pulumi.String("default"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ArgoCD applications can be imported using an id consisting of `{name}:{namespace}`. E.g.
@@ -34,7 +226,8 @@ type Application struct {
 	Statuses ApplicationStatusArrayOutput `pulumi:"statuses"`
 	// Whether to validate the application spec before creating or updating the application.
 	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
-	Wait     pulumi.BoolPtrOutput `pulumi:"wait"`
+	// Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+	Wait pulumi.BoolPtrOutput `pulumi:"wait"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +276,8 @@ type applicationState struct {
 	Statuses []ApplicationStatus `pulumi:"statuses"`
 	// Whether to validate the application spec before creating or updating the application.
 	Validate *bool `pulumi:"validate"`
-	Wait     *bool `pulumi:"wait"`
+	// Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+	Wait *bool `pulumi:"wait"`
 }
 
 type ApplicationState struct {
@@ -97,7 +291,8 @@ type ApplicationState struct {
 	Statuses ApplicationStatusArrayInput
 	// Whether to validate the application spec before creating or updating the application.
 	Validate pulumi.BoolPtrInput
-	Wait     pulumi.BoolPtrInput
+	// Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+	Wait pulumi.BoolPtrInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -113,7 +308,8 @@ type applicationArgs struct {
 	Spec ApplicationSpec `pulumi:"spec"`
 	// Whether to validate the application spec before creating or updating the application.
 	Validate *bool `pulumi:"validate"`
-	Wait     *bool `pulumi:"wait"`
+	// Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+	Wait *bool `pulumi:"wait"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -126,7 +322,8 @@ type ApplicationArgs struct {
 	Spec ApplicationSpecInput
 	// Whether to validate the application spec before creating or updating the application.
 	Validate pulumi.BoolPtrInput
-	Wait     pulumi.BoolPtrInput
+	// Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+	Wait pulumi.BoolPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -241,6 +438,7 @@ func (o ApplicationOutput) Validate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.Validate }).(pulumi.BoolPtrOutput)
 }
 
+// Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
 func (o ApplicationOutput) Wait() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.Wait }).(pulumi.BoolPtrOutput)
 }

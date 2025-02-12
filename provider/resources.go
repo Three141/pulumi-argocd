@@ -173,6 +173,8 @@ func Provider() tfbridge.ProviderInfo {
 				"Pulumi": "3.*",
 			},
 		},
+
+		DocRules: &tfbridge.DocRuleInfo{EditRules: editRules},
 	}
 
 	// MustComputeTokens maps all resources and datasources from the upstream provider into Pulumi.

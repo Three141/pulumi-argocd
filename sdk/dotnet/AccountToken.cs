@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Argocd
 {
     /// <summary>
+    /// Manages ArgoCD [account](https://argo-cd.readthedocs.io/en/latest/user-guide/commands/argocd_account/) JWT tokens.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -76,6 +78,9 @@ namespace Pulumi.Argocd
         [Output("renewAfter")]
         public Output<string?> RenewAfter { get; private set; } = null!;
 
+        /// <summary>
+        /// Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate &lt; renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+        /// </summary>
         [Output("renewBefore")]
         public Output<string?> RenewBefore { get; private set; } = null!;
 
@@ -147,6 +152,9 @@ namespace Pulumi.Argocd
         [Input("renewAfter")]
         public Input<string>? RenewAfter { get; set; }
 
+        /// <summary>
+        /// Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate &lt; renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+        /// </summary>
         [Input("renewBefore")]
         public Input<string>? RenewBefore { get; set; }
 
@@ -204,6 +212,9 @@ namespace Pulumi.Argocd
         [Input("renewAfter")]
         public Input<string>? RenewAfter { get; set; }
 
+        /// <summary>
+        /// Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate &lt; renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+        /// </summary>
         [Input("renewBefore")]
         public Input<string>? RenewBefore { get; set; }
 

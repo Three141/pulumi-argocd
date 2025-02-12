@@ -12,6 +12,224 @@ namespace Pulumi.Argocd
     /// <summary>
     /// Manages [applications](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#applications) within ArgoCD.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Argocd = Pulumi.Argocd;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Kustomize application
+    ///     var kustomize = new Argocd.Application("kustomize", new()
+    ///     {
+    ///         Metadata = new Argocd.Inputs.ApplicationMetadataArgs
+    ///         {
+    ///             Name = "kustomize-app",
+    ///             Namespace = "argocd",
+    ///             Labels = 
+    ///             {
+    ///                 { "test", "true" },
+    ///             },
+    ///         },
+    ///         Cascade = false,
+    ///         Wait = true,
+    ///         Spec = new Argocd.Inputs.ApplicationSpecArgs
+    ///         {
+    ///             Project = "myproject",
+    ///             Destination = new Argocd.Inputs.ApplicationSpecDestinationArgs
+    ///             {
+    ///                 Server = "https://kubernetes.default.svc",
+    ///                 Namespace = "foo",
+    ///             },
+    ///             Sources = new[]
+    ///             {
+    ///                 new Argocd.Inputs.ApplicationSpecSourceArgs
+    ///                 {
+    ///                     RepoUrl = "https://github.com/kubernetes-sigs/kustomize",
+    ///                     Path = "examples/helloWorld",
+    ///                     TargetRevision = "master",
+    ///                     Kustomize = new Argocd.Inputs.ApplicationSpecSourceKustomizeArgs
+    ///                     {
+    ///                         NamePrefix = "foo-",
+    ///                         NameSuffix = "-bar",
+    ///                         Images = new[]
+    ///                         {
+    ///                             "hashicorp/terraform:light",
+    ///                         },
+    ///                         CommonLabels = 
+    ///                         {
+    ///                             { "this.is.a.common", "la-bel" },
+    ///                             { "another.io/one", "true" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SyncPolicy = new Argocd.Inputs.ApplicationSpecSyncPolicyArgs
+    ///             {
+    ///                 Automated = new Argocd.Inputs.ApplicationSpecSyncPolicyAutomatedArgs
+    ///                 {
+    ///                     Prune = true,
+    ///                     SelfHeal = true,
+    ///                     AllowEmpty = true,
+    ///                 },
+    ///                 SyncOptions = new[]
+    ///                 {
+    ///                     "Validate=false",
+    ///                 },
+    ///                 Retry = new Argocd.Inputs.ApplicationSpecSyncPolicyRetryArgs
+    ///                 {
+    ///                     Limit = "5",
+    ///                     Backoff = new Argocd.Inputs.ApplicationSpecSyncPolicyRetryBackoffArgs
+    ///                     {
+    ///                         Duration = "30s",
+    ///                         MaxDuration = "2m",
+    ///                         Factor = "2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             IgnoreDifferences = new[]
+    ///             {
+    ///                 new Argocd.Inputs.ApplicationSpecIgnoreDifferenceArgs
+    ///                 {
+    ///                     Group = "apps",
+    ///                     Kind = "Deployment",
+    ///                     JsonPointers = new[]
+    ///                     {
+    ///                         "/spec/replicas",
+    ///                     },
+    ///                 },
+    ///                 new Argocd.Inputs.ApplicationSpecIgnoreDifferenceArgs
+    ///                 {
+    ///                     Group = "apps",
+    ///                     Kind = "StatefulSet",
+    ///                     Name = "someStatefulSet",
+    ///                     JsonPointers = new[]
+    ///                     {
+    ///                         "/spec/replicas",
+    ///                         "/spec/template/spec/metadata/labels/bar",
+    ///                     },
+    ///                     JqPathExpressions = new[]
+    ///                     {
+    ///                         ".spec.replicas",
+    ///                         ".spec.template.spec.metadata.labels.bar",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Helm application
+    ///     var helm = new Argocd.Application("helm", new()
+    ///     {
+    ///         Metadata = new Argocd.Inputs.ApplicationMetadataArgs
+    ///         {
+    ///             Name = "helm-app",
+    ///             Namespace = "argocd",
+    ///             Labels = 
+    ///             {
+    ///                 { "test", "true" },
+    ///             },
+    ///         },
+    ///         Spec = new Argocd.Inputs.ApplicationSpecArgs
+    ///         {
+    ///             Destination = new Argocd.Inputs.ApplicationSpecDestinationArgs
+    ///             {
+    ///                 Server = "https://kubernetes.default.svc",
+    ///                 Namespace = "default",
+    ///             },
+    ///             Sources = new[]
+    ///             {
+    ///                 new Argocd.Inputs.ApplicationSpecSourceArgs
+    ///                 {
+    ///                     RepoUrl = "https://some.chart.repo.io",
+    ///                     Chart = "mychart",
+    ///                     TargetRevision = "1.2.3",
+    ///                     Helm = new Argocd.Inputs.ApplicationSpecSourceHelmArgs
+    ///                     {
+    ///                         ReleaseName = "testing",
+    ///                         Parameters = new[]
+    ///                         {
+    ///                             new Argocd.Inputs.ApplicationSpecSourceHelmParameterArgs
+    ///                             {
+    ///                                 Name = "image.tag",
+    ///                                 Value = "1.2.3",
+    ///                             },
+    ///                             new Argocd.Inputs.ApplicationSpecSourceHelmParameterArgs
+    ///                             {
+    ///                                 Name = "someotherparameter",
+    ///                                 Value = "true",
+    ///                             },
+    ///                         },
+    ///                         ValueFiles = new[]
+    ///                         {
+    ///                             "values-test.yml",
+    ///                         },
+    ///                         Values = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["someparameter"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["enabled"] = true,
+    ///                                 ["someArray"] = new[]
+    ///                                 {
+    ///                                     "foo",
+    ///                                     "bar",
+    ///                                 },
+    ///                             },
+    ///                         }),
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Multiple Application Sources with Helm value files from external Git repository
+    ///     var multipleSources = new Argocd.Application("multiple_sources", new()
+    ///     {
+    ///         Metadata = new Argocd.Inputs.ApplicationMetadataArgs
+    ///         {
+    ///             Name = "helm-app-with-external-values",
+    ///             Namespace = "argocd",
+    ///         },
+    ///         Spec = new Argocd.Inputs.ApplicationSpecArgs
+    ///         {
+    ///             Project = "default",
+    ///             Sources = new[]
+    ///             {
+    ///                 new Argocd.Inputs.ApplicationSpecSourceArgs
+    ///                 {
+    ///                     RepoUrl = "https://charts.helm.sh/stable",
+    ///                     Chart = "wordpress",
+    ///                     TargetRevision = "9.0.3",
+    ///                     Helm = new Argocd.Inputs.ApplicationSpecSourceHelmArgs
+    ///                     {
+    ///                         ValueFiles = new[]
+    ///                         {
+    ///                             "$values/helm-dependency/values.yaml",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Argocd.Inputs.ApplicationSpecSourceArgs
+    ///                 {
+    ///                     RepoUrl = "https://github.com/argoproj/argocd-example-apps.git",
+    ///                     TargetRevision = "HEAD",
+    ///                     Ref = "values",
+    ///                 },
+    ///             },
+    ///             Destination = new Argocd.Inputs.ApplicationSpecDestinationArgs
+    ///             {
+    ///                 Server = "https://kubernetes.default.svc",
+    ///                 Namespace = "default",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ArgoCD applications can be imported using an id consisting of `{name}:{namespace}`. E.g.
@@ -53,6 +271,9 @@ namespace Pulumi.Argocd
         [Output("validate")]
         public Output<bool?> Validate { get; private set; } = null!;
 
+        /// <summary>
+        /// Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
+        /// </summary>
         [Output("wait")]
         public Output<bool?> Wait { get; private set; } = null!;
 
@@ -126,6 +347,9 @@ namespace Pulumi.Argocd
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
 
+        /// <summary>
+        /// Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
+        /// </summary>
         [Input("wait")]
         public Input<bool>? Wait { get; set; }
 
@@ -173,6 +397,9 @@ namespace Pulumi.Argocd
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
 
+        /// <summary>
+        /// Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
+        /// </summary>
         [Input("wait")]
         public Input<bool>? Wait { get; set; }
 

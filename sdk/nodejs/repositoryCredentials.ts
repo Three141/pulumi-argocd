@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Manages [repository credentials](https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/#credentials) within ArgoCD.
+ *
+ * **Note**: due to restrictions in the ArgoCD API the provider is unable to track drift in this resource to fields other than `username`. I.e. the provider is unable to detect changes to repository credentials that are made outside of Pulumi (e.g. manual updates to the underlying Kubernetes Secrets).
+ *
  * ## Example Usage
  *
  * ```typescript

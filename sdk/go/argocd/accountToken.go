@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages ArgoCD [account](https://argo-cd.readthedocs.io/en/latest/user-guide/commands/argocd_account/) JWT tokens.
+//
 // ## Example Usage
 //
 // ```go
@@ -60,7 +62,8 @@ type AccountToken struct {
 	// The raw JWT.
 	Jwt pulumi.StringOutput `pulumi:"jwt"`
 	// Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-	RenewAfter  pulumi.StringPtrOutput `pulumi:"renewAfter"`
+	RenewAfter pulumi.StringPtrOutput `pulumi:"renewAfter"`
+	// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, Pulumi will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 	RenewBefore pulumi.StringPtrOutput `pulumi:"renewBefore"`
 }
 
@@ -109,7 +112,8 @@ type accountTokenState struct {
 	// The raw JWT.
 	Jwt *string `pulumi:"jwt"`
 	// Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-	RenewAfter  *string `pulumi:"renewAfter"`
+	RenewAfter *string `pulumi:"renewAfter"`
+	// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, Pulumi will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 	RenewBefore *string `pulumi:"renewBefore"`
 }
 
@@ -125,7 +129,8 @@ type AccountTokenState struct {
 	// The raw JWT.
 	Jwt pulumi.StringPtrInput
 	// Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-	RenewAfter  pulumi.StringPtrInput
+	RenewAfter pulumi.StringPtrInput
+	// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, Pulumi will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 	RenewBefore pulumi.StringPtrInput
 }
 
@@ -139,7 +144,8 @@ type accountTokenArgs struct {
 	// Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
 	ExpiresIn *string `pulumi:"expiresIn"`
 	// Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-	RenewAfter  *string `pulumi:"renewAfter"`
+	RenewAfter *string `pulumi:"renewAfter"`
+	// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, Pulumi will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 	RenewBefore *string `pulumi:"renewBefore"`
 }
 
@@ -150,7 +156,8 @@ type AccountTokenArgs struct {
 	// Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
 	ExpiresIn pulumi.StringPtrInput
 	// Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-	RenewAfter  pulumi.StringPtrInput
+	RenewAfter pulumi.StringPtrInput
+	// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, Pulumi will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 	RenewBefore pulumi.StringPtrInput
 }
 
@@ -271,6 +278,7 @@ func (o AccountTokenOutput) RenewAfter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountToken) pulumi.StringPtrOutput { return v.RenewAfter }).(pulumi.StringPtrOutput)
 }
 
+// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, Pulumi will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 func (o AccountTokenOutput) RenewBefore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountToken) pulumi.StringPtrOutput { return v.RenewBefore }).(pulumi.StringPtrOutput)
 }

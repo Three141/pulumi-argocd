@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Manages ArgoCD project role JWT tokens. See [Project Roles](https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-roles) for more info.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -76,6 +78,9 @@ export class ProjectToken extends pulumi.CustomResource {
      * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
      */
     public readonly renewAfter!: pulumi.Output<string | undefined>;
+    /**
+     * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+     */
     public readonly renewBefore!: pulumi.Output<string | undefined>;
     /**
      * The name of the role in the project associated with the token.
@@ -161,6 +166,9 @@ export interface ProjectTokenState {
      * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
      */
     renewAfter?: pulumi.Input<string>;
+    /**
+     * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+     */
     renewBefore?: pulumi.Input<string>;
     /**
      * The name of the role in the project associated with the token.
@@ -188,6 +196,9 @@ export interface ProjectTokenArgs {
      * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
      */
     renewAfter?: pulumi.Input<string>;
+    /**
+     * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+     */
     renewBefore?: pulumi.Input<string>;
     /**
      * The name of the role in the project associated with the token.

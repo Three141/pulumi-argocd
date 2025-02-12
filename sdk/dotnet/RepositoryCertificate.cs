@@ -11,6 +11,42 @@ namespace Pulumi.Argocd
 {
     /// <summary>
     /// Manages [custom TLS certificates](https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/#self-signed-untrusted-tls-certificates) used by ArgoCD for connecting Git repositories.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Argocd = Pulumi.Argocd;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // HTTPS certificate
+    ///     var private_git_repository_https = new Argocd.RepositoryCertificate("private-git-repository-https", new()
+    ///     {
+    ///         Https = new Argocd.Inputs.RepositoryCertificateHttpsArgs
+    ///         {
+    ///             ServerName = "private-git-repository.local",
+    ///             CertData = @"-----BEGIN CERTIFICATE-----\nfoo\nbar\n-----END CERTIFICATE-----
+    /// ",
+    ///         },
+    ///     });
+    /// 
+    ///     // SSH certificate
+    ///     var private_git_repository_ssh = new Argocd.RepositoryCertificate("private-git-repository-ssh", new()
+    ///     {
+    ///         Ssh = new Argocd.Inputs.RepositoryCertificateSshArgs
+    ///         {
+    ///             ServerName = "private-git-repository.local",
+    ///             CertSubtype = "ssh-rsa",
+    ///             CertData = @"AAAAB3NzaC1yc2EAAAADAQABAAABgQCiPZAufKgxwRgxP9qy2Gtub0FI8qJGtL8Ldb7KatBeRUQQPn8QK7ZYjzYDvP1GOutFMaQT0rKIqaGImIBsztNCno...
+    /// ",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [ArgocdResourceType("argocd:index/repositoryCertificate:RepositoryCertificate")]
     public partial class RepositoryCertificate : global::Pulumi.CustomResource

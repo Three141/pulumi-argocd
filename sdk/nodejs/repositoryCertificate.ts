@@ -8,6 +8,25 @@ import * as utilities from "./utilities";
 
 /**
  * Manages [custom TLS certificates](https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/#self-signed-untrusted-tls-certificates) used by ArgoCD for connecting Git repositories.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as argocd from "@pulumi/argocd";
+ *
+ * // HTTPS certificate
+ * const private_git_repository_https = new argocd.RepositoryCertificate("private-git-repository-https", {https: {
+ *     serverName: "private-git-repository.local",
+ *     certData: "-----BEGIN CERTIFICATE-----\\nfoo\\nbar\\n-----END CERTIFICATE-----\n",
+ * }});
+ * // SSH certificate
+ * const private_git_repository_ssh = new argocd.RepositoryCertificate("private-git-repository-ssh", {ssh: {
+ *     serverName: "private-git-repository.local",
+ *     certSubtype: "ssh-rsa",
+ *     certData: "AAAAB3NzaC1yc2EAAAADAQABAAABgQCiPZAufKgxwRgxP9qy2Gtub0FI8qJGtL8Ldb7KatBeRUQQPn8QK7ZYjzYDvP1GOutFMaQT0rKIqaGImIBsztNCno...\n",
+ * }});
+ * ```
  */
 export class RepositoryCertificate extends pulumi.CustomResource {
     /**

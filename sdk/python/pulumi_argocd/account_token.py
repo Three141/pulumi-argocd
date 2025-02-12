@@ -28,6 +28,7 @@ class AccountTokenArgs:
         :param pulumi.Input[str] account: Account name. Defaults to the current account. I.e. the account configured on the `provider` block.
         :param pulumi.Input[str] expires_in: Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
         :param pulumi.Input[str] renew_after: Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
+        :param pulumi.Input[str] renew_before: Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         """
         if account is not None:
             pulumi.set(__self__, "account", account)
@@ -77,6 +78,9 @@ class AccountTokenArgs:
     @property
     @pulumi.getter(name="renewBefore")
     def renew_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+        """
         return pulumi.get(self, "renew_before")
 
     @renew_before.setter
@@ -102,6 +106,7 @@ class _AccountTokenState:
         :param pulumi.Input[str] issued_at: Unix timestamp at which the token was issued.
         :param pulumi.Input[str] jwt: The raw JWT.
         :param pulumi.Input[str] renew_after: Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
+        :param pulumi.Input[str] renew_before: Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         """
         if account is not None:
             pulumi.set(__self__, "account", account)
@@ -193,6 +198,9 @@ class _AccountTokenState:
     @property
     @pulumi.getter(name="renewBefore")
     def renew_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+        """
         return pulumi.get(self, "renew_before")
 
     @renew_before.setter
@@ -211,6 +219,8 @@ class AccountToken(pulumi.CustomResource):
                  renew_before: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages ArgoCD [account](https://argo-cd.readthedocs.io/en/latest/user-guide/commands/argocd_account/) JWT tokens.
+
         ## Example Usage
 
         ```python
@@ -231,6 +241,7 @@ class AccountToken(pulumi.CustomResource):
         :param pulumi.Input[str] account: Account name. Defaults to the current account. I.e. the account configured on the `provider` block.
         :param pulumi.Input[str] expires_in: Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
         :param pulumi.Input[str] renew_after: Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
+        :param pulumi.Input[str] renew_before: Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         """
         ...
     @overload
@@ -239,6 +250,8 @@ class AccountToken(pulumi.CustomResource):
                  args: Optional[AccountTokenArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages ArgoCD [account](https://argo-cd.readthedocs.io/en/latest/user-guide/commands/argocd_account/) JWT tokens.
+
         ## Example Usage
 
         ```python
@@ -321,6 +334,7 @@ class AccountToken(pulumi.CustomResource):
         :param pulumi.Input[str] issued_at: Unix timestamp at which the token was issued.
         :param pulumi.Input[str] jwt: The raw JWT.
         :param pulumi.Input[str] renew_after: Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
+        :param pulumi.Input[str] renew_before: Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -386,5 +400,8 @@ class AccountToken(pulumi.CustomResource):
     @property
     @pulumi.getter(name="renewBefore")
     def renew_before(self) -> pulumi.Output[Optional[str]]:
+        """
+        Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+        """
         return pulumi.get(self, "renew_before")
 

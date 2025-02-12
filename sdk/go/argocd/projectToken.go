@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages ArgoCD project role JWT tokens. See [Project Roles](https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-roles) for more info.
+//
 // ## Example Usage
 //
 // ```go
@@ -57,7 +59,8 @@ type ProjectToken struct {
 	// The project associated with the token.
 	Project pulumi.StringOutput `pulumi:"project"`
 	// Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-	RenewAfter  pulumi.StringPtrOutput `pulumi:"renewAfter"`
+	RenewAfter pulumi.StringPtrOutput `pulumi:"renewAfter"`
+	// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 	RenewBefore pulumi.StringPtrOutput `pulumi:"renewBefore"`
 	// The name of the role in the project associated with the token.
 	Role pulumi.StringOutput `pulumi:"role"`
@@ -116,7 +119,8 @@ type projectTokenState struct {
 	// The project associated with the token.
 	Project *string `pulumi:"project"`
 	// Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-	RenewAfter  *string `pulumi:"renewAfter"`
+	RenewAfter *string `pulumi:"renewAfter"`
+	// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 	RenewBefore *string `pulumi:"renewBefore"`
 	// The name of the role in the project associated with the token.
 	Role *string `pulumi:"role"`
@@ -136,7 +140,8 @@ type ProjectTokenState struct {
 	// The project associated with the token.
 	Project pulumi.StringPtrInput
 	// Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-	RenewAfter  pulumi.StringPtrInput
+	RenewAfter pulumi.StringPtrInput
+	// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 	RenewBefore pulumi.StringPtrInput
 	// The name of the role in the project associated with the token.
 	Role pulumi.StringPtrInput
@@ -154,7 +159,8 @@ type projectTokenArgs struct {
 	// The project associated with the token.
 	Project string `pulumi:"project"`
 	// Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-	RenewAfter  *string `pulumi:"renewAfter"`
+	RenewAfter *string `pulumi:"renewAfter"`
+	// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 	RenewBefore *string `pulumi:"renewBefore"`
 	// The name of the role in the project associated with the token.
 	Role string `pulumi:"role"`
@@ -169,7 +175,8 @@ type ProjectTokenArgs struct {
 	// The project associated with the token.
 	Project pulumi.StringInput
 	// Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-	RenewAfter  pulumi.StringPtrInput
+	RenewAfter pulumi.StringPtrInput
+	// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 	RenewBefore pulumi.StringPtrInput
 	// The name of the role in the project associated with the token.
 	Role pulumi.StringInput
@@ -297,6 +304,7 @@ func (o ProjectTokenOutput) RenewAfter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectToken) pulumi.StringPtrOutput { return v.RenewAfter }).(pulumi.StringPtrOutput)
 }
 
+// Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 func (o ProjectTokenOutput) RenewBefore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectToken) pulumi.StringPtrOutput { return v.RenewBefore }).(pulumi.StringPtrOutput)
 }

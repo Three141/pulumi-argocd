@@ -32,6 +32,7 @@ class ProjectTokenArgs:
         :param pulumi.Input[str] description: Description of the token.
         :param pulumi.Input[str] expires_in: Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
         :param pulumi.Input[str] renew_after: Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
+        :param pulumi.Input[str] renew_before: Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, the provider will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         """
         pulumi.set(__self__, "project", project)
         pulumi.set(__self__, "role", role)
@@ -107,6 +108,9 @@ class ProjectTokenArgs:
     @property
     @pulumi.getter(name="renewBefore")
     def renew_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, the provider will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+        """
         return pulumi.get(self, "renew_before")
 
     @renew_before.setter
@@ -135,6 +139,7 @@ class _ProjectTokenState:
         :param pulumi.Input[str] jwt: The raw JWT.
         :param pulumi.Input[str] project: The project associated with the token.
         :param pulumi.Input[str] renew_after: Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
+        :param pulumi.Input[str] renew_before: Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, the provider will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         :param pulumi.Input[str] role: The name of the role in the project associated with the token.
         """
         if description is not None:
@@ -243,6 +248,9 @@ class _ProjectTokenState:
     @property
     @pulumi.getter(name="renewBefore")
     def renew_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, the provider will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+        """
         return pulumi.get(self, "renew_before")
 
     @renew_before.setter
@@ -275,6 +283,8 @@ class ProjectToken(pulumi.CustomResource):
                  role: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages ArgoCD project role JWT tokens. See [Project Roles](https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-roles) for more info.
+
         ## Example Usage
 
         ```python
@@ -295,6 +305,7 @@ class ProjectToken(pulumi.CustomResource):
         :param pulumi.Input[str] expires_in: Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
         :param pulumi.Input[str] project: The project associated with the token.
         :param pulumi.Input[str] renew_after: Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
+        :param pulumi.Input[str] renew_before: Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, the provider will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         :param pulumi.Input[str] role: The name of the role in the project associated with the token.
         """
         ...
@@ -304,6 +315,8 @@ class ProjectToken(pulumi.CustomResource):
                  args: ProjectTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages ArgoCD project role JWT tokens. See [Project Roles](https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-roles) for more info.
+
         ## Example Usage
 
         ```python
@@ -396,6 +409,7 @@ class ProjectToken(pulumi.CustomResource):
         :param pulumi.Input[str] jwt: The raw JWT.
         :param pulumi.Input[str] project: The project associated with the token.
         :param pulumi.Input[str] renew_after: Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
+        :param pulumi.Input[str] renew_before: Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, the provider will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         :param pulumi.Input[str] role: The name of the role in the project associated with the token.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -472,6 +486,9 @@ class ProjectToken(pulumi.CustomResource):
     @property
     @pulumi.getter(name="renewBefore")
     def renew_before(self) -> pulumi.Output[Optional[str]]:
+        """
+        Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, the provider will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+        """
         return pulumi.get(self, "renew_before")
 
     @property

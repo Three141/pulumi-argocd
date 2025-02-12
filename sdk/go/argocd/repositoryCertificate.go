@@ -12,6 +12,47 @@ import (
 )
 
 // Manages [custom TLS certificates](https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/#self-signed-untrusted-tls-certificates) used by ArgoCD for connecting Git repositories.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/Three141/pulumi-argocd/sdk/go/argocd"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// HTTPS certificate
+//			_, err := argocd.NewRepositoryCertificate(ctx, "private-git-repository-https", &argocd.RepositoryCertificateArgs{
+//				Https: &argocd.RepositoryCertificateHttpsArgs{
+//					ServerName: pulumi.String("private-git-repository.local"),
+//					CertData:   pulumi.String("-----BEGIN CERTIFICATE-----\\nfoo\\nbar\\n-----END CERTIFICATE-----\n"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// SSH certificate
+//			_, err = argocd.NewRepositoryCertificate(ctx, "private-git-repository-ssh", &argocd.RepositoryCertificateArgs{
+//				Ssh: &argocd.RepositoryCertificateSshArgs{
+//					ServerName:  pulumi.String("private-git-repository.local"),
+//					CertSubtype: pulumi.String("ssh-rsa"),
+//					CertData:    pulumi.String("AAAAB3NzaC1yc2EAAAADAQABAAABgQCiPZAufKgxwRgxP9qy2Gtub0FI8qJGtL8Ldb7KatBeRUQQPn8QK7ZYjzYDvP1GOutFMaQT0rKIqaGImIBsztNCno...\n"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type RepositoryCertificate struct {
 	pulumi.CustomResourceState
 

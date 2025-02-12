@@ -109,6 +109,25 @@ class RepositoryCertificate(pulumi.CustomResource):
         """
         Manages [custom TLS certificates](https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/#self-signed-untrusted-tls-certificates) used by ArgoCD for connecting Git repositories.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_argocd as argocd
+
+        # HTTPS certificate
+        private_git_repository_https = argocd.RepositoryCertificate("private-git-repository-https", https={
+            "server_name": "private-git-repository.local",
+            "cert_data": "-----BEGIN CERTIFICATE-----\\\\nfoo\\\\nbar\\\\n-----END CERTIFICATE-----\\n",
+        })
+        # SSH certificate
+        private_git_repository_ssh = argocd.RepositoryCertificate("private-git-repository-ssh", ssh={
+            "server_name": "private-git-repository.local",
+            "cert_subtype": "ssh-rsa",
+            "cert_data": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCiPZAufKgxwRgxP9qy2Gtub0FI8qJGtL8Ldb7KatBeRUQQPn8QK7ZYjzYDvP1GOutFMaQT0rKIqaGImIBsztNCno...\\n",
+        })
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RepositoryCertificateHttpsArgs', 'RepositoryCertificateHttpsArgsDict']] https: Defines a `https` certificate.
@@ -122,6 +141,25 @@ class RepositoryCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages [custom TLS certificates](https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/#self-signed-untrusted-tls-certificates) used by ArgoCD for connecting Git repositories.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_argocd as argocd
+
+        # HTTPS certificate
+        private_git_repository_https = argocd.RepositoryCertificate("private-git-repository-https", https={
+            "server_name": "private-git-repository.local",
+            "cert_data": "-----BEGIN CERTIFICATE-----\\\\nfoo\\\\nbar\\\\n-----END CERTIFICATE-----\\n",
+        })
+        # SSH certificate
+        private_git_repository_ssh = argocd.RepositoryCertificate("private-git-repository-ssh", ssh={
+            "server_name": "private-git-repository.local",
+            "cert_subtype": "ssh-rsa",
+            "cert_data": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCiPZAufKgxwRgxP9qy2Gtub0FI8qJGtL8Ldb7KatBeRUQQPn8QK7ZYjzYDvP1GOutFMaQT0rKIqaGImIBsztNCno...\\n",
+        })
+        ```
 
         :param str resource_name: The name of the resource.
         :param RepositoryCertificateArgs args: The arguments to use to populate this resource's properties.

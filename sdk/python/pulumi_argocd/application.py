@@ -32,6 +32,7 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationSpecArgs'] spec: The application specification.
         :param pulumi.Input[bool] cascade: Whether to applying cascading deletion when application is removed.
         :param pulumi.Input[bool] validate: Whether to validate the application spec before creating or updating the application.
+        :param pulumi.Input[bool] wait: Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
         """
         pulumi.set(__self__, "metadata", metadata)
         pulumi.set(__self__, "spec", spec)
@@ -93,6 +94,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def wait(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
+        """
         return pulumi.get(self, "wait")
 
     @wait.setter
@@ -116,6 +120,7 @@ class _ApplicationState:
         :param pulumi.Input['ApplicationSpecArgs'] spec: The application specification.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationStatusArgs']]] statuses: Status information for the application. **Note**: this is not guaranteed to be up to date immediately after creating/updating an application unless `wait=true`.
         :param pulumi.Input[bool] validate: Whether to validate the application spec before creating or updating the application.
+        :param pulumi.Input[bool] wait: Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
         """
         if cascade is not None:
             pulumi.set(__self__, "cascade", cascade)
@@ -193,6 +198,9 @@ class _ApplicationState:
     @property
     @pulumi.getter
     def wait(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
+        """
         return pulumi.get(self, "wait")
 
     @wait.setter
@@ -214,6 +222,154 @@ class Application(pulumi.CustomResource):
         """
         Manages [applications](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#applications) within ArgoCD.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_argocd as argocd
+
+        # Kustomize application
+        kustomize = argocd.Application("kustomize",
+            metadata={
+                "name": "kustomize-app",
+                "namespace": "argocd",
+                "labels": {
+                    "test": "true",
+                },
+            },
+            cascade=False,
+            wait=True,
+            spec={
+                "project": "myproject",
+                "destination": {
+                    "server": "https://kubernetes.default.svc",
+                    "namespace": "foo",
+                },
+                "sources": [{
+                    "repo_url": "https://github.com/kubernetes-sigs/kustomize",
+                    "path": "examples/helloWorld",
+                    "target_revision": "master",
+                    "kustomize": {
+                        "name_prefix": "foo-",
+                        "name_suffix": "-bar",
+                        "images": ["hashicorp/terraform:light"],
+                        "common_labels": {
+                            "this.is.a.common": "la-bel",
+                            "another.io/one": "true",
+                        },
+                    },
+                }],
+                "sync_policy": {
+                    "automated": {
+                        "prune": True,
+                        "self_heal": True,
+                        "allow_empty": True,
+                    },
+                    "sync_options": ["Validate=false"],
+                    "retry": {
+                        "limit": "5",
+                        "backoff": {
+                            "duration": "30s",
+                            "max_duration": "2m",
+                            "factor": "2",
+                        },
+                    },
+                },
+                "ignore_differences": [
+                    {
+                        "group": "apps",
+                        "kind": "Deployment",
+                        "json_pointers": ["/spec/replicas"],
+                    },
+                    {
+                        "group": "apps",
+                        "kind": "StatefulSet",
+                        "name": "someStatefulSet",
+                        "json_pointers": [
+                            "/spec/replicas",
+                            "/spec/template/spec/metadata/labels/bar",
+                        ],
+                        "jq_path_expressions": [
+                            ".spec.replicas",
+                            ".spec.template.spec.metadata.labels.bar",
+                        ],
+                    },
+                ],
+            })
+        # Helm application
+        helm = argocd.Application("helm",
+            metadata={
+                "name": "helm-app",
+                "namespace": "argocd",
+                "labels": {
+                    "test": "true",
+                },
+            },
+            spec={
+                "destination": {
+                    "server": "https://kubernetes.default.svc",
+                    "namespace": "default",
+                },
+                "sources": [{
+                    "repo_url": "https://some.chart.repo.io",
+                    "chart": "mychart",
+                    "target_revision": "1.2.3",
+                    "helm": {
+                        "release_name": "testing",
+                        "parameters": [
+                            {
+                                "name": "image.tag",
+                                "value": "1.2.3",
+                            },
+                            {
+                                "name": "someotherparameter",
+                                "value": "true",
+                            },
+                        ],
+                        "value_files": ["values-test.yml"],
+                        "values": json.dumps({
+                            "someparameter": {
+                                "enabled": True,
+                                "someArray": [
+                                    "foo",
+                                    "bar",
+                                ],
+                            },
+                        }),
+                    },
+                }],
+            })
+        # Multiple Application Sources with Helm value files from external Git repository
+        multiple_sources = argocd.Application("multiple_sources",
+            metadata={
+                "name": "helm-app-with-external-values",
+                "namespace": "argocd",
+            },
+            spec={
+                "project": "default",
+                "sources": [
+                    {
+                        "repo_url": "https://charts.helm.sh/stable",
+                        "chart": "wordpress",
+                        "target_revision": "9.0.3",
+                        "helm": {
+                            "value_files": ["$values/helm-dependency/values.yaml"],
+                        },
+                    },
+                    {
+                        "repo_url": "https://github.com/argoproj/argocd-example-apps.git",
+                        "target_revision": "HEAD",
+                        "ref": "values",
+                    },
+                ],
+                "destination": {
+                    "server": "https://kubernetes.default.svc",
+                    "namespace": "default",
+                },
+            })
+        ```
+
         ## Import
 
         ArgoCD applications can be imported using an id consisting of `{name}:{namespace}`. E.g.
@@ -228,6 +384,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Union['ApplicationMetadataArgs', 'ApplicationMetadataArgsDict']] metadata: Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
         :param pulumi.Input[Union['ApplicationSpecArgs', 'ApplicationSpecArgsDict']] spec: The application specification.
         :param pulumi.Input[bool] validate: Whether to validate the application spec before creating or updating the application.
+        :param pulumi.Input[bool] wait: Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
         """
         ...
     @overload
@@ -237,6 +394,154 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages [applications](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#applications) within ArgoCD.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_argocd as argocd
+
+        # Kustomize application
+        kustomize = argocd.Application("kustomize",
+            metadata={
+                "name": "kustomize-app",
+                "namespace": "argocd",
+                "labels": {
+                    "test": "true",
+                },
+            },
+            cascade=False,
+            wait=True,
+            spec={
+                "project": "myproject",
+                "destination": {
+                    "server": "https://kubernetes.default.svc",
+                    "namespace": "foo",
+                },
+                "sources": [{
+                    "repo_url": "https://github.com/kubernetes-sigs/kustomize",
+                    "path": "examples/helloWorld",
+                    "target_revision": "master",
+                    "kustomize": {
+                        "name_prefix": "foo-",
+                        "name_suffix": "-bar",
+                        "images": ["hashicorp/terraform:light"],
+                        "common_labels": {
+                            "this.is.a.common": "la-bel",
+                            "another.io/one": "true",
+                        },
+                    },
+                }],
+                "sync_policy": {
+                    "automated": {
+                        "prune": True,
+                        "self_heal": True,
+                        "allow_empty": True,
+                    },
+                    "sync_options": ["Validate=false"],
+                    "retry": {
+                        "limit": "5",
+                        "backoff": {
+                            "duration": "30s",
+                            "max_duration": "2m",
+                            "factor": "2",
+                        },
+                    },
+                },
+                "ignore_differences": [
+                    {
+                        "group": "apps",
+                        "kind": "Deployment",
+                        "json_pointers": ["/spec/replicas"],
+                    },
+                    {
+                        "group": "apps",
+                        "kind": "StatefulSet",
+                        "name": "someStatefulSet",
+                        "json_pointers": [
+                            "/spec/replicas",
+                            "/spec/template/spec/metadata/labels/bar",
+                        ],
+                        "jq_path_expressions": [
+                            ".spec.replicas",
+                            ".spec.template.spec.metadata.labels.bar",
+                        ],
+                    },
+                ],
+            })
+        # Helm application
+        helm = argocd.Application("helm",
+            metadata={
+                "name": "helm-app",
+                "namespace": "argocd",
+                "labels": {
+                    "test": "true",
+                },
+            },
+            spec={
+                "destination": {
+                    "server": "https://kubernetes.default.svc",
+                    "namespace": "default",
+                },
+                "sources": [{
+                    "repo_url": "https://some.chart.repo.io",
+                    "chart": "mychart",
+                    "target_revision": "1.2.3",
+                    "helm": {
+                        "release_name": "testing",
+                        "parameters": [
+                            {
+                                "name": "image.tag",
+                                "value": "1.2.3",
+                            },
+                            {
+                                "name": "someotherparameter",
+                                "value": "true",
+                            },
+                        ],
+                        "value_files": ["values-test.yml"],
+                        "values": json.dumps({
+                            "someparameter": {
+                                "enabled": True,
+                                "someArray": [
+                                    "foo",
+                                    "bar",
+                                ],
+                            },
+                        }),
+                    },
+                }],
+            })
+        # Multiple Application Sources with Helm value files from external Git repository
+        multiple_sources = argocd.Application("multiple_sources",
+            metadata={
+                "name": "helm-app-with-external-values",
+                "namespace": "argocd",
+            },
+            spec={
+                "project": "default",
+                "sources": [
+                    {
+                        "repo_url": "https://charts.helm.sh/stable",
+                        "chart": "wordpress",
+                        "target_revision": "9.0.3",
+                        "helm": {
+                            "value_files": ["$values/helm-dependency/values.yaml"],
+                        },
+                    },
+                    {
+                        "repo_url": "https://github.com/argoproj/argocd-example-apps.git",
+                        "target_revision": "HEAD",
+                        "ref": "values",
+                    },
+                ],
+                "destination": {
+                    "server": "https://kubernetes.default.svc",
+                    "namespace": "default",
+                },
+            })
+        ```
 
         ## Import
 
@@ -313,6 +618,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Union['ApplicationSpecArgs', 'ApplicationSpecArgsDict']] spec: The application specification.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationStatusArgs', 'ApplicationStatusArgsDict']]]] statuses: Status information for the application. **Note**: this is not guaranteed to be up to date immediately after creating/updating an application unless `wait=true`.
         :param pulumi.Input[bool] validate: Whether to validate the application spec before creating or updating the application.
+        :param pulumi.Input[bool] wait: Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -369,5 +675,8 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter
     def wait(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
+        """
         return pulumi.get(self, "wait")
 
