@@ -5,20 +5,55 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
-export const getApplication: typeof import("./getApplication").getApplication = null as any;
-export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
-utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+export { AccountTokenArgs, AccountTokenState } from "./accountToken";
+export type AccountToken = import("./accountToken").AccountToken;
+export const AccountToken: typeof import("./accountToken").AccountToken = null as any;
+utilities.lazyLoad(exports, ["AccountToken"], () => require("./accountToken"));
 
-export { GpgKeyArgs, GpgKeyState } from "./gpgKey";
-export type GpgKey = import("./gpgKey").GpgKey;
-export const GpgKey: typeof import("./gpgKey").GpgKey = null as any;
-utilities.lazyLoad(exports, ["GpgKey"], () => require("./gpgKey"));
+export { ApplicationArgs, ApplicationState } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+
+export { ApplicationSetArgs, ApplicationSetState } from "./applicationSet";
+export type ApplicationSet = import("./applicationSet").ApplicationSet;
+export const ApplicationSet: typeof import("./applicationSet").ApplicationSet = null as any;
+utilities.lazyLoad(exports, ["ApplicationSet"], () => require("./applicationSet"));
+
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+
+export { ProjectArgs, ProjectState } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+
+export { ProjectTokenArgs, ProjectTokenState } from "./projectToken";
+export type ProjectToken = import("./projectToken").ProjectToken;
+export const ProjectToken: typeof import("./projectToken").ProjectToken = null as any;
+utilities.lazyLoad(exports, ["ProjectToken"], () => require("./projectToken"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
+export { RepositoryArgs, RepositoryState } from "./repository";
+export type Repository = import("./repository").Repository;
+export const Repository: typeof import("./repository").Repository = null as any;
+utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
+
+export { RepositoryCertificateArgs, RepositoryCertificateState } from "./repositoryCertificate";
+export type RepositoryCertificate = import("./repositoryCertificate").RepositoryCertificate;
+export const RepositoryCertificate: typeof import("./repositoryCertificate").RepositoryCertificate = null as any;
+utilities.lazyLoad(exports, ["RepositoryCertificate"], () => require("./repositoryCertificate"));
+
+export { RepositoryCredentialsArgs, RepositoryCredentialsState } from "./repositoryCredentials";
+export type RepositoryCredentials = import("./repositoryCredentials").RepositoryCredentials;
+export const RepositoryCredentials: typeof import("./repositoryCredentials").RepositoryCredentials = null as any;
+utilities.lazyLoad(exports, ["RepositoryCredentials"], () => require("./repositoryCredentials"));
 
 
 // Export sub-modules:
@@ -34,14 +69,38 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "argocd:index/gpgKey:GpgKey":
-                return new GpgKey(name, <any>undefined, { urn })
+            case "argocd:index/accountToken:AccountToken":
+                return new AccountToken(name, <any>undefined, { urn })
+            case "argocd:index/application:Application":
+                return new Application(name, <any>undefined, { urn })
+            case "argocd:index/applicationSet:ApplicationSet":
+                return new ApplicationSet(name, <any>undefined, { urn })
+            case "argocd:index/cluster:Cluster":
+                return new Cluster(name, <any>undefined, { urn })
+            case "argocd:index/project:Project":
+                return new Project(name, <any>undefined, { urn })
+            case "argocd:index/projectToken:ProjectToken":
+                return new ProjectToken(name, <any>undefined, { urn })
+            case "argocd:index/repository:Repository":
+                return new Repository(name, <any>undefined, { urn })
+            case "argocd:index/repositoryCertificate:RepositoryCertificate":
+                return new RepositoryCertificate(name, <any>undefined, { urn })
+            case "argocd:index/repositoryCredentials:RepositoryCredentials":
+                return new RepositoryCredentials(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("argocd", "index/gpgKey", _module)
+pulumi.runtime.registerResourceModule("argocd", "index/accountToken", _module)
+pulumi.runtime.registerResourceModule("argocd", "index/application", _module)
+pulumi.runtime.registerResourceModule("argocd", "index/applicationSet", _module)
+pulumi.runtime.registerResourceModule("argocd", "index/cluster", _module)
+pulumi.runtime.registerResourceModule("argocd", "index/project", _module)
+pulumi.runtime.registerResourceModule("argocd", "index/projectToken", _module)
+pulumi.runtime.registerResourceModule("argocd", "index/repository", _module)
+pulumi.runtime.registerResourceModule("argocd", "index/repositoryCertificate", _module)
+pulumi.runtime.registerResourceModule("argocd", "index/repositoryCredentials", _module)
 pulumi.runtime.registerResourcePackage("argocd", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

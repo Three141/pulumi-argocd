@@ -22,9 +22,9 @@ import (
 
 	argocd "github.com/argoproj-labs/terraform-provider-argocd/shim" // Import the upstream provider
 
-	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 
 	"github.com/Three141/pulumi-argocd/provider/pkg/version"
@@ -106,7 +106,7 @@ func Provider() tfbridge.ProviderInfo {
 		// - "github.com/hashicorp/terraform-plugin-framework/provider".Provider (for plugin-framework)
 		//
 		//nolint:lll
-		P: pfbridge.ShimProvider(*argocd.Provider(version.Version)),
+		P: shimv2.NewProvider(argocd.Provider()),
 
 		Name:    "argocd",
 		Version: version.Version,
@@ -121,7 +121,7 @@ func Provider() tfbridge.ProviderInfo {
 		//
 		// You may host a logo on a domain you control or add an PNG logo (100x100) for your package
 		// in your repository and use the raw content URL for that file as your logo URL.
-		LogoURL: "",
+		LogoURL: "https://argo-cd.readthedocs.io/en/stable/assets/logo.png",
 		// PluginDownloadURL is an optional URL used to download the Provider
 		// for use in Pulumi programs
 		// e.g. https://github.com/org/pulumi-provider-name/releases/download/v${VERSION}/
