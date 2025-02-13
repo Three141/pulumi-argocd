@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as argocd from "@pulumi/argocd";
+ * import * as argocd from "@three14/pulumi-argocd";
  *
  * // Kustomize application
  * const kustomize = new argocd.Application("kustomize", {
@@ -168,149 +168,162 @@ import * as utilities from "./utilities";
  * ```
  */
 export class Application extends pulumi.CustomResource {
-    /**
-     * Get an existing Application resource's state with the given name, ID, and optional extra
-     * properties used to qualify the lookup.
-     *
-     * @param name The _unique_ name of the resulting resource.
-     * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
-     * @param opts Optional settings to control the behavior of the CustomResource.
-     */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ApplicationState, opts?: pulumi.CustomResourceOptions): Application {
-        return new Application(name, <any>state, { ...opts, id: id });
+  /**
+   * Get an existing Application resource's state with the given name, ID, and optional extra
+   * properties used to qualify the lookup.
+   *
+   * @param name The _unique_ name of the resulting resource.
+   * @param id The _unique_ provider ID of the resource to lookup.
+   * @param state Any extra arguments used during the lookup.
+   * @param opts Optional settings to control the behavior of the CustomResource.
+   */
+  public static get(
+    name: string,
+    id: pulumi.Input<pulumi.ID>,
+    state?: ApplicationState,
+    opts?: pulumi.CustomResourceOptions
+  ): Application {
+    return new Application(name, <any>state, { ...opts, id: id });
+  }
+
+  /** @internal */
+  public static readonly __pulumiType = "argocd:index/application:Application";
+
+  /**
+   * Returns true if the given object is an instance of Application.  This is designed to work even
+   * when multiple copies of the Pulumi SDK have been loaded into the same process.
+   */
+  public static isInstance(obj: any): obj is Application {
+    if (obj === undefined || obj === null) {
+      return false;
     }
+    return obj["__pulumiType"] === Application.__pulumiType;
+  }
 
-    /** @internal */
-    public static readonly __pulumiType = 'argocd:index/application:Application';
+  /**
+   * Whether to applying cascading deletion when application is removed.
+   */
+  public readonly cascade!: pulumi.Output<boolean | undefined>;
+  /**
+   * Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
+   */
+  public readonly metadata!: pulumi.Output<outputs.ApplicationMetadata>;
+  /**
+   * The application specification.
+   */
+  public readonly spec!: pulumi.Output<outputs.ApplicationSpec>;
+  /**
+   * Status information for the application. **Note**: this is not guaranteed to be up to date immediately after creating/updating an application unless `wait=true`.
+   */
+  public readonly /*out*/ statuses!: pulumi.Output<outputs.ApplicationStatus[]>;
+  /**
+   * Whether to validate the application spec before creating or updating the application.
+   */
+  public readonly validate!: pulumi.Output<boolean | undefined>;
+  /**
+   * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+   */
+  public readonly wait!: pulumi.Output<boolean | undefined>;
 
-    /**
-     * Returns true if the given object is an instance of Application.  This is designed to work even
-     * when multiple copies of the Pulumi SDK have been loaded into the same process.
-     */
-    public static isInstance(obj: any): obj is Application {
-        if (obj === undefined || obj === null) {
-            return false;
-        }
-        return obj['__pulumiType'] === Application.__pulumiType;
+  /**
+   * Create a Application resource with the given unique name, arguments, and options.
+   *
+   * @param name The _unique_ name of the resource.
+   * @param args The arguments to use to populate this resource's properties.
+   * @param opts A bag of options that control this resource's behavior.
+   */
+  constructor(
+    name: string,
+    args: ApplicationArgs,
+    opts?: pulumi.CustomResourceOptions
+  );
+  constructor(
+    name: string,
+    argsOrState?: ApplicationArgs | ApplicationState,
+    opts?: pulumi.CustomResourceOptions
+  ) {
+    let resourceInputs: pulumi.Inputs = {};
+    opts = opts || {};
+    if (opts.id) {
+      const state = argsOrState as ApplicationState | undefined;
+      resourceInputs["cascade"] = state ? state.cascade : undefined;
+      resourceInputs["metadata"] = state ? state.metadata : undefined;
+      resourceInputs["spec"] = state ? state.spec : undefined;
+      resourceInputs["statuses"] = state ? state.statuses : undefined;
+      resourceInputs["validate"] = state ? state.validate : undefined;
+      resourceInputs["wait"] = state ? state.wait : undefined;
+    } else {
+      const args = argsOrState as ApplicationArgs | undefined;
+      if ((!args || args.metadata === undefined) && !opts.urn) {
+        throw new Error("Missing required property 'metadata'");
+      }
+      if ((!args || args.spec === undefined) && !opts.urn) {
+        throw new Error("Missing required property 'spec'");
+      }
+      resourceInputs["cascade"] = args ? args.cascade : undefined;
+      resourceInputs["metadata"] = args ? args.metadata : undefined;
+      resourceInputs["spec"] = args ? args.spec : undefined;
+      resourceInputs["validate"] = args ? args.validate : undefined;
+      resourceInputs["wait"] = args ? args.wait : undefined;
+      resourceInputs["statuses"] = undefined /*out*/;
     }
-
-    /**
-     * Whether to applying cascading deletion when application is removed.
-     */
-    public readonly cascade!: pulumi.Output<boolean | undefined>;
-    /**
-     * Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
-     */
-    public readonly metadata!: pulumi.Output<outputs.ApplicationMetadata>;
-    /**
-     * The application specification.
-     */
-    public readonly spec!: pulumi.Output<outputs.ApplicationSpec>;
-    /**
-     * Status information for the application. **Note**: this is not guaranteed to be up to date immediately after creating/updating an application unless `wait=true`.
-     */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.ApplicationStatus[]>;
-    /**
-     * Whether to validate the application spec before creating or updating the application.
-     */
-    public readonly validate!: pulumi.Output<boolean | undefined>;
-    /**
-     * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
-     */
-    public readonly wait!: pulumi.Output<boolean | undefined>;
-
-    /**
-     * Create a Application resource with the given unique name, arguments, and options.
-     *
-     * @param name The _unique_ name of the resource.
-     * @param args The arguments to use to populate this resource's properties.
-     * @param opts A bag of options that control this resource's behavior.
-     */
-    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let resourceInputs: pulumi.Inputs = {};
-        opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as ApplicationState | undefined;
-            resourceInputs["cascade"] = state ? state.cascade : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["spec"] = state ? state.spec : undefined;
-            resourceInputs["statuses"] = state ? state.statuses : undefined;
-            resourceInputs["validate"] = state ? state.validate : undefined;
-            resourceInputs["wait"] = state ? state.wait : undefined;
-        } else {
-            const args = argsOrState as ApplicationArgs | undefined;
-            if ((!args || args.metadata === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'metadata'");
-            }
-            if ((!args || args.spec === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'spec'");
-            }
-            resourceInputs["cascade"] = args ? args.cascade : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["spec"] = args ? args.spec : undefined;
-            resourceInputs["validate"] = args ? args.validate : undefined;
-            resourceInputs["wait"] = args ? args.wait : undefined;
-            resourceInputs["statuses"] = undefined /*out*/;
-        }
-        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Application.__pulumiType, name, resourceInputs, opts);
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    super(Application.__pulumiType, name, resourceInputs, opts);
+  }
 }
 
 /**
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
-    /**
-     * Whether to applying cascading deletion when application is removed.
-     */
-    cascade?: pulumi.Input<boolean>;
-    /**
-     * Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
-     */
-    metadata?: pulumi.Input<inputs.ApplicationMetadata>;
-    /**
-     * The application specification.
-     */
-    spec?: pulumi.Input<inputs.ApplicationSpec>;
-    /**
-     * Status information for the application. **Note**: this is not guaranteed to be up to date immediately after creating/updating an application unless `wait=true`.
-     */
-    statuses?: pulumi.Input<pulumi.Input<inputs.ApplicationStatus>[]>;
-    /**
-     * Whether to validate the application spec before creating or updating the application.
-     */
-    validate?: pulumi.Input<boolean>;
-    /**
-     * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
-     */
-    wait?: pulumi.Input<boolean>;
+  /**
+   * Whether to applying cascading deletion when application is removed.
+   */
+  cascade?: pulumi.Input<boolean>;
+  /**
+   * Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
+   */
+  metadata?: pulumi.Input<inputs.ApplicationMetadata>;
+  /**
+   * The application specification.
+   */
+  spec?: pulumi.Input<inputs.ApplicationSpec>;
+  /**
+   * Status information for the application. **Note**: this is not guaranteed to be up to date immediately after creating/updating an application unless `wait=true`.
+   */
+  statuses?: pulumi.Input<pulumi.Input<inputs.ApplicationStatus>[]>;
+  /**
+   * Whether to validate the application spec before creating or updating the application.
+   */
+  validate?: pulumi.Input<boolean>;
+  /**
+   * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+   */
+  wait?: pulumi.Input<boolean>;
 }
 
 /**
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    /**
-     * Whether to applying cascading deletion when application is removed.
-     */
-    cascade?: pulumi.Input<boolean>;
-    /**
-     * Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
-     */
-    metadata: pulumi.Input<inputs.ApplicationMetadata>;
-    /**
-     * The application specification.
-     */
-    spec: pulumi.Input<inputs.ApplicationSpec>;
-    /**
-     * Whether to validate the application spec before creating or updating the application.
-     */
-    validate?: pulumi.Input<boolean>;
-    /**
-     * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
-     */
-    wait?: pulumi.Input<boolean>;
+  /**
+   * Whether to applying cascading deletion when application is removed.
+   */
+  cascade?: pulumi.Input<boolean>;
+  /**
+   * Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
+   */
+  metadata: pulumi.Input<inputs.ApplicationMetadata>;
+  /**
+   * The application specification.
+   */
+  spec: pulumi.Input<inputs.ApplicationSpec>;
+  /**
+   * Whether to validate the application spec before creating or updating the application.
+   */
+  validate?: pulumi.Input<boolean>;
+  /**
+   * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
+   */
+  wait?: pulumi.Input<boolean>;
 }

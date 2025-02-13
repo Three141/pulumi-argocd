@@ -1,5 +1,5 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as argocd from "@pulumi/argocd";
+import * as argocd from "@three14/pulumi-argocd";
 
 const provider = new argocd.Provider("argocd", {
   serverAddr: "localhost:8080",

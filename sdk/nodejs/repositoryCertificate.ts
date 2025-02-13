@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as argocd from "@pulumi/argocd";
+ * import * as argocd from "@three14/pulumi-argocd";
  *
  * // HTTPS certificate
  * const private_git_repository_https = new argocd.RepositoryCertificate("private-git-repository-https", {https: {
@@ -29,91 +29,109 @@ import * as utilities from "./utilities";
  * ```
  */
 export class RepositoryCertificate extends pulumi.CustomResource {
-    /**
-     * Get an existing RepositoryCertificate resource's state with the given name, ID, and optional extra
-     * properties used to qualify the lookup.
-     *
-     * @param name The _unique_ name of the resulting resource.
-     * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
-     * @param opts Optional settings to control the behavior of the CustomResource.
-     */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RepositoryCertificateState, opts?: pulumi.CustomResourceOptions): RepositoryCertificate {
-        return new RepositoryCertificate(name, <any>state, { ...opts, id: id });
+  /**
+   * Get an existing RepositoryCertificate resource's state with the given name, ID, and optional extra
+   * properties used to qualify the lookup.
+   *
+   * @param name The _unique_ name of the resulting resource.
+   * @param id The _unique_ provider ID of the resource to lookup.
+   * @param state Any extra arguments used during the lookup.
+   * @param opts Optional settings to control the behavior of the CustomResource.
+   */
+  public static get(
+    name: string,
+    id: pulumi.Input<pulumi.ID>,
+    state?: RepositoryCertificateState,
+    opts?: pulumi.CustomResourceOptions
+  ): RepositoryCertificate {
+    return new RepositoryCertificate(name, <any>state, { ...opts, id: id });
+  }
+
+  /** @internal */
+  public static readonly __pulumiType =
+    "argocd:index/repositoryCertificate:RepositoryCertificate";
+
+  /**
+   * Returns true if the given object is an instance of RepositoryCertificate.  This is designed to work even
+   * when multiple copies of the Pulumi SDK have been loaded into the same process.
+   */
+  public static isInstance(obj: any): obj is RepositoryCertificate {
+    if (obj === undefined || obj === null) {
+      return false;
     }
+    return obj["__pulumiType"] === RepositoryCertificate.__pulumiType;
+  }
 
-    /** @internal */
-    public static readonly __pulumiType = 'argocd:index/repositoryCertificate:RepositoryCertificate';
+  /**
+   * Defines a `https` certificate.
+   */
+  public readonly https!: pulumi.Output<
+    outputs.RepositoryCertificateHttps | undefined
+  >;
+  /**
+   * Defines a `ssh` certificate.
+   */
+  public readonly ssh!: pulumi.Output<
+    outputs.RepositoryCertificateSsh | undefined
+  >;
 
-    /**
-     * Returns true if the given object is an instance of RepositoryCertificate.  This is designed to work even
-     * when multiple copies of the Pulumi SDK have been loaded into the same process.
-     */
-    public static isInstance(obj: any): obj is RepositoryCertificate {
-        if (obj === undefined || obj === null) {
-            return false;
-        }
-        return obj['__pulumiType'] === RepositoryCertificate.__pulumiType;
+  /**
+   * Create a RepositoryCertificate resource with the given unique name, arguments, and options.
+   *
+   * @param name The _unique_ name of the resource.
+   * @param args The arguments to use to populate this resource's properties.
+   * @param opts A bag of options that control this resource's behavior.
+   */
+  constructor(
+    name: string,
+    args?: RepositoryCertificateArgs,
+    opts?: pulumi.CustomResourceOptions
+  );
+  constructor(
+    name: string,
+    argsOrState?: RepositoryCertificateArgs | RepositoryCertificateState,
+    opts?: pulumi.CustomResourceOptions
+  ) {
+    let resourceInputs: pulumi.Inputs = {};
+    opts = opts || {};
+    if (opts.id) {
+      const state = argsOrState as RepositoryCertificateState | undefined;
+      resourceInputs["https"] = state ? state.https : undefined;
+      resourceInputs["ssh"] = state ? state.ssh : undefined;
+    } else {
+      const args = argsOrState as RepositoryCertificateArgs | undefined;
+      resourceInputs["https"] = args ? args.https : undefined;
+      resourceInputs["ssh"] = args ? args.ssh : undefined;
     }
-
-    /**
-     * Defines a `https` certificate.
-     */
-    public readonly https!: pulumi.Output<outputs.RepositoryCertificateHttps | undefined>;
-    /**
-     * Defines a `ssh` certificate.
-     */
-    public readonly ssh!: pulumi.Output<outputs.RepositoryCertificateSsh | undefined>;
-
-    /**
-     * Create a RepositoryCertificate resource with the given unique name, arguments, and options.
-     *
-     * @param name The _unique_ name of the resource.
-     * @param args The arguments to use to populate this resource's properties.
-     * @param opts A bag of options that control this resource's behavior.
-     */
-    constructor(name: string, args?: RepositoryCertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RepositoryCertificateArgs | RepositoryCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let resourceInputs: pulumi.Inputs = {};
-        opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as RepositoryCertificateState | undefined;
-            resourceInputs["https"] = state ? state.https : undefined;
-            resourceInputs["ssh"] = state ? state.ssh : undefined;
-        } else {
-            const args = argsOrState as RepositoryCertificateArgs | undefined;
-            resourceInputs["https"] = args ? args.https : undefined;
-            resourceInputs["ssh"] = args ? args.ssh : undefined;
-        }
-        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RepositoryCertificate.__pulumiType, name, resourceInputs, opts);
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    super(RepositoryCertificate.__pulumiType, name, resourceInputs, opts);
+  }
 }
 
 /**
  * Input properties used for looking up and filtering RepositoryCertificate resources.
  */
 export interface RepositoryCertificateState {
-    /**
-     * Defines a `https` certificate.
-     */
-    https?: pulumi.Input<inputs.RepositoryCertificateHttps>;
-    /**
-     * Defines a `ssh` certificate.
-     */
-    ssh?: pulumi.Input<inputs.RepositoryCertificateSsh>;
+  /**
+   * Defines a `https` certificate.
+   */
+  https?: pulumi.Input<inputs.RepositoryCertificateHttps>;
+  /**
+   * Defines a `ssh` certificate.
+   */
+  ssh?: pulumi.Input<inputs.RepositoryCertificateSsh>;
 }
 
 /**
  * The set of arguments for constructing a RepositoryCertificate resource.
  */
 export interface RepositoryCertificateArgs {
-    /**
-     * Defines a `https` certificate.
-     */
-    https?: pulumi.Input<inputs.RepositoryCertificateHttps>;
-    /**
-     * Defines a `ssh` certificate.
-     */
-    ssh?: pulumi.Input<inputs.RepositoryCertificateSsh>;
+  /**
+   * Defines a `https` certificate.
+   */
+  https?: pulumi.Input<inputs.RepositoryCertificateHttps>;
+  /**
+   * Defines a `ssh` certificate.
+   */
+  ssh?: pulumi.Input<inputs.RepositoryCertificateSsh>;
 }

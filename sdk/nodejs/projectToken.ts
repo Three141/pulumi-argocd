@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as argocd from "@pulumi/argocd";
+ * import * as argocd from "@three14/pulumi-argocd";
  *
  * const secret = new argocd.ProjectToken("secret", {
  *     project: "someproject",
@@ -23,185 +23,199 @@ import * as utilities from "./utilities";
  * ```
  */
 export class ProjectToken extends pulumi.CustomResource {
-    /**
-     * Get an existing ProjectToken resource's state with the given name, ID, and optional extra
-     * properties used to qualify the lookup.
-     *
-     * @param name The _unique_ name of the resulting resource.
-     * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
-     * @param opts Optional settings to control the behavior of the CustomResource.
-     */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProjectTokenState, opts?: pulumi.CustomResourceOptions): ProjectToken {
-        return new ProjectToken(name, <any>state, { ...opts, id: id });
+  /**
+   * Get an existing ProjectToken resource's state with the given name, ID, and optional extra
+   * properties used to qualify the lookup.
+   *
+   * @param name The _unique_ name of the resulting resource.
+   * @param id The _unique_ provider ID of the resource to lookup.
+   * @param state Any extra arguments used during the lookup.
+   * @param opts Optional settings to control the behavior of the CustomResource.
+   */
+  public static get(
+    name: string,
+    id: pulumi.Input<pulumi.ID>,
+    state?: ProjectTokenState,
+    opts?: pulumi.CustomResourceOptions
+  ): ProjectToken {
+    return new ProjectToken(name, <any>state, { ...opts, id: id });
+  }
+
+  /** @internal */
+  public static readonly __pulumiType =
+    "argocd:index/projectToken:ProjectToken";
+
+  /**
+   * Returns true if the given object is an instance of ProjectToken.  This is designed to work even
+   * when multiple copies of the Pulumi SDK have been loaded into the same process.
+   */
+  public static isInstance(obj: any): obj is ProjectToken {
+    if (obj === undefined || obj === null) {
+      return false;
     }
+    return obj["__pulumiType"] === ProjectToken.__pulumiType;
+  }
 
-    /** @internal */
-    public static readonly __pulumiType = 'argocd:index/projectToken:ProjectToken';
+  /**
+   * Description of the token.
+   */
+  public readonly description!: pulumi.Output<string | undefined>;
+  /**
+   * If `expiresIn` is set, Unix timestamp upon which the token will expire.
+   */
+  public readonly /*out*/ expiresAt!: pulumi.Output<string>;
+  /**
+   * Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
+   */
+  public readonly expiresIn!: pulumi.Output<string | undefined>;
+  /**
+   * Unix timestamp at which the token was issued.
+   */
+  public readonly /*out*/ issuedAt!: pulumi.Output<string>;
+  /**
+   * The raw JWT.
+   */
+  public readonly /*out*/ jwt!: pulumi.Output<string>;
+  /**
+   * The project associated with the token.
+   */
+  public readonly project!: pulumi.Output<string>;
+  /**
+   * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
+   */
+  public readonly renewAfter!: pulumi.Output<string | undefined>;
+  /**
+   * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+   */
+  public readonly renewBefore!: pulumi.Output<string | undefined>;
+  /**
+   * The name of the role in the project associated with the token.
+   */
+  public readonly role!: pulumi.Output<string>;
 
-    /**
-     * Returns true if the given object is an instance of ProjectToken.  This is designed to work even
-     * when multiple copies of the Pulumi SDK have been loaded into the same process.
-     */
-    public static isInstance(obj: any): obj is ProjectToken {
-        if (obj === undefined || obj === null) {
-            return false;
-        }
-        return obj['__pulumiType'] === ProjectToken.__pulumiType;
+  /**
+   * Create a ProjectToken resource with the given unique name, arguments, and options.
+   *
+   * @param name The _unique_ name of the resource.
+   * @param args The arguments to use to populate this resource's properties.
+   * @param opts A bag of options that control this resource's behavior.
+   */
+  constructor(
+    name: string,
+    args: ProjectTokenArgs,
+    opts?: pulumi.CustomResourceOptions
+  );
+  constructor(
+    name: string,
+    argsOrState?: ProjectTokenArgs | ProjectTokenState,
+    opts?: pulumi.CustomResourceOptions
+  ) {
+    let resourceInputs: pulumi.Inputs = {};
+    opts = opts || {};
+    if (opts.id) {
+      const state = argsOrState as ProjectTokenState | undefined;
+      resourceInputs["description"] = state ? state.description : undefined;
+      resourceInputs["expiresAt"] = state ? state.expiresAt : undefined;
+      resourceInputs["expiresIn"] = state ? state.expiresIn : undefined;
+      resourceInputs["issuedAt"] = state ? state.issuedAt : undefined;
+      resourceInputs["jwt"] = state ? state.jwt : undefined;
+      resourceInputs["project"] = state ? state.project : undefined;
+      resourceInputs["renewAfter"] = state ? state.renewAfter : undefined;
+      resourceInputs["renewBefore"] = state ? state.renewBefore : undefined;
+      resourceInputs["role"] = state ? state.role : undefined;
+    } else {
+      const args = argsOrState as ProjectTokenArgs | undefined;
+      if ((!args || args.project === undefined) && !opts.urn) {
+        throw new Error("Missing required property 'project'");
+      }
+      if ((!args || args.role === undefined) && !opts.urn) {
+        throw new Error("Missing required property 'role'");
+      }
+      resourceInputs["description"] = args ? args.description : undefined;
+      resourceInputs["expiresIn"] = args ? args.expiresIn : undefined;
+      resourceInputs["project"] = args ? args.project : undefined;
+      resourceInputs["renewAfter"] = args ? args.renewAfter : undefined;
+      resourceInputs["renewBefore"] = args ? args.renewBefore : undefined;
+      resourceInputs["role"] = args ? args.role : undefined;
+      resourceInputs["expiresAt"] = undefined /*out*/;
+      resourceInputs["issuedAt"] = undefined /*out*/;
+      resourceInputs["jwt"] = undefined /*out*/;
     }
-
-    /**
-     * Description of the token.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * If `expiresIn` is set, Unix timestamp upon which the token will expire.
-     */
-    public /*out*/ readonly expiresAt!: pulumi.Output<string>;
-    /**
-     * Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
-     */
-    public readonly expiresIn!: pulumi.Output<string | undefined>;
-    /**
-     * Unix timestamp at which the token was issued.
-     */
-    public /*out*/ readonly issuedAt!: pulumi.Output<string>;
-    /**
-     * The raw JWT.
-     */
-    public /*out*/ readonly jwt!: pulumi.Output<string>;
-    /**
-     * The project associated with the token.
-     */
-    public readonly project!: pulumi.Output<string>;
-    /**
-     * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-     */
-    public readonly renewAfter!: pulumi.Output<string | undefined>;
-    /**
-     * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
-     */
-    public readonly renewBefore!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the role in the project associated with the token.
-     */
-    public readonly role!: pulumi.Output<string>;
-
-    /**
-     * Create a ProjectToken resource with the given unique name, arguments, and options.
-     *
-     * @param name The _unique_ name of the resource.
-     * @param args The arguments to use to populate this resource's properties.
-     * @param opts A bag of options that control this resource's behavior.
-     */
-    constructor(name: string, args: ProjectTokenArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProjectTokenArgs | ProjectTokenState, opts?: pulumi.CustomResourceOptions) {
-        let resourceInputs: pulumi.Inputs = {};
-        opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as ProjectTokenState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["expiresAt"] = state ? state.expiresAt : undefined;
-            resourceInputs["expiresIn"] = state ? state.expiresIn : undefined;
-            resourceInputs["issuedAt"] = state ? state.issuedAt : undefined;
-            resourceInputs["jwt"] = state ? state.jwt : undefined;
-            resourceInputs["project"] = state ? state.project : undefined;
-            resourceInputs["renewAfter"] = state ? state.renewAfter : undefined;
-            resourceInputs["renewBefore"] = state ? state.renewBefore : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-        } else {
-            const args = argsOrState as ProjectTokenArgs | undefined;
-            if ((!args || args.project === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'project'");
-            }
-            if ((!args || args.role === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'role'");
-            }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["expiresIn"] = args ? args.expiresIn : undefined;
-            resourceInputs["project"] = args ? args.project : undefined;
-            resourceInputs["renewAfter"] = args ? args.renewAfter : undefined;
-            resourceInputs["renewBefore"] = args ? args.renewBefore : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["expiresAt"] = undefined /*out*/;
-            resourceInputs["issuedAt"] = undefined /*out*/;
-            resourceInputs["jwt"] = undefined /*out*/;
-        }
-        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["jwt"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ProjectToken.__pulumiType, name, resourceInputs, opts);
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    const secretOpts = { additionalSecretOutputs: ["jwt"] };
+    opts = pulumi.mergeOptions(opts, secretOpts);
+    super(ProjectToken.__pulumiType, name, resourceInputs, opts);
+  }
 }
 
 /**
  * Input properties used for looking up and filtering ProjectToken resources.
  */
 export interface ProjectTokenState {
-    /**
-     * Description of the token.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * If `expiresIn` is set, Unix timestamp upon which the token will expire.
-     */
-    expiresAt?: pulumi.Input<string>;
-    /**
-     * Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
-     */
-    expiresIn?: pulumi.Input<string>;
-    /**
-     * Unix timestamp at which the token was issued.
-     */
-    issuedAt?: pulumi.Input<string>;
-    /**
-     * The raw JWT.
-     */
-    jwt?: pulumi.Input<string>;
-    /**
-     * The project associated with the token.
-     */
-    project?: pulumi.Input<string>;
-    /**
-     * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-     */
-    renewAfter?: pulumi.Input<string>;
-    /**
-     * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
-     */
-    renewBefore?: pulumi.Input<string>;
-    /**
-     * The name of the role in the project associated with the token.
-     */
-    role?: pulumi.Input<string>;
+  /**
+   * Description of the token.
+   */
+  description?: pulumi.Input<string>;
+  /**
+   * If `expiresIn` is set, Unix timestamp upon which the token will expire.
+   */
+  expiresAt?: pulumi.Input<string>;
+  /**
+   * Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
+   */
+  expiresIn?: pulumi.Input<string>;
+  /**
+   * Unix timestamp at which the token was issued.
+   */
+  issuedAt?: pulumi.Input<string>;
+  /**
+   * The raw JWT.
+   */
+  jwt?: pulumi.Input<string>;
+  /**
+   * The project associated with the token.
+   */
+  project?: pulumi.Input<string>;
+  /**
+   * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
+   */
+  renewAfter?: pulumi.Input<string>;
+  /**
+   * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+   */
+  renewBefore?: pulumi.Input<string>;
+  /**
+   * The name of the role in the project associated with the token.
+   */
+  role?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ProjectToken resource.
  */
 export interface ProjectTokenArgs {
-    /**
-     * Description of the token.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
-     */
-    expiresIn?: pulumi.Input<string>;
-    /**
-     * The project associated with the token.
-     */
-    project: pulumi.Input<string>;
-    /**
-     * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
-     */
-    renewAfter?: pulumi.Input<string>;
-    /**
-     * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
-     */
-    renewBefore?: pulumi.Input<string>;
-    /**
-     * The name of the role in the project associated with the token.
-     */
-    role: pulumi.Input<string>;
+  /**
+   * Description of the token.
+   */
+  description?: pulumi.Input<string>;
+  /**
+   * Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `12h`, `7d`. Default: No expiration.
+   */
+  expiresIn?: pulumi.Input<string>;
+  /**
+   * The project associated with the token.
+   */
+  project: pulumi.Input<string>;
+  /**
+   * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
+   */
+  renewAfter?: pulumi.Input<string>;
+  /**
+   * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+   */
+  renewBefore?: pulumi.Input<string>;
+  /**
+   * The name of the role in the project associated with the token.
+   */
+  role: pulumi.Input<string>;
 }
