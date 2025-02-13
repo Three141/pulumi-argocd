@@ -9,6 +9,121 @@ import * as utilities from "./utilities";
 /**
  * Manages [clusters](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters) within ArgoCD.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as argocd from "@pulumi/argocd";
+ * import * as aws from "@pulumi/aws";
+ * import * as gcp from "@pulumi/gcp";
+ * import * as kubernetes from "@pulumi/kubernetes";
+ * import * as std from "@pulumi/std";
+ *
+ * //# Bearer token Authentication
+ * const kubernetes = new argocd.Cluster("kubernetes", {
+ *     server: "https://1.2.3.4:12345",
+ *     config: {
+ *         bearerToken: "eyJhbGciOiJSUzI...",
+ *         tlsClientConfig: {
+ *             caData: std.file({
+ *                 input: "path/to/ca.pem",
+ *             }).then(invoke => invoke.result),
+ *         },
+ *     },
+ * });
+ * //# GCP GKE cluster
+ * const cluster = gcp.container.getCluster({
+ *     name: "cluster",
+ *     location: "europe-west1",
+ * });
+ * const argocdManager = new kubernetes.core.v1.ServiceAccount("argocd_manager", {metadata: {
+ *     name: "argocd-manager",
+ *     namespace: "kube-system",
+ * }});
+ * const argocdManagerClusterRole = new kubernetes.rbac.v1.ClusterRole("argocd_manager", {
+ *     metadata: {
+ *         name: "argocd-manager-role",
+ *     },
+ *     rules: [
+ *         {
+ *             apiGroups: ["*"],
+ *             resources: ["*"],
+ *             verbs: ["*"],
+ *         },
+ *         {
+ *             nonResourceUrls: ["*"],
+ *             verbs: ["*"],
+ *         },
+ *     ],
+ * });
+ * const argocdManagerClusterRoleBinding = new kubernetes.rbac.v1.ClusterRoleBinding("argocd_manager", {
+ *     metadata: {
+ *         name: "argocd-manager-role-binding",
+ *     },
+ *     roleRef: {
+ *         apiGroup: "rbac.authorization.k8s.io",
+ *         kind: "ClusterRole",
+ *         name: argocdManagerClusterRole.metadata.apply(metadata => metadata.name),
+ *     },
+ *     subjects: [{
+ *         kind: "ServiceAccount",
+ *         name: argocdManager.metadata.apply(metadata => metadata.name),
+ *         namespace: argocdManager.metadata.apply(metadata => metadata.namespace),
+ *     }],
+ * });
+ * const argocdManagerSecret = new kubernetes.core.v1.Secret("argocd_manager", {metadata: {
+ *     name: argocdManager.defaultSecretName,
+ *     namespace: argocdManager.metadata.apply(metadata => metadata.namespace),
+ * }});
+ * const gke = new argocd.Cluster("gke", {
+ *     server: cluster.then(cluster => std.join({
+ *         separator: "",
+ *         input: [
+ *             "https://%s",
+ *             cluster.endpoint,
+ *         ],
+ *     })).then(invoke => invoke.result),
+ *     name: "gke",
+ *     config: {
+ *         bearerToken: argocdManagerKubernetesSecret.data.token,
+ *         tlsClientConfig: {
+ *             caData: cluster.then(cluster => std.base64decode({
+ *                 input: cluster.masterAuths?.[0]?.clusterCaCertificate,
+ *             })).then(invoke => invoke.result),
+ *         },
+ *     },
+ * });
+ * //# AWS EKS cluster
+ * const clusterGetCluster = aws.eks.getCluster({
+ *     name: "cluster",
+ * });
+ * const eks = new argocd.Cluster("eks", {
+ *     server: clusterGetCluster.then(clusterGetCluster => std.join({
+ *         separator: "",
+ *         input: [
+ *             "https://%s",
+ *             clusterGetCluster.endpoint,
+ *         ],
+ *     })).then(invoke => invoke.result),
+ *     name: "eks",
+ *     namespaces: [
+ *         "default",
+ *         "optional",
+ *     ],
+ *     config: {
+ *         awsAuthConfigs: [{
+ *             clusterName: "myekscluster",
+ *             roleArn: "arn:aws:iam::<123456789012>:role/<role-name>",
+ *         }],
+ *         tlsClientConfig: {
+ *             caData: clusterGetCluster.then(clusterGetCluster => std.base64decode({
+ *                 input: clusterGetCluster.certificateAuthorities?.[0]?.data,
+ *             })).then(invoke => invoke.result),
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Cluster credentials can be imported using the server URL.

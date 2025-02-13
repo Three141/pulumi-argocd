@@ -12,6 +12,193 @@ namespace Pulumi.Argocd
     /// <summary>
     /// Manages [clusters](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters) within ArgoCD.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Argocd = Pulumi.Argocd;
+    /// using Aws = Pulumi.Aws;
+    /// using Gcp = Pulumi.Gcp;
+    /// using Kubernetes = Pulumi.Kubernetes;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //# Bearer token Authentication
+    ///     var kubernetes = new Argocd.Cluster("kubernetes", new()
+    ///     {
+    ///         Server = "https://1.2.3.4:12345",
+    ///         Config = new Argocd.Inputs.ClusterConfigArgs
+    ///         {
+    ///             BearerToken = "eyJhbGciOiJSUzI...",
+    ///             TlsClientConfig = new Argocd.Inputs.ClusterConfigTlsClientConfigArgs
+    ///             {
+    ///                 CaData = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "path/to/ca.pem",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     //# GCP GKE cluster
+    ///     var cluster = Gcp.Container.GetCluster.Invoke(new()
+    ///     {
+    ///         Name = "cluster",
+    ///         Location = "europe-west1",
+    ///     });
+    /// 
+    ///     var argocdManager = new Kubernetes.Core.V1.ServiceAccount("argocd_manager", new()
+    ///     {
+    ///         Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+    ///         {
+    ///             Name = "argocd-manager",
+    ///             Namespace = "kube-system",
+    ///         },
+    ///     });
+    /// 
+    ///     var argocdManagerClusterRole = new Kubernetes.Rbac.V1.ClusterRole("argocd_manager", new()
+    ///     {
+    ///         Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+    ///         {
+    ///             Name = "argocd-manager-role",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Kubernetes.Types.Inputs.Rbac.V1.PolicyRuleArgs
+    ///             {
+    ///                 ApiGroups = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 Verbs = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///             new Kubernetes.Types.Inputs.Rbac.V1.PolicyRuleArgs
+    ///             {
+    ///                 NonResourceUrls = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 Verbs = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var argocdManagerClusterRoleBinding = new Kubernetes.Rbac.V1.ClusterRoleBinding("argocd_manager", new()
+    ///     {
+    ///         Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+    ///         {
+    ///             Name = "argocd-manager-role-binding",
+    ///         },
+    ///         RoleRef = new Kubernetes.Types.Inputs.Rbac.V1.RoleRefArgs
+    ///         {
+    ///             ApiGroup = "rbac.authorization.k8s.io",
+    ///             Kind = "ClusterRole",
+    ///             Name = argocdManagerClusterRole.Metadata.Apply(metadata =&gt; metadata.Name),
+    ///         },
+    ///         Subjects = new[]
+    ///         {
+    ///             new Kubernetes.Types.Inputs.Rbac.V1.SubjectArgs
+    ///             {
+    ///                 Kind = "ServiceAccount",
+    ///                 Name = argocdManager.Metadata.Apply(metadata =&gt; metadata.Name),
+    ///                 Namespace = argocdManager.Metadata.Apply(metadata =&gt; metadata.Namespace),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var argocdManagerSecret = new Kubernetes.Core.V1.Secret("argocd_manager", new()
+    ///     {
+    ///         Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+    ///         {
+    ///             Name = argocdManager.DefaultSecretName,
+    ///             Namespace = argocdManager.Metadata.Apply(metadata =&gt; metadata.Namespace),
+    ///         },
+    ///     });
+    /// 
+    ///     var gke = new Argocd.Cluster("gke", new()
+    ///     {
+    ///         Server = Std.Join.Invoke(new()
+    ///         {
+    ///             Separator = "",
+    ///             Input = new[]
+    ///             {
+    ///                 "https://%s",
+    ///                 cluster.Apply(getClusterResult =&gt; getClusterResult.Endpoint),
+    ///             },
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Name = "gke",
+    ///         Config = new Argocd.Inputs.ClusterConfigArgs
+    ///         {
+    ///             BearerToken = argocdManagerKubernetesSecret.Data.Token,
+    ///             TlsClientConfig = new Argocd.Inputs.ClusterConfigTlsClientConfigArgs
+    ///             {
+    ///                 CaData = Std.Base64decode.Invoke(new()
+    ///                 {
+    ///                     Input = cluster.Apply(getClusterResult =&gt; getClusterResult.MasterAuths[0]?.ClusterCaCertificate),
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     //# AWS EKS cluster
+    ///     var clusterGetCluster = Aws.Eks.GetCluster.Invoke(new()
+    ///     {
+    ///         Name = "cluster",
+    ///     });
+    /// 
+    ///     var eks = new Argocd.Cluster("eks", new()
+    ///     {
+    ///         Server = Std.Join.Invoke(new()
+    ///         {
+    ///             Separator = "",
+    ///             Input = new[]
+    ///             {
+    ///                 "https://%s",
+    ///                 clusterGetCluster.Apply(getClusterResult =&gt; getClusterResult.Endpoint),
+    ///             },
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Name = "eks",
+    ///         Namespaces = new[]
+    ///         {
+    ///             "default",
+    ///             "optional",
+    ///         },
+    ///         Config = new Argocd.Inputs.ClusterConfigArgs
+    ///         {
+    ///             AwsAuthConfigs = new[]
+    ///             {
+    ///                 new Argocd.Inputs.ClusterConfigAwsAuthConfigArgs
+    ///                 {
+    ///                     ClusterName = "myekscluster",
+    ///                     RoleArn = "arn:aws:iam::&lt;123456789012&gt;:role/&lt;role-name&gt;",
+    ///                 },
+    ///             },
+    ///             TlsClientConfig = new Argocd.Inputs.ClusterConfigTlsClientConfigArgs
+    ///             {
+    ///                 CaData = Std.Base64decode.Invoke(new()
+    ///                 {
+    ///                     Input = clusterGetCluster.Apply(getClusterResult =&gt; getClusterResult.CertificateAuthorities[0]?.Data),
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Cluster credentials can be imported using the server URL.
@@ -96,6 +283,7 @@ namespace Pulumi.Argocd
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "https://github.com/Three141/pulumi-argocd/releases/download/v${VERSION}/",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

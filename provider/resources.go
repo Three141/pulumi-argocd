@@ -125,7 +125,7 @@ func Provider() tfbridge.ProviderInfo {
 		// PluginDownloadURL is an optional URL used to download the Provider
 		// for use in Pulumi programs
 		// e.g. https://github.com/org/pulumi-provider-name/releases/download/v${VERSION}/
-		PluginDownloadURL: "",
+		PluginDownloadURL: "https://github.com/Three141/pulumi-argocd/releases/download/v${VERSION}/",
 		Description:       "A Pulumi package for creating and managing Argo CD resources.",
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in

@@ -289,6 +289,102 @@ class Cluster(pulumi.CustomResource):
         """
         Manages [clusters](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters) within ArgoCD.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_argocd as argocd
+        import pulumi_aws as aws
+        import pulumi_gcp as gcp
+        import pulumi_kubernetes as kubernetes
+        import pulumi_std as std
+
+        ## Bearer token Authentication
+        kubernetes = argocd.Cluster("kubernetes",
+            server="https://1.2.3.4:12345",
+            config={
+                "bearer_token": "eyJhbGciOiJSUzI...",
+                "tls_client_config": {
+                    "ca_data": std.file(input="path/to/ca.pem").result,
+                },
+            })
+        ## GCP GKE cluster
+        cluster = gcp.container.get_cluster(name="cluster",
+            location="europe-west1")
+        argocd_manager = kubernetes.core.v1.ServiceAccount("argocd_manager", metadata={
+            "name": "argocd-manager",
+            "namespace": "kube-system",
+        })
+        argocd_manager_cluster_role = kubernetes.rbac.v1.ClusterRole("argocd_manager",
+            metadata={
+                "name": "argocd-manager-role",
+            },
+            rules=[
+                {
+                    "api_groups": ["*"],
+                    "resources": ["*"],
+                    "verbs": ["*"],
+                },
+                {
+                    "non_resource_urls": ["*"],
+                    "verbs": ["*"],
+                },
+            ])
+        argocd_manager_cluster_role_binding = kubernetes.rbac.v1.ClusterRoleBinding("argocd_manager",
+            metadata={
+                "name": "argocd-manager-role-binding",
+            },
+            role_ref={
+                "api_group": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": argocd_manager_cluster_role.metadata.name,
+            },
+            subjects=[{
+                "kind": "ServiceAccount",
+                "name": argocd_manager.metadata.name,
+                "namespace": argocd_manager.metadata.namespace,
+            }])
+        argocd_manager_secret = kubernetes.core.v1.Secret("argocd_manager", metadata={
+            "name": argocd_manager.default_secret_name,
+            "namespace": argocd_manager.metadata.namespace,
+        })
+        gke = argocd.Cluster("gke",
+            server=std.join(separator="",
+                input=[
+                    "https://%s",
+                    cluster.endpoint,
+                ]).result,
+            name="gke",
+            config={
+                "bearer_token": argocd_manager_kubernetes_secret["data"]["token"],
+                "tls_client_config": {
+                    "ca_data": std.base64decode(input=cluster.master_auths[0].cluster_ca_certificate).result,
+                },
+            })
+        ## AWS EKS cluster
+        cluster_get_cluster = aws.eks.get_cluster(name="cluster")
+        eks = argocd.Cluster("eks",
+            server=std.join(separator="",
+                input=[
+                    "https://%s",
+                    cluster_get_cluster.endpoint,
+                ]).result,
+            name="eks",
+            namespaces=[
+                "default",
+                "optional",
+            ],
+            config={
+                "aws_auth_configs": [{
+                    "cluster_name": "myekscluster",
+                    "role_arn": "arn:aws:iam::<123456789012>:role/<role-name>",
+                }],
+                "tls_client_config": {
+                    "ca_data": std.base64decode(input=cluster_get_cluster.certificate_authorities[0].data).result,
+                },
+            })
+        ```
+
         ## Import
 
         Cluster credentials can be imported using the server URL.
@@ -317,6 +413,102 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages [clusters](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters) within ArgoCD.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_argocd as argocd
+        import pulumi_aws as aws
+        import pulumi_gcp as gcp
+        import pulumi_kubernetes as kubernetes
+        import pulumi_std as std
+
+        ## Bearer token Authentication
+        kubernetes = argocd.Cluster("kubernetes",
+            server="https://1.2.3.4:12345",
+            config={
+                "bearer_token": "eyJhbGciOiJSUzI...",
+                "tls_client_config": {
+                    "ca_data": std.file(input="path/to/ca.pem").result,
+                },
+            })
+        ## GCP GKE cluster
+        cluster = gcp.container.get_cluster(name="cluster",
+            location="europe-west1")
+        argocd_manager = kubernetes.core.v1.ServiceAccount("argocd_manager", metadata={
+            "name": "argocd-manager",
+            "namespace": "kube-system",
+        })
+        argocd_manager_cluster_role = kubernetes.rbac.v1.ClusterRole("argocd_manager",
+            metadata={
+                "name": "argocd-manager-role",
+            },
+            rules=[
+                {
+                    "api_groups": ["*"],
+                    "resources": ["*"],
+                    "verbs": ["*"],
+                },
+                {
+                    "non_resource_urls": ["*"],
+                    "verbs": ["*"],
+                },
+            ])
+        argocd_manager_cluster_role_binding = kubernetes.rbac.v1.ClusterRoleBinding("argocd_manager",
+            metadata={
+                "name": "argocd-manager-role-binding",
+            },
+            role_ref={
+                "api_group": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": argocd_manager_cluster_role.metadata.name,
+            },
+            subjects=[{
+                "kind": "ServiceAccount",
+                "name": argocd_manager.metadata.name,
+                "namespace": argocd_manager.metadata.namespace,
+            }])
+        argocd_manager_secret = kubernetes.core.v1.Secret("argocd_manager", metadata={
+            "name": argocd_manager.default_secret_name,
+            "namespace": argocd_manager.metadata.namespace,
+        })
+        gke = argocd.Cluster("gke",
+            server=std.join(separator="",
+                input=[
+                    "https://%s",
+                    cluster.endpoint,
+                ]).result,
+            name="gke",
+            config={
+                "bearer_token": argocd_manager_kubernetes_secret["data"]["token"],
+                "tls_client_config": {
+                    "ca_data": std.base64decode(input=cluster.master_auths[0].cluster_ca_certificate).result,
+                },
+            })
+        ## AWS EKS cluster
+        cluster_get_cluster = aws.eks.get_cluster(name="cluster")
+        eks = argocd.Cluster("eks",
+            server=std.join(separator="",
+                input=[
+                    "https://%s",
+                    cluster_get_cluster.endpoint,
+                ]).result,
+            name="eks",
+            namespaces=[
+                "default",
+                "optional",
+            ],
+            config={
+                "aws_auth_configs": [{
+                    "cluster_name": "myekscluster",
+                    "role_arn": "arn:aws:iam::<123456789012>:role/<role-name>",
+                }],
+                "tls_client_config": {
+                    "ca_data": std.base64decode(input=cluster_get_cluster.certificate_authorities[0].data).result,
+                },
+            })
+        ```
 
         ## Import
 

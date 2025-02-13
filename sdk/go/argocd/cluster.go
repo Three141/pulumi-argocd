@@ -14,6 +14,208 @@ import (
 
 // Manages [clusters](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters) within ArgoCD.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/Three141/pulumi-argocd/sdk/go/argocd"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-gcp/sdk/v8/go/gcp/container"
+//	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/core/v1"
+//	metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/meta/v1"
+//	rbacv1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/rbac/v1"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "path/to/ca.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// # Bearer token Authentication
+//			_, err = argocd.NewCluster(ctx, "kubernetes", &argocd.ClusterArgs{
+//				Server: pulumi.String("https://1.2.3.4:12345"),
+//				Config: &argocd.ClusterConfigArgs{
+//					BearerToken: pulumi.String("eyJhbGciOiJSUzI..."),
+//					TlsClientConfig: &argocd.ClusterConfigTlsClientConfigArgs{
+//						CaData: pulumi.String(invokeFile.Result),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// # GCP GKE cluster
+//			cluster, err := container.LookupCluster(ctx, &container.LookupClusterArgs{
+//				Name:     "cluster",
+//				Location: pulumi.StringRef("europe-west1"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			argocdManager, err := corev1.NewServiceAccount(ctx, "argocd_manager", &corev1.ServiceAccountArgs{
+//				Metadata: &metav1.ObjectMetaArgs{
+//					Name:      pulumi.String("argocd-manager"),
+//					Namespace: pulumi.String("kube-system"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			argocdManagerClusterRole, err := rbacv1.NewClusterRole(ctx, "argocd_manager", &rbacv1.ClusterRoleArgs{
+//				Metadata: &metav1.ObjectMetaArgs{
+//					Name: pulumi.String("argocd-manager-role"),
+//				},
+//				Rules: rbacv1.PolicyRuleArray{
+//					&rbacv1.PolicyRuleArgs{
+//						ApiGroups: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//						Verbs: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//					},
+//					&rbacv1.PolicyRuleArgs{
+//						NonResourceUrls: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//						Verbs: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rbacv1.NewClusterRoleBinding(ctx, "argocd_manager", &rbacv1.ClusterRoleBindingArgs{
+//				Metadata: &metav1.ObjectMetaArgs{
+//					Name: pulumi.String("argocd-manager-role-binding"),
+//				},
+//				RoleRef: &rbacv1.RoleRefArgs{
+//					ApiGroup: pulumi.String("rbac.authorization.k8s.io"),
+//					Kind:     pulumi.String("ClusterRole"),
+//					Name: argocdManagerClusterRole.Metadata.ApplyT(func(metadata metav1.ObjectMeta) (*string, error) {
+//						return &metadata.Name, nil
+//					}).(pulumi.StringPtrOutput),
+//				},
+//				Subjects: rbacv1.SubjectArray{
+//					&rbacv1.SubjectArgs{
+//						Kind: pulumi.String("ServiceAccount"),
+//						Name: argocdManager.Metadata.ApplyT(func(metadata metav1.ObjectMeta) (*string, error) {
+//							return &metadata.Name, nil
+//						}).(pulumi.StringPtrOutput),
+//						Namespace: argocdManager.Metadata.ApplyT(func(metadata metav1.ObjectMeta) (*string, error) {
+//							return &metadata.Namespace, nil
+//						}).(pulumi.StringPtrOutput),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = corev1.NewSecret(ctx, "argocd_manager", &corev1.SecretArgs{
+//				Metadata: &metav1.ObjectMetaArgs{
+//					Name: argocdManager.DefaultSecretName,
+//					Namespace: argocdManager.Metadata.ApplyT(func(metadata metav1.ObjectMeta) (*string, error) {
+//						return &metadata.Namespace, nil
+//					}).(pulumi.StringPtrOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeJoin1, err := std.Join(ctx, &std.JoinArgs{
+//				Separator: "",
+//				Input: []interface{}{
+//					"https://%s",
+//					cluster.Endpoint,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeBase64decode2, err := std.Base64decode(ctx, &std.Base64decodeArgs{
+//				Input: cluster.MasterAuths[0].ClusterCaCertificate,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = argocd.NewCluster(ctx, "gke", &argocd.ClusterArgs{
+//				Server: pulumi.String(invokeJoin1.Result),
+//				Name:   pulumi.String("gke"),
+//				Config: &argocd.ClusterConfigArgs{
+//					BearerToken: pulumi.Any(argocdManagerKubernetesSecret.Data.Token),
+//					TlsClientConfig: &argocd.ClusterConfigTlsClientConfigArgs{
+//						CaData: pulumi.String(invokeBase64decode2.Result),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// # AWS EKS cluster
+//			clusterGetCluster, err := eks.LookupCluster(ctx, &eks.LookupClusterArgs{
+//				Name: "cluster",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeJoin3, err := std.Join(ctx, &std.JoinArgs{
+//				Separator: "",
+//				Input: []interface{}{
+//					"https://%s",
+//					clusterGetCluster.Endpoint,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeBase64decode4, err := std.Base64decode(ctx, &std.Base64decodeArgs{
+//				Input: clusterGetCluster.CertificateAuthorities[0].Data,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = argocd.NewCluster(ctx, "eks", &argocd.ClusterArgs{
+//				Server: pulumi.String(invokeJoin3.Result),
+//				Name:   pulumi.String("eks"),
+//				Namespaces: pulumi.StringArray{
+//					pulumi.String("default"),
+//					pulumi.String("optional"),
+//				},
+//				Config: &argocd.ClusterConfigArgs{
+//					AwsAuthConfigs: argocd.ClusterConfigAwsAuthConfigArray{
+//						&argocd.ClusterConfigAwsAuthConfigArgs{
+//							ClusterName: pulumi.String("myekscluster"),
+//							RoleArn:     pulumi.String("arn:aws:iam::<123456789012>:role/<role-name>"),
+//						},
+//					},
+//					TlsClientConfig: &argocd.ClusterConfigTlsClientConfigArgs{
+//						CaData: pulumi.String(invokeBase64decode4.Result),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Cluster credentials can be imported using the server URL.

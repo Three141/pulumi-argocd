@@ -2,6 +2,7 @@ package argocd
 
 import (
 	"bytes"
+	"regexp"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
@@ -91,6 +92,18 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 				)
 				content = bytes.ReplaceAll(content, sshFromBytes, sshToBytes)
 
+				return content, nil
+			},
+		},
+		tfbridge.DocsEdit{
+			Path: "cluster.md",
+			Edit: func(_ string, content []byte) ([]byte, error) {
+				re := regexp.MustCompile(`format\("https://%s", (.*?)\)`)
+				content = re.ReplaceAll(content, []byte(`join("", ["https://%s", $1])`))
+
+				content = bytes.ReplaceAll(content, []byte("rule {"), []byte("rules {"))
+				content = bytes.ReplaceAll(content, []byte("subject {"), []byte("subjects {"))
+				content = bytes.ReplaceAll(content, []byte(`data "kubernetes_secret"`), []byte(`resource "kubernetes_secret"`))
 				return content, nil
 			},
 		},

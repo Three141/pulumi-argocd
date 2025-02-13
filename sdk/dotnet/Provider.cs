@@ -112,6 +112,7 @@ namespace Pulumi.Argocd
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "https://github.com/Three141/pulumi-argocd/releases/download/v${VERSION}/",
                 AdditionalSecretOutputs =
                 {
                     "authToken",
