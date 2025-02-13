@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as argocd from "@pulumi/argocd";
+ * import * as argocd from "@three14/pulumi-argocd";
  *
  * // Public Helm repository
  * const publicNginxHelm = new argocd.Repository("public_nginx_helm", {
