@@ -21,7 +21,7 @@ namespace Three14.Argocd
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
-    /// using Argocd = Pulumi.Argocd;
+    /// using Argocd = Three14.Argocd;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {

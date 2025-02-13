@@ -20,7 +20,7 @@ namespace Three14.Argocd
     /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
-    /// using Argocd = Pulumi.Argocd;
+    /// using Argocd = Three14.Argocd;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
