@@ -12,8 +12,6 @@ import (
 )
 
 func TestBasicPy(t *testing.T) {
-	t.Skip("Skipping until the provider has been implemented")
-
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "basic-py"),
