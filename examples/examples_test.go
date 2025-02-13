@@ -81,6 +81,7 @@ func getCwd(t *testing.T) string {
 }
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	checkCreds(t)
 	t.Helper()
 	binPath, err := filepath.Abs("../bin")
 	if err != nil {
@@ -94,5 +95,13 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 				Path:    binPath,
 			},
 		},
+	}
+}
+
+func checkCreds(t *testing.T) {
+	var exists bool
+	_, exists = os.LookupEnv("ARGOCD_SERVER")
+	if !exists {
+		t.Skipf("Skipping test due to missing ARGOCD_SERVER environment variable")
 	}
 }
