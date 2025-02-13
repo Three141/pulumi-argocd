@@ -11,13 +11,13 @@ This package is available for several languages/platforms:
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
 ```bash
-npm install @pulumi/argocd
+npm install @three14/pulumi-argocd
 ```
 
 or `yarn`:
 
 ```bash
-yarn add @pulumi/argocd
+yarn add @three14/pulumi-argocd
 ```
 
 ### Python
@@ -41,7 +41,7 @@ go get github.com/pulumi/pulumi-argocd/sdk/go/...
 To use from .NET, install using `dotnet add package`:
 
 ```bash
-dotnet add package Pulumi.Argocd
+dotnet add package Three14.Argocd
 ```
 
 ## Configuration

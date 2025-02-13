@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Argocd
+namespace Three14.Argocd
 {
     /// <summary>
     /// The provider type for the argocd package. By default, resources use package-wide configuration

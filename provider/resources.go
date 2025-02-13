@@ -142,10 +142,12 @@ func Provider() tfbridge.ProviderInfo {
 		// If extra types are needed for configuration, they can be added here.
 		ExtraTypes: map[string]schema.ComplexTypeSpec{},
 		JavaScript: &tfbridge.JavaScriptInfo{
+			PackageName: "@three14/pulumi-argocd",
 			// RespectSchemaVersion ensures the SDK is generated linking to the correct version of the provider.
 			RespectSchemaVersion: true,
 		},
 		Python: &tfbridge.PythonInfo{
+			PackageName: "pulumi_argocd",
 			// RespectSchemaVersion ensures the SDK is generated linking to the correct version of the provider.
 			RespectSchemaVersion: true,
 			// Enable modern PyProject support in the generated Python SDK.
@@ -166,6 +168,7 @@ func Provider() tfbridge.ProviderInfo {
 			RespectSchemaVersion: true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
+			RootNamespace: "Three14",
 			// RespectSchemaVersion ensures the SDK is generated linking to the correct version of the provider.
 			RespectSchemaVersion: true,
 			// Use a wildcard import so NuGet will prefer the latest possible version.

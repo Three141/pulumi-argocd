@@ -1,5 +1,5 @@
 {
-    "name": "@pulumi/argocd",
+    "name": "@three14/pulumi-argocd",
     "version": "1.0.0-alpha.0+dev",
     "description": "A Pulumi package for creating and managing Argo CD resources.",
     "keywords": [

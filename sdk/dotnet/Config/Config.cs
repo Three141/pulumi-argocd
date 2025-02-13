@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace Pulumi.Argocd
+namespace Three14.Argocd
 {
     public static class Config
     {
@@ -153,13 +153,13 @@ namespace Pulumi.Argocd
             set => _insecure.Set(value);
         }
 
-        private static readonly __Value<Pulumi.Argocd.Config.Types.Kubernetes?> _kubernetes = new __Value<Pulumi.Argocd.Config.Types.Kubernetes?>(() => __config.GetObject<Pulumi.Argocd.Config.Types.Kubernetes>("kubernetes"));
+        private static readonly __Value<Three14.Argocd.Config.Types.Kubernetes?> _kubernetes = new __Value<Three14.Argocd.Config.Types.Kubernetes?>(() => __config.GetObject<Three14.Argocd.Config.Types.Kubernetes>("kubernetes"));
         /// <summary>
         /// Kubernetes configuration overrides. Only relevant when `port_forward = true` or `port_forward_with_namespace = "foo"`.
         /// The kubeconfig file that is used can be overridden using the [`KUBECONFIG` environment
         /// variable](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#the-kubeconfig-environment-variable)).
         /// </summary>
-        public static Pulumi.Argocd.Config.Types.Kubernetes? Kubernetes
+        public static Three14.Argocd.Config.Types.Kubernetes? Kubernetes
         {
             get => _kubernetes.Get();
             set => _kubernetes.Set(value);
@@ -272,7 +272,7 @@ namespace Pulumi.Argocd
             /// <summary>
             /// Configuration block to use an [exec-based credential plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins), e.g. call an external command to receive user credentials.
             /// </summary>
-                public Pulumi.Argocd.Config.Types.KubernetesExec? Exec { get; set; } = null!;
+                public Three14.Argocd.Config.Types.KubernetesExec? Exec { get; set; } = null!;
             /// <summary>
             /// The hostname (in form of URI) of the Kubernetes API. Can be sourced from `KUBE_HOST`.
             /// </summary>
