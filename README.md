@@ -25,7 +25,7 @@ yarn add @three14/pulumi-argocd
 To use from Python, install using `pip`:
 
 ```bash
-pip install pulumi_argocd
+pip install pulumi-argocd
 ```
 
 ### Go
