@@ -20,7 +20,7 @@ The ArgoCD provider for Pulumi is available as a package in most Pulumi language
 The ArgoCD provider binary is a third party binary. It can be installed using the `pulumi plugin` command.
 
 ```sh
-pulumi plugin install resource argocd <version> --server github://api.github.com/Three14/pulumi-argocd
+pulumi plugin install resource argocd <version> --server 'https://github.com/Three141/pulumi-argocd/releases/download/v${VERSION}/'
 ```
 
 Replace the version string with your desired version.

@@ -13,7 +13,14 @@ The ArgoCD provider must be configured with credentials to deploy and update res
 {{% choosable language typescript %}}
 
 ```typescript
+import * as pulumi from "@pulumi/pulumi";
 import * as argocd from "@three14/pulumi-argocd";
+
+const publicNginxHelm = new argocd.Repository("public_nginx_helm", {
+    repo: "https://helm.nginx.com/stable",
+    name: "nginx-stable",
+    type: "helm",
+});
 
 ```
 
@@ -21,8 +28,13 @@ import * as argocd from "@three14/pulumi-argocd";
 {{% choosable language python %}}
 
 ```python
+import pulumi
 import pulumi_argocd as argocd
 
+public_nginx_helm = argocd.Repository("public_nginx_helm",
+    repo="https://helm.nginx.com/stable",
+    name="nginx-stable",
+    type="helm")
 
 ```
 
@@ -30,7 +42,20 @@ import pulumi_argocd as argocd
 {{% choosable language csharp %}}
 
 ```csharp
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
 using Argocd = Three14.Argocd;
+
+return await Deployment.RunAsync(() => 
+{
+    var publicNginxHelm = new Argocd.Repository("public_nginx_helm", new()
+    {
+        Repo = "https://helm.nginx.com/stable",
+        Name = "nginx-stable",
+        Type = "helm",
+    });
+});
 
 
 ```
@@ -42,8 +67,24 @@ using Argocd = Three14.Argocd;
 package main
 
 import (
-    "github.com/Three141/pulumi-argocd/sdk/go/argocd"
+	"github.com/Three141/pulumi-argocd/sdk/go/argocd"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		// Public Helm repository
+		_, err := argocd.NewRepository(ctx, "public_nginx_helm", &argocd.RepositoryArgs{
+			Repo: pulumi.String("https://helm.nginx.com/stable"),
+			Name: pulumi.String("nginx-stable"),
+			Type: pulumi.String("helm"),
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+}
 
 ```
 
