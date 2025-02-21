@@ -10,9 +10,9 @@ The Argo CD Resource Provider lets you manage [Argo CD](https://argoproj.github.
 
 The ArgoCD provider for Pulumi is available as a package in most Pulumi languages:
 
-- JavaScript/TypeScript: [@three14/pulumi-argocd](https://www.npmjs.com/package/@three14/pulumi-argocd)
-- Python: [pulumi-argocd](https://pypi.org/project/pulumi-argocd/)
-- Go: [github.com/Three14/pulumi-argocd/sdk/go/argocd](https://pkg.go.dev/github.com/Three141/pulumi-argocd/sdk/go/argocd)
+- JavaScript/TypeScript: [`@three14/pulumi-argocd`](https://www.npmjs.com/package/@three14/pulumi-argocd)
+- Python: [`pulumi-argocd`](https://pypi.org/project/pulumi-argocd/)
+- Go: [`github.com/Three14/pulumi-argocd/sdk/go/argocd`](https://pkg.go.dev/github.com/Three141/pulumi-argocd/sdk/go/argocd)
 - .NET: [`Three14.Argocd`](https://www.nuget.org/packages/Three14.Argocd)
 
 ### Provider Binary
