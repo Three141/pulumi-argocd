@@ -1,6 +1,6 @@
 {
   "resource": true,
   "name": "argocd",
-  "version": "1.0.0-alpha.0+dev",
+  "version": "1.0.1",
   "server": "https://github.com/Three141/pulumi-argocd/releases/download/v${VERSION}/"
 }
