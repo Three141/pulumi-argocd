@@ -1453,8 +1453,8 @@ github.com/apparentlymart/go-textseg/v13 v13.0.0/go.mod h1:ZK2fH7c4NqDTLtiYLvIkE
 github.com/apparentlymart/go-textseg/v15 v15.0.0 h1:uYvfpb3DyLSCGWnctWKGj857c6ew1u1fNQOlOtuGxQY=
 github.com/apparentlymart/go-textseg/v15 v15.0.0/go.mod h1:K8XmNZdhEBkdlyDdvbmmsvpAG721bKi0joRfFdHIWJ4=
 github.com/appscode/go v0.0.0-20191119085241-0887d8ec2ecc/go.mod h1:OawnOmAL4ZX3YaPdN+8HTNwBveT1jMsqP74moa9XUbE=
-github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250314150812-032f2ff3233f h1:g//FLA3Dlvo5HavsgI3gBZHKmzltFRMtwmG4JkDoFnc=
-github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250314150812-032f2ff3233f/go.mod h1:WYB38sJIluWQAaIoyIJ0a+iJuCrXJBpzvWLpsuR3m18=
+github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250324143339-6139581c2101 h1:vqY7t7cTtMcvCq6X2vV2S+KVzJ1F/g9CyFejQzRKDuY=
+github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250324143339-6139581c2101/go.mod h1:CIdWQY5wCVzJZ3eEiF/IhmuYdYQ2zcnELzUbHTxEo5o=
 github.com/argoproj/argo-cd/v2 v2.14.5 h1:ukSLv5oS6Yw6OfACMHLfvHQWx0c/rX9Nt9JK9DDyMDI=
 github.com/argoproj/argo-cd/v2 v2.14.5/go.mod h1:TgBU+mQLezr6FHknnTIpUgyLlbw+ZdnRl71JQjECacE=
 github.com/argoproj/gitops-engine v0.7.1-0.20250304190342-43fce7ce19f1 h1:3qG1uQNtjCIunZ5b3qmO1JS8OBLCssll41VwBYYlKio=

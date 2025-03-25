@@ -40,7 +40,7 @@ require (
 	github.com/antonmedv/expr v1.15.2 // indirect
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
-	github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250314150812-032f2ff3233f // indirect
+	github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250324143339-6139581c2101 // indirect
 	github.com/argoproj/argo-cd/v2 v2.14.5 // indirect
 	github.com/argoproj/gitops-engine v0.7.1-0.20250304190342-43fce7ce19f1 // indirect
 	github.com/argoproj/notifications-engine v0.4.1-0.20241007194503-2fef5c9049fd // indirect
