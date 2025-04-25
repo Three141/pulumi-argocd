@@ -1453,10 +1453,10 @@ github.com/apparentlymart/go-textseg/v13 v13.0.0/go.mod h1:ZK2fH7c4NqDTLtiYLvIkE
 github.com/apparentlymart/go-textseg/v15 v15.0.0 h1:uYvfpb3DyLSCGWnctWKGj857c6ew1u1fNQOlOtuGxQY=
 github.com/apparentlymart/go-textseg/v15 v15.0.0/go.mod h1:K8XmNZdhEBkdlyDdvbmmsvpAG721bKi0joRfFdHIWJ4=
 github.com/appscode/go v0.0.0-20191119085241-0887d8ec2ecc/go.mod h1:OawnOmAL4ZX3YaPdN+8HTNwBveT1jMsqP74moa9XUbE=
-github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250412110639-a0e79ad37d14 h1:DT4biYTXeWc2Xvzv7gjzOYqFvGUXHIk0Nwc0m0/Bgy4=
-github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250412110639-a0e79ad37d14/go.mod h1:1xD8/WNZTA3ajVxlaiEub+p6pFLgn41KkDKFqUxrrTA=
-github.com/argoproj/argo-cd/v2 v2.14.9 h1:a6olDRG9HGvkF1gWJ3plvfdrX/tk7cu3ZbkVS0y/rMU=
-github.com/argoproj/argo-cd/v2 v2.14.9/go.mod h1:50mfVqU+TKu2qIUwELpJ3+lmDKEuwEVj/0caQhYqDz8=
+github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250424080236-5daf9737af30 h1:BJdblfTRsev2bhwbdmWEDm5Z8o0cekmHGgrJU0AhDrU=
+github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250424080236-5daf9737af30/go.mod h1:m+pYMyT4JBME4JO4BeE+l74pJzweLiBwrOJ5vTpwbJY=
+github.com/argoproj/argo-cd/v2 v2.14.10 h1:sli/t0QX/aDzXnbgb8OfNJFUZXzmSAF2qtPWOWRFRrk=
+github.com/argoproj/argo-cd/v2 v2.14.10/go.mod h1:50mfVqU+TKu2qIUwELpJ3+lmDKEuwEVj/0caQhYqDz8=
 github.com/argoproj/gitops-engine v0.7.1-0.20250328191959-6d3cf122b03f h1:T18BJdtZF/HWdkyCqcNI6kQ3SbIomn6g+AZtZtvQUjE=
 github.com/argoproj/gitops-engine v0.7.1-0.20250328191959-6d3cf122b03f/go.mod h1:WsnykM8idYRUnneeT31cM/Fq/ZsjkefCbjiD8ioCJkU=
 github.com/argoproj/notifications-engine v0.4.1-0.20241007194503-2fef5c9049fd h1:lOVVoK89j9Nd4+JYJiKAaMNYC1402C0jICROOfUPWn0=
@@ -4021,8 +4021,8 @@ google.golang.org/protobuf v1.34.1/go.mod h1:c6P6GXX6sHbq/GpV6MGZEdwhWPcYBgnhAHh
 google.golang.org/protobuf v1.34.2/go.mod h1:qYOHts0dSfpeUzUFpOMr/WGzszTmLH+DiWniOlNbLDw=
 google.golang.org/protobuf v1.35.1/go.mod h1:9fA7Ob0pmnwhb644+1+CVWFRbNajQ6iRojtC/QF5bRE=
 google.golang.org/protobuf v1.36.3/go.mod h1:9fA7Ob0pmnwhb644+1+CVWFRbNajQ6iRojtC/QF5bRE=
-google.golang.org/protobuf v1.36.5 h1:tPhr+woSbjfYvY6/GPufUoYizxw1cF/yFoxJ2fmpwlM=
-google.golang.org/protobuf v1.36.5/go.mod h1:9fA7Ob0pmnwhb644+1+CVWFRbNajQ6iRojtC/QF5bRE=
+google.golang.org/protobuf v1.36.6 h1:z1NpPI8ku2WgiWnf+t9wTPsn6eP1L7ksHUlkfLvd9xY=
+google.golang.org/protobuf v1.36.6/go.mod h1:jduwjTPXsFjZGTmRluh+L6NjiWu7pchiJ2/5YcXBHnY=
 gopkg.in/alecthomas/kingpin.v2 v2.2.6/go.mod h1:FMv+mEhP44yOT+4EoQTLFTRgOQ1FBLkstjWtayDeSgw=
 gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc h1:2gGKlE2+asNV9m7xrywl36YYNnBG5ZQ0r/BOOxqPpmk=
 gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc/go.mod h1:m7x9LTH6d71AHyAX77c9yqWCCa3UKHcVEj9y7hAtKDk=
