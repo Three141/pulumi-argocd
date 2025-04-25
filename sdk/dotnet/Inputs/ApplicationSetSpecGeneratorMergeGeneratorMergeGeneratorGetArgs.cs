@@ -61,6 +61,18 @@ namespace Three14.Argocd.Inputs
             set => _lists = value;
         }
 
+        [Input("plugins")]
+        private InputList<Inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginGetArgs>? _plugins;
+
+        /// <summary>
+        /// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+        /// </summary>
+        public InputList<Inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginGetArgs> Plugins
+        {
+            get => _plugins ?? (_plugins = new InputList<Inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginGetArgs>());
+            set => _plugins = value;
+        }
+
         [Input("pullRequests")]
         private InputList<Inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPullRequestGetArgs>? _pullRequests;
 

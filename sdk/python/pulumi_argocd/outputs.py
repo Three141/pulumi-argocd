@@ -343,6 +343,32 @@ __all__ = [
     'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyManagedNamespaceMetadata',
     'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetry',
     'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryBackoff',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff',
     'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequest',
     'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestBitbucketServer',
     'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestBitbucketServerBasicAuth',
@@ -551,6 +577,32 @@ __all__ = [
     'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorListTemplateSpecSyncPolicyManagedNamespaceMetadata',
     'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorListTemplateSpecSyncPolicyRetry',
     'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorListTemplateSpecSyncPolicyRetryBackoff',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginInput',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplate',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateMetadata',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecDestination',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecInfo',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry',
+    'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff',
     'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPullRequest',
     'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPullRequestBitbucketServer',
     'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPullRequestBitbucketServerBasicAuth',
@@ -651,6 +703,32 @@ __all__ = [
     'ApplicationSetSpecGeneratorMatrixGeneratorMergeTemplateSpecSyncPolicyManagedNamespaceMetadata',
     'ApplicationSetSpecGeneratorMatrixGeneratorMergeTemplateSpecSyncPolicyRetry',
     'ApplicationSetSpecGeneratorMatrixGeneratorMergeTemplateSpecSyncPolicyRetryBackoff',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPlugin',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginInput',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplate',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateMetadata',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecDestination',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecInfo',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry',
+    'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff',
     'ApplicationSetSpecGeneratorMatrixGeneratorPullRequest',
     'ApplicationSetSpecGeneratorMatrixGeneratorPullRequestBitbucketServer',
     'ApplicationSetSpecGeneratorMatrixGeneratorPullRequestBitbucketServerBasicAuth',
@@ -967,6 +1045,32 @@ __all__ = [
     'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorListTemplateSpecSyncPolicyManagedNamespaceMetadata',
     'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetry',
     'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryBackoff',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginInput',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplate',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateMetadata',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecDestination',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecInfo',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry',
+    'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff',
     'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPullRequest',
     'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPullRequestBitbucketServer',
     'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPullRequestBitbucketServerBasicAuth',
@@ -1175,6 +1279,32 @@ __all__ = [
     'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorListTemplateSpecSyncPolicyManagedNamespaceMetadata',
     'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorListTemplateSpecSyncPolicyRetry',
     'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorListTemplateSpecSyncPolicyRetryBackoff',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginInput',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplate',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateMetadata',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecDestination',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecInfo',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry',
+    'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff',
     'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPullRequest',
     'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPullRequestBitbucketServer',
     'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPullRequestBitbucketServerBasicAuth',
@@ -1275,6 +1405,32 @@ __all__ = [
     'ApplicationSetSpecGeneratorMergeGeneratorMergeTemplateSpecSyncPolicyManagedNamespaceMetadata',
     'ApplicationSetSpecGeneratorMergeGeneratorMergeTemplateSpecSyncPolicyRetry',
     'ApplicationSetSpecGeneratorMergeGeneratorMergeTemplateSpecSyncPolicyRetryBackoff',
+    'ApplicationSetSpecGeneratorMergeGeneratorPlugin',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginInput',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplate',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateMetadata',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecDestination',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecInfo',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry',
+    'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff',
     'ApplicationSetSpecGeneratorMergeGeneratorPullRequest',
     'ApplicationSetSpecGeneratorMergeGeneratorPullRequestBitbucketServer',
     'ApplicationSetSpecGeneratorMergeGeneratorPullRequestBitbucketServerBasicAuth',
@@ -1375,6 +1531,32 @@ __all__ = [
     'ApplicationSetSpecGeneratorMergeTemplateSpecSyncPolicyManagedNamespaceMetadata',
     'ApplicationSetSpecGeneratorMergeTemplateSpecSyncPolicyRetry',
     'ApplicationSetSpecGeneratorMergeTemplateSpecSyncPolicyRetryBackoff',
+    'ApplicationSetSpecGeneratorPlugin',
+    'ApplicationSetSpecGeneratorPluginInput',
+    'ApplicationSetSpecGeneratorPluginTemplate',
+    'ApplicationSetSpecGeneratorPluginTemplateMetadata',
+    'ApplicationSetSpecGeneratorPluginTemplateSpec',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecDestination',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecInfo',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSource',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectory',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmFileParameter',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatch',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourcePlugin',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSourcePluginEnv',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetry',
+    'ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff',
     'ApplicationSetSpecGeneratorPullRequest',
     'ApplicationSetSpecGeneratorPullRequestBitbucketServer',
     'ApplicationSetSpecGeneratorPullRequestBitbucketServerBasicAuth',
@@ -1905,6 +2087,7 @@ class ApplicationSetSpecGenerator(dict):
                  lists: Optional[Sequence['outputs.ApplicationSetSpecGeneratorList']] = None,
                  matrices: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrix']] = None,
                  merges: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMerge']] = None,
+                 plugins: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPlugin']] = None,
                  pull_requests: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPullRequest']] = None,
                  scm_providers: Optional[Sequence['outputs.ApplicationSetSpecGeneratorScmProvider']] = None,
                  selector: Optional['outputs.ApplicationSetSpecGeneratorSelector'] = None):
@@ -1915,6 +2098,7 @@ class ApplicationSetSpecGenerator(dict):
         :param Sequence['ApplicationSetSpecGeneratorListArgs'] lists: [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
         :param Sequence['ApplicationSetSpecGeneratorMatrixArgs'] matrices: [Matrix generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/) combine the parameters generated by two child generators, iterating through every combination of each generator's generated parameters. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/#restrictions) regarding their usage - particularly regarding nesting matrix generators.
         :param Sequence['ApplicationSetSpecGeneratorMergeArgs'] merges: [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
+        :param Sequence['ApplicationSetSpecGeneratorPluginArgs'] plugins: [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
         :param Sequence['ApplicationSetSpecGeneratorPullRequestArgs'] pull_requests: [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
         :param Sequence['ApplicationSetSpecGeneratorScmProviderArgs'] scm_providers: [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
         :param 'ApplicationSetSpecGeneratorSelectorArgs' selector: The Selector allows to post-filter based on generated values using the kubernetes common labelSelector format.
@@ -1931,6 +2115,8 @@ class ApplicationSetSpecGenerator(dict):
             pulumi.set(__self__, "matrices", matrices)
         if merges is not None:
             pulumi.set(__self__, "merges", merges)
+        if plugins is not None:
+            pulumi.set(__self__, "plugins", plugins)
         if pull_requests is not None:
             pulumi.set(__self__, "pull_requests", pull_requests)
         if scm_providers is not None:
@@ -1985,6 +2171,14 @@ class ApplicationSetSpecGenerator(dict):
         [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
         """
         return pulumi.get(self, "merges")
+
+    @property
+    @pulumi.getter
+    def plugins(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorPlugin']]:
+        """
+        [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+        """
+        return pulumi.get(self, "plugins")
 
     @property
     @pulumi.getter(name="pullRequests")
@@ -8837,6 +9031,7 @@ class ApplicationSetSpecGeneratorMatrixGenerator(dict):
                  lists: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorList']] = None,
                  matrices: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrix']] = None,
                  merges: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMerge']] = None,
+                 plugins: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPlugin']] = None,
                  pull_requests: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPullRequest']] = None,
                  scm_providers: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorScmProvider']] = None,
                  selector: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorSelector'] = None):
@@ -8847,6 +9042,7 @@ class ApplicationSetSpecGeneratorMatrixGenerator(dict):
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorListArgs'] lists: [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixArgs'] matrices: [Matrix generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/) combine the parameters generated by two child generators, iterating through every combination of each generator's generated parameters. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/#restrictions) regarding their usage - particularly regarding nesting matrix generators.
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeArgs'] merges: [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPluginArgs'] plugins: [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPullRequestArgs'] pull_requests: [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorScmProviderArgs'] scm_providers: [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
         :param 'ApplicationSetSpecGeneratorMatrixGeneratorSelectorArgs' selector: The Selector allows to post-filter based on generated values using the kubernetes common labelSelector format.
@@ -8863,6 +9059,8 @@ class ApplicationSetSpecGeneratorMatrixGenerator(dict):
             pulumi.set(__self__, "matrices", matrices)
         if merges is not None:
             pulumi.set(__self__, "merges", merges)
+        if plugins is not None:
+            pulumi.set(__self__, "plugins", plugins)
         if pull_requests is not None:
             pulumi.set(__self__, "pull_requests", pull_requests)
         if scm_providers is not None:
@@ -8917,6 +9115,14 @@ class ApplicationSetSpecGeneratorMatrixGenerator(dict):
         [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
         """
         return pulumi.get(self, "merges")
+
+    @property
+    @pulumi.getter
+    def plugins(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPlugin']]:
+        """
+        [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+        """
+        return pulumi.get(self, "plugins")
 
     @property
     @pulumi.getter(name="pullRequests")
@@ -15767,6 +15973,7 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGenerator(dict):
                  clusters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorCluster']] = None,
                  gits: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorGit']] = None,
                  lists: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorList']] = None,
+                 plugins: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin']] = None,
                  pull_requests: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequest']] = None,
                  scm_providers: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorScmProvider']] = None,
                  selector: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorSelector'] = None):
@@ -15775,6 +15982,7 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGenerator(dict):
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorClusterArgs'] clusters: The [cluster generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Cluster/) produces parameters based on the list of items found within the cluster secret.
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorGitArgs'] gits: [Git generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Git/) generates parameters using either the directory structure of a specified Git repository (directory generator), or, using the contents of JSON/YAML files found within a specified repository (file generator).
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListArgs'] lists: [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArgs'] plugins: [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestArgs'] pull_requests: [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorScmProviderArgs'] scm_providers: [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
         :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorSelectorArgs' selector: The Selector allows to post-filter based on generated values using the kubernetes common labelSelector format.
@@ -15787,6 +15995,8 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGenerator(dict):
             pulumi.set(__self__, "gits", gits)
         if lists is not None:
             pulumi.set(__self__, "lists", lists)
+        if plugins is not None:
+            pulumi.set(__self__, "plugins", plugins)
         if pull_requests is not None:
             pulumi.set(__self__, "pull_requests", pull_requests)
         if scm_providers is not None:
@@ -15825,6 +16035,14 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGenerator(dict):
         [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
         """
         return pulumi.get(self, "lists")
+
+    @property
+    @pulumi.getter
+    def plugins(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin']]:
+        """
+        [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+        """
+        return pulumi.get(self, "plugins")
 
     @property
     @pulumi.getter(name="pullRequests")
@@ -22618,6 +22836,1669 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecS
 
 
 @pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configMapRef":
+            suggest = "config_map_ref"
+        elif key == "requeueAfterSeconds":
+            suggest = "requeue_after_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 config_map_ref: builtins.str,
+                 input: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput'] = None,
+                 requeue_after_seconds: Optional[builtins.str] = None,
+                 template: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate'] = None,
+                 values: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param builtins.str config_map_ref: ConfigMap with the plugin configuration needed to retrieve the data.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputArgs' input: The input parameters used for calling the plugin.
+        :param builtins.str requeue_after_seconds: How often to check for changes (in seconds). Default: 3min.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs' template: Generator template. Used to override the values of the spec-level template.
+        :param Mapping[str, builtins.str] values: Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        pulumi.set(__self__, "config_map_ref", config_map_ref)
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if requeue_after_seconds is not None:
+            pulumi.set(__self__, "requeue_after_seconds", requeue_after_seconds)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="configMapRef")
+    def config_map_ref(self) -> builtins.str:
+        """
+        ConfigMap with the plugin configuration needed to retrieve the data.
+        """
+        return pulumi.get(self, "config_map_ref")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput']:
+        """
+        The input parameters used for calling the plugin.
+        """
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="requeueAfterSeconds")
+    def requeue_after_seconds(self) -> Optional[builtins.str]:
+        """
+        How often to check for changes (in seconds). Default: 3min.
+        """
+        return pulumi.get(self, "requeue_after_seconds")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate']:
+        """
+        Generator template. Used to override the values of the spec-level template.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput(dict):
+    def __init__(__self__, *,
+                 parameters: Mapping[str, builtins.str]):
+        """
+        :param Mapping[str, builtins.str] parameters: Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, builtins.str]:
+        """
+        Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate(dict):
+    def __init__(__self__, *,
+                 metadata: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata'] = None,
+                 spec: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs' metadata: Kubernetes object metadata for templated Application.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs' spec: The application specification.
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata']:
+        """
+        Kubernetes object metadata for templated Application.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec']:
+        """
+        The application specification.
+        """
+        return pulumi.get(self, "spec")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 finalizers: Optional[Sequence[builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        :param Sequence[builtins.str] finalizers: List of finalizers to apply to the resulting Application.
+        :param Mapping[str, builtins.str] labels: Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        :param builtins.str name: Name of the resulting Application
+        :param builtins.str namespace: Namespace of the resulting Application
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if finalizers is not None:
+            pulumi.set(__self__, "finalizers", finalizers)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def finalizers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of finalizers to apply to the resulting Application.
+        """
+        return pulumi.get(self, "finalizers")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the resulting Application
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Namespace of the resulting Application
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreDifferences":
+            suggest = "ignore_differences"
+        elif key == "revisionHistoryLimit":
+            suggest = "revision_history_limit"
+        elif key == "syncPolicy":
+            suggest = "sync_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination'] = None,
+                 ignore_differences: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference']] = None,
+                 infos: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo']] = None,
+                 project: Optional[builtins.str] = None,
+                 revision_history_limit: Optional[builtins.int] = None,
+                 sources: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource']] = None,
+                 sync_policy: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs' destination: Reference to the Kubernetes server and namespace in which the application will be deployed.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs'] ignore_differences: Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs'] infos: List of information (URLs, email addresses, and plain text) that relates to the application.
+        :param builtins.str project: The project the application belongs to. Defaults to `default`.
+        :param builtins.int revision_history_limit: Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs'] sources: Location of the application's manifests or chart.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs' sync_policy: Controls when and how a sync will be performed.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if ignore_differences is not None:
+            pulumi.set(__self__, "ignore_differences", ignore_differences)
+        if infos is not None:
+            pulumi.set(__self__, "infos", infos)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+        if revision_history_limit is not None:
+            pulumi.set(__self__, "revision_history_limit", revision_history_limit)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+        if sync_policy is not None:
+            pulumi.set(__self__, "sync_policy", sync_policy)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination']:
+        """
+        Reference to the Kubernetes server and namespace in which the application will be deployed.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="ignoreDifferences")
+    def ignore_differences(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference']]:
+        """
+        Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        """
+        return pulumi.get(self, "ignore_differences")
+
+    @property
+    @pulumi.getter
+    def infos(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo']]:
+        """
+        List of information (URLs, email addresses, and plain text) that relates to the application.
+        """
+        return pulumi.get(self, "infos")
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional[builtins.str]:
+        """
+        The project the application belongs to. Defaults to `default`.
+        """
+        return pulumi.get(self, "project")
+
+    @property
+    @pulumi.getter(name="revisionHistoryLimit")
+    def revision_history_limit(self) -> Optional[builtins.int]:
+        """
+        Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        """
+        return pulumi.get(self, "revision_history_limit")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource']]:
+        """
+        Location of the application's manifests or chart.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="syncPolicy")
+    def sync_policy(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy']:
+        """
+        Controls when and how a sync will be performed.
+        """
+        return pulumi.get(self, "sync_policy")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 server: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the target cluster. Can be used instead of `server`.
+        :param builtins.str namespace: Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        :param builtins.str server: URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the target cluster. Can be used instead of `server`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[builtins.str]:
+        """
+        URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        return pulumi.get(self, "server")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jqPathExpressions":
+            suggest = "jq_path_expressions"
+        elif key == "jsonPointers":
+            suggest = "json_pointers"
+        elif key == "managedFieldsManagers":
+            suggest = "managed_fields_managers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group: Optional[builtins.str] = None,
+                 jq_path_expressions: Optional[Sequence[builtins.str]] = None,
+                 json_pointers: Optional[Sequence[builtins.str]] = None,
+                 kind: Optional[builtins.str] = None,
+                 managed_fields_managers: Optional[Sequence[builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param Sequence[builtins.str] jq_path_expressions: List of JQ path expression strings targeting the field(s) to ignore.
+        :param Sequence[builtins.str] json_pointers: List of JSONPaths strings targeting the field(s) to ignore.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param Sequence[builtins.str] managed_fields_managers: List of external controller manager names whose changes to fields should be ignored.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if jq_path_expressions is not None:
+            pulumi.set(__self__, "jq_path_expressions", jq_path_expressions)
+        if json_pointers is not None:
+            pulumi.set(__self__, "json_pointers", json_pointers)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if managed_fields_managers is not None:
+            pulumi.set(__self__, "managed_fields_managers", managed_fields_managers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter(name="jqPathExpressions")
+    def jq_path_expressions(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JQ path expression strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "jq_path_expressions")
+
+    @property
+    @pulumi.getter(name="jsonPointers")
+    def json_pointers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JSONPaths strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "json_pointers")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="managedFieldsManagers")
+    def managed_fields_managers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of external controller manager names whose changes to fields should be ignored.
+        """
+        return pulumi.get(self, "managed_fields_managers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the information.
+        :param builtins.str value: Value of the information.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the information.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the information.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repoUrl":
+            suggest = "repo_url"
+        elif key == "targetRevision":
+            suggest = "target_revision"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chart: Optional[builtins.str] = None,
+                 directory: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory'] = None,
+                 helm: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm'] = None,
+                 kustomize: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize'] = None,
+                 path: Optional[builtins.str] = None,
+                 plugin: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin'] = None,
+                 ref: Optional[builtins.str] = None,
+                 repo_url: Optional[builtins.str] = None,
+                 target_revision: Optional[builtins.str] = None):
+        """
+        :param builtins.str chart: Helm chart name. Must be specified for applications sourced from a Helm repo.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs' directory: Path/directory specific options.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs' helm: Helm specific options.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs' kustomize: Kustomize specific options.
+        :param builtins.str path: Directory path within the repository. Only valid for applications sourced from Git.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs' plugin: Config management plugin specific options.
+        :param builtins.str ref: Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        :param builtins.str repo_url: URL to the repository (Git or Helm) that contains the application manifests.
+        :param builtins.str target_revision: Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        if chart is not None:
+            pulumi.set(__self__, "chart", chart)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if helm is not None:
+            pulumi.set(__self__, "helm", helm)
+        if kustomize is not None:
+            pulumi.set(__self__, "kustomize", kustomize)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if plugin is not None:
+            pulumi.set(__self__, "plugin", plugin)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+        if target_revision is not None:
+            pulumi.set(__self__, "target_revision", target_revision)
+
+    @property
+    @pulumi.getter
+    def chart(self) -> Optional[builtins.str]:
+        """
+        Helm chart name. Must be specified for applications sourced from a Helm repo.
+        """
+        return pulumi.get(self, "chart")
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory']:
+        """
+        Path/directory specific options.
+        """
+        return pulumi.get(self, "directory")
+
+    @property
+    @pulumi.getter
+    def helm(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm']:
+        """
+        Helm specific options.
+        """
+        return pulumi.get(self, "helm")
+
+    @property
+    @pulumi.getter
+    def kustomize(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize']:
+        """
+        Kustomize specific options.
+        """
+        return pulumi.get(self, "kustomize")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Directory path within the repository. Only valid for applications sourced from Git.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def plugin(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin']:
+        """
+        Config management plugin specific options.
+        """
+        return pulumi.get(self, "plugin")
+
+    @property
+    @pulumi.getter
+    def ref(self) -> Optional[builtins.str]:
+        """
+        Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        """
+        return pulumi.get(self, "ref")
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[builtins.str]:
+        """
+        URL to the repository (Git or Helm) that contains the application manifests.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @property
+    @pulumi.getter(name="targetRevision")
+    def target_revision(self) -> Optional[builtins.str]:
+        """
+        Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        return pulumi.get(self, "target_revision")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory(dict):
+    def __init__(__self__, *,
+                 exclude: Optional[builtins.str] = None,
+                 include: Optional[builtins.str] = None,
+                 jsonnet: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet'] = None,
+                 recurse: Optional[builtins.bool] = None):
+        """
+        :param builtins.str exclude: Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        :param builtins.str include: Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs' jsonnet: Jsonnet specific options.
+        :param builtins.bool recurse: Whether to scan a directory recursively for manifests.
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+        if jsonnet is not None:
+            pulumi.set(__self__, "jsonnet", jsonnet)
+        if recurse is not None:
+            pulumi.set(__self__, "recurse", recurse)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def jsonnet(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet']:
+        """
+        Jsonnet specific options.
+        """
+        return pulumi.get(self, "jsonnet")
+
+    @property
+    @pulumi.getter
+    def recurse(self) -> Optional[builtins.bool]:
+        """
+        Whether to scan a directory recursively for manifests.
+        """
+        return pulumi.get(self, "recurse")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extVars":
+            suggest = "ext_vars"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ext_vars: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']] = None,
+                 libs: Optional[Sequence[builtins.str]] = None,
+                 tlas: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs'] ext_vars: List of Jsonnet External Variables.
+        :param Sequence[builtins.str] libs: Additional library search dirs.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs'] tlas: List of Jsonnet Top-level Arguments
+        """
+        if ext_vars is not None:
+            pulumi.set(__self__, "ext_vars", ext_vars)
+        if libs is not None:
+            pulumi.set(__self__, "libs", libs)
+        if tlas is not None:
+            pulumi.set(__self__, "tlas", tlas)
+
+    @property
+    @pulumi.getter(name="extVars")
+    def ext_vars(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']]:
+        """
+        List of Jsonnet External Variables.
+        """
+        return pulumi.get(self, "ext_vars")
+
+    @property
+    @pulumi.getter
+    def libs(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Additional library search dirs.
+        """
+        return pulumi.get(self, "libs")
+
+    @property
+    @pulumi.getter
+    def tlas(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']]:
+        """
+        List of Jsonnet Top-level Arguments
+        """
+        return pulumi.get(self, "tlas")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileParameters":
+            suggest = "file_parameters"
+        elif key == "ignoreMissingValueFiles":
+            suggest = "ignore_missing_value_files"
+        elif key == "passCredentials":
+            suggest = "pass_credentials"
+        elif key == "releaseName":
+            suggest = "release_name"
+        elif key == "skipCrds":
+            suggest = "skip_crds"
+        elif key == "valueFiles":
+            suggest = "value_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter']] = None,
+                 ignore_missing_value_files: Optional[builtins.bool] = None,
+                 parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter']] = None,
+                 pass_credentials: Optional[builtins.bool] = None,
+                 release_name: Optional[builtins.str] = None,
+                 skip_crds: Optional[builtins.bool] = None,
+                 value_files: Optional[Sequence[builtins.str]] = None,
+                 values: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs'] file_parameters: File parameters for the helm template.
+        :param builtins.bool ignore_missing_value_files: Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs'] parameters: Helm parameters which are passed to the helm template command upon manifest generation.
+        :param builtins.bool pass_credentials: If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        :param builtins.str release_name: Helm release name. If omitted it will use the application name.
+        :param builtins.bool skip_crds: Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        :param Sequence[builtins.str] value_files: List of Helm value files to use when generating a template.
+        :param builtins.str values: Helm values to be passed to 'helm template', typically defined as a block.
+        :param builtins.str version: The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        if file_parameters is not None:
+            pulumi.set(__self__, "file_parameters", file_parameters)
+        if ignore_missing_value_files is not None:
+            pulumi.set(__self__, "ignore_missing_value_files", ignore_missing_value_files)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if pass_credentials is not None:
+            pulumi.set(__self__, "pass_credentials", pass_credentials)
+        if release_name is not None:
+            pulumi.set(__self__, "release_name", release_name)
+        if skip_crds is not None:
+            pulumi.set(__self__, "skip_crds", skip_crds)
+        if value_files is not None:
+            pulumi.set(__self__, "value_files", value_files)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="fileParameters")
+    def file_parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter']]:
+        """
+        File parameters for the helm template.
+        """
+        return pulumi.get(self, "file_parameters")
+
+    @property
+    @pulumi.getter(name="ignoreMissingValueFiles")
+    def ignore_missing_value_files(self) -> Optional[builtins.bool]:
+        """
+        Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        """
+        return pulumi.get(self, "ignore_missing_value_files")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter']]:
+        """
+        Helm parameters which are passed to the helm template command upon manifest generation.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="passCredentials")
+    def pass_credentials(self) -> Optional[builtins.bool]:
+        """
+        If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        """
+        return pulumi.get(self, "pass_credentials")
+
+    @property
+    @pulumi.getter(name="releaseName")
+    def release_name(self) -> Optional[builtins.str]:
+        """
+        Helm release name. If omitted it will use the application name.
+        """
+        return pulumi.get(self, "release_name")
+
+    @property
+    @pulumi.getter(name="skipCrds")
+    def skip_crds(self) -> Optional[builtins.bool]:
+        """
+        Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        """
+        return pulumi.get(self, "skip_crds")
+
+    @property
+    @pulumi.getter(name="valueFiles")
+    def value_files(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Helm value files to use when generating a template.
+        """
+        return pulumi.get(self, "value_files")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[builtins.str]:
+        """
+        Helm values to be passed to 'helm template', typically defined as a block.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 path: builtins.str):
+        """
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str path: Path to the file containing the values for the Helm parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        Path to the file containing the values for the Helm parameter.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forceString":
+            suggest = "force_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 force_string: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool force_string: Determines whether to tell Helm to interpret booleans and numbers as strings.
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str value: Value of the Helm parameter.
+        """
+        if force_string is not None:
+            pulumi.set(__self__, "force_string", force_string)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="forceString")
+    def force_string(self) -> Optional[builtins.bool]:
+        """
+        Determines whether to tell Helm to interpret booleans and numbers as strings.
+        """
+        return pulumi.get(self, "force_string")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the Helm parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonAnnotations":
+            suggest = "common_annotations"
+        elif key == "commonLabels":
+            suggest = "common_labels"
+        elif key == "namePrefix":
+            suggest = "name_prefix"
+        elif key == "nameSuffix":
+            suggest = "name_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 common_annotations: Optional[Mapping[str, builtins.str]] = None,
+                 common_labels: Optional[Mapping[str, builtins.str]] = None,
+                 images: Optional[Sequence[builtins.str]] = None,
+                 name_prefix: Optional[builtins.str] = None,
+                 name_suffix: Optional[builtins.str] = None,
+                 patches: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch']] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] common_annotations: List of additional annotations to add to rendered manifests.
+        :param Mapping[str, builtins.str] common_labels: List of additional labels to add to rendered manifests.
+        :param Sequence[builtins.str] images: List of Kustomize image override specifications.
+        :param builtins.str name_prefix: Prefix appended to resources for Kustomize apps.
+        :param builtins.str name_suffix: Suffix appended to resources for Kustomize apps.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs'] patches: A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        :param builtins.str version: Version of Kustomize to use for rendering manifests.
+        """
+        if common_annotations is not None:
+            pulumi.set(__self__, "common_annotations", common_annotations)
+        if common_labels is not None:
+            pulumi.set(__self__, "common_labels", common_labels)
+        if images is not None:
+            pulumi.set(__self__, "images", images)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if name_suffix is not None:
+            pulumi.set(__self__, "name_suffix", name_suffix)
+        if patches is not None:
+            pulumi.set(__self__, "patches", patches)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="commonAnnotations")
+    def common_annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional annotations to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_annotations")
+
+    @property
+    @pulumi.getter(name="commonLabels")
+    def common_labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional labels to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_labels")
+
+    @property
+    @pulumi.getter
+    def images(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Kustomize image override specifications.
+        """
+        return pulumi.get(self, "images")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[builtins.str]:
+        """
+        Prefix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter(name="nameSuffix")
+    def name_suffix(self) -> Optional[builtins.str]:
+        """
+        Suffix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_suffix")
+
+    @property
+    @pulumi.getter
+    def patches(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch']]:
+        """
+        A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        """
+        return pulumi.get(self, "patches")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        Version of Kustomize to use for rendering manifests.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+                 options: Optional[Mapping[str, builtins.bool]] = None,
+                 patch: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs' target: Target(s) to patch
+        :param Mapping[str, builtins.bool] options: Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        :param builtins.str patch: Inline Kustomize patch to apply.
+        :param builtins.str path: Path to a file containing the patch to apply.
+        """
+        pulumi.set(__self__, "target", target)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget':
+        """
+        Target(s) to patch
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, builtins.bool]]:
+        """
+        Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def patch(self) -> Optional[builtins.str]:
+        """
+        Inline Kustomize patch to apply.
+        """
+        return pulumi.get(self, "patch")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Path to a file containing the patch to apply.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "annotationSelector":
+            suggest = "annotation_selector"
+        elif key == "labelSelector":
+            suggest = "label_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 annotation_selector: Optional[builtins.str] = None,
+                 group: Optional[builtins.str] = None,
+                 kind: Optional[builtins.str] = None,
+                 label_selector: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param builtins.str annotation_selector: Annotation selector to use when matching the Kubernetes resource.
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param builtins.str label_selector: Label selector to use when matching the Kubernetes resource.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        :param builtins.str version: The Kubernetes resource Version to match for.
+        """
+        if annotation_selector is not None:
+            pulumi.set(__self__, "annotation_selector", annotation_selector)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="annotationSelector")
+    def annotation_selector(self) -> Optional[builtins.str]:
+        """
+        Annotation selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "annotation_selector")
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional[builtins.str]:
+        """
+        Label selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Version to match for.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin(dict):
+    def __init__(__self__, *,
+                 envs: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv']] = None,
+                 name: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs'] envs: Environment variables passed to the plugin.
+        :param builtins.str name: Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv']]:
+        """
+        Environment variables passed to the plugin.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the environment variable.
+        :param builtins.str value: Value of the environment variable.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedNamespaceMetadata":
+            suggest = "managed_namespace_metadata"
+        elif key == "syncOptions":
+            suggest = "sync_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automated: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated'] = None,
+                 managed_namespace_metadata: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata'] = None,
+                 retry: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry'] = None,
+                 sync_options: Optional[Sequence[builtins.str]] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs' automated: Whether to automatically keep an application synced to the target revision.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs' managed_namespace_metadata: Controls metadata in the given namespace (if `CreateNamespace=true`).
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs' retry: Controls failed sync retry behavior.
+        :param Sequence[builtins.str] sync_options: List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        if automated is not None:
+            pulumi.set(__self__, "automated", automated)
+        if managed_namespace_metadata is not None:
+            pulumi.set(__self__, "managed_namespace_metadata", managed_namespace_metadata)
+        if retry is not None:
+            pulumi.set(__self__, "retry", retry)
+        if sync_options is not None:
+            pulumi.set(__self__, "sync_options", sync_options)
+
+    @property
+    @pulumi.getter
+    def automated(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated']:
+        """
+        Whether to automatically keep an application synced to the target revision.
+        """
+        return pulumi.get(self, "automated")
+
+    @property
+    @pulumi.getter(name="managedNamespaceMetadata")
+    def managed_namespace_metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata']:
+        """
+        Controls metadata in the given namespace (if `CreateNamespace=true`).
+        """
+        return pulumi.get(self, "managed_namespace_metadata")
+
+    @property
+    @pulumi.getter
+    def retry(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry']:
+        """
+        Controls failed sync retry behavior.
+        """
+        return pulumi.get(self, "retry")
+
+    @property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        return pulumi.get(self, "sync_options")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowEmpty":
+            suggest = "allow_empty"
+        elif key == "selfHeal":
+            suggest = "self_heal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_empty: Optional[builtins.bool] = None,
+                 prune: Optional[builtins.bool] = None,
+                 self_heal: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool allow_empty: Allows apps have zero live resources.
+        :param builtins.bool prune: Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        :param builtins.bool self_heal: Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        if allow_empty is not None:
+            pulumi.set(__self__, "allow_empty", allow_empty)
+        if prune is not None:
+            pulumi.set(__self__, "prune", prune)
+        if self_heal is not None:
+            pulumi.set(__self__, "self_heal", self_heal)
+
+    @property
+    @pulumi.getter(name="allowEmpty")
+    def allow_empty(self) -> Optional[builtins.bool]:
+        """
+        Allows apps have zero live resources.
+        """
+        return pulumi.get(self, "allow_empty")
+
+    @property
+    @pulumi.getter
+    def prune(self) -> Optional[builtins.bool]:
+        """
+        Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        """
+        return pulumi.get(self, "prune")
+
+    @property
+    @pulumi.getter(name="selfHeal")
+    def self_heal(self) -> Optional[builtins.bool]:
+        """
+        Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        return pulumi.get(self, "self_heal")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: Annotations to apply to the namespace.
+        :param Mapping[str, builtins.str] labels: Labels to apply to the namespace.
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Annotations to apply to the namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Labels to apply to the namespace.
+        """
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry(dict):
+    def __init__(__self__, *,
+                 backoff: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff'] = None,
+                 limit: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs' backoff: Controls how to backoff on subsequent retries of failed syncs.
+        :param builtins.str limit: Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        if backoff is not None:
+            pulumi.set(__self__, "backoff", backoff)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter
+    def backoff(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff']:
+        """
+        Controls how to backoff on subsequent retries of failed syncs.
+        """
+        return pulumi.get(self, "backoff")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[builtins.str]:
+        """
+        Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDuration":
+            suggest = "max_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: Optional[builtins.str] = None,
+                 factor: Optional[builtins.str] = None,
+                 max_duration: Optional[builtins.str] = None):
+        """
+        :param builtins.str duration: Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        :param builtins.str factor: Factor to multiply the base duration after each failed retry.
+        :param builtins.str max_duration: Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if factor is not None:
+            pulumi.set(__self__, "factor", factor)
+        if max_duration is not None:
+            pulumi.set(__self__, "max_duration", max_duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[builtins.str]:
+        """
+        Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def factor(self) -> Optional[builtins.str]:
+        """
+        Factor to multiply the base duration after each failed retry.
+        """
+        return pulumi.get(self, "factor")
+
+    @property
+    @pulumi.getter(name="maxDuration")
+    def max_duration(self) -> Optional[builtins.str]:
+        """
+        Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "max_duration")
+
+
+@pulumi.output_type
 class ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -29242,6 +31123,7 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMergeGenerator(dict):
                  clusters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorCluster']] = None,
                  gits: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit']] = None,
                  lists: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorList']] = None,
+                 plugins: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin']] = None,
                  pull_requests: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPullRequest']] = None,
                  scm_providers: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorScmProvider']] = None,
                  selector: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorSelector'] = None):
@@ -29250,6 +31132,7 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMergeGenerator(dict):
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterArgs'] clusters: The [cluster generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Cluster/) produces parameters based on the list of items found within the cluster secret.
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArgs'] gits: [Git generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Git/) generates parameters using either the directory structure of a specified Git repository (directory generator), or, using the contents of JSON/YAML files found within a specified repository (file generator).
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorListArgs'] lists: [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginArgs'] plugins: [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPullRequestArgs'] pull_requests: [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
         :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorScmProviderArgs'] scm_providers: [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
         :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorSelectorArgs' selector: The Selector allows to post-filter based on generated values using the kubernetes common labelSelector format.
@@ -29262,6 +31145,8 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMergeGenerator(dict):
             pulumi.set(__self__, "gits", gits)
         if lists is not None:
             pulumi.set(__self__, "lists", lists)
+        if plugins is not None:
+            pulumi.set(__self__, "plugins", plugins)
         if pull_requests is not None:
             pulumi.set(__self__, "pull_requests", pull_requests)
         if scm_providers is not None:
@@ -29300,6 +31185,14 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMergeGenerator(dict):
         [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
         """
         return pulumi.get(self, "lists")
+
+    @property
+    @pulumi.getter
+    def plugins(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin']]:
+        """
+        [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+        """
+        return pulumi.get(self, "plugins")
 
     @property
     @pulumi.getter(name="pullRequests")
@@ -36093,6 +37986,1669 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorListTemplateSpecSy
 
 
 @pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configMapRef":
+            suggest = "config_map_ref"
+        elif key == "requeueAfterSeconds":
+            suggest = "requeue_after_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 config_map_ref: builtins.str,
+                 input: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginInput'] = None,
+                 requeue_after_seconds: Optional[builtins.str] = None,
+                 template: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplate'] = None,
+                 values: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param builtins.str config_map_ref: ConfigMap with the plugin configuration needed to retrieve the data.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginInputArgs' input: The input parameters used for calling the plugin.
+        :param builtins.str requeue_after_seconds: How often to check for changes (in seconds). Default: 3min.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateArgs' template: Generator template. Used to override the values of the spec-level template.
+        :param Mapping[str, builtins.str] values: Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        pulumi.set(__self__, "config_map_ref", config_map_ref)
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if requeue_after_seconds is not None:
+            pulumi.set(__self__, "requeue_after_seconds", requeue_after_seconds)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="configMapRef")
+    def config_map_ref(self) -> builtins.str:
+        """
+        ConfigMap with the plugin configuration needed to retrieve the data.
+        """
+        return pulumi.get(self, "config_map_ref")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginInput']:
+        """
+        The input parameters used for calling the plugin.
+        """
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="requeueAfterSeconds")
+    def requeue_after_seconds(self) -> Optional[builtins.str]:
+        """
+        How often to check for changes (in seconds). Default: 3min.
+        """
+        return pulumi.get(self, "requeue_after_seconds")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplate']:
+        """
+        Generator template. Used to override the values of the spec-level template.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginInput(dict):
+    def __init__(__self__, *,
+                 parameters: Mapping[str, builtins.str]):
+        """
+        :param Mapping[str, builtins.str] parameters: Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, builtins.str]:
+        """
+        Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplate(dict):
+    def __init__(__self__, *,
+                 metadata: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateMetadata'] = None,
+                 spec: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateMetadataArgs' metadata: Kubernetes object metadata for templated Application.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecArgs' spec: The application specification.
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateMetadata']:
+        """
+        Kubernetes object metadata for templated Application.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec']:
+        """
+        The application specification.
+        """
+        return pulumi.get(self, "spec")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 finalizers: Optional[Sequence[builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        :param Sequence[builtins.str] finalizers: List of finalizers to apply to the resulting Application.
+        :param Mapping[str, builtins.str] labels: Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        :param builtins.str name: Name of the resulting Application
+        :param builtins.str namespace: Namespace of the resulting Application
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if finalizers is not None:
+            pulumi.set(__self__, "finalizers", finalizers)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def finalizers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of finalizers to apply to the resulting Application.
+        """
+        return pulumi.get(self, "finalizers")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the resulting Application
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Namespace of the resulting Application
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreDifferences":
+            suggest = "ignore_differences"
+        elif key == "revisionHistoryLimit":
+            suggest = "revision_history_limit"
+        elif key == "syncPolicy":
+            suggest = "sync_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecDestination'] = None,
+                 ignore_differences: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference']] = None,
+                 infos: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecInfo']] = None,
+                 project: Optional[builtins.str] = None,
+                 revision_history_limit: Optional[builtins.int] = None,
+                 sources: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource']] = None,
+                 sync_policy: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecDestinationArgs' destination: Reference to the Kubernetes server and namespace in which the application will be deployed.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifferenceArgs'] ignore_differences: Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecInfoArgs'] infos: List of information (URLs, email addresses, and plain text) that relates to the application.
+        :param builtins.str project: The project the application belongs to. Defaults to `default`.
+        :param builtins.int revision_history_limit: Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceArgs'] sources: Location of the application's manifests or chart.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyArgs' sync_policy: Controls when and how a sync will be performed.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if ignore_differences is not None:
+            pulumi.set(__self__, "ignore_differences", ignore_differences)
+        if infos is not None:
+            pulumi.set(__self__, "infos", infos)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+        if revision_history_limit is not None:
+            pulumi.set(__self__, "revision_history_limit", revision_history_limit)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+        if sync_policy is not None:
+            pulumi.set(__self__, "sync_policy", sync_policy)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecDestination']:
+        """
+        Reference to the Kubernetes server and namespace in which the application will be deployed.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="ignoreDifferences")
+    def ignore_differences(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference']]:
+        """
+        Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        """
+        return pulumi.get(self, "ignore_differences")
+
+    @property
+    @pulumi.getter
+    def infos(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecInfo']]:
+        """
+        List of information (URLs, email addresses, and plain text) that relates to the application.
+        """
+        return pulumi.get(self, "infos")
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional[builtins.str]:
+        """
+        The project the application belongs to. Defaults to `default`.
+        """
+        return pulumi.get(self, "project")
+
+    @property
+    @pulumi.getter(name="revisionHistoryLimit")
+    def revision_history_limit(self) -> Optional[builtins.int]:
+        """
+        Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        """
+        return pulumi.get(self, "revision_history_limit")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource']]:
+        """
+        Location of the application's manifests or chart.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="syncPolicy")
+    def sync_policy(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy']:
+        """
+        Controls when and how a sync will be performed.
+        """
+        return pulumi.get(self, "sync_policy")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecDestination(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 server: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the target cluster. Can be used instead of `server`.
+        :param builtins.str namespace: Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        :param builtins.str server: URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the target cluster. Can be used instead of `server`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[builtins.str]:
+        """
+        URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        return pulumi.get(self, "server")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jqPathExpressions":
+            suggest = "jq_path_expressions"
+        elif key == "jsonPointers":
+            suggest = "json_pointers"
+        elif key == "managedFieldsManagers":
+            suggest = "managed_fields_managers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group: Optional[builtins.str] = None,
+                 jq_path_expressions: Optional[Sequence[builtins.str]] = None,
+                 json_pointers: Optional[Sequence[builtins.str]] = None,
+                 kind: Optional[builtins.str] = None,
+                 managed_fields_managers: Optional[Sequence[builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param Sequence[builtins.str] jq_path_expressions: List of JQ path expression strings targeting the field(s) to ignore.
+        :param Sequence[builtins.str] json_pointers: List of JSONPaths strings targeting the field(s) to ignore.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param Sequence[builtins.str] managed_fields_managers: List of external controller manager names whose changes to fields should be ignored.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if jq_path_expressions is not None:
+            pulumi.set(__self__, "jq_path_expressions", jq_path_expressions)
+        if json_pointers is not None:
+            pulumi.set(__self__, "json_pointers", json_pointers)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if managed_fields_managers is not None:
+            pulumi.set(__self__, "managed_fields_managers", managed_fields_managers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter(name="jqPathExpressions")
+    def jq_path_expressions(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JQ path expression strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "jq_path_expressions")
+
+    @property
+    @pulumi.getter(name="jsonPointers")
+    def json_pointers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JSONPaths strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "json_pointers")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="managedFieldsManagers")
+    def managed_fields_managers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of external controller manager names whose changes to fields should be ignored.
+        """
+        return pulumi.get(self, "managed_fields_managers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecInfo(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the information.
+        :param builtins.str value: Value of the information.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the information.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the information.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repoUrl":
+            suggest = "repo_url"
+        elif key == "targetRevision":
+            suggest = "target_revision"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chart: Optional[builtins.str] = None,
+                 directory: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory'] = None,
+                 helm: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm'] = None,
+                 kustomize: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize'] = None,
+                 path: Optional[builtins.str] = None,
+                 plugin: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin'] = None,
+                 ref: Optional[builtins.str] = None,
+                 repo_url: Optional[builtins.str] = None,
+                 target_revision: Optional[builtins.str] = None):
+        """
+        :param builtins.str chart: Helm chart name. Must be specified for applications sourced from a Helm repo.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryArgs' directory: Path/directory specific options.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmArgs' helm: Helm specific options.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizeArgs' kustomize: Kustomize specific options.
+        :param builtins.str path: Directory path within the repository. Only valid for applications sourced from Git.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePluginArgs' plugin: Config management plugin specific options.
+        :param builtins.str ref: Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        :param builtins.str repo_url: URL to the repository (Git or Helm) that contains the application manifests.
+        :param builtins.str target_revision: Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        if chart is not None:
+            pulumi.set(__self__, "chart", chart)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if helm is not None:
+            pulumi.set(__self__, "helm", helm)
+        if kustomize is not None:
+            pulumi.set(__self__, "kustomize", kustomize)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if plugin is not None:
+            pulumi.set(__self__, "plugin", plugin)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+        if target_revision is not None:
+            pulumi.set(__self__, "target_revision", target_revision)
+
+    @property
+    @pulumi.getter
+    def chart(self) -> Optional[builtins.str]:
+        """
+        Helm chart name. Must be specified for applications sourced from a Helm repo.
+        """
+        return pulumi.get(self, "chart")
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory']:
+        """
+        Path/directory specific options.
+        """
+        return pulumi.get(self, "directory")
+
+    @property
+    @pulumi.getter
+    def helm(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm']:
+        """
+        Helm specific options.
+        """
+        return pulumi.get(self, "helm")
+
+    @property
+    @pulumi.getter
+    def kustomize(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize']:
+        """
+        Kustomize specific options.
+        """
+        return pulumi.get(self, "kustomize")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Directory path within the repository. Only valid for applications sourced from Git.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def plugin(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin']:
+        """
+        Config management plugin specific options.
+        """
+        return pulumi.get(self, "plugin")
+
+    @property
+    @pulumi.getter
+    def ref(self) -> Optional[builtins.str]:
+        """
+        Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        """
+        return pulumi.get(self, "ref")
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[builtins.str]:
+        """
+        URL to the repository (Git or Helm) that contains the application manifests.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @property
+    @pulumi.getter(name="targetRevision")
+    def target_revision(self) -> Optional[builtins.str]:
+        """
+        Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        return pulumi.get(self, "target_revision")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory(dict):
+    def __init__(__self__, *,
+                 exclude: Optional[builtins.str] = None,
+                 include: Optional[builtins.str] = None,
+                 jsonnet: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet'] = None,
+                 recurse: Optional[builtins.bool] = None):
+        """
+        :param builtins.str exclude: Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        :param builtins.str include: Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs' jsonnet: Jsonnet specific options.
+        :param builtins.bool recurse: Whether to scan a directory recursively for manifests.
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+        if jsonnet is not None:
+            pulumi.set(__self__, "jsonnet", jsonnet)
+        if recurse is not None:
+            pulumi.set(__self__, "recurse", recurse)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def jsonnet(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet']:
+        """
+        Jsonnet specific options.
+        """
+        return pulumi.get(self, "jsonnet")
+
+    @property
+    @pulumi.getter
+    def recurse(self) -> Optional[builtins.bool]:
+        """
+        Whether to scan a directory recursively for manifests.
+        """
+        return pulumi.get(self, "recurse")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extVars":
+            suggest = "ext_vars"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ext_vars: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']] = None,
+                 libs: Optional[Sequence[builtins.str]] = None,
+                 tlas: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs'] ext_vars: List of Jsonnet External Variables.
+        :param Sequence[builtins.str] libs: Additional library search dirs.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs'] tlas: List of Jsonnet Top-level Arguments
+        """
+        if ext_vars is not None:
+            pulumi.set(__self__, "ext_vars", ext_vars)
+        if libs is not None:
+            pulumi.set(__self__, "libs", libs)
+        if tlas is not None:
+            pulumi.set(__self__, "tlas", tlas)
+
+    @property
+    @pulumi.getter(name="extVars")
+    def ext_vars(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']]:
+        """
+        List of Jsonnet External Variables.
+        """
+        return pulumi.get(self, "ext_vars")
+
+    @property
+    @pulumi.getter
+    def libs(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Additional library search dirs.
+        """
+        return pulumi.get(self, "libs")
+
+    @property
+    @pulumi.getter
+    def tlas(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']]:
+        """
+        List of Jsonnet Top-level Arguments
+        """
+        return pulumi.get(self, "tlas")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileParameters":
+            suggest = "file_parameters"
+        elif key == "ignoreMissingValueFiles":
+            suggest = "ignore_missing_value_files"
+        elif key == "passCredentials":
+            suggest = "pass_credentials"
+        elif key == "releaseName":
+            suggest = "release_name"
+        elif key == "skipCrds":
+            suggest = "skip_crds"
+        elif key == "valueFiles":
+            suggest = "value_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter']] = None,
+                 ignore_missing_value_files: Optional[builtins.bool] = None,
+                 parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter']] = None,
+                 pass_credentials: Optional[builtins.bool] = None,
+                 release_name: Optional[builtins.str] = None,
+                 skip_crds: Optional[builtins.bool] = None,
+                 value_files: Optional[Sequence[builtins.str]] = None,
+                 values: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameterArgs'] file_parameters: File parameters for the helm template.
+        :param builtins.bool ignore_missing_value_files: Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameterArgs'] parameters: Helm parameters which are passed to the helm template command upon manifest generation.
+        :param builtins.bool pass_credentials: If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        :param builtins.str release_name: Helm release name. If omitted it will use the application name.
+        :param builtins.bool skip_crds: Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        :param Sequence[builtins.str] value_files: List of Helm value files to use when generating a template.
+        :param builtins.str values: Helm values to be passed to 'helm template', typically defined as a block.
+        :param builtins.str version: The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        if file_parameters is not None:
+            pulumi.set(__self__, "file_parameters", file_parameters)
+        if ignore_missing_value_files is not None:
+            pulumi.set(__self__, "ignore_missing_value_files", ignore_missing_value_files)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if pass_credentials is not None:
+            pulumi.set(__self__, "pass_credentials", pass_credentials)
+        if release_name is not None:
+            pulumi.set(__self__, "release_name", release_name)
+        if skip_crds is not None:
+            pulumi.set(__self__, "skip_crds", skip_crds)
+        if value_files is not None:
+            pulumi.set(__self__, "value_files", value_files)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="fileParameters")
+    def file_parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter']]:
+        """
+        File parameters for the helm template.
+        """
+        return pulumi.get(self, "file_parameters")
+
+    @property
+    @pulumi.getter(name="ignoreMissingValueFiles")
+    def ignore_missing_value_files(self) -> Optional[builtins.bool]:
+        """
+        Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        """
+        return pulumi.get(self, "ignore_missing_value_files")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter']]:
+        """
+        Helm parameters which are passed to the helm template command upon manifest generation.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="passCredentials")
+    def pass_credentials(self) -> Optional[builtins.bool]:
+        """
+        If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        """
+        return pulumi.get(self, "pass_credentials")
+
+    @property
+    @pulumi.getter(name="releaseName")
+    def release_name(self) -> Optional[builtins.str]:
+        """
+        Helm release name. If omitted it will use the application name.
+        """
+        return pulumi.get(self, "release_name")
+
+    @property
+    @pulumi.getter(name="skipCrds")
+    def skip_crds(self) -> Optional[builtins.bool]:
+        """
+        Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        """
+        return pulumi.get(self, "skip_crds")
+
+    @property
+    @pulumi.getter(name="valueFiles")
+    def value_files(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Helm value files to use when generating a template.
+        """
+        return pulumi.get(self, "value_files")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[builtins.str]:
+        """
+        Helm values to be passed to 'helm template', typically defined as a block.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 path: builtins.str):
+        """
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str path: Path to the file containing the values for the Helm parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        Path to the file containing the values for the Helm parameter.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forceString":
+            suggest = "force_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 force_string: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool force_string: Determines whether to tell Helm to interpret booleans and numbers as strings.
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str value: Value of the Helm parameter.
+        """
+        if force_string is not None:
+            pulumi.set(__self__, "force_string", force_string)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="forceString")
+    def force_string(self) -> Optional[builtins.bool]:
+        """
+        Determines whether to tell Helm to interpret booleans and numbers as strings.
+        """
+        return pulumi.get(self, "force_string")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the Helm parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonAnnotations":
+            suggest = "common_annotations"
+        elif key == "commonLabels":
+            suggest = "common_labels"
+        elif key == "namePrefix":
+            suggest = "name_prefix"
+        elif key == "nameSuffix":
+            suggest = "name_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 common_annotations: Optional[Mapping[str, builtins.str]] = None,
+                 common_labels: Optional[Mapping[str, builtins.str]] = None,
+                 images: Optional[Sequence[builtins.str]] = None,
+                 name_prefix: Optional[builtins.str] = None,
+                 name_suffix: Optional[builtins.str] = None,
+                 patches: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch']] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] common_annotations: List of additional annotations to add to rendered manifests.
+        :param Mapping[str, builtins.str] common_labels: List of additional labels to add to rendered manifests.
+        :param Sequence[builtins.str] images: List of Kustomize image override specifications.
+        :param builtins.str name_prefix: Prefix appended to resources for Kustomize apps.
+        :param builtins.str name_suffix: Suffix appended to resources for Kustomize apps.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchArgs'] patches: A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        :param builtins.str version: Version of Kustomize to use for rendering manifests.
+        """
+        if common_annotations is not None:
+            pulumi.set(__self__, "common_annotations", common_annotations)
+        if common_labels is not None:
+            pulumi.set(__self__, "common_labels", common_labels)
+        if images is not None:
+            pulumi.set(__self__, "images", images)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if name_suffix is not None:
+            pulumi.set(__self__, "name_suffix", name_suffix)
+        if patches is not None:
+            pulumi.set(__self__, "patches", patches)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="commonAnnotations")
+    def common_annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional annotations to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_annotations")
+
+    @property
+    @pulumi.getter(name="commonLabels")
+    def common_labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional labels to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_labels")
+
+    @property
+    @pulumi.getter
+    def images(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Kustomize image override specifications.
+        """
+        return pulumi.get(self, "images")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[builtins.str]:
+        """
+        Prefix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter(name="nameSuffix")
+    def name_suffix(self) -> Optional[builtins.str]:
+        """
+        Suffix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_suffix")
+
+    @property
+    @pulumi.getter
+    def patches(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch']]:
+        """
+        A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        """
+        return pulumi.get(self, "patches")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        Version of Kustomize to use for rendering manifests.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+                 options: Optional[Mapping[str, builtins.bool]] = None,
+                 patch: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs' target: Target(s) to patch
+        :param Mapping[str, builtins.bool] options: Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        :param builtins.str patch: Inline Kustomize patch to apply.
+        :param builtins.str path: Path to a file containing the patch to apply.
+        """
+        pulumi.set(__self__, "target", target)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget':
+        """
+        Target(s) to patch
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, builtins.bool]]:
+        """
+        Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def patch(self) -> Optional[builtins.str]:
+        """
+        Inline Kustomize patch to apply.
+        """
+        return pulumi.get(self, "patch")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Path to a file containing the patch to apply.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "annotationSelector":
+            suggest = "annotation_selector"
+        elif key == "labelSelector":
+            suggest = "label_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 annotation_selector: Optional[builtins.str] = None,
+                 group: Optional[builtins.str] = None,
+                 kind: Optional[builtins.str] = None,
+                 label_selector: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param builtins.str annotation_selector: Annotation selector to use when matching the Kubernetes resource.
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param builtins.str label_selector: Label selector to use when matching the Kubernetes resource.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        :param builtins.str version: The Kubernetes resource Version to match for.
+        """
+        if annotation_selector is not None:
+            pulumi.set(__self__, "annotation_selector", annotation_selector)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="annotationSelector")
+    def annotation_selector(self) -> Optional[builtins.str]:
+        """
+        Annotation selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "annotation_selector")
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional[builtins.str]:
+        """
+        Label selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Version to match for.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin(dict):
+    def __init__(__self__, *,
+                 envs: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv']] = None,
+                 name: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnvArgs'] envs: Environment variables passed to the plugin.
+        :param builtins.str name: Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv']]:
+        """
+        Environment variables passed to the plugin.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the environment variable.
+        :param builtins.str value: Value of the environment variable.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedNamespaceMetadata":
+            suggest = "managed_namespace_metadata"
+        elif key == "syncOptions":
+            suggest = "sync_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automated: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated'] = None,
+                 managed_namespace_metadata: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata'] = None,
+                 retry: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry'] = None,
+                 sync_options: Optional[Sequence[builtins.str]] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs' automated: Whether to automatically keep an application synced to the target revision.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs' managed_namespace_metadata: Controls metadata in the given namespace (if `CreateNamespace=true`).
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryArgs' retry: Controls failed sync retry behavior.
+        :param Sequence[builtins.str] sync_options: List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        if automated is not None:
+            pulumi.set(__self__, "automated", automated)
+        if managed_namespace_metadata is not None:
+            pulumi.set(__self__, "managed_namespace_metadata", managed_namespace_metadata)
+        if retry is not None:
+            pulumi.set(__self__, "retry", retry)
+        if sync_options is not None:
+            pulumi.set(__self__, "sync_options", sync_options)
+
+    @property
+    @pulumi.getter
+    def automated(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated']:
+        """
+        Whether to automatically keep an application synced to the target revision.
+        """
+        return pulumi.get(self, "automated")
+
+    @property
+    @pulumi.getter(name="managedNamespaceMetadata")
+    def managed_namespace_metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata']:
+        """
+        Controls metadata in the given namespace (if `CreateNamespace=true`).
+        """
+        return pulumi.get(self, "managed_namespace_metadata")
+
+    @property
+    @pulumi.getter
+    def retry(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry']:
+        """
+        Controls failed sync retry behavior.
+        """
+        return pulumi.get(self, "retry")
+
+    @property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        return pulumi.get(self, "sync_options")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowEmpty":
+            suggest = "allow_empty"
+        elif key == "selfHeal":
+            suggest = "self_heal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_empty: Optional[builtins.bool] = None,
+                 prune: Optional[builtins.bool] = None,
+                 self_heal: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool allow_empty: Allows apps have zero live resources.
+        :param builtins.bool prune: Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        :param builtins.bool self_heal: Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        if allow_empty is not None:
+            pulumi.set(__self__, "allow_empty", allow_empty)
+        if prune is not None:
+            pulumi.set(__self__, "prune", prune)
+        if self_heal is not None:
+            pulumi.set(__self__, "self_heal", self_heal)
+
+    @property
+    @pulumi.getter(name="allowEmpty")
+    def allow_empty(self) -> Optional[builtins.bool]:
+        """
+        Allows apps have zero live resources.
+        """
+        return pulumi.get(self, "allow_empty")
+
+    @property
+    @pulumi.getter
+    def prune(self) -> Optional[builtins.bool]:
+        """
+        Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        """
+        return pulumi.get(self, "prune")
+
+    @property
+    @pulumi.getter(name="selfHeal")
+    def self_heal(self) -> Optional[builtins.bool]:
+        """
+        Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        return pulumi.get(self, "self_heal")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: Annotations to apply to the namespace.
+        :param Mapping[str, builtins.str] labels: Labels to apply to the namespace.
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Annotations to apply to the namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Labels to apply to the namespace.
+        """
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry(dict):
+    def __init__(__self__, *,
+                 backoff: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff'] = None,
+                 limit: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs' backoff: Controls how to backoff on subsequent retries of failed syncs.
+        :param builtins.str limit: Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        if backoff is not None:
+            pulumi.set(__self__, "backoff", backoff)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter
+    def backoff(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff']:
+        """
+        Controls how to backoff on subsequent retries of failed syncs.
+        """
+        return pulumi.get(self, "backoff")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[builtins.str]:
+        """
+        Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDuration":
+            suggest = "max_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: Optional[builtins.str] = None,
+                 factor: Optional[builtins.str] = None,
+                 max_duration: Optional[builtins.str] = None):
+        """
+        :param builtins.str duration: Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        :param builtins.str factor: Factor to multiply the base duration after each failed retry.
+        :param builtins.str max_duration: Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if factor is not None:
+            pulumi.set(__self__, "factor", factor)
+        if max_duration is not None:
+            pulumi.set(__self__, "max_duration", max_duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[builtins.str]:
+        """
+        Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def factor(self) -> Optional[builtins.str]:
+        """
+        Factor to multiply the base duration after each failed retry.
+        """
+        return pulumi.get(self, "factor")
+
+    @property
+    @pulumi.getter(name="maxDuration")
+    def max_duration(self) -> Optional[builtins.str]:
+        """
+        Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "max_duration")
+
+
+@pulumi.output_type
 class ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPullRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -42588,6 +46144,1669 @@ class ApplicationSetSpecGeneratorMatrixGeneratorMergeTemplateSpecSyncPolicyRetry
 
     def get(self, key: str, default = None) -> Any:
         ApplicationSetSpecGeneratorMatrixGeneratorMergeTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: Optional[builtins.str] = None,
+                 factor: Optional[builtins.str] = None,
+                 max_duration: Optional[builtins.str] = None):
+        """
+        :param builtins.str duration: Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        :param builtins.str factor: Factor to multiply the base duration after each failed retry.
+        :param builtins.str max_duration: Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if factor is not None:
+            pulumi.set(__self__, "factor", factor)
+        if max_duration is not None:
+            pulumi.set(__self__, "max_duration", max_duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[builtins.str]:
+        """
+        Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def factor(self) -> Optional[builtins.str]:
+        """
+        Factor to multiply the base duration after each failed retry.
+        """
+        return pulumi.get(self, "factor")
+
+    @property
+    @pulumi.getter(name="maxDuration")
+    def max_duration(self) -> Optional[builtins.str]:
+        """
+        Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "max_duration")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPlugin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configMapRef":
+            suggest = "config_map_ref"
+        elif key == "requeueAfterSeconds":
+            suggest = "requeue_after_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPlugin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPlugin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPlugin.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 config_map_ref: builtins.str,
+                 input: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginInput'] = None,
+                 requeue_after_seconds: Optional[builtins.str] = None,
+                 template: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplate'] = None,
+                 values: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param builtins.str config_map_ref: ConfigMap with the plugin configuration needed to retrieve the data.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginInputArgs' input: The input parameters used for calling the plugin.
+        :param builtins.str requeue_after_seconds: How often to check for changes (in seconds). Default: 3min.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateArgs' template: Generator template. Used to override the values of the spec-level template.
+        :param Mapping[str, builtins.str] values: Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        pulumi.set(__self__, "config_map_ref", config_map_ref)
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if requeue_after_seconds is not None:
+            pulumi.set(__self__, "requeue_after_seconds", requeue_after_seconds)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="configMapRef")
+    def config_map_ref(self) -> builtins.str:
+        """
+        ConfigMap with the plugin configuration needed to retrieve the data.
+        """
+        return pulumi.get(self, "config_map_ref")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginInput']:
+        """
+        The input parameters used for calling the plugin.
+        """
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="requeueAfterSeconds")
+    def requeue_after_seconds(self) -> Optional[builtins.str]:
+        """
+        How often to check for changes (in seconds). Default: 3min.
+        """
+        return pulumi.get(self, "requeue_after_seconds")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplate']:
+        """
+        Generator template. Used to override the values of the spec-level template.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginInput(dict):
+    def __init__(__self__, *,
+                 parameters: Mapping[str, builtins.str]):
+        """
+        :param Mapping[str, builtins.str] parameters: Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, builtins.str]:
+        """
+        Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplate(dict):
+    def __init__(__self__, *,
+                 metadata: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateMetadata'] = None,
+                 spec: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateMetadataArgs' metadata: Kubernetes object metadata for templated Application.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecArgs' spec: The application specification.
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateMetadata']:
+        """
+        Kubernetes object metadata for templated Application.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec']:
+        """
+        The application specification.
+        """
+        return pulumi.get(self, "spec")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 finalizers: Optional[Sequence[builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        :param Sequence[builtins.str] finalizers: List of finalizers to apply to the resulting Application.
+        :param Mapping[str, builtins.str] labels: Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        :param builtins.str name: Name of the resulting Application
+        :param builtins.str namespace: Namespace of the resulting Application
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if finalizers is not None:
+            pulumi.set(__self__, "finalizers", finalizers)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def finalizers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of finalizers to apply to the resulting Application.
+        """
+        return pulumi.get(self, "finalizers")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the resulting Application
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Namespace of the resulting Application
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreDifferences":
+            suggest = "ignore_differences"
+        elif key == "revisionHistoryLimit":
+            suggest = "revision_history_limit"
+        elif key == "syncPolicy":
+            suggest = "sync_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecDestination'] = None,
+                 ignore_differences: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference']] = None,
+                 infos: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecInfo']] = None,
+                 project: Optional[builtins.str] = None,
+                 revision_history_limit: Optional[builtins.int] = None,
+                 sources: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource']] = None,
+                 sync_policy: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs' destination: Reference to the Kubernetes server and namespace in which the application will be deployed.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs'] ignore_differences: Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs'] infos: List of information (URLs, email addresses, and plain text) that relates to the application.
+        :param builtins.str project: The project the application belongs to. Defaults to `default`.
+        :param builtins.int revision_history_limit: Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs'] sources: Location of the application's manifests or chart.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs' sync_policy: Controls when and how a sync will be performed.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if ignore_differences is not None:
+            pulumi.set(__self__, "ignore_differences", ignore_differences)
+        if infos is not None:
+            pulumi.set(__self__, "infos", infos)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+        if revision_history_limit is not None:
+            pulumi.set(__self__, "revision_history_limit", revision_history_limit)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+        if sync_policy is not None:
+            pulumi.set(__self__, "sync_policy", sync_policy)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecDestination']:
+        """
+        Reference to the Kubernetes server and namespace in which the application will be deployed.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="ignoreDifferences")
+    def ignore_differences(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference']]:
+        """
+        Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        """
+        return pulumi.get(self, "ignore_differences")
+
+    @property
+    @pulumi.getter
+    def infos(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecInfo']]:
+        """
+        List of information (URLs, email addresses, and plain text) that relates to the application.
+        """
+        return pulumi.get(self, "infos")
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional[builtins.str]:
+        """
+        The project the application belongs to. Defaults to `default`.
+        """
+        return pulumi.get(self, "project")
+
+    @property
+    @pulumi.getter(name="revisionHistoryLimit")
+    def revision_history_limit(self) -> Optional[builtins.int]:
+        """
+        Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        """
+        return pulumi.get(self, "revision_history_limit")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource']]:
+        """
+        Location of the application's manifests or chart.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="syncPolicy")
+    def sync_policy(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy']:
+        """
+        Controls when and how a sync will be performed.
+        """
+        return pulumi.get(self, "sync_policy")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecDestination(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 server: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the target cluster. Can be used instead of `server`.
+        :param builtins.str namespace: Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        :param builtins.str server: URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the target cluster. Can be used instead of `server`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[builtins.str]:
+        """
+        URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        return pulumi.get(self, "server")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jqPathExpressions":
+            suggest = "jq_path_expressions"
+        elif key == "jsonPointers":
+            suggest = "json_pointers"
+        elif key == "managedFieldsManagers":
+            suggest = "managed_fields_managers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group: Optional[builtins.str] = None,
+                 jq_path_expressions: Optional[Sequence[builtins.str]] = None,
+                 json_pointers: Optional[Sequence[builtins.str]] = None,
+                 kind: Optional[builtins.str] = None,
+                 managed_fields_managers: Optional[Sequence[builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param Sequence[builtins.str] jq_path_expressions: List of JQ path expression strings targeting the field(s) to ignore.
+        :param Sequence[builtins.str] json_pointers: List of JSONPaths strings targeting the field(s) to ignore.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param Sequence[builtins.str] managed_fields_managers: List of external controller manager names whose changes to fields should be ignored.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if jq_path_expressions is not None:
+            pulumi.set(__self__, "jq_path_expressions", jq_path_expressions)
+        if json_pointers is not None:
+            pulumi.set(__self__, "json_pointers", json_pointers)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if managed_fields_managers is not None:
+            pulumi.set(__self__, "managed_fields_managers", managed_fields_managers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter(name="jqPathExpressions")
+    def jq_path_expressions(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JQ path expression strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "jq_path_expressions")
+
+    @property
+    @pulumi.getter(name="jsonPointers")
+    def json_pointers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JSONPaths strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "json_pointers")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="managedFieldsManagers")
+    def managed_fields_managers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of external controller manager names whose changes to fields should be ignored.
+        """
+        return pulumi.get(self, "managed_fields_managers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecInfo(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the information.
+        :param builtins.str value: Value of the information.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the information.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the information.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repoUrl":
+            suggest = "repo_url"
+        elif key == "targetRevision":
+            suggest = "target_revision"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chart: Optional[builtins.str] = None,
+                 directory: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory'] = None,
+                 helm: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm'] = None,
+                 kustomize: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize'] = None,
+                 path: Optional[builtins.str] = None,
+                 plugin: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin'] = None,
+                 ref: Optional[builtins.str] = None,
+                 repo_url: Optional[builtins.str] = None,
+                 target_revision: Optional[builtins.str] = None):
+        """
+        :param builtins.str chart: Helm chart name. Must be specified for applications sourced from a Helm repo.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs' directory: Path/directory specific options.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs' helm: Helm specific options.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs' kustomize: Kustomize specific options.
+        :param builtins.str path: Directory path within the repository. Only valid for applications sourced from Git.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs' plugin: Config management plugin specific options.
+        :param builtins.str ref: Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        :param builtins.str repo_url: URL to the repository (Git or Helm) that contains the application manifests.
+        :param builtins.str target_revision: Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        if chart is not None:
+            pulumi.set(__self__, "chart", chart)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if helm is not None:
+            pulumi.set(__self__, "helm", helm)
+        if kustomize is not None:
+            pulumi.set(__self__, "kustomize", kustomize)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if plugin is not None:
+            pulumi.set(__self__, "plugin", plugin)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+        if target_revision is not None:
+            pulumi.set(__self__, "target_revision", target_revision)
+
+    @property
+    @pulumi.getter
+    def chart(self) -> Optional[builtins.str]:
+        """
+        Helm chart name. Must be specified for applications sourced from a Helm repo.
+        """
+        return pulumi.get(self, "chart")
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory']:
+        """
+        Path/directory specific options.
+        """
+        return pulumi.get(self, "directory")
+
+    @property
+    @pulumi.getter
+    def helm(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm']:
+        """
+        Helm specific options.
+        """
+        return pulumi.get(self, "helm")
+
+    @property
+    @pulumi.getter
+    def kustomize(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize']:
+        """
+        Kustomize specific options.
+        """
+        return pulumi.get(self, "kustomize")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Directory path within the repository. Only valid for applications sourced from Git.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def plugin(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin']:
+        """
+        Config management plugin specific options.
+        """
+        return pulumi.get(self, "plugin")
+
+    @property
+    @pulumi.getter
+    def ref(self) -> Optional[builtins.str]:
+        """
+        Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        """
+        return pulumi.get(self, "ref")
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[builtins.str]:
+        """
+        URL to the repository (Git or Helm) that contains the application manifests.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @property
+    @pulumi.getter(name="targetRevision")
+    def target_revision(self) -> Optional[builtins.str]:
+        """
+        Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        return pulumi.get(self, "target_revision")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory(dict):
+    def __init__(__self__, *,
+                 exclude: Optional[builtins.str] = None,
+                 include: Optional[builtins.str] = None,
+                 jsonnet: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet'] = None,
+                 recurse: Optional[builtins.bool] = None):
+        """
+        :param builtins.str exclude: Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        :param builtins.str include: Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs' jsonnet: Jsonnet specific options.
+        :param builtins.bool recurse: Whether to scan a directory recursively for manifests.
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+        if jsonnet is not None:
+            pulumi.set(__self__, "jsonnet", jsonnet)
+        if recurse is not None:
+            pulumi.set(__self__, "recurse", recurse)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def jsonnet(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet']:
+        """
+        Jsonnet specific options.
+        """
+        return pulumi.get(self, "jsonnet")
+
+    @property
+    @pulumi.getter
+    def recurse(self) -> Optional[builtins.bool]:
+        """
+        Whether to scan a directory recursively for manifests.
+        """
+        return pulumi.get(self, "recurse")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extVars":
+            suggest = "ext_vars"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ext_vars: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']] = None,
+                 libs: Optional[Sequence[builtins.str]] = None,
+                 tlas: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs'] ext_vars: List of Jsonnet External Variables.
+        :param Sequence[builtins.str] libs: Additional library search dirs.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs'] tlas: List of Jsonnet Top-level Arguments
+        """
+        if ext_vars is not None:
+            pulumi.set(__self__, "ext_vars", ext_vars)
+        if libs is not None:
+            pulumi.set(__self__, "libs", libs)
+        if tlas is not None:
+            pulumi.set(__self__, "tlas", tlas)
+
+    @property
+    @pulumi.getter(name="extVars")
+    def ext_vars(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']]:
+        """
+        List of Jsonnet External Variables.
+        """
+        return pulumi.get(self, "ext_vars")
+
+    @property
+    @pulumi.getter
+    def libs(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Additional library search dirs.
+        """
+        return pulumi.get(self, "libs")
+
+    @property
+    @pulumi.getter
+    def tlas(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']]:
+        """
+        List of Jsonnet Top-level Arguments
+        """
+        return pulumi.get(self, "tlas")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileParameters":
+            suggest = "file_parameters"
+        elif key == "ignoreMissingValueFiles":
+            suggest = "ignore_missing_value_files"
+        elif key == "passCredentials":
+            suggest = "pass_credentials"
+        elif key == "releaseName":
+            suggest = "release_name"
+        elif key == "skipCrds":
+            suggest = "skip_crds"
+        elif key == "valueFiles":
+            suggest = "value_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter']] = None,
+                 ignore_missing_value_files: Optional[builtins.bool] = None,
+                 parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter']] = None,
+                 pass_credentials: Optional[builtins.bool] = None,
+                 release_name: Optional[builtins.str] = None,
+                 skip_crds: Optional[builtins.bool] = None,
+                 value_files: Optional[Sequence[builtins.str]] = None,
+                 values: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs'] file_parameters: File parameters for the helm template.
+        :param builtins.bool ignore_missing_value_files: Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs'] parameters: Helm parameters which are passed to the helm template command upon manifest generation.
+        :param builtins.bool pass_credentials: If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        :param builtins.str release_name: Helm release name. If omitted it will use the application name.
+        :param builtins.bool skip_crds: Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        :param Sequence[builtins.str] value_files: List of Helm value files to use when generating a template.
+        :param builtins.str values: Helm values to be passed to 'helm template', typically defined as a block.
+        :param builtins.str version: The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        if file_parameters is not None:
+            pulumi.set(__self__, "file_parameters", file_parameters)
+        if ignore_missing_value_files is not None:
+            pulumi.set(__self__, "ignore_missing_value_files", ignore_missing_value_files)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if pass_credentials is not None:
+            pulumi.set(__self__, "pass_credentials", pass_credentials)
+        if release_name is not None:
+            pulumi.set(__self__, "release_name", release_name)
+        if skip_crds is not None:
+            pulumi.set(__self__, "skip_crds", skip_crds)
+        if value_files is not None:
+            pulumi.set(__self__, "value_files", value_files)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="fileParameters")
+    def file_parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter']]:
+        """
+        File parameters for the helm template.
+        """
+        return pulumi.get(self, "file_parameters")
+
+    @property
+    @pulumi.getter(name="ignoreMissingValueFiles")
+    def ignore_missing_value_files(self) -> Optional[builtins.bool]:
+        """
+        Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        """
+        return pulumi.get(self, "ignore_missing_value_files")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter']]:
+        """
+        Helm parameters which are passed to the helm template command upon manifest generation.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="passCredentials")
+    def pass_credentials(self) -> Optional[builtins.bool]:
+        """
+        If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        """
+        return pulumi.get(self, "pass_credentials")
+
+    @property
+    @pulumi.getter(name="releaseName")
+    def release_name(self) -> Optional[builtins.str]:
+        """
+        Helm release name. If omitted it will use the application name.
+        """
+        return pulumi.get(self, "release_name")
+
+    @property
+    @pulumi.getter(name="skipCrds")
+    def skip_crds(self) -> Optional[builtins.bool]:
+        """
+        Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        """
+        return pulumi.get(self, "skip_crds")
+
+    @property
+    @pulumi.getter(name="valueFiles")
+    def value_files(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Helm value files to use when generating a template.
+        """
+        return pulumi.get(self, "value_files")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[builtins.str]:
+        """
+        Helm values to be passed to 'helm template', typically defined as a block.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 path: builtins.str):
+        """
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str path: Path to the file containing the values for the Helm parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        Path to the file containing the values for the Helm parameter.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forceString":
+            suggest = "force_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 force_string: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool force_string: Determines whether to tell Helm to interpret booleans and numbers as strings.
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str value: Value of the Helm parameter.
+        """
+        if force_string is not None:
+            pulumi.set(__self__, "force_string", force_string)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="forceString")
+    def force_string(self) -> Optional[builtins.bool]:
+        """
+        Determines whether to tell Helm to interpret booleans and numbers as strings.
+        """
+        return pulumi.get(self, "force_string")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the Helm parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonAnnotations":
+            suggest = "common_annotations"
+        elif key == "commonLabels":
+            suggest = "common_labels"
+        elif key == "namePrefix":
+            suggest = "name_prefix"
+        elif key == "nameSuffix":
+            suggest = "name_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 common_annotations: Optional[Mapping[str, builtins.str]] = None,
+                 common_labels: Optional[Mapping[str, builtins.str]] = None,
+                 images: Optional[Sequence[builtins.str]] = None,
+                 name_prefix: Optional[builtins.str] = None,
+                 name_suffix: Optional[builtins.str] = None,
+                 patches: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch']] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] common_annotations: List of additional annotations to add to rendered manifests.
+        :param Mapping[str, builtins.str] common_labels: List of additional labels to add to rendered manifests.
+        :param Sequence[builtins.str] images: List of Kustomize image override specifications.
+        :param builtins.str name_prefix: Prefix appended to resources for Kustomize apps.
+        :param builtins.str name_suffix: Suffix appended to resources for Kustomize apps.
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs'] patches: A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        :param builtins.str version: Version of Kustomize to use for rendering manifests.
+        """
+        if common_annotations is not None:
+            pulumi.set(__self__, "common_annotations", common_annotations)
+        if common_labels is not None:
+            pulumi.set(__self__, "common_labels", common_labels)
+        if images is not None:
+            pulumi.set(__self__, "images", images)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if name_suffix is not None:
+            pulumi.set(__self__, "name_suffix", name_suffix)
+        if patches is not None:
+            pulumi.set(__self__, "patches", patches)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="commonAnnotations")
+    def common_annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional annotations to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_annotations")
+
+    @property
+    @pulumi.getter(name="commonLabels")
+    def common_labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional labels to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_labels")
+
+    @property
+    @pulumi.getter
+    def images(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Kustomize image override specifications.
+        """
+        return pulumi.get(self, "images")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[builtins.str]:
+        """
+        Prefix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter(name="nameSuffix")
+    def name_suffix(self) -> Optional[builtins.str]:
+        """
+        Suffix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_suffix")
+
+    @property
+    @pulumi.getter
+    def patches(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch']]:
+        """
+        A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        """
+        return pulumi.get(self, "patches")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        Version of Kustomize to use for rendering manifests.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+                 options: Optional[Mapping[str, builtins.bool]] = None,
+                 patch: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs' target: Target(s) to patch
+        :param Mapping[str, builtins.bool] options: Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        :param builtins.str patch: Inline Kustomize patch to apply.
+        :param builtins.str path: Path to a file containing the patch to apply.
+        """
+        pulumi.set(__self__, "target", target)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget':
+        """
+        Target(s) to patch
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, builtins.bool]]:
+        """
+        Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def patch(self) -> Optional[builtins.str]:
+        """
+        Inline Kustomize patch to apply.
+        """
+        return pulumi.get(self, "patch")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Path to a file containing the patch to apply.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "annotationSelector":
+            suggest = "annotation_selector"
+        elif key == "labelSelector":
+            suggest = "label_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 annotation_selector: Optional[builtins.str] = None,
+                 group: Optional[builtins.str] = None,
+                 kind: Optional[builtins.str] = None,
+                 label_selector: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param builtins.str annotation_selector: Annotation selector to use when matching the Kubernetes resource.
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param builtins.str label_selector: Label selector to use when matching the Kubernetes resource.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        :param builtins.str version: The Kubernetes resource Version to match for.
+        """
+        if annotation_selector is not None:
+            pulumi.set(__self__, "annotation_selector", annotation_selector)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="annotationSelector")
+    def annotation_selector(self) -> Optional[builtins.str]:
+        """
+        Annotation selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "annotation_selector")
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional[builtins.str]:
+        """
+        Label selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Version to match for.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin(dict):
+    def __init__(__self__, *,
+                 envs: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv']] = None,
+                 name: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs'] envs: Environment variables passed to the plugin.
+        :param builtins.str name: Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv']]:
+        """
+        Environment variables passed to the plugin.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the environment variable.
+        :param builtins.str value: Value of the environment variable.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedNamespaceMetadata":
+            suggest = "managed_namespace_metadata"
+        elif key == "syncOptions":
+            suggest = "sync_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automated: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated'] = None,
+                 managed_namespace_metadata: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata'] = None,
+                 retry: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry'] = None,
+                 sync_options: Optional[Sequence[builtins.str]] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs' automated: Whether to automatically keep an application synced to the target revision.
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs' managed_namespace_metadata: Controls metadata in the given namespace (if `CreateNamespace=true`).
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs' retry: Controls failed sync retry behavior.
+        :param Sequence[builtins.str] sync_options: List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        if automated is not None:
+            pulumi.set(__self__, "automated", automated)
+        if managed_namespace_metadata is not None:
+            pulumi.set(__self__, "managed_namespace_metadata", managed_namespace_metadata)
+        if retry is not None:
+            pulumi.set(__self__, "retry", retry)
+        if sync_options is not None:
+            pulumi.set(__self__, "sync_options", sync_options)
+
+    @property
+    @pulumi.getter
+    def automated(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated']:
+        """
+        Whether to automatically keep an application synced to the target revision.
+        """
+        return pulumi.get(self, "automated")
+
+    @property
+    @pulumi.getter(name="managedNamespaceMetadata")
+    def managed_namespace_metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata']:
+        """
+        Controls metadata in the given namespace (if `CreateNamespace=true`).
+        """
+        return pulumi.get(self, "managed_namespace_metadata")
+
+    @property
+    @pulumi.getter
+    def retry(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry']:
+        """
+        Controls failed sync retry behavior.
+        """
+        return pulumi.get(self, "retry")
+
+    @property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        return pulumi.get(self, "sync_options")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowEmpty":
+            suggest = "allow_empty"
+        elif key == "selfHeal":
+            suggest = "self_heal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_empty: Optional[builtins.bool] = None,
+                 prune: Optional[builtins.bool] = None,
+                 self_heal: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool allow_empty: Allows apps have zero live resources.
+        :param builtins.bool prune: Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        :param builtins.bool self_heal: Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        if allow_empty is not None:
+            pulumi.set(__self__, "allow_empty", allow_empty)
+        if prune is not None:
+            pulumi.set(__self__, "prune", prune)
+        if self_heal is not None:
+            pulumi.set(__self__, "self_heal", self_heal)
+
+    @property
+    @pulumi.getter(name="allowEmpty")
+    def allow_empty(self) -> Optional[builtins.bool]:
+        """
+        Allows apps have zero live resources.
+        """
+        return pulumi.get(self, "allow_empty")
+
+    @property
+    @pulumi.getter
+    def prune(self) -> Optional[builtins.bool]:
+        """
+        Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        """
+        return pulumi.get(self, "prune")
+
+    @property
+    @pulumi.getter(name="selfHeal")
+    def self_heal(self) -> Optional[builtins.bool]:
+        """
+        Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        return pulumi.get(self, "self_heal")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: Annotations to apply to the namespace.
+        :param Mapping[str, builtins.str] labels: Labels to apply to the namespace.
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Annotations to apply to the namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Labels to apply to the namespace.
+        """
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry(dict):
+    def __init__(__self__, *,
+                 backoff: Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff'] = None,
+                 limit: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs' backoff: Controls how to backoff on subsequent retries of failed syncs.
+        :param builtins.str limit: Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        if backoff is not None:
+            pulumi.set(__self__, "backoff", backoff)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter
+    def backoff(self) -> Optional['outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff']:
+        """
+        Controls how to backoff on subsequent retries of failed syncs.
+        """
+        return pulumi.get(self, "backoff")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[builtins.str]:
+        """
+        Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDuration":
+            suggest = "max_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -49258,6 +54477,7 @@ class ApplicationSetSpecGeneratorMergeGenerator(dict):
                  lists: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorList']] = None,
                  matrices: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrix']] = None,
                  merges: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMerge']] = None,
+                 plugins: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPlugin']] = None,
                  pull_requests: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPullRequest']] = None,
                  scm_providers: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorScmProvider']] = None,
                  selector: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorSelector'] = None):
@@ -49268,6 +54488,7 @@ class ApplicationSetSpecGeneratorMergeGenerator(dict):
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorListArgs'] lists: [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixArgs'] matrices: [Matrix generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/) combine the parameters generated by two child generators, iterating through every combination of each generator's generated parameters. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/#restrictions) regarding their usage - particularly regarding nesting matrix generators.
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeArgs'] merges: [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPluginArgs'] plugins: [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPullRequestArgs'] pull_requests: [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorScmProviderArgs'] scm_providers: [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
         :param 'ApplicationSetSpecGeneratorMergeGeneratorSelectorArgs' selector: The Selector allows to post-filter based on generated values using the kubernetes common labelSelector format.
@@ -49284,6 +54505,8 @@ class ApplicationSetSpecGeneratorMergeGenerator(dict):
             pulumi.set(__self__, "matrices", matrices)
         if merges is not None:
             pulumi.set(__self__, "merges", merges)
+        if plugins is not None:
+            pulumi.set(__self__, "plugins", plugins)
         if pull_requests is not None:
             pulumi.set(__self__, "pull_requests", pull_requests)
         if scm_providers is not None:
@@ -49338,6 +54561,14 @@ class ApplicationSetSpecGeneratorMergeGenerator(dict):
         [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
         """
         return pulumi.get(self, "merges")
+
+    @property
+    @pulumi.getter
+    def plugins(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPlugin']]:
+        """
+        [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+        """
+        return pulumi.get(self, "plugins")
 
     @property
     @pulumi.getter(name="pullRequests")
@@ -56188,6 +61419,7 @@ class ApplicationSetSpecGeneratorMergeGeneratorMatrixGenerator(dict):
                  clusters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorCluster']] = None,
                  gits: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorGit']] = None,
                  lists: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorList']] = None,
+                 plugins: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin']] = None,
                  pull_requests: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPullRequest']] = None,
                  scm_providers: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorScmProvider']] = None,
                  selector: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorSelector'] = None):
@@ -56196,6 +61428,7 @@ class ApplicationSetSpecGeneratorMergeGeneratorMatrixGenerator(dict):
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorClusterArgs'] clusters: The [cluster generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Cluster/) produces parameters based on the list of items found within the cluster secret.
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorGitArgs'] gits: [Git generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Git/) generates parameters using either the directory structure of a specified Git repository (directory generator), or, using the contents of JSON/YAML files found within a specified repository (file generator).
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorListArgs'] lists: [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginArgs'] plugins: [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPullRequestArgs'] pull_requests: [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorScmProviderArgs'] scm_providers: [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
         :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorSelectorArgs' selector: The Selector allows to post-filter based on generated values using the kubernetes common labelSelector format.
@@ -56208,6 +61441,8 @@ class ApplicationSetSpecGeneratorMergeGeneratorMatrixGenerator(dict):
             pulumi.set(__self__, "gits", gits)
         if lists is not None:
             pulumi.set(__self__, "lists", lists)
+        if plugins is not None:
+            pulumi.set(__self__, "plugins", plugins)
         if pull_requests is not None:
             pulumi.set(__self__, "pull_requests", pull_requests)
         if scm_providers is not None:
@@ -56246,6 +61481,14 @@ class ApplicationSetSpecGeneratorMergeGeneratorMatrixGenerator(dict):
         [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
         """
         return pulumi.get(self, "lists")
+
+    @property
+    @pulumi.getter
+    def plugins(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin']]:
+        """
+        [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+        """
+        return pulumi.get(self, "plugins")
 
     @property
     @pulumi.getter(name="pullRequests")
@@ -63039,6 +68282,1669 @@ class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorListTemplateSpecSy
 
 
 @pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configMapRef":
+            suggest = "config_map_ref"
+        elif key == "requeueAfterSeconds":
+            suggest = "requeue_after_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 config_map_ref: builtins.str,
+                 input: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginInput'] = None,
+                 requeue_after_seconds: Optional[builtins.str] = None,
+                 template: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplate'] = None,
+                 values: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param builtins.str config_map_ref: ConfigMap with the plugin configuration needed to retrieve the data.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginInputArgs' input: The input parameters used for calling the plugin.
+        :param builtins.str requeue_after_seconds: How often to check for changes (in seconds). Default: 3min.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateArgs' template: Generator template. Used to override the values of the spec-level template.
+        :param Mapping[str, builtins.str] values: Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        pulumi.set(__self__, "config_map_ref", config_map_ref)
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if requeue_after_seconds is not None:
+            pulumi.set(__self__, "requeue_after_seconds", requeue_after_seconds)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="configMapRef")
+    def config_map_ref(self) -> builtins.str:
+        """
+        ConfigMap with the plugin configuration needed to retrieve the data.
+        """
+        return pulumi.get(self, "config_map_ref")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginInput']:
+        """
+        The input parameters used for calling the plugin.
+        """
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="requeueAfterSeconds")
+    def requeue_after_seconds(self) -> Optional[builtins.str]:
+        """
+        How often to check for changes (in seconds). Default: 3min.
+        """
+        return pulumi.get(self, "requeue_after_seconds")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplate']:
+        """
+        Generator template. Used to override the values of the spec-level template.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginInput(dict):
+    def __init__(__self__, *,
+                 parameters: Mapping[str, builtins.str]):
+        """
+        :param Mapping[str, builtins.str] parameters: Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, builtins.str]:
+        """
+        Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplate(dict):
+    def __init__(__self__, *,
+                 metadata: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateMetadata'] = None,
+                 spec: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateMetadataArgs' metadata: Kubernetes object metadata for templated Application.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecArgs' spec: The application specification.
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateMetadata']:
+        """
+        Kubernetes object metadata for templated Application.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec']:
+        """
+        The application specification.
+        """
+        return pulumi.get(self, "spec")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 finalizers: Optional[Sequence[builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        :param Sequence[builtins.str] finalizers: List of finalizers to apply to the resulting Application.
+        :param Mapping[str, builtins.str] labels: Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        :param builtins.str name: Name of the resulting Application
+        :param builtins.str namespace: Namespace of the resulting Application
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if finalizers is not None:
+            pulumi.set(__self__, "finalizers", finalizers)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def finalizers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of finalizers to apply to the resulting Application.
+        """
+        return pulumi.get(self, "finalizers")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the resulting Application
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Namespace of the resulting Application
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreDifferences":
+            suggest = "ignore_differences"
+        elif key == "revisionHistoryLimit":
+            suggest = "revision_history_limit"
+        elif key == "syncPolicy":
+            suggest = "sync_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecDestination'] = None,
+                 ignore_differences: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference']] = None,
+                 infos: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecInfo']] = None,
+                 project: Optional[builtins.str] = None,
+                 revision_history_limit: Optional[builtins.int] = None,
+                 sources: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource']] = None,
+                 sync_policy: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs' destination: Reference to the Kubernetes server and namespace in which the application will be deployed.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs'] ignore_differences: Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs'] infos: List of information (URLs, email addresses, and plain text) that relates to the application.
+        :param builtins.str project: The project the application belongs to. Defaults to `default`.
+        :param builtins.int revision_history_limit: Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs'] sources: Location of the application's manifests or chart.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs' sync_policy: Controls when and how a sync will be performed.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if ignore_differences is not None:
+            pulumi.set(__self__, "ignore_differences", ignore_differences)
+        if infos is not None:
+            pulumi.set(__self__, "infos", infos)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+        if revision_history_limit is not None:
+            pulumi.set(__self__, "revision_history_limit", revision_history_limit)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+        if sync_policy is not None:
+            pulumi.set(__self__, "sync_policy", sync_policy)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecDestination']:
+        """
+        Reference to the Kubernetes server and namespace in which the application will be deployed.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="ignoreDifferences")
+    def ignore_differences(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference']]:
+        """
+        Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        """
+        return pulumi.get(self, "ignore_differences")
+
+    @property
+    @pulumi.getter
+    def infos(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecInfo']]:
+        """
+        List of information (URLs, email addresses, and plain text) that relates to the application.
+        """
+        return pulumi.get(self, "infos")
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional[builtins.str]:
+        """
+        The project the application belongs to. Defaults to `default`.
+        """
+        return pulumi.get(self, "project")
+
+    @property
+    @pulumi.getter(name="revisionHistoryLimit")
+    def revision_history_limit(self) -> Optional[builtins.int]:
+        """
+        Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        """
+        return pulumi.get(self, "revision_history_limit")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource']]:
+        """
+        Location of the application's manifests or chart.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="syncPolicy")
+    def sync_policy(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy']:
+        """
+        Controls when and how a sync will be performed.
+        """
+        return pulumi.get(self, "sync_policy")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecDestination(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 server: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the target cluster. Can be used instead of `server`.
+        :param builtins.str namespace: Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        :param builtins.str server: URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the target cluster. Can be used instead of `server`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[builtins.str]:
+        """
+        URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        return pulumi.get(self, "server")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jqPathExpressions":
+            suggest = "jq_path_expressions"
+        elif key == "jsonPointers":
+            suggest = "json_pointers"
+        elif key == "managedFieldsManagers":
+            suggest = "managed_fields_managers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group: Optional[builtins.str] = None,
+                 jq_path_expressions: Optional[Sequence[builtins.str]] = None,
+                 json_pointers: Optional[Sequence[builtins.str]] = None,
+                 kind: Optional[builtins.str] = None,
+                 managed_fields_managers: Optional[Sequence[builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param Sequence[builtins.str] jq_path_expressions: List of JQ path expression strings targeting the field(s) to ignore.
+        :param Sequence[builtins.str] json_pointers: List of JSONPaths strings targeting the field(s) to ignore.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param Sequence[builtins.str] managed_fields_managers: List of external controller manager names whose changes to fields should be ignored.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if jq_path_expressions is not None:
+            pulumi.set(__self__, "jq_path_expressions", jq_path_expressions)
+        if json_pointers is not None:
+            pulumi.set(__self__, "json_pointers", json_pointers)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if managed_fields_managers is not None:
+            pulumi.set(__self__, "managed_fields_managers", managed_fields_managers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter(name="jqPathExpressions")
+    def jq_path_expressions(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JQ path expression strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "jq_path_expressions")
+
+    @property
+    @pulumi.getter(name="jsonPointers")
+    def json_pointers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JSONPaths strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "json_pointers")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="managedFieldsManagers")
+    def managed_fields_managers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of external controller manager names whose changes to fields should be ignored.
+        """
+        return pulumi.get(self, "managed_fields_managers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecInfo(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the information.
+        :param builtins.str value: Value of the information.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the information.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the information.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repoUrl":
+            suggest = "repo_url"
+        elif key == "targetRevision":
+            suggest = "target_revision"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chart: Optional[builtins.str] = None,
+                 directory: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory'] = None,
+                 helm: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm'] = None,
+                 kustomize: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize'] = None,
+                 path: Optional[builtins.str] = None,
+                 plugin: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin'] = None,
+                 ref: Optional[builtins.str] = None,
+                 repo_url: Optional[builtins.str] = None,
+                 target_revision: Optional[builtins.str] = None):
+        """
+        :param builtins.str chart: Helm chart name. Must be specified for applications sourced from a Helm repo.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs' directory: Path/directory specific options.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs' helm: Helm specific options.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs' kustomize: Kustomize specific options.
+        :param builtins.str path: Directory path within the repository. Only valid for applications sourced from Git.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs' plugin: Config management plugin specific options.
+        :param builtins.str ref: Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        :param builtins.str repo_url: URL to the repository (Git or Helm) that contains the application manifests.
+        :param builtins.str target_revision: Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        if chart is not None:
+            pulumi.set(__self__, "chart", chart)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if helm is not None:
+            pulumi.set(__self__, "helm", helm)
+        if kustomize is not None:
+            pulumi.set(__self__, "kustomize", kustomize)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if plugin is not None:
+            pulumi.set(__self__, "plugin", plugin)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+        if target_revision is not None:
+            pulumi.set(__self__, "target_revision", target_revision)
+
+    @property
+    @pulumi.getter
+    def chart(self) -> Optional[builtins.str]:
+        """
+        Helm chart name. Must be specified for applications sourced from a Helm repo.
+        """
+        return pulumi.get(self, "chart")
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory']:
+        """
+        Path/directory specific options.
+        """
+        return pulumi.get(self, "directory")
+
+    @property
+    @pulumi.getter
+    def helm(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm']:
+        """
+        Helm specific options.
+        """
+        return pulumi.get(self, "helm")
+
+    @property
+    @pulumi.getter
+    def kustomize(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize']:
+        """
+        Kustomize specific options.
+        """
+        return pulumi.get(self, "kustomize")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Directory path within the repository. Only valid for applications sourced from Git.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def plugin(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin']:
+        """
+        Config management plugin specific options.
+        """
+        return pulumi.get(self, "plugin")
+
+    @property
+    @pulumi.getter
+    def ref(self) -> Optional[builtins.str]:
+        """
+        Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        """
+        return pulumi.get(self, "ref")
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[builtins.str]:
+        """
+        URL to the repository (Git or Helm) that contains the application manifests.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @property
+    @pulumi.getter(name="targetRevision")
+    def target_revision(self) -> Optional[builtins.str]:
+        """
+        Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        return pulumi.get(self, "target_revision")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory(dict):
+    def __init__(__self__, *,
+                 exclude: Optional[builtins.str] = None,
+                 include: Optional[builtins.str] = None,
+                 jsonnet: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet'] = None,
+                 recurse: Optional[builtins.bool] = None):
+        """
+        :param builtins.str exclude: Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        :param builtins.str include: Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs' jsonnet: Jsonnet specific options.
+        :param builtins.bool recurse: Whether to scan a directory recursively for manifests.
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+        if jsonnet is not None:
+            pulumi.set(__self__, "jsonnet", jsonnet)
+        if recurse is not None:
+            pulumi.set(__self__, "recurse", recurse)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def jsonnet(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet']:
+        """
+        Jsonnet specific options.
+        """
+        return pulumi.get(self, "jsonnet")
+
+    @property
+    @pulumi.getter
+    def recurse(self) -> Optional[builtins.bool]:
+        """
+        Whether to scan a directory recursively for manifests.
+        """
+        return pulumi.get(self, "recurse")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extVars":
+            suggest = "ext_vars"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ext_vars: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']] = None,
+                 libs: Optional[Sequence[builtins.str]] = None,
+                 tlas: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs'] ext_vars: List of Jsonnet External Variables.
+        :param Sequence[builtins.str] libs: Additional library search dirs.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs'] tlas: List of Jsonnet Top-level Arguments
+        """
+        if ext_vars is not None:
+            pulumi.set(__self__, "ext_vars", ext_vars)
+        if libs is not None:
+            pulumi.set(__self__, "libs", libs)
+        if tlas is not None:
+            pulumi.set(__self__, "tlas", tlas)
+
+    @property
+    @pulumi.getter(name="extVars")
+    def ext_vars(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']]:
+        """
+        List of Jsonnet External Variables.
+        """
+        return pulumi.get(self, "ext_vars")
+
+    @property
+    @pulumi.getter
+    def libs(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Additional library search dirs.
+        """
+        return pulumi.get(self, "libs")
+
+    @property
+    @pulumi.getter
+    def tlas(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']]:
+        """
+        List of Jsonnet Top-level Arguments
+        """
+        return pulumi.get(self, "tlas")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileParameters":
+            suggest = "file_parameters"
+        elif key == "ignoreMissingValueFiles":
+            suggest = "ignore_missing_value_files"
+        elif key == "passCredentials":
+            suggest = "pass_credentials"
+        elif key == "releaseName":
+            suggest = "release_name"
+        elif key == "skipCrds":
+            suggest = "skip_crds"
+        elif key == "valueFiles":
+            suggest = "value_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter']] = None,
+                 ignore_missing_value_files: Optional[builtins.bool] = None,
+                 parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter']] = None,
+                 pass_credentials: Optional[builtins.bool] = None,
+                 release_name: Optional[builtins.str] = None,
+                 skip_crds: Optional[builtins.bool] = None,
+                 value_files: Optional[Sequence[builtins.str]] = None,
+                 values: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs'] file_parameters: File parameters for the helm template.
+        :param builtins.bool ignore_missing_value_files: Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs'] parameters: Helm parameters which are passed to the helm template command upon manifest generation.
+        :param builtins.bool pass_credentials: If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        :param builtins.str release_name: Helm release name. If omitted it will use the application name.
+        :param builtins.bool skip_crds: Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        :param Sequence[builtins.str] value_files: List of Helm value files to use when generating a template.
+        :param builtins.str values: Helm values to be passed to 'helm template', typically defined as a block.
+        :param builtins.str version: The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        if file_parameters is not None:
+            pulumi.set(__self__, "file_parameters", file_parameters)
+        if ignore_missing_value_files is not None:
+            pulumi.set(__self__, "ignore_missing_value_files", ignore_missing_value_files)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if pass_credentials is not None:
+            pulumi.set(__self__, "pass_credentials", pass_credentials)
+        if release_name is not None:
+            pulumi.set(__self__, "release_name", release_name)
+        if skip_crds is not None:
+            pulumi.set(__self__, "skip_crds", skip_crds)
+        if value_files is not None:
+            pulumi.set(__self__, "value_files", value_files)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="fileParameters")
+    def file_parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter']]:
+        """
+        File parameters for the helm template.
+        """
+        return pulumi.get(self, "file_parameters")
+
+    @property
+    @pulumi.getter(name="ignoreMissingValueFiles")
+    def ignore_missing_value_files(self) -> Optional[builtins.bool]:
+        """
+        Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        """
+        return pulumi.get(self, "ignore_missing_value_files")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter']]:
+        """
+        Helm parameters which are passed to the helm template command upon manifest generation.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="passCredentials")
+    def pass_credentials(self) -> Optional[builtins.bool]:
+        """
+        If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        """
+        return pulumi.get(self, "pass_credentials")
+
+    @property
+    @pulumi.getter(name="releaseName")
+    def release_name(self) -> Optional[builtins.str]:
+        """
+        Helm release name. If omitted it will use the application name.
+        """
+        return pulumi.get(self, "release_name")
+
+    @property
+    @pulumi.getter(name="skipCrds")
+    def skip_crds(self) -> Optional[builtins.bool]:
+        """
+        Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        """
+        return pulumi.get(self, "skip_crds")
+
+    @property
+    @pulumi.getter(name="valueFiles")
+    def value_files(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Helm value files to use when generating a template.
+        """
+        return pulumi.get(self, "value_files")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[builtins.str]:
+        """
+        Helm values to be passed to 'helm template', typically defined as a block.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 path: builtins.str):
+        """
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str path: Path to the file containing the values for the Helm parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        Path to the file containing the values for the Helm parameter.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forceString":
+            suggest = "force_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 force_string: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool force_string: Determines whether to tell Helm to interpret booleans and numbers as strings.
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str value: Value of the Helm parameter.
+        """
+        if force_string is not None:
+            pulumi.set(__self__, "force_string", force_string)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="forceString")
+    def force_string(self) -> Optional[builtins.bool]:
+        """
+        Determines whether to tell Helm to interpret booleans and numbers as strings.
+        """
+        return pulumi.get(self, "force_string")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the Helm parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonAnnotations":
+            suggest = "common_annotations"
+        elif key == "commonLabels":
+            suggest = "common_labels"
+        elif key == "namePrefix":
+            suggest = "name_prefix"
+        elif key == "nameSuffix":
+            suggest = "name_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 common_annotations: Optional[Mapping[str, builtins.str]] = None,
+                 common_labels: Optional[Mapping[str, builtins.str]] = None,
+                 images: Optional[Sequence[builtins.str]] = None,
+                 name_prefix: Optional[builtins.str] = None,
+                 name_suffix: Optional[builtins.str] = None,
+                 patches: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch']] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] common_annotations: List of additional annotations to add to rendered manifests.
+        :param Mapping[str, builtins.str] common_labels: List of additional labels to add to rendered manifests.
+        :param Sequence[builtins.str] images: List of Kustomize image override specifications.
+        :param builtins.str name_prefix: Prefix appended to resources for Kustomize apps.
+        :param builtins.str name_suffix: Suffix appended to resources for Kustomize apps.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs'] patches: A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        :param builtins.str version: Version of Kustomize to use for rendering manifests.
+        """
+        if common_annotations is not None:
+            pulumi.set(__self__, "common_annotations", common_annotations)
+        if common_labels is not None:
+            pulumi.set(__self__, "common_labels", common_labels)
+        if images is not None:
+            pulumi.set(__self__, "images", images)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if name_suffix is not None:
+            pulumi.set(__self__, "name_suffix", name_suffix)
+        if patches is not None:
+            pulumi.set(__self__, "patches", patches)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="commonAnnotations")
+    def common_annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional annotations to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_annotations")
+
+    @property
+    @pulumi.getter(name="commonLabels")
+    def common_labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional labels to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_labels")
+
+    @property
+    @pulumi.getter
+    def images(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Kustomize image override specifications.
+        """
+        return pulumi.get(self, "images")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[builtins.str]:
+        """
+        Prefix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter(name="nameSuffix")
+    def name_suffix(self) -> Optional[builtins.str]:
+        """
+        Suffix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_suffix")
+
+    @property
+    @pulumi.getter
+    def patches(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch']]:
+        """
+        A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        """
+        return pulumi.get(self, "patches")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        Version of Kustomize to use for rendering manifests.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+                 options: Optional[Mapping[str, builtins.bool]] = None,
+                 patch: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs' target: Target(s) to patch
+        :param Mapping[str, builtins.bool] options: Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        :param builtins.str patch: Inline Kustomize patch to apply.
+        :param builtins.str path: Path to a file containing the patch to apply.
+        """
+        pulumi.set(__self__, "target", target)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget':
+        """
+        Target(s) to patch
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, builtins.bool]]:
+        """
+        Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def patch(self) -> Optional[builtins.str]:
+        """
+        Inline Kustomize patch to apply.
+        """
+        return pulumi.get(self, "patch")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Path to a file containing the patch to apply.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "annotationSelector":
+            suggest = "annotation_selector"
+        elif key == "labelSelector":
+            suggest = "label_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 annotation_selector: Optional[builtins.str] = None,
+                 group: Optional[builtins.str] = None,
+                 kind: Optional[builtins.str] = None,
+                 label_selector: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param builtins.str annotation_selector: Annotation selector to use when matching the Kubernetes resource.
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param builtins.str label_selector: Label selector to use when matching the Kubernetes resource.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        :param builtins.str version: The Kubernetes resource Version to match for.
+        """
+        if annotation_selector is not None:
+            pulumi.set(__self__, "annotation_selector", annotation_selector)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="annotationSelector")
+    def annotation_selector(self) -> Optional[builtins.str]:
+        """
+        Annotation selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "annotation_selector")
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional[builtins.str]:
+        """
+        Label selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Version to match for.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin(dict):
+    def __init__(__self__, *,
+                 envs: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv']] = None,
+                 name: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs'] envs: Environment variables passed to the plugin.
+        :param builtins.str name: Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv']]:
+        """
+        Environment variables passed to the plugin.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the environment variable.
+        :param builtins.str value: Value of the environment variable.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedNamespaceMetadata":
+            suggest = "managed_namespace_metadata"
+        elif key == "syncOptions":
+            suggest = "sync_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automated: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated'] = None,
+                 managed_namespace_metadata: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata'] = None,
+                 retry: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry'] = None,
+                 sync_options: Optional[Sequence[builtins.str]] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs' automated: Whether to automatically keep an application synced to the target revision.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs' managed_namespace_metadata: Controls metadata in the given namespace (if `CreateNamespace=true`).
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs' retry: Controls failed sync retry behavior.
+        :param Sequence[builtins.str] sync_options: List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        if automated is not None:
+            pulumi.set(__self__, "automated", automated)
+        if managed_namespace_metadata is not None:
+            pulumi.set(__self__, "managed_namespace_metadata", managed_namespace_metadata)
+        if retry is not None:
+            pulumi.set(__self__, "retry", retry)
+        if sync_options is not None:
+            pulumi.set(__self__, "sync_options", sync_options)
+
+    @property
+    @pulumi.getter
+    def automated(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated']:
+        """
+        Whether to automatically keep an application synced to the target revision.
+        """
+        return pulumi.get(self, "automated")
+
+    @property
+    @pulumi.getter(name="managedNamespaceMetadata")
+    def managed_namespace_metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata']:
+        """
+        Controls metadata in the given namespace (if `CreateNamespace=true`).
+        """
+        return pulumi.get(self, "managed_namespace_metadata")
+
+    @property
+    @pulumi.getter
+    def retry(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry']:
+        """
+        Controls failed sync retry behavior.
+        """
+        return pulumi.get(self, "retry")
+
+    @property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        return pulumi.get(self, "sync_options")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowEmpty":
+            suggest = "allow_empty"
+        elif key == "selfHeal":
+            suggest = "self_heal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_empty: Optional[builtins.bool] = None,
+                 prune: Optional[builtins.bool] = None,
+                 self_heal: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool allow_empty: Allows apps have zero live resources.
+        :param builtins.bool prune: Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        :param builtins.bool self_heal: Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        if allow_empty is not None:
+            pulumi.set(__self__, "allow_empty", allow_empty)
+        if prune is not None:
+            pulumi.set(__self__, "prune", prune)
+        if self_heal is not None:
+            pulumi.set(__self__, "self_heal", self_heal)
+
+    @property
+    @pulumi.getter(name="allowEmpty")
+    def allow_empty(self) -> Optional[builtins.bool]:
+        """
+        Allows apps have zero live resources.
+        """
+        return pulumi.get(self, "allow_empty")
+
+    @property
+    @pulumi.getter
+    def prune(self) -> Optional[builtins.bool]:
+        """
+        Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        """
+        return pulumi.get(self, "prune")
+
+    @property
+    @pulumi.getter(name="selfHeal")
+    def self_heal(self) -> Optional[builtins.bool]:
+        """
+        Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        return pulumi.get(self, "self_heal")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: Annotations to apply to the namespace.
+        :param Mapping[str, builtins.str] labels: Labels to apply to the namespace.
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Annotations to apply to the namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Labels to apply to the namespace.
+        """
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry(dict):
+    def __init__(__self__, *,
+                 backoff: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff'] = None,
+                 limit: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs' backoff: Controls how to backoff on subsequent retries of failed syncs.
+        :param builtins.str limit: Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        if backoff is not None:
+            pulumi.set(__self__, "backoff", backoff)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter
+    def backoff(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff']:
+        """
+        Controls how to backoff on subsequent retries of failed syncs.
+        """
+        return pulumi.get(self, "backoff")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[builtins.str]:
+        """
+        Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDuration":
+            suggest = "max_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: Optional[builtins.str] = None,
+                 factor: Optional[builtins.str] = None,
+                 max_duration: Optional[builtins.str] = None):
+        """
+        :param builtins.str duration: Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        :param builtins.str factor: Factor to multiply the base duration after each failed retry.
+        :param builtins.str max_duration: Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if factor is not None:
+            pulumi.set(__self__, "factor", factor)
+        if max_duration is not None:
+            pulumi.set(__self__, "max_duration", max_duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[builtins.str]:
+        """
+        Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def factor(self) -> Optional[builtins.str]:
+        """
+        Factor to multiply the base duration after each failed retry.
+        """
+        return pulumi.get(self, "factor")
+
+    @property
+    @pulumi.getter(name="maxDuration")
+    def max_duration(self) -> Optional[builtins.str]:
+        """
+        Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "max_duration")
+
+
+@pulumi.output_type
 class ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPullRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -69663,6 +76569,7 @@ class ApplicationSetSpecGeneratorMergeGeneratorMergeGenerator(dict):
                  clusters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorCluster']] = None,
                  gits: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorGit']] = None,
                  lists: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorList']] = None,
+                 plugins: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin']] = None,
                  pull_requests: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPullRequest']] = None,
                  scm_providers: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorScmProvider']] = None,
                  selector: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorSelector'] = None):
@@ -69671,6 +76578,7 @@ class ApplicationSetSpecGeneratorMergeGeneratorMergeGenerator(dict):
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorClusterArgs'] clusters: The [cluster generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Cluster/) produces parameters based on the list of items found within the cluster secret.
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorGitArgs'] gits: [Git generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Git/) generates parameters using either the directory structure of a specified Git repository (directory generator), or, using the contents of JSON/YAML files found within a specified repository (file generator).
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorListArgs'] lists: [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginArgs'] plugins: [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPullRequestArgs'] pull_requests: [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
         :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorScmProviderArgs'] scm_providers: [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
         :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorSelectorArgs' selector: The Selector allows to post-filter based on generated values using the kubernetes common labelSelector format.
@@ -69683,6 +76591,8 @@ class ApplicationSetSpecGeneratorMergeGeneratorMergeGenerator(dict):
             pulumi.set(__self__, "gits", gits)
         if lists is not None:
             pulumi.set(__self__, "lists", lists)
+        if plugins is not None:
+            pulumi.set(__self__, "plugins", plugins)
         if pull_requests is not None:
             pulumi.set(__self__, "pull_requests", pull_requests)
         if scm_providers is not None:
@@ -69721,6 +76631,14 @@ class ApplicationSetSpecGeneratorMergeGeneratorMergeGenerator(dict):
         [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
         """
         return pulumi.get(self, "lists")
+
+    @property
+    @pulumi.getter
+    def plugins(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin']]:
+        """
+        [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+        """
+        return pulumi.get(self, "plugins")
 
     @property
     @pulumi.getter(name="pullRequests")
@@ -76514,6 +83432,1669 @@ class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorListTemplateSpecSyn
 
 
 @pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configMapRef":
+            suggest = "config_map_ref"
+        elif key == "requeueAfterSeconds":
+            suggest = "requeue_after_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 config_map_ref: builtins.str,
+                 input: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginInput'] = None,
+                 requeue_after_seconds: Optional[builtins.str] = None,
+                 template: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplate'] = None,
+                 values: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param builtins.str config_map_ref: ConfigMap with the plugin configuration needed to retrieve the data.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginInputArgs' input: The input parameters used for calling the plugin.
+        :param builtins.str requeue_after_seconds: How often to check for changes (in seconds). Default: 3min.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateArgs' template: Generator template. Used to override the values of the spec-level template.
+        :param Mapping[str, builtins.str] values: Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        pulumi.set(__self__, "config_map_ref", config_map_ref)
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if requeue_after_seconds is not None:
+            pulumi.set(__self__, "requeue_after_seconds", requeue_after_seconds)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="configMapRef")
+    def config_map_ref(self) -> builtins.str:
+        """
+        ConfigMap with the plugin configuration needed to retrieve the data.
+        """
+        return pulumi.get(self, "config_map_ref")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginInput']:
+        """
+        The input parameters used for calling the plugin.
+        """
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="requeueAfterSeconds")
+    def requeue_after_seconds(self) -> Optional[builtins.str]:
+        """
+        How often to check for changes (in seconds). Default: 3min.
+        """
+        return pulumi.get(self, "requeue_after_seconds")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplate']:
+        """
+        Generator template. Used to override the values of the spec-level template.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginInput(dict):
+    def __init__(__self__, *,
+                 parameters: Mapping[str, builtins.str]):
+        """
+        :param Mapping[str, builtins.str] parameters: Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, builtins.str]:
+        """
+        Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplate(dict):
+    def __init__(__self__, *,
+                 metadata: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateMetadata'] = None,
+                 spec: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateMetadataArgs' metadata: Kubernetes object metadata for templated Application.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecArgs' spec: The application specification.
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateMetadata']:
+        """
+        Kubernetes object metadata for templated Application.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec']:
+        """
+        The application specification.
+        """
+        return pulumi.get(self, "spec")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 finalizers: Optional[Sequence[builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        :param Sequence[builtins.str] finalizers: List of finalizers to apply to the resulting Application.
+        :param Mapping[str, builtins.str] labels: Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        :param builtins.str name: Name of the resulting Application
+        :param builtins.str namespace: Namespace of the resulting Application
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if finalizers is not None:
+            pulumi.set(__self__, "finalizers", finalizers)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def finalizers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of finalizers to apply to the resulting Application.
+        """
+        return pulumi.get(self, "finalizers")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the resulting Application
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Namespace of the resulting Application
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreDifferences":
+            suggest = "ignore_differences"
+        elif key == "revisionHistoryLimit":
+            suggest = "revision_history_limit"
+        elif key == "syncPolicy":
+            suggest = "sync_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecDestination'] = None,
+                 ignore_differences: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference']] = None,
+                 infos: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecInfo']] = None,
+                 project: Optional[builtins.str] = None,
+                 revision_history_limit: Optional[builtins.int] = None,
+                 sources: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource']] = None,
+                 sync_policy: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecDestinationArgs' destination: Reference to the Kubernetes server and namespace in which the application will be deployed.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifferenceArgs'] ignore_differences: Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecInfoArgs'] infos: List of information (URLs, email addresses, and plain text) that relates to the application.
+        :param builtins.str project: The project the application belongs to. Defaults to `default`.
+        :param builtins.int revision_history_limit: Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceArgs'] sources: Location of the application's manifests or chart.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyArgs' sync_policy: Controls when and how a sync will be performed.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if ignore_differences is not None:
+            pulumi.set(__self__, "ignore_differences", ignore_differences)
+        if infos is not None:
+            pulumi.set(__self__, "infos", infos)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+        if revision_history_limit is not None:
+            pulumi.set(__self__, "revision_history_limit", revision_history_limit)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+        if sync_policy is not None:
+            pulumi.set(__self__, "sync_policy", sync_policy)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecDestination']:
+        """
+        Reference to the Kubernetes server and namespace in which the application will be deployed.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="ignoreDifferences")
+    def ignore_differences(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference']]:
+        """
+        Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        """
+        return pulumi.get(self, "ignore_differences")
+
+    @property
+    @pulumi.getter
+    def infos(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecInfo']]:
+        """
+        List of information (URLs, email addresses, and plain text) that relates to the application.
+        """
+        return pulumi.get(self, "infos")
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional[builtins.str]:
+        """
+        The project the application belongs to. Defaults to `default`.
+        """
+        return pulumi.get(self, "project")
+
+    @property
+    @pulumi.getter(name="revisionHistoryLimit")
+    def revision_history_limit(self) -> Optional[builtins.int]:
+        """
+        Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        """
+        return pulumi.get(self, "revision_history_limit")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource']]:
+        """
+        Location of the application's manifests or chart.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="syncPolicy")
+    def sync_policy(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy']:
+        """
+        Controls when and how a sync will be performed.
+        """
+        return pulumi.get(self, "sync_policy")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecDestination(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 server: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the target cluster. Can be used instead of `server`.
+        :param builtins.str namespace: Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        :param builtins.str server: URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the target cluster. Can be used instead of `server`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[builtins.str]:
+        """
+        URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        return pulumi.get(self, "server")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jqPathExpressions":
+            suggest = "jq_path_expressions"
+        elif key == "jsonPointers":
+            suggest = "json_pointers"
+        elif key == "managedFieldsManagers":
+            suggest = "managed_fields_managers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group: Optional[builtins.str] = None,
+                 jq_path_expressions: Optional[Sequence[builtins.str]] = None,
+                 json_pointers: Optional[Sequence[builtins.str]] = None,
+                 kind: Optional[builtins.str] = None,
+                 managed_fields_managers: Optional[Sequence[builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param Sequence[builtins.str] jq_path_expressions: List of JQ path expression strings targeting the field(s) to ignore.
+        :param Sequence[builtins.str] json_pointers: List of JSONPaths strings targeting the field(s) to ignore.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param Sequence[builtins.str] managed_fields_managers: List of external controller manager names whose changes to fields should be ignored.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if jq_path_expressions is not None:
+            pulumi.set(__self__, "jq_path_expressions", jq_path_expressions)
+        if json_pointers is not None:
+            pulumi.set(__self__, "json_pointers", json_pointers)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if managed_fields_managers is not None:
+            pulumi.set(__self__, "managed_fields_managers", managed_fields_managers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter(name="jqPathExpressions")
+    def jq_path_expressions(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JQ path expression strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "jq_path_expressions")
+
+    @property
+    @pulumi.getter(name="jsonPointers")
+    def json_pointers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JSONPaths strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "json_pointers")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="managedFieldsManagers")
+    def managed_fields_managers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of external controller manager names whose changes to fields should be ignored.
+        """
+        return pulumi.get(self, "managed_fields_managers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecInfo(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the information.
+        :param builtins.str value: Value of the information.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the information.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the information.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repoUrl":
+            suggest = "repo_url"
+        elif key == "targetRevision":
+            suggest = "target_revision"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chart: Optional[builtins.str] = None,
+                 directory: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory'] = None,
+                 helm: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm'] = None,
+                 kustomize: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize'] = None,
+                 path: Optional[builtins.str] = None,
+                 plugin: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin'] = None,
+                 ref: Optional[builtins.str] = None,
+                 repo_url: Optional[builtins.str] = None,
+                 target_revision: Optional[builtins.str] = None):
+        """
+        :param builtins.str chart: Helm chart name. Must be specified for applications sourced from a Helm repo.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryArgs' directory: Path/directory specific options.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmArgs' helm: Helm specific options.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizeArgs' kustomize: Kustomize specific options.
+        :param builtins.str path: Directory path within the repository. Only valid for applications sourced from Git.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePluginArgs' plugin: Config management plugin specific options.
+        :param builtins.str ref: Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        :param builtins.str repo_url: URL to the repository (Git or Helm) that contains the application manifests.
+        :param builtins.str target_revision: Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        if chart is not None:
+            pulumi.set(__self__, "chart", chart)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if helm is not None:
+            pulumi.set(__self__, "helm", helm)
+        if kustomize is not None:
+            pulumi.set(__self__, "kustomize", kustomize)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if plugin is not None:
+            pulumi.set(__self__, "plugin", plugin)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+        if target_revision is not None:
+            pulumi.set(__self__, "target_revision", target_revision)
+
+    @property
+    @pulumi.getter
+    def chart(self) -> Optional[builtins.str]:
+        """
+        Helm chart name. Must be specified for applications sourced from a Helm repo.
+        """
+        return pulumi.get(self, "chart")
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory']:
+        """
+        Path/directory specific options.
+        """
+        return pulumi.get(self, "directory")
+
+    @property
+    @pulumi.getter
+    def helm(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm']:
+        """
+        Helm specific options.
+        """
+        return pulumi.get(self, "helm")
+
+    @property
+    @pulumi.getter
+    def kustomize(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize']:
+        """
+        Kustomize specific options.
+        """
+        return pulumi.get(self, "kustomize")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Directory path within the repository. Only valid for applications sourced from Git.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def plugin(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin']:
+        """
+        Config management plugin specific options.
+        """
+        return pulumi.get(self, "plugin")
+
+    @property
+    @pulumi.getter
+    def ref(self) -> Optional[builtins.str]:
+        """
+        Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        """
+        return pulumi.get(self, "ref")
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[builtins.str]:
+        """
+        URL to the repository (Git or Helm) that contains the application manifests.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @property
+    @pulumi.getter(name="targetRevision")
+    def target_revision(self) -> Optional[builtins.str]:
+        """
+        Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        return pulumi.get(self, "target_revision")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory(dict):
+    def __init__(__self__, *,
+                 exclude: Optional[builtins.str] = None,
+                 include: Optional[builtins.str] = None,
+                 jsonnet: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet'] = None,
+                 recurse: Optional[builtins.bool] = None):
+        """
+        :param builtins.str exclude: Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        :param builtins.str include: Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs' jsonnet: Jsonnet specific options.
+        :param builtins.bool recurse: Whether to scan a directory recursively for manifests.
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+        if jsonnet is not None:
+            pulumi.set(__self__, "jsonnet", jsonnet)
+        if recurse is not None:
+            pulumi.set(__self__, "recurse", recurse)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def jsonnet(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet']:
+        """
+        Jsonnet specific options.
+        """
+        return pulumi.get(self, "jsonnet")
+
+    @property
+    @pulumi.getter
+    def recurse(self) -> Optional[builtins.bool]:
+        """
+        Whether to scan a directory recursively for manifests.
+        """
+        return pulumi.get(self, "recurse")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extVars":
+            suggest = "ext_vars"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ext_vars: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']] = None,
+                 libs: Optional[Sequence[builtins.str]] = None,
+                 tlas: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs'] ext_vars: List of Jsonnet External Variables.
+        :param Sequence[builtins.str] libs: Additional library search dirs.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs'] tlas: List of Jsonnet Top-level Arguments
+        """
+        if ext_vars is not None:
+            pulumi.set(__self__, "ext_vars", ext_vars)
+        if libs is not None:
+            pulumi.set(__self__, "libs", libs)
+        if tlas is not None:
+            pulumi.set(__self__, "tlas", tlas)
+
+    @property
+    @pulumi.getter(name="extVars")
+    def ext_vars(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']]:
+        """
+        List of Jsonnet External Variables.
+        """
+        return pulumi.get(self, "ext_vars")
+
+    @property
+    @pulumi.getter
+    def libs(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Additional library search dirs.
+        """
+        return pulumi.get(self, "libs")
+
+    @property
+    @pulumi.getter
+    def tlas(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']]:
+        """
+        List of Jsonnet Top-level Arguments
+        """
+        return pulumi.get(self, "tlas")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileParameters":
+            suggest = "file_parameters"
+        elif key == "ignoreMissingValueFiles":
+            suggest = "ignore_missing_value_files"
+        elif key == "passCredentials":
+            suggest = "pass_credentials"
+        elif key == "releaseName":
+            suggest = "release_name"
+        elif key == "skipCrds":
+            suggest = "skip_crds"
+        elif key == "valueFiles":
+            suggest = "value_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter']] = None,
+                 ignore_missing_value_files: Optional[builtins.bool] = None,
+                 parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter']] = None,
+                 pass_credentials: Optional[builtins.bool] = None,
+                 release_name: Optional[builtins.str] = None,
+                 skip_crds: Optional[builtins.bool] = None,
+                 value_files: Optional[Sequence[builtins.str]] = None,
+                 values: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameterArgs'] file_parameters: File parameters for the helm template.
+        :param builtins.bool ignore_missing_value_files: Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameterArgs'] parameters: Helm parameters which are passed to the helm template command upon manifest generation.
+        :param builtins.bool pass_credentials: If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        :param builtins.str release_name: Helm release name. If omitted it will use the application name.
+        :param builtins.bool skip_crds: Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        :param Sequence[builtins.str] value_files: List of Helm value files to use when generating a template.
+        :param builtins.str values: Helm values to be passed to 'helm template', typically defined as a block.
+        :param builtins.str version: The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        if file_parameters is not None:
+            pulumi.set(__self__, "file_parameters", file_parameters)
+        if ignore_missing_value_files is not None:
+            pulumi.set(__self__, "ignore_missing_value_files", ignore_missing_value_files)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if pass_credentials is not None:
+            pulumi.set(__self__, "pass_credentials", pass_credentials)
+        if release_name is not None:
+            pulumi.set(__self__, "release_name", release_name)
+        if skip_crds is not None:
+            pulumi.set(__self__, "skip_crds", skip_crds)
+        if value_files is not None:
+            pulumi.set(__self__, "value_files", value_files)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="fileParameters")
+    def file_parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter']]:
+        """
+        File parameters for the helm template.
+        """
+        return pulumi.get(self, "file_parameters")
+
+    @property
+    @pulumi.getter(name="ignoreMissingValueFiles")
+    def ignore_missing_value_files(self) -> Optional[builtins.bool]:
+        """
+        Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        """
+        return pulumi.get(self, "ignore_missing_value_files")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter']]:
+        """
+        Helm parameters which are passed to the helm template command upon manifest generation.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="passCredentials")
+    def pass_credentials(self) -> Optional[builtins.bool]:
+        """
+        If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        """
+        return pulumi.get(self, "pass_credentials")
+
+    @property
+    @pulumi.getter(name="releaseName")
+    def release_name(self) -> Optional[builtins.str]:
+        """
+        Helm release name. If omitted it will use the application name.
+        """
+        return pulumi.get(self, "release_name")
+
+    @property
+    @pulumi.getter(name="skipCrds")
+    def skip_crds(self) -> Optional[builtins.bool]:
+        """
+        Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        """
+        return pulumi.get(self, "skip_crds")
+
+    @property
+    @pulumi.getter(name="valueFiles")
+    def value_files(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Helm value files to use when generating a template.
+        """
+        return pulumi.get(self, "value_files")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[builtins.str]:
+        """
+        Helm values to be passed to 'helm template', typically defined as a block.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 path: builtins.str):
+        """
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str path: Path to the file containing the values for the Helm parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        Path to the file containing the values for the Helm parameter.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forceString":
+            suggest = "force_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 force_string: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool force_string: Determines whether to tell Helm to interpret booleans and numbers as strings.
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str value: Value of the Helm parameter.
+        """
+        if force_string is not None:
+            pulumi.set(__self__, "force_string", force_string)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="forceString")
+    def force_string(self) -> Optional[builtins.bool]:
+        """
+        Determines whether to tell Helm to interpret booleans and numbers as strings.
+        """
+        return pulumi.get(self, "force_string")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the Helm parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonAnnotations":
+            suggest = "common_annotations"
+        elif key == "commonLabels":
+            suggest = "common_labels"
+        elif key == "namePrefix":
+            suggest = "name_prefix"
+        elif key == "nameSuffix":
+            suggest = "name_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 common_annotations: Optional[Mapping[str, builtins.str]] = None,
+                 common_labels: Optional[Mapping[str, builtins.str]] = None,
+                 images: Optional[Sequence[builtins.str]] = None,
+                 name_prefix: Optional[builtins.str] = None,
+                 name_suffix: Optional[builtins.str] = None,
+                 patches: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch']] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] common_annotations: List of additional annotations to add to rendered manifests.
+        :param Mapping[str, builtins.str] common_labels: List of additional labels to add to rendered manifests.
+        :param Sequence[builtins.str] images: List of Kustomize image override specifications.
+        :param builtins.str name_prefix: Prefix appended to resources for Kustomize apps.
+        :param builtins.str name_suffix: Suffix appended to resources for Kustomize apps.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchArgs'] patches: A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        :param builtins.str version: Version of Kustomize to use for rendering manifests.
+        """
+        if common_annotations is not None:
+            pulumi.set(__self__, "common_annotations", common_annotations)
+        if common_labels is not None:
+            pulumi.set(__self__, "common_labels", common_labels)
+        if images is not None:
+            pulumi.set(__self__, "images", images)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if name_suffix is not None:
+            pulumi.set(__self__, "name_suffix", name_suffix)
+        if patches is not None:
+            pulumi.set(__self__, "patches", patches)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="commonAnnotations")
+    def common_annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional annotations to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_annotations")
+
+    @property
+    @pulumi.getter(name="commonLabels")
+    def common_labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional labels to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_labels")
+
+    @property
+    @pulumi.getter
+    def images(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Kustomize image override specifications.
+        """
+        return pulumi.get(self, "images")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[builtins.str]:
+        """
+        Prefix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter(name="nameSuffix")
+    def name_suffix(self) -> Optional[builtins.str]:
+        """
+        Suffix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_suffix")
+
+    @property
+    @pulumi.getter
+    def patches(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch']]:
+        """
+        A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        """
+        return pulumi.get(self, "patches")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        Version of Kustomize to use for rendering manifests.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+                 options: Optional[Mapping[str, builtins.bool]] = None,
+                 patch: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs' target: Target(s) to patch
+        :param Mapping[str, builtins.bool] options: Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        :param builtins.str patch: Inline Kustomize patch to apply.
+        :param builtins.str path: Path to a file containing the patch to apply.
+        """
+        pulumi.set(__self__, "target", target)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget':
+        """
+        Target(s) to patch
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, builtins.bool]]:
+        """
+        Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def patch(self) -> Optional[builtins.str]:
+        """
+        Inline Kustomize patch to apply.
+        """
+        return pulumi.get(self, "patch")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Path to a file containing the patch to apply.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "annotationSelector":
+            suggest = "annotation_selector"
+        elif key == "labelSelector":
+            suggest = "label_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 annotation_selector: Optional[builtins.str] = None,
+                 group: Optional[builtins.str] = None,
+                 kind: Optional[builtins.str] = None,
+                 label_selector: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param builtins.str annotation_selector: Annotation selector to use when matching the Kubernetes resource.
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param builtins.str label_selector: Label selector to use when matching the Kubernetes resource.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        :param builtins.str version: The Kubernetes resource Version to match for.
+        """
+        if annotation_selector is not None:
+            pulumi.set(__self__, "annotation_selector", annotation_selector)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="annotationSelector")
+    def annotation_selector(self) -> Optional[builtins.str]:
+        """
+        Annotation selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "annotation_selector")
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional[builtins.str]:
+        """
+        Label selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Version to match for.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin(dict):
+    def __init__(__self__, *,
+                 envs: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv']] = None,
+                 name: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnvArgs'] envs: Environment variables passed to the plugin.
+        :param builtins.str name: Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv']]:
+        """
+        Environment variables passed to the plugin.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the environment variable.
+        :param builtins.str value: Value of the environment variable.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedNamespaceMetadata":
+            suggest = "managed_namespace_metadata"
+        elif key == "syncOptions":
+            suggest = "sync_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automated: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated'] = None,
+                 managed_namespace_metadata: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata'] = None,
+                 retry: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry'] = None,
+                 sync_options: Optional[Sequence[builtins.str]] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs' automated: Whether to automatically keep an application synced to the target revision.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs' managed_namespace_metadata: Controls metadata in the given namespace (if `CreateNamespace=true`).
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryArgs' retry: Controls failed sync retry behavior.
+        :param Sequence[builtins.str] sync_options: List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        if automated is not None:
+            pulumi.set(__self__, "automated", automated)
+        if managed_namespace_metadata is not None:
+            pulumi.set(__self__, "managed_namespace_metadata", managed_namespace_metadata)
+        if retry is not None:
+            pulumi.set(__self__, "retry", retry)
+        if sync_options is not None:
+            pulumi.set(__self__, "sync_options", sync_options)
+
+    @property
+    @pulumi.getter
+    def automated(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated']:
+        """
+        Whether to automatically keep an application synced to the target revision.
+        """
+        return pulumi.get(self, "automated")
+
+    @property
+    @pulumi.getter(name="managedNamespaceMetadata")
+    def managed_namespace_metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata']:
+        """
+        Controls metadata in the given namespace (if `CreateNamespace=true`).
+        """
+        return pulumi.get(self, "managed_namespace_metadata")
+
+    @property
+    @pulumi.getter
+    def retry(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry']:
+        """
+        Controls failed sync retry behavior.
+        """
+        return pulumi.get(self, "retry")
+
+    @property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        return pulumi.get(self, "sync_options")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowEmpty":
+            suggest = "allow_empty"
+        elif key == "selfHeal":
+            suggest = "self_heal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_empty: Optional[builtins.bool] = None,
+                 prune: Optional[builtins.bool] = None,
+                 self_heal: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool allow_empty: Allows apps have zero live resources.
+        :param builtins.bool prune: Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        :param builtins.bool self_heal: Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        if allow_empty is not None:
+            pulumi.set(__self__, "allow_empty", allow_empty)
+        if prune is not None:
+            pulumi.set(__self__, "prune", prune)
+        if self_heal is not None:
+            pulumi.set(__self__, "self_heal", self_heal)
+
+    @property
+    @pulumi.getter(name="allowEmpty")
+    def allow_empty(self) -> Optional[builtins.bool]:
+        """
+        Allows apps have zero live resources.
+        """
+        return pulumi.get(self, "allow_empty")
+
+    @property
+    @pulumi.getter
+    def prune(self) -> Optional[builtins.bool]:
+        """
+        Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        """
+        return pulumi.get(self, "prune")
+
+    @property
+    @pulumi.getter(name="selfHeal")
+    def self_heal(self) -> Optional[builtins.bool]:
+        """
+        Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        return pulumi.get(self, "self_heal")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: Annotations to apply to the namespace.
+        :param Mapping[str, builtins.str] labels: Labels to apply to the namespace.
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Annotations to apply to the namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Labels to apply to the namespace.
+        """
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry(dict):
+    def __init__(__self__, *,
+                 backoff: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff'] = None,
+                 limit: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs' backoff: Controls how to backoff on subsequent retries of failed syncs.
+        :param builtins.str limit: Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        if backoff is not None:
+            pulumi.set(__self__, "backoff", backoff)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter
+    def backoff(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff']:
+        """
+        Controls how to backoff on subsequent retries of failed syncs.
+        """
+        return pulumi.get(self, "backoff")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[builtins.str]:
+        """
+        Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDuration":
+            suggest = "max_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: Optional[builtins.str] = None,
+                 factor: Optional[builtins.str] = None,
+                 max_duration: Optional[builtins.str] = None):
+        """
+        :param builtins.str duration: Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        :param builtins.str factor: Factor to multiply the base duration after each failed retry.
+        :param builtins.str max_duration: Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if factor is not None:
+            pulumi.set(__self__, "factor", factor)
+        if max_duration is not None:
+            pulumi.set(__self__, "max_duration", max_duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[builtins.str]:
+        """
+        Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def factor(self) -> Optional[builtins.str]:
+        """
+        Factor to multiply the base duration after each failed retry.
+        """
+        return pulumi.get(self, "factor")
+
+    @property
+    @pulumi.getter(name="maxDuration")
+    def max_duration(self) -> Optional[builtins.str]:
+        """
+        Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "max_duration")
+
+
+@pulumi.output_type
 class ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPullRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -83053,6 +91634,1669 @@ class ApplicationSetSpecGeneratorMergeGeneratorMergeTemplateSpecSyncPolicyRetryB
 
 
 @pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPlugin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configMapRef":
+            suggest = "config_map_ref"
+        elif key == "requeueAfterSeconds":
+            suggest = "requeue_after_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPlugin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPlugin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPlugin.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 config_map_ref: builtins.str,
+                 input: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginInput'] = None,
+                 requeue_after_seconds: Optional[builtins.str] = None,
+                 template: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplate'] = None,
+                 values: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param builtins.str config_map_ref: ConfigMap with the plugin configuration needed to retrieve the data.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginInputArgs' input: The input parameters used for calling the plugin.
+        :param builtins.str requeue_after_seconds: How often to check for changes (in seconds). Default: 3min.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateArgs' template: Generator template. Used to override the values of the spec-level template.
+        :param Mapping[str, builtins.str] values: Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        pulumi.set(__self__, "config_map_ref", config_map_ref)
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if requeue_after_seconds is not None:
+            pulumi.set(__self__, "requeue_after_seconds", requeue_after_seconds)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="configMapRef")
+    def config_map_ref(self) -> builtins.str:
+        """
+        ConfigMap with the plugin configuration needed to retrieve the data.
+        """
+        return pulumi.get(self, "config_map_ref")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginInput']:
+        """
+        The input parameters used for calling the plugin.
+        """
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="requeueAfterSeconds")
+    def requeue_after_seconds(self) -> Optional[builtins.str]:
+        """
+        How often to check for changes (in seconds). Default: 3min.
+        """
+        return pulumi.get(self, "requeue_after_seconds")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplate']:
+        """
+        Generator template. Used to override the values of the spec-level template.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginInput(dict):
+    def __init__(__self__, *,
+                 parameters: Mapping[str, builtins.str]):
+        """
+        :param Mapping[str, builtins.str] parameters: Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, builtins.str]:
+        """
+        Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplate(dict):
+    def __init__(__self__, *,
+                 metadata: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateMetadata'] = None,
+                 spec: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateMetadataArgs' metadata: Kubernetes object metadata for templated Application.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecArgs' spec: The application specification.
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateMetadata']:
+        """
+        Kubernetes object metadata for templated Application.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec']:
+        """
+        The application specification.
+        """
+        return pulumi.get(self, "spec")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 finalizers: Optional[Sequence[builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        :param Sequence[builtins.str] finalizers: List of finalizers to apply to the resulting Application.
+        :param Mapping[str, builtins.str] labels: Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        :param builtins.str name: Name of the resulting Application
+        :param builtins.str namespace: Namespace of the resulting Application
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if finalizers is not None:
+            pulumi.set(__self__, "finalizers", finalizers)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def finalizers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of finalizers to apply to the resulting Application.
+        """
+        return pulumi.get(self, "finalizers")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the resulting Application
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Namespace of the resulting Application
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreDifferences":
+            suggest = "ignore_differences"
+        elif key == "revisionHistoryLimit":
+            suggest = "revision_history_limit"
+        elif key == "syncPolicy":
+            suggest = "sync_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecDestination'] = None,
+                 ignore_differences: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference']] = None,
+                 infos: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecInfo']] = None,
+                 project: Optional[builtins.str] = None,
+                 revision_history_limit: Optional[builtins.int] = None,
+                 sources: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource']] = None,
+                 sync_policy: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecDestinationArgs' destination: Reference to the Kubernetes server and namespace in which the application will be deployed.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifferenceArgs'] ignore_differences: Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecInfoArgs'] infos: List of information (URLs, email addresses, and plain text) that relates to the application.
+        :param builtins.str project: The project the application belongs to. Defaults to `default`.
+        :param builtins.int revision_history_limit: Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceArgs'] sources: Location of the application's manifests or chart.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyArgs' sync_policy: Controls when and how a sync will be performed.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if ignore_differences is not None:
+            pulumi.set(__self__, "ignore_differences", ignore_differences)
+        if infos is not None:
+            pulumi.set(__self__, "infos", infos)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+        if revision_history_limit is not None:
+            pulumi.set(__self__, "revision_history_limit", revision_history_limit)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+        if sync_policy is not None:
+            pulumi.set(__self__, "sync_policy", sync_policy)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecDestination']:
+        """
+        Reference to the Kubernetes server and namespace in which the application will be deployed.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="ignoreDifferences")
+    def ignore_differences(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference']]:
+        """
+        Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        """
+        return pulumi.get(self, "ignore_differences")
+
+    @property
+    @pulumi.getter
+    def infos(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecInfo']]:
+        """
+        List of information (URLs, email addresses, and plain text) that relates to the application.
+        """
+        return pulumi.get(self, "infos")
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional[builtins.str]:
+        """
+        The project the application belongs to. Defaults to `default`.
+        """
+        return pulumi.get(self, "project")
+
+    @property
+    @pulumi.getter(name="revisionHistoryLimit")
+    def revision_history_limit(self) -> Optional[builtins.int]:
+        """
+        Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        """
+        return pulumi.get(self, "revision_history_limit")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource']]:
+        """
+        Location of the application's manifests or chart.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="syncPolicy")
+    def sync_policy(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy']:
+        """
+        Controls when and how a sync will be performed.
+        """
+        return pulumi.get(self, "sync_policy")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecDestination(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 server: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the target cluster. Can be used instead of `server`.
+        :param builtins.str namespace: Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        :param builtins.str server: URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the target cluster. Can be used instead of `server`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[builtins.str]:
+        """
+        URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        return pulumi.get(self, "server")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jqPathExpressions":
+            suggest = "jq_path_expressions"
+        elif key == "jsonPointers":
+            suggest = "json_pointers"
+        elif key == "managedFieldsManagers":
+            suggest = "managed_fields_managers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group: Optional[builtins.str] = None,
+                 jq_path_expressions: Optional[Sequence[builtins.str]] = None,
+                 json_pointers: Optional[Sequence[builtins.str]] = None,
+                 kind: Optional[builtins.str] = None,
+                 managed_fields_managers: Optional[Sequence[builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param Sequence[builtins.str] jq_path_expressions: List of JQ path expression strings targeting the field(s) to ignore.
+        :param Sequence[builtins.str] json_pointers: List of JSONPaths strings targeting the field(s) to ignore.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param Sequence[builtins.str] managed_fields_managers: List of external controller manager names whose changes to fields should be ignored.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if jq_path_expressions is not None:
+            pulumi.set(__self__, "jq_path_expressions", jq_path_expressions)
+        if json_pointers is not None:
+            pulumi.set(__self__, "json_pointers", json_pointers)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if managed_fields_managers is not None:
+            pulumi.set(__self__, "managed_fields_managers", managed_fields_managers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter(name="jqPathExpressions")
+    def jq_path_expressions(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JQ path expression strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "jq_path_expressions")
+
+    @property
+    @pulumi.getter(name="jsonPointers")
+    def json_pointers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JSONPaths strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "json_pointers")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="managedFieldsManagers")
+    def managed_fields_managers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of external controller manager names whose changes to fields should be ignored.
+        """
+        return pulumi.get(self, "managed_fields_managers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecInfo(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the information.
+        :param builtins.str value: Value of the information.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the information.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the information.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repoUrl":
+            suggest = "repo_url"
+        elif key == "targetRevision":
+            suggest = "target_revision"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chart: Optional[builtins.str] = None,
+                 directory: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory'] = None,
+                 helm: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm'] = None,
+                 kustomize: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize'] = None,
+                 path: Optional[builtins.str] = None,
+                 plugin: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin'] = None,
+                 ref: Optional[builtins.str] = None,
+                 repo_url: Optional[builtins.str] = None,
+                 target_revision: Optional[builtins.str] = None):
+        """
+        :param builtins.str chart: Helm chart name. Must be specified for applications sourced from a Helm repo.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryArgs' directory: Path/directory specific options.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmArgs' helm: Helm specific options.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizeArgs' kustomize: Kustomize specific options.
+        :param builtins.str path: Directory path within the repository. Only valid for applications sourced from Git.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePluginArgs' plugin: Config management plugin specific options.
+        :param builtins.str ref: Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        :param builtins.str repo_url: URL to the repository (Git or Helm) that contains the application manifests.
+        :param builtins.str target_revision: Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        if chart is not None:
+            pulumi.set(__self__, "chart", chart)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if helm is not None:
+            pulumi.set(__self__, "helm", helm)
+        if kustomize is not None:
+            pulumi.set(__self__, "kustomize", kustomize)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if plugin is not None:
+            pulumi.set(__self__, "plugin", plugin)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+        if target_revision is not None:
+            pulumi.set(__self__, "target_revision", target_revision)
+
+    @property
+    @pulumi.getter
+    def chart(self) -> Optional[builtins.str]:
+        """
+        Helm chart name. Must be specified for applications sourced from a Helm repo.
+        """
+        return pulumi.get(self, "chart")
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory']:
+        """
+        Path/directory specific options.
+        """
+        return pulumi.get(self, "directory")
+
+    @property
+    @pulumi.getter
+    def helm(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm']:
+        """
+        Helm specific options.
+        """
+        return pulumi.get(self, "helm")
+
+    @property
+    @pulumi.getter
+    def kustomize(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize']:
+        """
+        Kustomize specific options.
+        """
+        return pulumi.get(self, "kustomize")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Directory path within the repository. Only valid for applications sourced from Git.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def plugin(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin']:
+        """
+        Config management plugin specific options.
+        """
+        return pulumi.get(self, "plugin")
+
+    @property
+    @pulumi.getter
+    def ref(self) -> Optional[builtins.str]:
+        """
+        Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        """
+        return pulumi.get(self, "ref")
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[builtins.str]:
+        """
+        URL to the repository (Git or Helm) that contains the application manifests.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @property
+    @pulumi.getter(name="targetRevision")
+    def target_revision(self) -> Optional[builtins.str]:
+        """
+        Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        return pulumi.get(self, "target_revision")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory(dict):
+    def __init__(__self__, *,
+                 exclude: Optional[builtins.str] = None,
+                 include: Optional[builtins.str] = None,
+                 jsonnet: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet'] = None,
+                 recurse: Optional[builtins.bool] = None):
+        """
+        :param builtins.str exclude: Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        :param builtins.str include: Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs' jsonnet: Jsonnet specific options.
+        :param builtins.bool recurse: Whether to scan a directory recursively for manifests.
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+        if jsonnet is not None:
+            pulumi.set(__self__, "jsonnet", jsonnet)
+        if recurse is not None:
+            pulumi.set(__self__, "recurse", recurse)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def jsonnet(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet']:
+        """
+        Jsonnet specific options.
+        """
+        return pulumi.get(self, "jsonnet")
+
+    @property
+    @pulumi.getter
+    def recurse(self) -> Optional[builtins.bool]:
+        """
+        Whether to scan a directory recursively for manifests.
+        """
+        return pulumi.get(self, "recurse")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extVars":
+            suggest = "ext_vars"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ext_vars: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']] = None,
+                 libs: Optional[Sequence[builtins.str]] = None,
+                 tlas: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs'] ext_vars: List of Jsonnet External Variables.
+        :param Sequence[builtins.str] libs: Additional library search dirs.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs'] tlas: List of Jsonnet Top-level Arguments
+        """
+        if ext_vars is not None:
+            pulumi.set(__self__, "ext_vars", ext_vars)
+        if libs is not None:
+            pulumi.set(__self__, "libs", libs)
+        if tlas is not None:
+            pulumi.set(__self__, "tlas", tlas)
+
+    @property
+    @pulumi.getter(name="extVars")
+    def ext_vars(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']]:
+        """
+        List of Jsonnet External Variables.
+        """
+        return pulumi.get(self, "ext_vars")
+
+    @property
+    @pulumi.getter
+    def libs(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Additional library search dirs.
+        """
+        return pulumi.get(self, "libs")
+
+    @property
+    @pulumi.getter
+    def tlas(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']]:
+        """
+        List of Jsonnet Top-level Arguments
+        """
+        return pulumi.get(self, "tlas")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileParameters":
+            suggest = "file_parameters"
+        elif key == "ignoreMissingValueFiles":
+            suggest = "ignore_missing_value_files"
+        elif key == "passCredentials":
+            suggest = "pass_credentials"
+        elif key == "releaseName":
+            suggest = "release_name"
+        elif key == "skipCrds":
+            suggest = "skip_crds"
+        elif key == "valueFiles":
+            suggest = "value_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter']] = None,
+                 ignore_missing_value_files: Optional[builtins.bool] = None,
+                 parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter']] = None,
+                 pass_credentials: Optional[builtins.bool] = None,
+                 release_name: Optional[builtins.str] = None,
+                 skip_crds: Optional[builtins.bool] = None,
+                 value_files: Optional[Sequence[builtins.str]] = None,
+                 values: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameterArgs'] file_parameters: File parameters for the helm template.
+        :param builtins.bool ignore_missing_value_files: Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameterArgs'] parameters: Helm parameters which are passed to the helm template command upon manifest generation.
+        :param builtins.bool pass_credentials: If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        :param builtins.str release_name: Helm release name. If omitted it will use the application name.
+        :param builtins.bool skip_crds: Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        :param Sequence[builtins.str] value_files: List of Helm value files to use when generating a template.
+        :param builtins.str values: Helm values to be passed to 'helm template', typically defined as a block.
+        :param builtins.str version: The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        if file_parameters is not None:
+            pulumi.set(__self__, "file_parameters", file_parameters)
+        if ignore_missing_value_files is not None:
+            pulumi.set(__self__, "ignore_missing_value_files", ignore_missing_value_files)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if pass_credentials is not None:
+            pulumi.set(__self__, "pass_credentials", pass_credentials)
+        if release_name is not None:
+            pulumi.set(__self__, "release_name", release_name)
+        if skip_crds is not None:
+            pulumi.set(__self__, "skip_crds", skip_crds)
+        if value_files is not None:
+            pulumi.set(__self__, "value_files", value_files)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="fileParameters")
+    def file_parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter']]:
+        """
+        File parameters for the helm template.
+        """
+        return pulumi.get(self, "file_parameters")
+
+    @property
+    @pulumi.getter(name="ignoreMissingValueFiles")
+    def ignore_missing_value_files(self) -> Optional[builtins.bool]:
+        """
+        Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        """
+        return pulumi.get(self, "ignore_missing_value_files")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter']]:
+        """
+        Helm parameters which are passed to the helm template command upon manifest generation.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="passCredentials")
+    def pass_credentials(self) -> Optional[builtins.bool]:
+        """
+        If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        """
+        return pulumi.get(self, "pass_credentials")
+
+    @property
+    @pulumi.getter(name="releaseName")
+    def release_name(self) -> Optional[builtins.str]:
+        """
+        Helm release name. If omitted it will use the application name.
+        """
+        return pulumi.get(self, "release_name")
+
+    @property
+    @pulumi.getter(name="skipCrds")
+    def skip_crds(self) -> Optional[builtins.bool]:
+        """
+        Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        """
+        return pulumi.get(self, "skip_crds")
+
+    @property
+    @pulumi.getter(name="valueFiles")
+    def value_files(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Helm value files to use when generating a template.
+        """
+        return pulumi.get(self, "value_files")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[builtins.str]:
+        """
+        Helm values to be passed to 'helm template', typically defined as a block.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 path: builtins.str):
+        """
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str path: Path to the file containing the values for the Helm parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        Path to the file containing the values for the Helm parameter.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forceString":
+            suggest = "force_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 force_string: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool force_string: Determines whether to tell Helm to interpret booleans and numbers as strings.
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str value: Value of the Helm parameter.
+        """
+        if force_string is not None:
+            pulumi.set(__self__, "force_string", force_string)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="forceString")
+    def force_string(self) -> Optional[builtins.bool]:
+        """
+        Determines whether to tell Helm to interpret booleans and numbers as strings.
+        """
+        return pulumi.get(self, "force_string")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the Helm parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonAnnotations":
+            suggest = "common_annotations"
+        elif key == "commonLabels":
+            suggest = "common_labels"
+        elif key == "namePrefix":
+            suggest = "name_prefix"
+        elif key == "nameSuffix":
+            suggest = "name_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 common_annotations: Optional[Mapping[str, builtins.str]] = None,
+                 common_labels: Optional[Mapping[str, builtins.str]] = None,
+                 images: Optional[Sequence[builtins.str]] = None,
+                 name_prefix: Optional[builtins.str] = None,
+                 name_suffix: Optional[builtins.str] = None,
+                 patches: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch']] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] common_annotations: List of additional annotations to add to rendered manifests.
+        :param Mapping[str, builtins.str] common_labels: List of additional labels to add to rendered manifests.
+        :param Sequence[builtins.str] images: List of Kustomize image override specifications.
+        :param builtins.str name_prefix: Prefix appended to resources for Kustomize apps.
+        :param builtins.str name_suffix: Suffix appended to resources for Kustomize apps.
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchArgs'] patches: A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        :param builtins.str version: Version of Kustomize to use for rendering manifests.
+        """
+        if common_annotations is not None:
+            pulumi.set(__self__, "common_annotations", common_annotations)
+        if common_labels is not None:
+            pulumi.set(__self__, "common_labels", common_labels)
+        if images is not None:
+            pulumi.set(__self__, "images", images)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if name_suffix is not None:
+            pulumi.set(__self__, "name_suffix", name_suffix)
+        if patches is not None:
+            pulumi.set(__self__, "patches", patches)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="commonAnnotations")
+    def common_annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional annotations to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_annotations")
+
+    @property
+    @pulumi.getter(name="commonLabels")
+    def common_labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional labels to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_labels")
+
+    @property
+    @pulumi.getter
+    def images(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Kustomize image override specifications.
+        """
+        return pulumi.get(self, "images")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[builtins.str]:
+        """
+        Prefix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter(name="nameSuffix")
+    def name_suffix(self) -> Optional[builtins.str]:
+        """
+        Suffix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_suffix")
+
+    @property
+    @pulumi.getter
+    def patches(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch']]:
+        """
+        A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        """
+        return pulumi.get(self, "patches")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        Version of Kustomize to use for rendering manifests.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+                 options: Optional[Mapping[str, builtins.bool]] = None,
+                 patch: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs' target: Target(s) to patch
+        :param Mapping[str, builtins.bool] options: Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        :param builtins.str patch: Inline Kustomize patch to apply.
+        :param builtins.str path: Path to a file containing the patch to apply.
+        """
+        pulumi.set(__self__, "target", target)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget':
+        """
+        Target(s) to patch
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, builtins.bool]]:
+        """
+        Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def patch(self) -> Optional[builtins.str]:
+        """
+        Inline Kustomize patch to apply.
+        """
+        return pulumi.get(self, "patch")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Path to a file containing the patch to apply.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "annotationSelector":
+            suggest = "annotation_selector"
+        elif key == "labelSelector":
+            suggest = "label_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 annotation_selector: Optional[builtins.str] = None,
+                 group: Optional[builtins.str] = None,
+                 kind: Optional[builtins.str] = None,
+                 label_selector: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param builtins.str annotation_selector: Annotation selector to use when matching the Kubernetes resource.
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param builtins.str label_selector: Label selector to use when matching the Kubernetes resource.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        :param builtins.str version: The Kubernetes resource Version to match for.
+        """
+        if annotation_selector is not None:
+            pulumi.set(__self__, "annotation_selector", annotation_selector)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="annotationSelector")
+    def annotation_selector(self) -> Optional[builtins.str]:
+        """
+        Annotation selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "annotation_selector")
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional[builtins.str]:
+        """
+        Label selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Version to match for.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin(dict):
+    def __init__(__self__, *,
+                 envs: Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv']] = None,
+                 name: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnvArgs'] envs: Environment variables passed to the plugin.
+        :param builtins.str name: Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv']]:
+        """
+        Environment variables passed to the plugin.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the environment variable.
+        :param builtins.str value: Value of the environment variable.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedNamespaceMetadata":
+            suggest = "managed_namespace_metadata"
+        elif key == "syncOptions":
+            suggest = "sync_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automated: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated'] = None,
+                 managed_namespace_metadata: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata'] = None,
+                 retry: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry'] = None,
+                 sync_options: Optional[Sequence[builtins.str]] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs' automated: Whether to automatically keep an application synced to the target revision.
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs' managed_namespace_metadata: Controls metadata in the given namespace (if `CreateNamespace=true`).
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryArgs' retry: Controls failed sync retry behavior.
+        :param Sequence[builtins.str] sync_options: List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        if automated is not None:
+            pulumi.set(__self__, "automated", automated)
+        if managed_namespace_metadata is not None:
+            pulumi.set(__self__, "managed_namespace_metadata", managed_namespace_metadata)
+        if retry is not None:
+            pulumi.set(__self__, "retry", retry)
+        if sync_options is not None:
+            pulumi.set(__self__, "sync_options", sync_options)
+
+    @property
+    @pulumi.getter
+    def automated(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated']:
+        """
+        Whether to automatically keep an application synced to the target revision.
+        """
+        return pulumi.get(self, "automated")
+
+    @property
+    @pulumi.getter(name="managedNamespaceMetadata")
+    def managed_namespace_metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata']:
+        """
+        Controls metadata in the given namespace (if `CreateNamespace=true`).
+        """
+        return pulumi.get(self, "managed_namespace_metadata")
+
+    @property
+    @pulumi.getter
+    def retry(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry']:
+        """
+        Controls failed sync retry behavior.
+        """
+        return pulumi.get(self, "retry")
+
+    @property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        return pulumi.get(self, "sync_options")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowEmpty":
+            suggest = "allow_empty"
+        elif key == "selfHeal":
+            suggest = "self_heal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_empty: Optional[builtins.bool] = None,
+                 prune: Optional[builtins.bool] = None,
+                 self_heal: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool allow_empty: Allows apps have zero live resources.
+        :param builtins.bool prune: Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        :param builtins.bool self_heal: Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        if allow_empty is not None:
+            pulumi.set(__self__, "allow_empty", allow_empty)
+        if prune is not None:
+            pulumi.set(__self__, "prune", prune)
+        if self_heal is not None:
+            pulumi.set(__self__, "self_heal", self_heal)
+
+    @property
+    @pulumi.getter(name="allowEmpty")
+    def allow_empty(self) -> Optional[builtins.bool]:
+        """
+        Allows apps have zero live resources.
+        """
+        return pulumi.get(self, "allow_empty")
+
+    @property
+    @pulumi.getter
+    def prune(self) -> Optional[builtins.bool]:
+        """
+        Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        """
+        return pulumi.get(self, "prune")
+
+    @property
+    @pulumi.getter(name="selfHeal")
+    def self_heal(self) -> Optional[builtins.bool]:
+        """
+        Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        return pulumi.get(self, "self_heal")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: Annotations to apply to the namespace.
+        :param Mapping[str, builtins.str] labels: Labels to apply to the namespace.
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Annotations to apply to the namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Labels to apply to the namespace.
+        """
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry(dict):
+    def __init__(__self__, *,
+                 backoff: Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff'] = None,
+                 limit: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs' backoff: Controls how to backoff on subsequent retries of failed syncs.
+        :param builtins.str limit: Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        if backoff is not None:
+            pulumi.set(__self__, "backoff", backoff)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter
+    def backoff(self) -> Optional['outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff']:
+        """
+        Controls how to backoff on subsequent retries of failed syncs.
+        """
+        return pulumi.get(self, "backoff")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[builtins.str]:
+        """
+        Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDuration":
+            suggest = "max_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: Optional[builtins.str] = None,
+                 factor: Optional[builtins.str] = None,
+                 max_duration: Optional[builtins.str] = None):
+        """
+        :param builtins.str duration: Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        :param builtins.str factor: Factor to multiply the base duration after each failed retry.
+        :param builtins.str max_duration: Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if factor is not None:
+            pulumi.set(__self__, "factor", factor)
+        if max_duration is not None:
+            pulumi.set(__self__, "max_duration", max_duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[builtins.str]:
+        """
+        Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def factor(self) -> Optional[builtins.str]:
+        """
+        Factor to multiply the base duration after each failed retry.
+        """
+        return pulumi.get(self, "factor")
+
+    @property
+    @pulumi.getter(name="maxDuration")
+    def max_duration(self) -> Optional[builtins.str]:
+        """
+        Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "max_duration")
+
+
+@pulumi.output_type
 class ApplicationSetSpecGeneratorMergeGeneratorPullRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -89548,6 +99792,1669 @@ class ApplicationSetSpecGeneratorMergeTemplateSpecSyncPolicyRetryBackoff(dict):
 
     def get(self, key: str, default = None) -> Any:
         ApplicationSetSpecGeneratorMergeTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: Optional[builtins.str] = None,
+                 factor: Optional[builtins.str] = None,
+                 max_duration: Optional[builtins.str] = None):
+        """
+        :param builtins.str duration: Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        :param builtins.str factor: Factor to multiply the base duration after each failed retry.
+        :param builtins.str max_duration: Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if factor is not None:
+            pulumi.set(__self__, "factor", factor)
+        if max_duration is not None:
+            pulumi.set(__self__, "max_duration", max_duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[builtins.str]:
+        """
+        Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def factor(self) -> Optional[builtins.str]:
+        """
+        Factor to multiply the base duration after each failed retry.
+        """
+        return pulumi.get(self, "factor")
+
+    @property
+    @pulumi.getter(name="maxDuration")
+    def max_duration(self) -> Optional[builtins.str]:
+        """
+        Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "max_duration")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPlugin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configMapRef":
+            suggest = "config_map_ref"
+        elif key == "requeueAfterSeconds":
+            suggest = "requeue_after_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPlugin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPlugin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPlugin.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 config_map_ref: builtins.str,
+                 input: Optional['outputs.ApplicationSetSpecGeneratorPluginInput'] = None,
+                 requeue_after_seconds: Optional[builtins.str] = None,
+                 template: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplate'] = None,
+                 values: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param builtins.str config_map_ref: ConfigMap with the plugin configuration needed to retrieve the data.
+        :param 'ApplicationSetSpecGeneratorPluginInputArgs' input: The input parameters used for calling the plugin.
+        :param builtins.str requeue_after_seconds: How often to check for changes (in seconds). Default: 3min.
+        :param 'ApplicationSetSpecGeneratorPluginTemplateArgs' template: Generator template. Used to override the values of the spec-level template.
+        :param Mapping[str, builtins.str] values: Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        pulumi.set(__self__, "config_map_ref", config_map_ref)
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if requeue_after_seconds is not None:
+            pulumi.set(__self__, "requeue_after_seconds", requeue_after_seconds)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="configMapRef")
+    def config_map_ref(self) -> builtins.str:
+        """
+        ConfigMap with the plugin configuration needed to retrieve the data.
+        """
+        return pulumi.get(self, "config_map_ref")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginInput']:
+        """
+        The input parameters used for calling the plugin.
+        """
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="requeueAfterSeconds")
+    def requeue_after_seconds(self) -> Optional[builtins.str]:
+        """
+        How often to check for changes (in seconds). Default: 3min.
+        """
+        return pulumi.get(self, "requeue_after_seconds")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplate']:
+        """
+        Generator template. Used to override the values of the spec-level template.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginInput(dict):
+    def __init__(__self__, *,
+                 parameters: Mapping[str, builtins.str]):
+        """
+        :param Mapping[str, builtins.str] parameters: Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, builtins.str]:
+        """
+        Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplate(dict):
+    def __init__(__self__, *,
+                 metadata: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateMetadata'] = None,
+                 spec: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpec'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorPluginTemplateMetadataArgs' metadata: Kubernetes object metadata for templated Application.
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecArgs' spec: The application specification.
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateMetadata']:
+        """
+        Kubernetes object metadata for templated Application.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpec']:
+        """
+        The application specification.
+        """
+        return pulumi.get(self, "spec")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 finalizers: Optional[Sequence[builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        :param Sequence[builtins.str] finalizers: List of finalizers to apply to the resulting Application.
+        :param Mapping[str, builtins.str] labels: Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        :param builtins.str name: Name of the resulting Application
+        :param builtins.str namespace: Namespace of the resulting Application
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if finalizers is not None:
+            pulumi.set(__self__, "finalizers", finalizers)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def finalizers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of finalizers to apply to the resulting Application.
+        """
+        return pulumi.get(self, "finalizers")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the resulting Application
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Namespace of the resulting Application
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreDifferences":
+            suggest = "ignore_differences"
+        elif key == "revisionHistoryLimit":
+            suggest = "revision_history_limit"
+        elif key == "syncPolicy":
+            suggest = "sync_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecDestination'] = None,
+                 ignore_differences: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference']] = None,
+                 infos: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecInfo']] = None,
+                 project: Optional[builtins.str] = None,
+                 revision_history_limit: Optional[builtins.int] = None,
+                 sources: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSource']] = None,
+                 sync_policy: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy'] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecDestinationArgs' destination: Reference to the Kubernetes server and namespace in which the application will be deployed.
+        :param Sequence['ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifferenceArgs'] ignore_differences: Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        :param Sequence['ApplicationSetSpecGeneratorPluginTemplateSpecInfoArgs'] infos: List of information (URLs, email addresses, and plain text) that relates to the application.
+        :param builtins.str project: The project the application belongs to. Defaults to `default`.
+        :param builtins.int revision_history_limit: Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        :param Sequence['ApplicationSetSpecGeneratorPluginTemplateSpecSourceArgs'] sources: Location of the application's manifests or chart.
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyArgs' sync_policy: Controls when and how a sync will be performed.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if ignore_differences is not None:
+            pulumi.set(__self__, "ignore_differences", ignore_differences)
+        if infos is not None:
+            pulumi.set(__self__, "infos", infos)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+        if revision_history_limit is not None:
+            pulumi.set(__self__, "revision_history_limit", revision_history_limit)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+        if sync_policy is not None:
+            pulumi.set(__self__, "sync_policy", sync_policy)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecDestination']:
+        """
+        Reference to the Kubernetes server and namespace in which the application will be deployed.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="ignoreDifferences")
+    def ignore_differences(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference']]:
+        """
+        Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        """
+        return pulumi.get(self, "ignore_differences")
+
+    @property
+    @pulumi.getter
+    def infos(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecInfo']]:
+        """
+        List of information (URLs, email addresses, and plain text) that relates to the application.
+        """
+        return pulumi.get(self, "infos")
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional[builtins.str]:
+        """
+        The project the application belongs to. Defaults to `default`.
+        """
+        return pulumi.get(self, "project")
+
+    @property
+    @pulumi.getter(name="revisionHistoryLimit")
+    def revision_history_limit(self) -> Optional[builtins.int]:
+        """
+        Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        """
+        return pulumi.get(self, "revision_history_limit")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSource']]:
+        """
+        Location of the application's manifests or chart.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="syncPolicy")
+    def sync_policy(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy']:
+        """
+        Controls when and how a sync will be performed.
+        """
+        return pulumi.get(self, "sync_policy")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecDestination(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 server: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the target cluster. Can be used instead of `server`.
+        :param builtins.str namespace: Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        :param builtins.str server: URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the target cluster. Can be used instead of `server`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[builtins.str]:
+        """
+        URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        return pulumi.get(self, "server")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jqPathExpressions":
+            suggest = "jq_path_expressions"
+        elif key == "jsonPointers":
+            suggest = "json_pointers"
+        elif key == "managedFieldsManagers":
+            suggest = "managed_fields_managers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group: Optional[builtins.str] = None,
+                 jq_path_expressions: Optional[Sequence[builtins.str]] = None,
+                 json_pointers: Optional[Sequence[builtins.str]] = None,
+                 kind: Optional[builtins.str] = None,
+                 managed_fields_managers: Optional[Sequence[builtins.str]] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None):
+        """
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param Sequence[builtins.str] jq_path_expressions: List of JQ path expression strings targeting the field(s) to ignore.
+        :param Sequence[builtins.str] json_pointers: List of JSONPaths strings targeting the field(s) to ignore.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param Sequence[builtins.str] managed_fields_managers: List of external controller manager names whose changes to fields should be ignored.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if jq_path_expressions is not None:
+            pulumi.set(__self__, "jq_path_expressions", jq_path_expressions)
+        if json_pointers is not None:
+            pulumi.set(__self__, "json_pointers", json_pointers)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if managed_fields_managers is not None:
+            pulumi.set(__self__, "managed_fields_managers", managed_fields_managers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter(name="jqPathExpressions")
+    def jq_path_expressions(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JQ path expression strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "jq_path_expressions")
+
+    @property
+    @pulumi.getter(name="jsonPointers")
+    def json_pointers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of JSONPaths strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "json_pointers")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="managedFieldsManagers")
+    def managed_fields_managers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of external controller manager names whose changes to fields should be ignored.
+        """
+        return pulumi.get(self, "managed_fields_managers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecInfo(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the information.
+        :param builtins.str value: Value of the information.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the information.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the information.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repoUrl":
+            suggest = "repo_url"
+        elif key == "targetRevision":
+            suggest = "target_revision"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpecSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chart: Optional[builtins.str] = None,
+                 directory: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectory'] = None,
+                 helm: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm'] = None,
+                 kustomize: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize'] = None,
+                 path: Optional[builtins.str] = None,
+                 plugin: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourcePlugin'] = None,
+                 ref: Optional[builtins.str] = None,
+                 repo_url: Optional[builtins.str] = None,
+                 target_revision: Optional[builtins.str] = None):
+        """
+        :param builtins.str chart: Helm chart name. Must be specified for applications sourced from a Helm repo.
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryArgs' directory: Path/directory specific options.
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmArgs' helm: Helm specific options.
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizeArgs' kustomize: Kustomize specific options.
+        :param builtins.str path: Directory path within the repository. Only valid for applications sourced from Git.
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSourcePluginArgs' plugin: Config management plugin specific options.
+        :param builtins.str ref: Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        :param builtins.str repo_url: URL to the repository (Git or Helm) that contains the application manifests.
+        :param builtins.str target_revision: Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        if chart is not None:
+            pulumi.set(__self__, "chart", chart)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if helm is not None:
+            pulumi.set(__self__, "helm", helm)
+        if kustomize is not None:
+            pulumi.set(__self__, "kustomize", kustomize)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if plugin is not None:
+            pulumi.set(__self__, "plugin", plugin)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+        if target_revision is not None:
+            pulumi.set(__self__, "target_revision", target_revision)
+
+    @property
+    @pulumi.getter
+    def chart(self) -> Optional[builtins.str]:
+        """
+        Helm chart name. Must be specified for applications sourced from a Helm repo.
+        """
+        return pulumi.get(self, "chart")
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectory']:
+        """
+        Path/directory specific options.
+        """
+        return pulumi.get(self, "directory")
+
+    @property
+    @pulumi.getter
+    def helm(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm']:
+        """
+        Helm specific options.
+        """
+        return pulumi.get(self, "helm")
+
+    @property
+    @pulumi.getter
+    def kustomize(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize']:
+        """
+        Kustomize specific options.
+        """
+        return pulumi.get(self, "kustomize")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Directory path within the repository. Only valid for applications sourced from Git.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def plugin(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourcePlugin']:
+        """
+        Config management plugin specific options.
+        """
+        return pulumi.get(self, "plugin")
+
+    @property
+    @pulumi.getter
+    def ref(self) -> Optional[builtins.str]:
+        """
+        Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        """
+        return pulumi.get(self, "ref")
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[builtins.str]:
+        """
+        URL to the repository (Git or Helm) that contains the application manifests.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @property
+    @pulumi.getter(name="targetRevision")
+    def target_revision(self) -> Optional[builtins.str]:
+        """
+        Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        return pulumi.get(self, "target_revision")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectory(dict):
+    def __init__(__self__, *,
+                 exclude: Optional[builtins.str] = None,
+                 include: Optional[builtins.str] = None,
+                 jsonnet: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet'] = None,
+                 recurse: Optional[builtins.bool] = None):
+        """
+        :param builtins.str exclude: Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        :param builtins.str include: Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs' jsonnet: Jsonnet specific options.
+        :param builtins.bool recurse: Whether to scan a directory recursively for manifests.
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+        if jsonnet is not None:
+            pulumi.set(__self__, "jsonnet", jsonnet)
+        if recurse is not None:
+            pulumi.set(__self__, "recurse", recurse)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[builtins.str]:
+        """
+        Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        """
+        return pulumi.get(self, "include")
+
+    @property
+    @pulumi.getter
+    def jsonnet(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet']:
+        """
+        Jsonnet specific options.
+        """
+        return pulumi.get(self, "jsonnet")
+
+    @property
+    @pulumi.getter
+    def recurse(self) -> Optional[builtins.bool]:
+        """
+        Whether to scan a directory recursively for manifests.
+        """
+        return pulumi.get(self, "recurse")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extVars":
+            suggest = "ext_vars"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ext_vars: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']] = None,
+                 libs: Optional[Sequence[builtins.str]] = None,
+                 tlas: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs'] ext_vars: List of Jsonnet External Variables.
+        :param Sequence[builtins.str] libs: Additional library search dirs.
+        :param Sequence['ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs'] tlas: List of Jsonnet Top-level Arguments
+        """
+        if ext_vars is not None:
+            pulumi.set(__self__, "ext_vars", ext_vars)
+        if libs is not None:
+            pulumi.set(__self__, "libs", libs)
+        if tlas is not None:
+            pulumi.set(__self__, "tlas", tlas)
+
+    @property
+    @pulumi.getter(name="extVars")
+    def ext_vars(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar']]:
+        """
+        List of Jsonnet External Variables.
+        """
+        return pulumi.get(self, "ext_vars")
+
+    @property
+    @pulumi.getter
+    def libs(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Additional library search dirs.
+        """
+        return pulumi.get(self, "libs")
+
+    @property
+    @pulumi.getter
+    def tlas(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla']]:
+        """
+        List of Jsonnet Top-level Arguments
+        """
+        return pulumi.get(self, "tlas")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla(dict):
+    def __init__(__self__, *,
+                 code: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param builtins.str name: Name of Jsonnet variable.
+        :param builtins.str value: Value of Jsonnet variable.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[builtins.bool]:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileParameters":
+            suggest = "file_parameters"
+        elif key == "ignoreMissingValueFiles":
+            suggest = "ignore_missing_value_files"
+        elif key == "passCredentials":
+            suggest = "pass_credentials"
+        elif key == "releaseName":
+            suggest = "release_name"
+        elif key == "skipCrds":
+            suggest = "skip_crds"
+        elif key == "valueFiles":
+            suggest = "value_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmFileParameter']] = None,
+                 ignore_missing_value_files: Optional[builtins.bool] = None,
+                 parameters: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter']] = None,
+                 pass_credentials: Optional[builtins.bool] = None,
+                 release_name: Optional[builtins.str] = None,
+                 skip_crds: Optional[builtins.bool] = None,
+                 value_files: Optional[Sequence[builtins.str]] = None,
+                 values: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmFileParameterArgs'] file_parameters: File parameters for the helm template.
+        :param builtins.bool ignore_missing_value_files: Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        :param Sequence['ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameterArgs'] parameters: Helm parameters which are passed to the helm template command upon manifest generation.
+        :param builtins.bool pass_credentials: If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        :param builtins.str release_name: Helm release name. If omitted it will use the application name.
+        :param builtins.bool skip_crds: Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        :param Sequence[builtins.str] value_files: List of Helm value files to use when generating a template.
+        :param builtins.str values: Helm values to be passed to 'helm template', typically defined as a block.
+        :param builtins.str version: The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        if file_parameters is not None:
+            pulumi.set(__self__, "file_parameters", file_parameters)
+        if ignore_missing_value_files is not None:
+            pulumi.set(__self__, "ignore_missing_value_files", ignore_missing_value_files)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if pass_credentials is not None:
+            pulumi.set(__self__, "pass_credentials", pass_credentials)
+        if release_name is not None:
+            pulumi.set(__self__, "release_name", release_name)
+        if skip_crds is not None:
+            pulumi.set(__self__, "skip_crds", skip_crds)
+        if value_files is not None:
+            pulumi.set(__self__, "value_files", value_files)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="fileParameters")
+    def file_parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmFileParameter']]:
+        """
+        File parameters for the helm template.
+        """
+        return pulumi.get(self, "file_parameters")
+
+    @property
+    @pulumi.getter(name="ignoreMissingValueFiles")
+    def ignore_missing_value_files(self) -> Optional[builtins.bool]:
+        """
+        Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        """
+        return pulumi.get(self, "ignore_missing_value_files")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter']]:
+        """
+        Helm parameters which are passed to the helm template command upon manifest generation.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="passCredentials")
+    def pass_credentials(self) -> Optional[builtins.bool]:
+        """
+        If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        """
+        return pulumi.get(self, "pass_credentials")
+
+    @property
+    @pulumi.getter(name="releaseName")
+    def release_name(self) -> Optional[builtins.str]:
+        """
+        Helm release name. If omitted it will use the application name.
+        """
+        return pulumi.get(self, "release_name")
+
+    @property
+    @pulumi.getter(name="skipCrds")
+    def skip_crds(self) -> Optional[builtins.bool]:
+        """
+        Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        """
+        return pulumi.get(self, "skip_crds")
+
+    @property
+    @pulumi.getter(name="valueFiles")
+    def value_files(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Helm value files to use when generating a template.
+        """
+        return pulumi.get(self, "value_files")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[builtins.str]:
+        """
+        Helm values to be passed to 'helm template', typically defined as a block.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Helm version to use for templating. Accepts either `v2` or `v3`
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmFileParameter(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 path: builtins.str):
+        """
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str path: Path to the file containing the values for the Helm parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        Path to the file containing the values for the Helm parameter.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forceString":
+            suggest = "force_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 force_string: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool force_string: Determines whether to tell Helm to interpret booleans and numbers as strings.
+        :param builtins.str name: Name of the Helm parameter.
+        :param builtins.str value: Value of the Helm parameter.
+        """
+        if force_string is not None:
+            pulumi.set(__self__, "force_string", force_string)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="forceString")
+    def force_string(self) -> Optional[builtins.bool]:
+        """
+        Determines whether to tell Helm to interpret booleans and numbers as strings.
+        """
+        return pulumi.get(self, "force_string")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the Helm parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the Helm parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonAnnotations":
+            suggest = "common_annotations"
+        elif key == "commonLabels":
+            suggest = "common_labels"
+        elif key == "namePrefix":
+            suggest = "name_prefix"
+        elif key == "nameSuffix":
+            suggest = "name_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 common_annotations: Optional[Mapping[str, builtins.str]] = None,
+                 common_labels: Optional[Mapping[str, builtins.str]] = None,
+                 images: Optional[Sequence[builtins.str]] = None,
+                 name_prefix: Optional[builtins.str] = None,
+                 name_suffix: Optional[builtins.str] = None,
+                 patches: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatch']] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param Mapping[str, builtins.str] common_annotations: List of additional annotations to add to rendered manifests.
+        :param Mapping[str, builtins.str] common_labels: List of additional labels to add to rendered manifests.
+        :param Sequence[builtins.str] images: List of Kustomize image override specifications.
+        :param builtins.str name_prefix: Prefix appended to resources for Kustomize apps.
+        :param builtins.str name_suffix: Suffix appended to resources for Kustomize apps.
+        :param Sequence['ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchArgs'] patches: A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        :param builtins.str version: Version of Kustomize to use for rendering manifests.
+        """
+        if common_annotations is not None:
+            pulumi.set(__self__, "common_annotations", common_annotations)
+        if common_labels is not None:
+            pulumi.set(__self__, "common_labels", common_labels)
+        if images is not None:
+            pulumi.set(__self__, "images", images)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
+        if name_suffix is not None:
+            pulumi.set(__self__, "name_suffix", name_suffix)
+        if patches is not None:
+            pulumi.set(__self__, "patches", patches)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="commonAnnotations")
+    def common_annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional annotations to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_annotations")
+
+    @property
+    @pulumi.getter(name="commonLabels")
+    def common_labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        List of additional labels to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_labels")
+
+    @property
+    @pulumi.getter
+    def images(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of Kustomize image override specifications.
+        """
+        return pulumi.get(self, "images")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[builtins.str]:
+        """
+        Prefix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter(name="nameSuffix")
+    def name_suffix(self) -> Optional[builtins.str]:
+        """
+        Suffix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_suffix")
+
+    @property
+    @pulumi.getter
+    def patches(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatch']]:
+        """
+        A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+        """
+        return pulumi.get(self, "patches")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        Version of Kustomize to use for rendering manifests.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatch(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget',
+                 options: Optional[Mapping[str, builtins.bool]] = None,
+                 patch: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs' target: Target(s) to patch
+        :param Mapping[str, builtins.bool] options: Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        :param builtins.str patch: Inline Kustomize patch to apply.
+        :param builtins.str path: Path to a file containing the patch to apply.
+        """
+        pulumi.set(__self__, "target", target)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget':
+        """
+        Target(s) to patch
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, builtins.bool]]:
+        """
+        Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def patch(self) -> Optional[builtins.str]:
+        """
+        Inline Kustomize patch to apply.
+        """
+        return pulumi.get(self, "patch")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Path to a file containing the patch to apply.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "annotationSelector":
+            suggest = "annotation_selector"
+        elif key == "labelSelector":
+            suggest = "label_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 annotation_selector: Optional[builtins.str] = None,
+                 group: Optional[builtins.str] = None,
+                 kind: Optional[builtins.str] = None,
+                 label_selector: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param builtins.str annotation_selector: Annotation selector to use when matching the Kubernetes resource.
+        :param builtins.str group: The Kubernetes resource Group to match for.
+        :param builtins.str kind: The Kubernetes resource Kind to match for.
+        :param builtins.str label_selector: Label selector to use when matching the Kubernetes resource.
+        :param builtins.str name: The Kubernetes resource Name to match for.
+        :param builtins.str namespace: The Kubernetes resource Namespace to match for.
+        :param builtins.str version: The Kubernetes resource Version to match for.
+        """
+        if annotation_selector is not None:
+            pulumi.set(__self__, "annotation_selector", annotation_selector)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="annotationSelector")
+    def annotation_selector(self) -> Optional[builtins.str]:
+        """
+        Annotation selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "annotation_selector")
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional[builtins.str]:
+        """
+        Label selector to use when matching the Kubernetes resource.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        The Kubernetes resource Version to match for.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourcePlugin(dict):
+    def __init__(__self__, *,
+                 envs: Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourcePluginEnv']] = None,
+                 name: Optional[builtins.str] = None):
+        """
+        :param Sequence['ApplicationSetSpecGeneratorPluginTemplateSpecSourcePluginEnvArgs'] envs: Environment variables passed to the plugin.
+        :param builtins.str name: Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourcePluginEnv']]:
+        """
+        Environment variables passed to the plugin.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSourcePluginEnv(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Name of the environment variable.
+        :param builtins.str value: Value of the environment variable.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedNamespaceMetadata":
+            suggest = "managed_namespace_metadata"
+        elif key == "syncOptions":
+            suggest = "sync_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automated: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated'] = None,
+                 managed_namespace_metadata: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata'] = None,
+                 retry: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetry'] = None,
+                 sync_options: Optional[Sequence[builtins.str]] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs' automated: Whether to automatically keep an application synced to the target revision.
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs' managed_namespace_metadata: Controls metadata in the given namespace (if `CreateNamespace=true`).
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryArgs' retry: Controls failed sync retry behavior.
+        :param Sequence[builtins.str] sync_options: List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        if automated is not None:
+            pulumi.set(__self__, "automated", automated)
+        if managed_namespace_metadata is not None:
+            pulumi.set(__self__, "managed_namespace_metadata", managed_namespace_metadata)
+        if retry is not None:
+            pulumi.set(__self__, "retry", retry)
+        if sync_options is not None:
+            pulumi.set(__self__, "sync_options", sync_options)
+
+    @property
+    @pulumi.getter
+    def automated(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated']:
+        """
+        Whether to automatically keep an application synced to the target revision.
+        """
+        return pulumi.get(self, "automated")
+
+    @property
+    @pulumi.getter(name="managedNamespaceMetadata")
+    def managed_namespace_metadata(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata']:
+        """
+        Controls metadata in the given namespace (if `CreateNamespace=true`).
+        """
+        return pulumi.get(self, "managed_namespace_metadata")
+
+    @property
+    @pulumi.getter
+    def retry(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetry']:
+        """
+        Controls failed sync retry behavior.
+        """
+        return pulumi.get(self, "retry")
+
+    @property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        return pulumi.get(self, "sync_options")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowEmpty":
+            suggest = "allow_empty"
+        elif key == "selfHeal":
+            suggest = "self_heal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_empty: Optional[builtins.bool] = None,
+                 prune: Optional[builtins.bool] = None,
+                 self_heal: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool allow_empty: Allows apps have zero live resources.
+        :param builtins.bool prune: Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        :param builtins.bool self_heal: Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        if allow_empty is not None:
+            pulumi.set(__self__, "allow_empty", allow_empty)
+        if prune is not None:
+            pulumi.set(__self__, "prune", prune)
+        if self_heal is not None:
+            pulumi.set(__self__, "self_heal", self_heal)
+
+    @property
+    @pulumi.getter(name="allowEmpty")
+    def allow_empty(self) -> Optional[builtins.bool]:
+        """
+        Allows apps have zero live resources.
+        """
+        return pulumi.get(self, "allow_empty")
+
+    @property
+    @pulumi.getter
+    def prune(self) -> Optional[builtins.bool]:
+        """
+        Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        """
+        return pulumi.get(self, "prune")
+
+    @property
+    @pulumi.getter(name="selfHeal")
+    def self_heal(self) -> Optional[builtins.bool]:
+        """
+        Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        return pulumi.get(self, "self_heal")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(dict):
+    def __init__(__self__, *,
+                 annotations: Optional[Mapping[str, builtins.str]] = None,
+                 labels: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param Mapping[str, builtins.str] annotations: Annotations to apply to the namespace.
+        :param Mapping[str, builtins.str] labels: Labels to apply to the namespace.
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Annotations to apply to the namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Labels to apply to the namespace.
+        """
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetry(dict):
+    def __init__(__self__, *,
+                 backoff: Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff'] = None,
+                 limit: Optional[builtins.str] = None):
+        """
+        :param 'ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs' backoff: Controls how to backoff on subsequent retries of failed syncs.
+        :param builtins.str limit: Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        if backoff is not None:
+            pulumi.set(__self__, "backoff", backoff)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+
+    @property
+    @pulumi.getter
+    def backoff(self) -> Optional['outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff']:
+        """
+        Controls how to backoff on subsequent retries of failed syncs.
+        """
+        return pulumi.get(self, "backoff")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[builtins.str]:
+        """
+        Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDuration":
+            suggest = "max_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

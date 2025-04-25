@@ -128,6 +128,10 @@ export interface ApplicationSetSpecGenerator {
      */
     merges?: outputs.ApplicationSetSpecGeneratorMerge[];
     /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: outputs.ApplicationSetSpecGeneratorPlugin[];
+    /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
     pullRequests?: outputs.ApplicationSetSpecGeneratorPullRequest[];
@@ -2192,6 +2196,10 @@ export interface ApplicationSetSpecGeneratorMatrixGenerator {
      */
     merges?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMerge[];
     /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPlugin[];
+    /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
     pullRequests?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPullRequest[];
@@ -4248,6 +4256,10 @@ export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGenerator {
      */
     lists?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorList[];
     /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin[];
+    /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
     pullRequests?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequest[];
@@ -6275,6 +6287,500 @@ export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTe
     maxDuration?: string;
 }
 
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: string;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: string;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata;
+    /**
+     * The application specification.
+     */
+    spec?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: string[];
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: {[key: string]: string};
+    /**
+     * Name of the resulting Application
+     */
+    name?: string;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference[];
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo[];
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: string;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: number;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource[];
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: string;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: string;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: string[];
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: string[];
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: string[];
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: string;
+    /**
+     * Value of the information.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: string;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory;
+    /**
+     * Helm specific options.
+     */
+    helm?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: string;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: string;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: string;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: string;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: string;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar[];
+    /**
+     * Additional library search dirs.
+     */
+    libs?: string[];
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla[];
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter[];
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: boolean;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter[];
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: boolean;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: string;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: boolean;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: string[];
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: string;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: string;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: boolean;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: string;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: {[key: string]: string};
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: {[key: string]: string};
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: string[];
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: string;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: string;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch[];
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: {[key: string]: boolean};
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: string;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: string;
+    /**
+     * Target(s) to patch
+     */
+    target: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: string;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: string;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv[];
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: string;
+    /**
+     * Value of the environment variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: string[];
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: boolean;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: boolean;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: string;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: string;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: string;
+}
+
 export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequest {
     /**
      * Fetch pull requests from a repo hosted on a Bitbucket Server.
@@ -8183,6 +8689,10 @@ export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGenerator {
      * [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
      */
     lists?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorList[];
+    /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin[];
     /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
@@ -10211,6 +10721,500 @@ export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorListTem
     maxDuration?: string;
 }
 
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: string;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginInput;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: string;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplate;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateMetadata;
+    /**
+     * The application specification.
+     */
+    spec?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: string[];
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: {[key: string]: string};
+    /**
+     * Name of the resulting Application
+     */
+    name?: string;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecDestination;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference[];
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecInfo[];
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: string;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: number;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource[];
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: string;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: string;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: string[];
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: string[];
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: string[];
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: string;
+    /**
+     * Value of the information.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: string;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory;
+    /**
+     * Helm specific options.
+     */
+    helm?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: string;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: string;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: string;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: string;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: string;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar[];
+    /**
+     * Additional library search dirs.
+     */
+    libs?: string[];
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla[];
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter[];
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: boolean;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter[];
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: boolean;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: string;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: boolean;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: string[];
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: string;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: string;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: boolean;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: string;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: {[key: string]: string};
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: {[key: string]: string};
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: string[];
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: string;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: string;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch[];
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: {[key: string]: boolean};
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: string;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: string;
+    /**
+     * Target(s) to patch
+     */
+    target: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: string;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: string;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv[];
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: string;
+    /**
+     * Value of the environment variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: string[];
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: boolean;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: boolean;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: string;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: string;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: string;
+}
+
 export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPullRequest {
     /**
      * Fetch pull requests from a repo hosted on a Bitbucket Server.
@@ -12073,6 +13077,500 @@ export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeTemplateSpecSync
 }
 
 export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: string;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: string;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: string;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginInput;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: string;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplate;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateMetadata;
+    /**
+     * The application specification.
+     */
+    spec?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: string[];
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: {[key: string]: string};
+    /**
+     * Name of the resulting Application
+     */
+    name?: string;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecDestination;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference[];
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecInfo[];
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: string;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: number;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource[];
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: string;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: string;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: string[];
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: string[];
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: string[];
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: string;
+    /**
+     * Value of the information.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: string;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory;
+    /**
+     * Helm specific options.
+     */
+    helm?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: string;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: string;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: string;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: string;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: string;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar[];
+    /**
+     * Additional library search dirs.
+     */
+    libs?: string[];
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla[];
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter[];
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: boolean;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter[];
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: boolean;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: string;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: boolean;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: string[];
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: string;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: string;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: boolean;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: string;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: {[key: string]: string};
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: {[key: string]: string};
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: string[];
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: string;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: string;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch[];
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: {[key: string]: boolean};
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: string;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: string;
+    /**
+     * Target(s) to patch
+     */
+    target: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: string;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: string;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv[];
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: string;
+    /**
+     * Value of the environment variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: string[];
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: boolean;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: boolean;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: outputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
     /**
      * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
      */
@@ -14003,6 +15501,10 @@ export interface ApplicationSetSpecGeneratorMergeGenerator {
      * [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
      */
     merges?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMerge[];
+    /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPlugin[];
     /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
@@ -16060,6 +17562,10 @@ export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGenerator {
      */
     lists?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorList[];
     /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin[];
+    /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
     pullRequests?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPullRequest[];
@@ -18087,6 +19593,500 @@ export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorListTem
     maxDuration?: string;
 }
 
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: string;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginInput;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: string;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplate;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateMetadata;
+    /**
+     * The application specification.
+     */
+    spec?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: string[];
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: {[key: string]: string};
+    /**
+     * Name of the resulting Application
+     */
+    name?: string;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecDestination;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference[];
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecInfo[];
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: string;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: number;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource[];
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: string;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: string;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: string[];
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: string[];
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: string[];
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: string;
+    /**
+     * Value of the information.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: string;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory;
+    /**
+     * Helm specific options.
+     */
+    helm?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: string;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: string;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: string;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: string;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: string;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar[];
+    /**
+     * Additional library search dirs.
+     */
+    libs?: string[];
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla[];
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter[];
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: boolean;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter[];
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: boolean;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: string;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: boolean;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: string[];
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: string;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: string;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: boolean;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: string;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: {[key: string]: string};
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: {[key: string]: string};
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: string[];
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: string;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: string;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch[];
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: {[key: string]: boolean};
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: string;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: string;
+    /**
+     * Target(s) to patch
+     */
+    target: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: string;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: string;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv[];
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: string;
+    /**
+     * Value of the environment variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: string[];
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: boolean;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: boolean;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: string;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: string;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: string;
+}
+
 export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPullRequest {
     /**
      * Fetch pull requests from a repo hosted on a Bitbucket Server.
@@ -19995,6 +21995,10 @@ export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGenerator {
      * [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
      */
     lists?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorList[];
+    /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin[];
     /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
@@ -22023,6 +24027,500 @@ export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorListTemp
     maxDuration?: string;
 }
 
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: string;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginInput;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: string;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplate;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateMetadata;
+    /**
+     * The application specification.
+     */
+    spec?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: string[];
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: {[key: string]: string};
+    /**
+     * Name of the resulting Application
+     */
+    name?: string;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecDestination;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference[];
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecInfo[];
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: string;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: number;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource[];
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: string;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: string;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: string[];
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: string[];
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: string[];
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: string;
+    /**
+     * Value of the information.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: string;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory;
+    /**
+     * Helm specific options.
+     */
+    helm?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: string;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: string;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: string;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: string;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: string;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar[];
+    /**
+     * Additional library search dirs.
+     */
+    libs?: string[];
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla[];
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter[];
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: boolean;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter[];
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: boolean;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: string;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: boolean;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: string[];
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: string;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: string;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: boolean;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: string;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: {[key: string]: string};
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: {[key: string]: string};
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: string[];
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: string;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: string;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch[];
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: {[key: string]: boolean};
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: string;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: string;
+    /**
+     * Target(s) to patch
+     */
+    target: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: string;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: string;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv[];
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: string;
+    /**
+     * Value of the environment variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: string[];
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: boolean;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: boolean;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: outputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: string;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: string;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: string;
+}
+
 export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPullRequest {
     /**
      * Fetch pull requests from a repo hosted on a Bitbucket Server.
@@ -23899,6 +26397,500 @@ export interface ApplicationSetSpecGeneratorMergeGeneratorMergeTemplateSpecSyncP
     maxDuration?: string;
 }
 
+export interface ApplicationSetSpecGeneratorMergeGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: string;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginInput;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: string;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplate;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateMetadata;
+    /**
+     * The application specification.
+     */
+    spec?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: string[];
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: {[key: string]: string};
+    /**
+     * Name of the resulting Application
+     */
+    name?: string;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecDestination;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference[];
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecInfo[];
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: string;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: number;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource[];
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: string;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: string;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: string[];
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: string[];
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: string[];
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: string;
+    /**
+     * Value of the information.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: string;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory;
+    /**
+     * Helm specific options.
+     */
+    helm?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: string;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: string;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: string;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: string;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: string;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar[];
+    /**
+     * Additional library search dirs.
+     */
+    libs?: string[];
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla[];
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter[];
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: boolean;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter[];
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: boolean;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: string;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: boolean;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: string[];
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: string;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: string;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: boolean;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: string;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: {[key: string]: string};
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: {[key: string]: string};
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: string[];
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: string;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: string;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch[];
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: {[key: string]: boolean};
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: string;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: string;
+    /**
+     * Target(s) to patch
+     */
+    target: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: string;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: string;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv[];
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: string;
+    /**
+     * Value of the environment variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: string[];
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: boolean;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: boolean;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: outputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: string;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: string;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: string;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: string;
+}
+
 export interface ApplicationSetSpecGeneratorMergeGeneratorPullRequest {
     /**
      * Fetch pull requests from a repo hosted on a Bitbucket Server.
@@ -25761,6 +28753,500 @@ export interface ApplicationSetSpecGeneratorMergeTemplateSpecSyncPolicyRetry {
 }
 
 export interface ApplicationSetSpecGeneratorMergeTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: string;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: string;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: string;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: outputs.ApplicationSetSpecGeneratorPluginInput;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: string;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: outputs.ApplicationSetSpecGeneratorPluginTemplate;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: outputs.ApplicationSetSpecGeneratorPluginTemplateMetadata;
+    /**
+     * The application specification.
+     */
+    spec?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpec;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: string[];
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: {[key: string]: string};
+    /**
+     * Name of the resulting Application
+     */
+    name?: string;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecDestination;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference[];
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecInfo[];
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: string;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: number;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSource[];
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: string;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: string;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: string[];
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: string[];
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: string[];
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: string;
+    /**
+     * Value of the information.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: string;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectory;
+    /**
+     * Helm specific options.
+     */
+    helm?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: string;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourcePlugin;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: string;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: string;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: string;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: string;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar[];
+    /**
+     * Additional library search dirs.
+     */
+    libs?: string[];
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla[];
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: boolean;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: string;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmFileParameter[];
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: boolean;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter[];
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: boolean;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: string;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: boolean;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: string[];
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: string;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: string;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: boolean;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: string;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: {[key: string]: string};
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: {[key: string]: string};
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: string[];
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: string;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: string;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatch[];
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: {[key: string]: boolean};
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: string;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: string;
+    /**
+     * Target(s) to patch
+     */
+    target: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: string;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: string;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: string;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: string;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: string;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: string;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourcePluginEnv[];
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: string;
+    /**
+     * Value of the environment variable.
+     */
+    value?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetry;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: string[];
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: boolean;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: boolean;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: boolean;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: {[key: string]: string};
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: outputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: string;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
     /**
      * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
      */

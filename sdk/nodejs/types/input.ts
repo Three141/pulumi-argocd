@@ -128,6 +128,10 @@ export interface ApplicationSetSpecGenerator {
      */
     merges?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMerge>[]>;
     /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPlugin>[]>;
+    /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
     pullRequests?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPullRequest>[]>;
@@ -2192,6 +2196,10 @@ export interface ApplicationSetSpecGeneratorMatrixGenerator {
      */
     merges?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMerge>[]>;
     /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPlugin>[]>;
+    /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
     pullRequests?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPullRequest>[]>;
@@ -4248,6 +4256,10 @@ export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGenerator {
      */
     lists?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorList>[]>;
     /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin>[]>;
+    /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
     pullRequests?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequest>[]>;
@@ -6275,6 +6287,500 @@ export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTe
     maxDuration?: pulumi.Input<string>;
 }
 
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: pulumi.Input<string>;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput>;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: pulumi.Input<string>;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate>;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata>;
+    /**
+     * The application specification.
+     */
+    spec?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the resulting Application
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination>;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference>[]>;
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo>[]>;
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: pulumi.Input<string>;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: pulumi.Input<number>;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource>[]>;
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the information.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: pulumi.Input<string>;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory>;
+    /**
+     * Helm specific options.
+     */
+    helm?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm>;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize>;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin>;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: pulumi.Input<string>;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: pulumi.Input<string>;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: pulumi.Input<string>;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: pulumi.Input<string>;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet>;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar>[]>;
+    /**
+     * Additional library search dirs.
+     */
+    libs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter>[]>;
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: pulumi.Input<boolean>;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter>[]>;
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: pulumi.Input<boolean>;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: pulumi.Input<string>;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: pulumi.Input<boolean>;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: pulumi.Input<string>;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: pulumi.Input<boolean>;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: pulumi.Input<string>;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: pulumi.Input<string>;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch>[]>;
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: pulumi.Input<string>;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Target(s) to patch
+     */
+    target: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv>[]>;
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated>;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata>;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry>;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: pulumi.Input<boolean>;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: pulumi.Input<boolean>;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff>;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: pulumi.Input<string>;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: pulumi.Input<string>;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: pulumi.Input<string>;
+}
+
 export interface ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequest {
     /**
      * Fetch pull requests from a repo hosted on a Bitbucket Server.
@@ -8183,6 +8689,10 @@ export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGenerator {
      * [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
      */
     lists?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorList>[]>;
+    /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin>[]>;
     /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
@@ -10211,6 +10721,500 @@ export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorListTem
     maxDuration?: pulumi.Input<string>;
 }
 
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: pulumi.Input<string>;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginInput>;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: pulumi.Input<string>;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplate>;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateMetadata>;
+    /**
+     * The application specification.
+     */
+    spec?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the resulting Application
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecDestination>;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference>[]>;
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecInfo>[]>;
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: pulumi.Input<string>;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: pulumi.Input<number>;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource>[]>;
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the information.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: pulumi.Input<string>;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory>;
+    /**
+     * Helm specific options.
+     */
+    helm?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm>;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize>;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin>;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: pulumi.Input<string>;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: pulumi.Input<string>;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: pulumi.Input<string>;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: pulumi.Input<string>;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet>;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar>[]>;
+    /**
+     * Additional library search dirs.
+     */
+    libs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter>[]>;
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: pulumi.Input<boolean>;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter>[]>;
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: pulumi.Input<boolean>;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: pulumi.Input<string>;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: pulumi.Input<boolean>;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: pulumi.Input<string>;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: pulumi.Input<boolean>;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: pulumi.Input<string>;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: pulumi.Input<string>;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch>[]>;
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: pulumi.Input<string>;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Target(s) to patch
+     */
+    target: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv>[]>;
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated>;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata>;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry>;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: pulumi.Input<boolean>;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: pulumi.Input<boolean>;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff>;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: pulumi.Input<string>;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: pulumi.Input<string>;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: pulumi.Input<string>;
+}
+
 export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPullRequest {
     /**
      * Fetch pull requests from a repo hosted on a Bitbucket Server.
@@ -12073,6 +13077,500 @@ export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeTemplateSpecSync
 }
 
 export interface ApplicationSetSpecGeneratorMatrixGeneratorMergeTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: pulumi.Input<string>;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: pulumi.Input<string>;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: pulumi.Input<string>;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginInput>;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: pulumi.Input<string>;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplate>;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateMetadata>;
+    /**
+     * The application specification.
+     */
+    spec?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the resulting Application
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecDestination>;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference>[]>;
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecInfo>[]>;
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: pulumi.Input<string>;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: pulumi.Input<number>;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource>[]>;
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the information.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: pulumi.Input<string>;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory>;
+    /**
+     * Helm specific options.
+     */
+    helm?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm>;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize>;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin>;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: pulumi.Input<string>;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: pulumi.Input<string>;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: pulumi.Input<string>;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: pulumi.Input<string>;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet>;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar>[]>;
+    /**
+     * Additional library search dirs.
+     */
+    libs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter>[]>;
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: pulumi.Input<boolean>;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter>[]>;
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: pulumi.Input<boolean>;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: pulumi.Input<string>;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: pulumi.Input<boolean>;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: pulumi.Input<string>;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: pulumi.Input<boolean>;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: pulumi.Input<string>;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: pulumi.Input<string>;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch>[]>;
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: pulumi.Input<string>;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Target(s) to patch
+     */
+    target: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv>[]>;
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated>;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata>;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry>;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: pulumi.Input<boolean>;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: pulumi.Input<boolean>;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff>;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
     /**
      * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
      */
@@ -14003,6 +15501,10 @@ export interface ApplicationSetSpecGeneratorMergeGenerator {
      * [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
      */
     merges?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMerge>[]>;
+    /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPlugin>[]>;
     /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
@@ -16060,6 +17562,10 @@ export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGenerator {
      */
     lists?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorList>[]>;
     /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin>[]>;
+    /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
     pullRequests?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPullRequest>[]>;
@@ -18087,6 +19593,500 @@ export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorListTem
     maxDuration?: pulumi.Input<string>;
 }
 
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: pulumi.Input<string>;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginInput>;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: pulumi.Input<string>;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplate>;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateMetadata>;
+    /**
+     * The application specification.
+     */
+    spec?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the resulting Application
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecDestination>;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference>[]>;
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecInfo>[]>;
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: pulumi.Input<string>;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: pulumi.Input<number>;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource>[]>;
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the information.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: pulumi.Input<string>;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory>;
+    /**
+     * Helm specific options.
+     */
+    helm?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm>;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize>;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin>;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: pulumi.Input<string>;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: pulumi.Input<string>;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: pulumi.Input<string>;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: pulumi.Input<string>;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet>;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar>[]>;
+    /**
+     * Additional library search dirs.
+     */
+    libs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter>[]>;
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: pulumi.Input<boolean>;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter>[]>;
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: pulumi.Input<boolean>;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: pulumi.Input<string>;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: pulumi.Input<boolean>;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: pulumi.Input<string>;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: pulumi.Input<boolean>;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: pulumi.Input<string>;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: pulumi.Input<string>;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch>[]>;
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: pulumi.Input<string>;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Target(s) to patch
+     */
+    target: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv>[]>;
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated>;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata>;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry>;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: pulumi.Input<boolean>;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: pulumi.Input<boolean>;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff>;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: pulumi.Input<string>;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: pulumi.Input<string>;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: pulumi.Input<string>;
+}
+
 export interface ApplicationSetSpecGeneratorMergeGeneratorMatrixGeneratorPullRequest {
     /**
      * Fetch pull requests from a repo hosted on a Bitbucket Server.
@@ -19995,6 +21995,10 @@ export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGenerator {
      * [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
      */
     lists?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorList>[]>;
+    /**
+     * [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+     */
+    plugins?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin>[]>;
     /**
      * [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
      */
@@ -22023,6 +24027,500 @@ export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorListTemp
     maxDuration?: pulumi.Input<string>;
 }
 
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: pulumi.Input<string>;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginInput>;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: pulumi.Input<string>;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplate>;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateMetadata>;
+    /**
+     * The application specification.
+     */
+    spec?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the resulting Application
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecDestination>;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference>[]>;
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecInfo>[]>;
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: pulumi.Input<string>;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: pulumi.Input<number>;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource>[]>;
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the information.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: pulumi.Input<string>;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory>;
+    /**
+     * Helm specific options.
+     */
+    helm?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm>;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize>;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin>;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: pulumi.Input<string>;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: pulumi.Input<string>;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: pulumi.Input<string>;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: pulumi.Input<string>;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet>;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar>[]>;
+    /**
+     * Additional library search dirs.
+     */
+    libs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter>[]>;
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: pulumi.Input<boolean>;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter>[]>;
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: pulumi.Input<boolean>;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: pulumi.Input<string>;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: pulumi.Input<boolean>;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: pulumi.Input<string>;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: pulumi.Input<boolean>;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: pulumi.Input<string>;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: pulumi.Input<string>;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch>[]>;
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: pulumi.Input<string>;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Target(s) to patch
+     */
+    target: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv>[]>;
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated>;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata>;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry>;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: pulumi.Input<boolean>;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: pulumi.Input<boolean>;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff>;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: pulumi.Input<string>;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: pulumi.Input<string>;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: pulumi.Input<string>;
+}
+
 export interface ApplicationSetSpecGeneratorMergeGeneratorMergeGeneratorPullRequest {
     /**
      * Fetch pull requests from a repo hosted on a Bitbucket Server.
@@ -23899,6 +26397,500 @@ export interface ApplicationSetSpecGeneratorMergeGeneratorMergeTemplateSpecSyncP
     maxDuration?: pulumi.Input<string>;
 }
 
+export interface ApplicationSetSpecGeneratorMergeGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: pulumi.Input<string>;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginInput>;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: pulumi.Input<string>;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplate>;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateMetadata>;
+    /**
+     * The application specification.
+     */
+    spec?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the resulting Application
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecDestination>;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference>[]>;
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecInfo>[]>;
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: pulumi.Input<string>;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: pulumi.Input<number>;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource>[]>;
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the information.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: pulumi.Input<string>;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory>;
+    /**
+     * Helm specific options.
+     */
+    helm?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm>;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize>;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin>;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: pulumi.Input<string>;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: pulumi.Input<string>;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: pulumi.Input<string>;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: pulumi.Input<string>;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet>;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar>[]>;
+    /**
+     * Additional library search dirs.
+     */
+    libs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter>[]>;
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: pulumi.Input<boolean>;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter>[]>;
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: pulumi.Input<boolean>;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: pulumi.Input<string>;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: pulumi.Input<boolean>;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: pulumi.Input<string>;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: pulumi.Input<boolean>;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: pulumi.Input<string>;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: pulumi.Input<string>;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch>[]>;
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: pulumi.Input<string>;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Target(s) to patch
+     */
+    target: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv>[]>;
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated>;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata>;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry>;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: pulumi.Input<boolean>;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: pulumi.Input<boolean>;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: pulumi.Input<inputs.ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff>;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorMergeGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: pulumi.Input<string>;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: pulumi.Input<string>;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: pulumi.Input<string>;
+}
+
 export interface ApplicationSetSpecGeneratorMergeGeneratorPullRequest {
     /**
      * Fetch pull requests from a repo hosted on a Bitbucket Server.
@@ -25761,6 +28753,500 @@ export interface ApplicationSetSpecGeneratorMergeTemplateSpecSyncPolicyRetry {
 }
 
 export interface ApplicationSetSpecGeneratorMergeTemplateSpecSyncPolicyRetryBackoff {
+    /**
+     * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    duration?: pulumi.Input<string>;
+    /**
+     * Factor to multiply the base duration after each failed retry.
+     */
+    factor?: pulumi.Input<string>;
+    /**
+     * Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+     */
+    maxDuration?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPlugin {
+    /**
+     * ConfigMap with the plugin configuration needed to retrieve the data.
+     */
+    configMapRef: pulumi.Input<string>;
+    /**
+     * The input parameters used for calling the plugin.
+     */
+    input?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginInput>;
+    /**
+     * How often to check for changes (in seconds). Default: 3min.
+     */
+    requeueAfterSeconds?: pulumi.Input<string>;
+    /**
+     * Generator template. Used to override the values of the spec-level template.
+     */
+    template?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplate>;
+    /**
+     * Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+     */
+    values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginInput {
+    /**
+     * Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+     */
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplate {
+    /**
+     * Kubernetes object metadata for templated Application.
+     */
+    metadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateMetadata>;
+    /**
+     * The application specification.
+     */
+    spec?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpec>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateMetadata {
+    /**
+     * An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of finalizers to apply to the resulting Application.
+     */
+    finalizers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the resulting Application
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Namespace of the resulting Application
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpec {
+    /**
+     * Reference to the Kubernetes server and namespace in which the application will be deployed.
+     */
+    destination?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecDestination>;
+    /**
+     * Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+     */
+    ignoreDifferences?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference>[]>;
+    /**
+     * List of information (URLs, email addresses, and plain text) that relates to the application.
+     */
+    infos?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecInfo>[]>;
+    /**
+     * The project the application belongs to. Defaults to `default`.
+     */
+    project?: pulumi.Input<string>;
+    /**
+     * Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+     */
+    revisionHistoryLimit?: pulumi.Input<number>;
+    /**
+     * Location of the application's manifests or chart.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSource>[]>;
+    /**
+     * Controls when and how a sync will be performed.
+     */
+    syncPolicy?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecDestination {
+    /**
+     * Name of the target cluster. Can be used instead of `server`.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecIgnoreDifference {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * List of JQ path expression strings targeting the field(s) to ignore.
+     */
+    jqPathExpressions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of JSONPaths strings targeting the field(s) to ignore.
+     */
+    jsonPointers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * List of external controller manager names whose changes to fields should be ignored.
+     */
+    managedFieldsManagers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecInfo {
+    /**
+     * Name of the information.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the information.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSource {
+    /**
+     * Helm chart name. Must be specified for applications sourced from a Helm repo.
+     */
+    chart?: pulumi.Input<string>;
+    /**
+     * Path/directory specific options.
+     */
+    directory?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectory>;
+    /**
+     * Helm specific options.
+     */
+    helm?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm>;
+    /**
+     * Kustomize specific options.
+     */
+    kustomize?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize>;
+    /**
+     * Directory path within the repository. Only valid for applications sourced from Git.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Config management plugin specific options.
+     */
+    plugin?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourcePlugin>;
+    /**
+     * Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+     */
+    ref?: pulumi.Input<string>;
+    /**
+     * URL to the repository (Git or Helm) that contains the application manifests.
+     */
+    repoUrl?: pulumi.Input<string>;
+    /**
+     * Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+     */
+    targetRevision?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectory {
+    /**
+     * Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+     */
+    exclude?: pulumi.Input<string>;
+    /**
+     * Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+     */
+    include?: pulumi.Input<string>;
+    /**
+     * Jsonnet specific options.
+     */
+    jsonnet?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet>;
+    /**
+     * Whether to scan a directory recursively for manifests.
+     */
+    recurse?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+    /**
+     * List of Jsonnet External Variables.
+     */
+    extVars?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar>[]>;
+    /**
+     * Additional library search dirs.
+     */
+    libs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of Jsonnet Top-level Arguments
+     */
+    tlas?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+    /**
+     * Determines whether the variable should be evaluated as jsonnet code or treated as string.
+     */
+    code?: pulumi.Input<boolean>;
+    /**
+     * Name of Jsonnet variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of Jsonnet variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelm {
+    /**
+     * File parameters for the helm template.
+     */
+    fileParameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmFileParameter>[]>;
+    /**
+     * Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+     */
+    ignoreMissingValueFiles?: pulumi.Input<boolean>;
+    /**
+     * Helm parameters which are passed to the helm template command upon manifest generation.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter>[]>;
+    /**
+     * If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+     */
+    passCredentials?: pulumi.Input<boolean>;
+    /**
+     * Helm release name. If omitted it will use the application name.
+     */
+    releaseName?: pulumi.Input<string>;
+    /**
+     * Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+     */
+    skipCrds?: pulumi.Input<boolean>;
+    /**
+     * List of Helm value files to use when generating a template.
+     */
+    valueFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Helm values to be passed to 'helm template', typically defined as a block.
+     */
+    values?: pulumi.Input<string>;
+    /**
+     * The Helm version to use for templating. Accepts either `v2` or `v3`
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmFileParameter {
+    /**
+     * Name of the Helm parameter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to the file containing the values for the Helm parameter.
+     */
+    path: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceHelmParameter {
+    /**
+     * Determines whether to tell Helm to interpret booleans and numbers as strings.
+     */
+    forceString?: pulumi.Input<boolean>;
+    /**
+     * Name of the Helm parameter.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the Helm parameter.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomize {
+    /**
+     * List of additional annotations to add to rendered manifests.
+     */
+    commonAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of additional labels to add to rendered manifests.
+     */
+    commonLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of Kustomize image override specifications.
+     */
+    images?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Prefix appended to resources for Kustomize apps.
+     */
+    namePrefix?: pulumi.Input<string>;
+    /**
+     * Suffix appended to resources for Kustomize apps.
+     */
+    nameSuffix?: pulumi.Input<string>;
+    /**
+     * A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+     */
+    patches?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatch>[]>;
+    /**
+     * Version of Kustomize to use for rendering manifests.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatch {
+    /**
+     * Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+     */
+    options?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * Inline Kustomize patch to apply.
+     */
+    patch?: pulumi.Input<string>;
+    /**
+     * Path to a file containing the patch to apply.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Target(s) to patch
+     */
+    target: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+    /**
+     * Annotation selector to use when matching the Kubernetes resource.
+     */
+    annotationSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Label selector to use when matching the Kubernetes resource.
+     */
+    labelSelector?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Name to match for.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Namespace to match for.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Version to match for.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourcePlugin {
+    /**
+     * Environment variables passed to the plugin.
+     */
+    envs?: pulumi.Input<pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSourcePluginEnv>[]>;
+    /**
+     * Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSourcePluginEnv {
+    /**
+     * Name of the environment variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Value of the environment variable.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicy {
+    /**
+     * Whether to automatically keep an application synced to the target revision.
+     */
+    automated?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated>;
+    /**
+     * Controls metadata in the given namespace (if `CreateNamespace=true`).
+     */
+    managedNamespaceMetadata?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata>;
+    /**
+     * Controls failed sync retry behavior.
+     */
+    retry?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetry>;
+    /**
+     * List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+     */
+    syncOptions?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyAutomated {
+    /**
+     * Allows apps have zero live resources.
+     */
+    allowEmpty?: pulumi.Input<boolean>;
+    /**
+     * Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+     */
+    prune?: pulumi.Input<boolean>;
+    /**
+     * Whether to revert resources back to their desired state upon modification in the cluster.
+     */
+    selfHeal?: pulumi.Input<boolean>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+    /**
+     * Annotations to apply to the namespace.
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Labels to apply to the namespace.
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetry {
+    /**
+     * Controls how to backoff on subsequent retries of failed syncs.
+     */
+    backoff?: pulumi.Input<inputs.ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff>;
+    /**
+     * Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+     */
+    limit?: pulumi.Input<string>;
+}
+
+export interface ApplicationSetSpecGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
     /**
      * Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
      */

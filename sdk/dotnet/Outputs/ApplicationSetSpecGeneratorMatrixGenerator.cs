@@ -39,6 +39,10 @@ namespace Three14.Argocd.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationSetSpecGeneratorMatrixGeneratorMerge> Merges;
         /// <summary>
+        /// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationSetSpecGeneratorMatrixGeneratorPlugin> Plugins;
+        /// <summary>
         /// [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationSetSpecGeneratorMatrixGeneratorPullRequest> PullRequests;
@@ -65,6 +69,8 @@ namespace Three14.Argocd.Outputs
 
             ImmutableArray<Outputs.ApplicationSetSpecGeneratorMatrixGeneratorMerge> merges,
 
+            ImmutableArray<Outputs.ApplicationSetSpecGeneratorMatrixGeneratorPlugin> plugins,
+
             ImmutableArray<Outputs.ApplicationSetSpecGeneratorMatrixGeneratorPullRequest> pullRequests,
 
             ImmutableArray<Outputs.ApplicationSetSpecGeneratorMatrixGeneratorScmProvider> scmProviders,
@@ -77,6 +83,7 @@ namespace Three14.Argocd.Outputs
             Lists = lists;
             Matrices = matrices;
             Merges = merges;
+            Plugins = plugins;
             PullRequests = pullRequests;
             ScmProviders = scmProviders;
             Selector = selector;

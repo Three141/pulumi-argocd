@@ -800,6 +800,8 @@ type ApplicationSetSpecGenerator struct {
 	Matrices []ApplicationSetSpecGeneratorMatrix `pulumi:"matrices"`
 	// [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
 	Merges []ApplicationSetSpecGeneratorMerge `pulumi:"merges"`
+	// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+	Plugins []ApplicationSetSpecGeneratorPlugin `pulumi:"plugins"`
 	// [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
 	PullRequests []ApplicationSetSpecGeneratorPullRequest `pulumi:"pullRequests"`
 	// [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
@@ -832,6 +834,8 @@ type ApplicationSetSpecGeneratorArgs struct {
 	Matrices ApplicationSetSpecGeneratorMatrixArrayInput `pulumi:"matrices"`
 	// [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
 	Merges ApplicationSetSpecGeneratorMergeArrayInput `pulumi:"merges"`
+	// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+	Plugins ApplicationSetSpecGeneratorPluginArrayInput `pulumi:"plugins"`
 	// [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
 	PullRequests ApplicationSetSpecGeneratorPullRequestArrayInput `pulumi:"pullRequests"`
 	// [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
@@ -921,6 +925,11 @@ func (o ApplicationSetSpecGeneratorOutput) Matrices() ApplicationSetSpecGenerato
 // [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
 func (o ApplicationSetSpecGeneratorOutput) Merges() ApplicationSetSpecGeneratorMergeArrayOutput {
 	return o.ApplyT(func(v ApplicationSetSpecGenerator) []ApplicationSetSpecGeneratorMerge { return v.Merges }).(ApplicationSetSpecGeneratorMergeArrayOutput)
+}
+
+// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+func (o ApplicationSetSpecGeneratorOutput) Plugins() ApplicationSetSpecGeneratorPluginArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGenerator) []ApplicationSetSpecGeneratorPlugin { return v.Plugins }).(ApplicationSetSpecGeneratorPluginArrayOutput)
 }
 
 // [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
@@ -18489,6 +18498,8 @@ type ApplicationSetSpecGeneratorMatrixGenerator struct {
 	Matrices []ApplicationSetSpecGeneratorMatrixGeneratorMatrix `pulumi:"matrices"`
 	// [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
 	Merges []ApplicationSetSpecGeneratorMatrixGeneratorMerge `pulumi:"merges"`
+	// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+	Plugins []ApplicationSetSpecGeneratorMatrixGeneratorPlugin `pulumi:"plugins"`
 	// [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
 	PullRequests []ApplicationSetSpecGeneratorMatrixGeneratorPullRequest `pulumi:"pullRequests"`
 	// [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
@@ -18521,6 +18532,8 @@ type ApplicationSetSpecGeneratorMatrixGeneratorArgs struct {
 	Matrices ApplicationSetSpecGeneratorMatrixGeneratorMatrixArrayInput `pulumi:"matrices"`
 	// [Merge generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/) combine parameters produced by the base (first) generator with matching parameter sets produced by subsequent generators. Take note of the [restrictions](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Merge/#restrictions) regarding their usage - particularly regarding nesting merge generators.
 	Merges ApplicationSetSpecGeneratorMatrixGeneratorMergeArrayInput `pulumi:"merges"`
+	// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+	Plugins ApplicationSetSpecGeneratorMatrixGeneratorPluginArrayInput `pulumi:"plugins"`
 	// [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
 	PullRequests ApplicationSetSpecGeneratorMatrixGeneratorPullRequestArrayInput `pulumi:"pullRequests"`
 	// [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
@@ -18620,6 +18633,13 @@ func (o ApplicationSetSpecGeneratorMatrixGeneratorOutput) Merges() ApplicationSe
 	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGenerator) []ApplicationSetSpecGeneratorMatrixGeneratorMerge {
 		return v.Merges
 	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeArrayOutput)
+}
+
+// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorOutput) Plugins() ApplicationSetSpecGeneratorMatrixGeneratorPluginArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGenerator) []ApplicationSetSpecGeneratorMatrixGeneratorPlugin {
+		return v.Plugins
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorPluginArrayOutput)
 }
 
 // [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
@@ -36504,6 +36524,8 @@ type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGenerator struct {
 	Gits []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorGit `pulumi:"gits"`
 	// [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
 	Lists []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorList `pulumi:"lists"`
+	// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+	Plugins []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin `pulumi:"plugins"`
 	// [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
 	PullRequests []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequest `pulumi:"pullRequests"`
 	// [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
@@ -36532,6 +36554,8 @@ type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorArgs struct {
 	Gits ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorGitArrayInput `pulumi:"gits"`
 	// [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
 	Lists ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListArrayInput `pulumi:"lists"`
+	// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+	Plugins ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayInput `pulumi:"plugins"`
 	// [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
 	PullRequests ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestArrayInput `pulumi:"pullRequests"`
 	// [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
@@ -36617,6 +36641,13 @@ func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorOutput) Lists()
 	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGenerator) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorList {
 		return v.Lists
 	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListArrayOutput)
+}
+
+// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorOutput) Plugins() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGenerator) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin {
+		return v.Plugins
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput)
 }
 
 // [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
@@ -54478,6 +54509,4411 @@ func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpe
 	}).(pulumi.StringPtrOutput)
 }
 
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin struct {
+	// ConfigMap with the plugin configuration needed to retrieve the data.
+	ConfigMapRef string `pulumi:"configMapRef"`
+	// The input parameters used for calling the plugin.
+	Input *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType `pulumi:"input"`
+	// How often to check for changes (in seconds). Default: 3min.
+	RequeueAfterSeconds *string `pulumi:"requeueAfterSeconds"`
+	// Generator template. Used to override the values of the spec-level template.
+	Template *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate `pulumi:"template"`
+	// Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+	Values map[string]string `pulumi:"values"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArgs struct {
+	// ConfigMap with the plugin configuration needed to retrieve the data.
+	ConfigMapRef pulumi.StringInput `pulumi:"configMapRef"`
+	// The input parameters used for calling the plugin.
+	Input ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrInput `pulumi:"input"`
+	// How often to check for changes (in seconds). Default: 3min.
+	RequeueAfterSeconds pulumi.StringPtrInput `pulumi:"requeueAfterSeconds"`
+	// Generator template. Used to override the values of the spec-level template.
+	Template ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrInput `pulumi:"template"`
+	// Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+	Values pulumi.StringMapInput `pulumi:"values"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArray and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArray{ ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArgs{...} }
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArray []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput {
+	return o
+}
+
+// ConfigMap with the plugin configuration needed to retrieve the data.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput) ConfigMapRef() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin) string { return v.ConfigMapRef }).(pulumi.StringOutput)
+}
+
+// The input parameters used for calling the plugin.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput) Input() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType {
+		return v.Input
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput)
+}
+
+// How often to check for changes (in seconds). Default: 3min.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput) RequeueAfterSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin) *string {
+		return v.RequeueAfterSeconds
+	}).(pulumi.StringPtrOutput)
+}
+
+// Generator template. Used to override the values of the spec-level template.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput) Template() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate {
+		return v.Template
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput)
+}
+
+// Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput) Values() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin) map[string]string {
+		return v.Values
+	}).(pulumi.StringMapOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin {
+		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPlugin)[vs[1].(int)]
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType struct {
+	// Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs struct {
+	// Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput)
+}
+
+// Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType) map[string]string {
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput)
+}
+
+// Arbitrary key-value pairs which are passed directly as parameters to the plugin. A current limitation is that this cannot fully express the parameters that can be accepted by the plugin generator.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputType) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate struct {
+	// Kubernetes object metadata for templated Application.
+	Metadata *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata `pulumi:"metadata"`
+	// The application specification.
+	Spec *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec `pulumi:"spec"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs struct {
+	// Kubernetes object metadata for templated Application.
+	Metadata ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrInput `pulumi:"metadata"`
+	// The application specification.
+	Spec ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrInput `pulumi:"spec"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput)
+}
+
+// Kubernetes object metadata for templated Application.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput) Metadata() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata {
+		return v.Metadata
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput)
+}
+
+// The application specification.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput) Spec() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec {
+		return v.Spec
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput)
+}
+
+// Kubernetes object metadata for templated Application.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput) Metadata() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput)
+}
+
+// The application specification.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput) Spec() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplate) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec {
+		if v == nil {
+			return nil
+		}
+		return v.Spec
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata struct {
+	// An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+	Annotations map[string]string `pulumi:"annotations"`
+	// List of finalizers to apply to the resulting Application.
+	Finalizers []string `pulumi:"finalizers"`
+	// Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+	Labels map[string]string `pulumi:"labels"`
+	// Name of the resulting Application
+	Name *string `pulumi:"name"`
+	// Namespace of the resulting Application
+	Namespace *string `pulumi:"namespace"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs struct {
+	// An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+	Annotations pulumi.StringMapInput `pulumi:"annotations"`
+	// List of finalizers to apply to the resulting Application.
+	Finalizers pulumi.StringArrayInput `pulumi:"finalizers"`
+	// Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Name of the resulting Application
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Namespace of the resulting Application
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput)
+}
+
+// An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput) Annotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) map[string]string {
+		return v.Annotations
+	}).(pulumi.StringMapOutput)
+}
+
+// List of finalizers to apply to the resulting Application.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput) Finalizers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) []string {
+		return v.Finalizers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) map[string]string {
+		return v.Labels
+	}).(pulumi.StringMapOutput)
+}
+
+// Name of the resulting Application
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Namespace of the resulting Application
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) *string {
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput)
+}
+
+// An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput) Annotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Annotations
+	}).(pulumi.StringMapOutput)
+}
+
+// List of finalizers to apply to the resulting Application.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput) Finalizers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Finalizers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringMapOutput)
+}
+
+// Name of the resulting Application
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Namespace of the resulting Application
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec struct {
+	// Reference to the Kubernetes server and namespace in which the application will be deployed.
+	Destination *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination `pulumi:"destination"`
+	// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+	IgnoreDifferences []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference `pulumi:"ignoreDifferences"`
+	// List of information (URLs, email addresses, and plain text) that relates to the application.
+	Infos []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo `pulumi:"infos"`
+	// The project the application belongs to. Defaults to `default`.
+	Project *string `pulumi:"project"`
+	// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+	RevisionHistoryLimit *int `pulumi:"revisionHistoryLimit"`
+	// Location of the application's manifests or chart.
+	Sources []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource `pulumi:"sources"`
+	// Controls when and how a sync will be performed.
+	SyncPolicy *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy `pulumi:"syncPolicy"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs struct {
+	// Reference to the Kubernetes server and namespace in which the application will be deployed.
+	Destination ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrInput `pulumi:"destination"`
+	// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+	IgnoreDifferences ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayInput `pulumi:"ignoreDifferences"`
+	// List of information (URLs, email addresses, and plain text) that relates to the application.
+	Infos ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayInput `pulumi:"infos"`
+	// The project the application belongs to. Defaults to `default`.
+	Project pulumi.StringPtrInput `pulumi:"project"`
+	// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+	RevisionHistoryLimit pulumi.IntPtrInput `pulumi:"revisionHistoryLimit"`
+	// Location of the application's manifests or chart.
+	Sources ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayInput `pulumi:"sources"`
+	// Controls when and how a sync will be performed.
+	SyncPolicy ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrInput `pulumi:"syncPolicy"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput)
+}
+
+// Reference to the Kubernetes server and namespace in which the application will be deployed.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) Destination() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination {
+		return v.Destination
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput)
+}
+
+// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) IgnoreDifferences() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference {
+		return v.IgnoreDifferences
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput)
+}
+
+// List of information (URLs, email addresses, and plain text) that relates to the application.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) Infos() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo {
+		return v.Infos
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput)
+}
+
+// The project the application belongs to. Defaults to `default`.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) Project() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) *string {
+		return v.Project
+	}).(pulumi.StringPtrOutput)
+}
+
+// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) RevisionHistoryLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) *int {
+		return v.RevisionHistoryLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Location of the application's manifests or chart.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) Sources() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource {
+		return v.Sources
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput)
+}
+
+// Controls when and how a sync will be performed.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput) SyncPolicy() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy {
+		return v.SyncPolicy
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput)
+}
+
+// Reference to the Kubernetes server and namespace in which the application will be deployed.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) Destination() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput)
+}
+
+// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) IgnoreDifferences() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreDifferences
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput)
+}
+
+// List of information (URLs, email addresses, and plain text) that relates to the application.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) Infos() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo {
+		if v == nil {
+			return nil
+		}
+		return v.Infos
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput)
+}
+
+// The project the application belongs to. Defaults to `default`.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) Project() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Project
+	}).(pulumi.StringPtrOutput)
+}
+
+// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) RevisionHistoryLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RevisionHistoryLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Location of the application's manifests or chart.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) Sources() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource {
+		if v == nil {
+			return nil
+		}
+		return v.Sources
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput)
+}
+
+// Controls when and how a sync will be performed.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput) SyncPolicy() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpec) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.SyncPolicy
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination struct {
+	// Name of the target cluster. Can be used instead of `server`.
+	Name *string `pulumi:"name"`
+	// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+	Namespace *string `pulumi:"namespace"`
+	// URL of the target cluster and must be set to the Kubernetes control plane API.
+	Server *string `pulumi:"server"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs struct {
+	// Name of the target cluster. Can be used instead of `server`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// URL of the target cluster and must be set to the Kubernetes control plane API.
+	Server pulumi.StringPtrInput `pulumi:"server"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput)
+}
+
+// Name of the target cluster. Can be used instead of `server`.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination) *string {
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL of the target cluster and must be set to the Kubernetes control plane API.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination) *string {
+		return v.Server
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput)
+}
+
+// Name of the target cluster. Can be used instead of `server`.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL of the target cluster and must be set to the Kubernetes control plane API.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Server
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference struct {
+	// The Kubernetes resource Group to match for.
+	Group *string `pulumi:"group"`
+	// List of JQ path expression strings targeting the field(s) to ignore.
+	JqPathExpressions []string `pulumi:"jqPathExpressions"`
+	// List of JSONPaths strings targeting the field(s) to ignore.
+	JsonPointers []string `pulumi:"jsonPointers"`
+	// The Kubernetes resource Kind to match for.
+	Kind *string `pulumi:"kind"`
+	// List of external controller manager names whose changes to fields should be ignored.
+	ManagedFieldsManagers []string `pulumi:"managedFieldsManagers"`
+	// The Kubernetes resource Name to match for.
+	Name *string `pulumi:"name"`
+	// The Kubernetes resource Namespace to match for.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs struct {
+	// The Kubernetes resource Group to match for.
+	Group pulumi.StringPtrInput `pulumi:"group"`
+	// List of JQ path expression strings targeting the field(s) to ignore.
+	JqPathExpressions pulumi.StringArrayInput `pulumi:"jqPathExpressions"`
+	// List of JSONPaths strings targeting the field(s) to ignore.
+	JsonPointers pulumi.StringArrayInput `pulumi:"jsonPointers"`
+	// The Kubernetes resource Kind to match for.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// List of external controller manager names whose changes to fields should be ignored.
+	ManagedFieldsManagers pulumi.StringArrayInput `pulumi:"managedFieldsManagers"`
+	// The Kubernetes resource Name to match for.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The Kubernetes resource Namespace to match for.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArray and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArray{ ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs{...} }
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArray []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceInput
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput {
+	return o
+}
+
+// The Kubernetes resource Group to match for.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput) Group() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference) *string {
+		return v.Group
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of JQ path expression strings targeting the field(s) to ignore.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput) JqPathExpressions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference) []string {
+		return v.JqPathExpressions
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of JSONPaths strings targeting the field(s) to ignore.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput) JsonPointers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference) []string {
+		return v.JsonPointers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Kubernetes resource Kind to match for.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference) *string {
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of external controller manager names whose changes to fields should be ignored.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput) ManagedFieldsManagers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference) []string {
+		return v.ManagedFieldsManagers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Kubernetes resource Name to match for.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Namespace to match for.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference) *string {
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference {
+		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifference)[vs[1].(int)]
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo struct {
+	// Name of the information.
+	Name *string `pulumi:"name"`
+	// Value of the information.
+	Value *string `pulumi:"value"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs struct {
+	// Name of the information.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Value of the information.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArray and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArray{ ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs{...} }
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArray []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoInput
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput {
+	return o
+}
+
+// Name of the information.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the information.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo) *string {
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo {
+		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfo)[vs[1].(int)]
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource struct {
+	// Helm chart name. Must be specified for applications sourced from a Helm repo.
+	Chart *string `pulumi:"chart"`
+	// Path/directory specific options.
+	Directory *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory `pulumi:"directory"`
+	// Helm specific options.
+	Helm *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm `pulumi:"helm"`
+	// Kustomize specific options.
+	Kustomize *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize `pulumi:"kustomize"`
+	// Directory path within the repository. Only valid for applications sourced from Git.
+	Path *string `pulumi:"path"`
+	// Config management plugin specific options.
+	Plugin *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin `pulumi:"plugin"`
+	// Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+	Ref *string `pulumi:"ref"`
+	// URL to the repository (Git or Helm) that contains the application manifests.
+	RepoUrl *string `pulumi:"repoUrl"`
+	// Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+	TargetRevision *string `pulumi:"targetRevision"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs struct {
+	// Helm chart name. Must be specified for applications sourced from a Helm repo.
+	Chart pulumi.StringPtrInput `pulumi:"chart"`
+	// Path/directory specific options.
+	Directory ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrInput `pulumi:"directory"`
+	// Helm specific options.
+	Helm ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrInput `pulumi:"helm"`
+	// Kustomize specific options.
+	Kustomize ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrInput `pulumi:"kustomize"`
+	// Directory path within the repository. Only valid for applications sourced from Git.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Config management plugin specific options.
+	Plugin ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrInput `pulumi:"plugin"`
+	// Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+	Ref pulumi.StringPtrInput `pulumi:"ref"`
+	// URL to the repository (Git or Helm) that contains the application manifests.
+	RepoUrl pulumi.StringPtrInput `pulumi:"repoUrl"`
+	// Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+	TargetRevision pulumi.StringPtrInput `pulumi:"targetRevision"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArray and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArray{ ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs{...} }
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArray []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceInput
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput {
+	return o
+}
+
+// Helm chart name. Must be specified for applications sourced from a Helm repo.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) Chart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource) *string {
+		return v.Chart
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path/directory specific options.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) Directory() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory {
+		return v.Directory
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput)
+}
+
+// Helm specific options.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) Helm() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm {
+		return v.Helm
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput)
+}
+
+// Kustomize specific options.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) Kustomize() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize {
+		return v.Kustomize
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput)
+}
+
+// Directory path within the repository. Only valid for applications sourced from Git.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource) *string {
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Config management plugin specific options.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) Plugin() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin {
+		return v.Plugin
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput)
+}
+
+// Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource) *string {
+		return v.Ref
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL to the repository (Git or Helm) that contains the application manifests.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) RepoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource) *string {
+		return v.RepoUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput) TargetRevision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource) *string {
+		return v.TargetRevision
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource {
+		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSource)[vs[1].(int)]
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory struct {
+	// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+	Exclude *string `pulumi:"exclude"`
+	// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+	Include *string `pulumi:"include"`
+	// Jsonnet specific options.
+	Jsonnet *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet `pulumi:"jsonnet"`
+	// Whether to scan a directory recursively for manifests.
+	Recurse *bool `pulumi:"recurse"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs struct {
+	// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+	Exclude pulumi.StringPtrInput `pulumi:"exclude"`
+	// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+	Include pulumi.StringPtrInput `pulumi:"include"`
+	// Jsonnet specific options.
+	Jsonnet ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrInput `pulumi:"jsonnet"`
+	// Whether to scan a directory recursively for manifests.
+	Recurse pulumi.BoolPtrInput `pulumi:"recurse"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput)
+}
+
+// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput) Exclude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory) *string {
+		return v.Exclude
+	}).(pulumi.StringPtrOutput)
+}
+
+// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput) Include() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory) *string {
+		return v.Include
+	}).(pulumi.StringPtrOutput)
+}
+
+// Jsonnet specific options.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput) Jsonnet() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+		return v.Jsonnet
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput)
+}
+
+// Whether to scan a directory recursively for manifests.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput) Recurse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory) *bool {
+		return v.Recurse
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput)
+}
+
+// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput) Exclude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(pulumi.StringPtrOutput)
+}
+
+// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput) Include() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(pulumi.StringPtrOutput)
+}
+
+// Jsonnet specific options.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput) Jsonnet() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+		if v == nil {
+			return nil
+		}
+		return v.Jsonnet
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput)
+}
+
+// Whether to scan a directory recursively for manifests.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput) Recurse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Recurse
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet struct {
+	// List of Jsonnet External Variables.
+	ExtVars []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar `pulumi:"extVars"`
+	// Additional library search dirs.
+	Libs []string `pulumi:"libs"`
+	// List of Jsonnet Top-level Arguments
+	Tlas []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla `pulumi:"tlas"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs struct {
+	// List of Jsonnet External Variables.
+	ExtVars ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayInput `pulumi:"extVars"`
+	// Additional library search dirs.
+	Libs pulumi.StringArrayInput `pulumi:"libs"`
+	// List of Jsonnet Top-level Arguments
+	Tlas ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayInput `pulumi:"tlas"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput)
+}
+
+// List of Jsonnet External Variables.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput) ExtVars() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+		return v.ExtVars
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput)
+}
+
+// Additional library search dirs.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput) Libs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet) []string {
+		return v.Libs
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of Jsonnet Top-level Arguments
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput) Tlas() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+		return v.Tlas
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput)
+}
+
+// List of Jsonnet External Variables.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput) ExtVars() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+		if v == nil {
+			return nil
+		}
+		return v.ExtVars
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput)
+}
+
+// Additional library search dirs.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput) Libs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Libs
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of Jsonnet Top-level Arguments
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput) Tlas() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnet) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+		if v == nil {
+			return nil
+		}
+		return v.Tlas
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar struct {
+	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+	Code *bool `pulumi:"code"`
+	// Name of Jsonnet variable.
+	Name *string `pulumi:"name"`
+	// Value of Jsonnet variable.
+	Value *string `pulumi:"value"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs struct {
+	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+	Code pulumi.BoolPtrInput `pulumi:"code"`
+	// Name of Jsonnet variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Value of Jsonnet variable.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArray and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArray{ ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs{...} }
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArray []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarInput
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput {
+	return o
+}
+
+// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput) Code() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar) *bool {
+		return v.Code
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of Jsonnet variable.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of Jsonnet variable.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar) *string {
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar {
+		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVar)[vs[1].(int)]
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla struct {
+	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+	Code *bool `pulumi:"code"`
+	// Name of Jsonnet variable.
+	Name *string `pulumi:"name"`
+	// Value of Jsonnet variable.
+	Value *string `pulumi:"value"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs struct {
+	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+	Code pulumi.BoolPtrInput `pulumi:"code"`
+	// Name of Jsonnet variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Value of Jsonnet variable.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArray and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArray{ ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs{...} }
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArray []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaInput
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput {
+	return o
+}
+
+// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput) Code() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla) *bool {
+		return v.Code
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of Jsonnet variable.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of Jsonnet variable.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla) *string {
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla {
+		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTla)[vs[1].(int)]
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm struct {
+	// File parameters for the helm template.
+	FileParameters []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter `pulumi:"fileParameters"`
+	// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+	IgnoreMissingValueFiles *bool `pulumi:"ignoreMissingValueFiles"`
+	// Helm parameters which are passed to the helm template command upon manifest generation.
+	Parameters []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter `pulumi:"parameters"`
+	// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+	PassCredentials *bool `pulumi:"passCredentials"`
+	// Helm release name. If omitted it will use the application name.
+	ReleaseName *string `pulumi:"releaseName"`
+	// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+	SkipCrds *bool `pulumi:"skipCrds"`
+	// List of Helm value files to use when generating a template.
+	ValueFiles []string `pulumi:"valueFiles"`
+	// Helm values to be passed to 'helm template', typically defined as a block.
+	Values *string `pulumi:"values"`
+	// The Helm version to use for templating. Accepts either `v2` or `v3`
+	Version *string `pulumi:"version"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs struct {
+	// File parameters for the helm template.
+	FileParameters ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayInput `pulumi:"fileParameters"`
+	// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+	IgnoreMissingValueFiles pulumi.BoolPtrInput `pulumi:"ignoreMissingValueFiles"`
+	// Helm parameters which are passed to the helm template command upon manifest generation.
+	Parameters ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayInput `pulumi:"parameters"`
+	// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+	PassCredentials pulumi.BoolPtrInput `pulumi:"passCredentials"`
+	// Helm release name. If omitted it will use the application name.
+	ReleaseName pulumi.StringPtrInput `pulumi:"releaseName"`
+	// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+	SkipCrds pulumi.BoolPtrInput `pulumi:"skipCrds"`
+	// List of Helm value files to use when generating a template.
+	ValueFiles pulumi.StringArrayInput `pulumi:"valueFiles"`
+	// Helm values to be passed to 'helm template', typically defined as a block.
+	Values pulumi.StringPtrInput `pulumi:"values"`
+	// The Helm version to use for templating. Accepts either `v2` or `v3`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput)
+}
+
+// File parameters for the helm template.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) FileParameters() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter {
+		return v.FileParameters
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput)
+}
+
+// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) IgnoreMissingValueFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *bool {
+		return v.IgnoreMissingValueFiles
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Helm parameters which are passed to the helm template command upon manifest generation.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) Parameters() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter {
+		return v.Parameters
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput)
+}
+
+// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) PassCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *bool {
+		return v.PassCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Helm release name. If omitted it will use the application name.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) ReleaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *string {
+		return v.ReleaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) SkipCrds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *bool {
+		return v.SkipCrds
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of Helm value files to use when generating a template.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) ValueFiles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) []string {
+		return v.ValueFiles
+	}).(pulumi.StringArrayOutput)
+}
+
+// Helm values to be passed to 'helm template', typically defined as a block.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) Values() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *string {
+		return v.Values
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Helm version to use for templating. Accepts either `v2` or `v3`
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *string {
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput)
+}
+
+// File parameters for the helm template.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) FileParameters() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter {
+		if v == nil {
+			return nil
+		}
+		return v.FileParameters
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput)
+}
+
+// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) IgnoreMissingValueFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMissingValueFiles
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Helm parameters which are passed to the helm template command upon manifest generation.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) Parameters() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput)
+}
+
+// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) PassCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PassCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Helm release name. If omitted it will use the application name.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) ReleaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) SkipCrds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipCrds
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of Helm value files to use when generating a template.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) ValueFiles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ValueFiles
+	}).(pulumi.StringArrayOutput)
+}
+
+// Helm values to be passed to 'helm template', typically defined as a block.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) Values() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Helm version to use for templating. Accepts either `v2` or `v3`
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelm) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter struct {
+	// Name of the Helm parameter.
+	Name string `pulumi:"name"`
+	// Path to the file containing the values for the Helm parameter.
+	Path string `pulumi:"path"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs struct {
+	// Name of the Helm parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Path to the file containing the values for the Helm parameter.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArray and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArray{ ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs{...} }
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArray []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterInput
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput {
+	return o
+}
+
+// Name of the Helm parameter.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Path to the file containing the values for the Helm parameter.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter {
+		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameter)[vs[1].(int)]
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter struct {
+	// Determines whether to tell Helm to interpret booleans and numbers as strings.
+	ForceString *bool `pulumi:"forceString"`
+	// Name of the Helm parameter.
+	Name *string `pulumi:"name"`
+	// Value of the Helm parameter.
+	Value *string `pulumi:"value"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs struct {
+	// Determines whether to tell Helm to interpret booleans and numbers as strings.
+	ForceString pulumi.BoolPtrInput `pulumi:"forceString"`
+	// Name of the Helm parameter.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Value of the Helm parameter.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArray and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArray{ ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs{...} }
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArray []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterInput
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput {
+	return o
+}
+
+// Determines whether to tell Helm to interpret booleans and numbers as strings.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput) ForceString() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter) *bool {
+		return v.ForceString
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of the Helm parameter.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the Helm parameter.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter) *string {
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter {
+		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameter)[vs[1].(int)]
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize struct {
+	// List of additional annotations to add to rendered manifests.
+	CommonAnnotations map[string]string `pulumi:"commonAnnotations"`
+	// List of additional labels to add to rendered manifests.
+	CommonLabels map[string]string `pulumi:"commonLabels"`
+	// List of Kustomize image override specifications.
+	Images []string `pulumi:"images"`
+	// Prefix appended to resources for Kustomize apps.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// Suffix appended to resources for Kustomize apps.
+	NameSuffix *string `pulumi:"nameSuffix"`
+	// A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+	Patches []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch `pulumi:"patches"`
+	// Version of Kustomize to use for rendering manifests.
+	Version *string `pulumi:"version"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs struct {
+	// List of additional annotations to add to rendered manifests.
+	CommonAnnotations pulumi.StringMapInput `pulumi:"commonAnnotations"`
+	// List of additional labels to add to rendered manifests.
+	CommonLabels pulumi.StringMapInput `pulumi:"commonLabels"`
+	// List of Kustomize image override specifications.
+	Images pulumi.StringArrayInput `pulumi:"images"`
+	// Prefix appended to resources for Kustomize apps.
+	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
+	// Suffix appended to resources for Kustomize apps.
+	NameSuffix pulumi.StringPtrInput `pulumi:"nameSuffix"`
+	// A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+	Patches ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayInput `pulumi:"patches"`
+	// Version of Kustomize to use for rendering manifests.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput)
+}
+
+// List of additional annotations to add to rendered manifests.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) CommonAnnotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) map[string]string {
+		return v.CommonAnnotations
+	}).(pulumi.StringMapOutput)
+}
+
+// List of additional labels to add to rendered manifests.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) CommonLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) map[string]string {
+		return v.CommonLabels
+	}).(pulumi.StringMapOutput)
+}
+
+// List of Kustomize image override specifications.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) Images() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) []string {
+		return v.Images
+	}).(pulumi.StringArrayOutput)
+}
+
+// Prefix appended to resources for Kustomize apps.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) *string {
+		return v.NamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Suffix appended to resources for Kustomize apps.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) NameSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) *string {
+		return v.NameSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) Patches() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch {
+		return v.Patches
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput)
+}
+
+// Version of Kustomize to use for rendering manifests.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) *string {
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput)
+}
+
+// List of additional annotations to add to rendered manifests.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) CommonAnnotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CommonAnnotations
+	}).(pulumi.StringMapOutput)
+}
+
+// List of additional labels to add to rendered manifests.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) CommonLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CommonLabels
+	}).(pulumi.StringMapOutput)
+}
+
+// List of Kustomize image override specifications.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) Images() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Images
+	}).(pulumi.StringArrayOutput)
+}
+
+// Prefix appended to resources for Kustomize apps.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Suffix appended to resources for Kustomize apps.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) NameSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NameSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) Patches() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch {
+		if v == nil {
+			return nil
+		}
+		return v.Patches
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput)
+}
+
+// Version of Kustomize to use for rendering manifests.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomize) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch struct {
+	// Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+	Options map[string]bool `pulumi:"options"`
+	// Inline Kustomize patch to apply.
+	Patch *string `pulumi:"patch"`
+	// Path to a file containing the patch to apply.
+	Path *string `pulumi:"path"`
+	// Target(s) to patch
+	Target ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget `pulumi:"target"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs struct {
+	// Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+	Options pulumi.BoolMapInput `pulumi:"options"`
+	// Inline Kustomize patch to apply.
+	Patch pulumi.StringPtrInput `pulumi:"patch"`
+	// Path to a file containing the patch to apply.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Target(s) to patch
+	Target ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetInput `pulumi:"target"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArray and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArray{ ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs{...} }
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArray []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchInput
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput {
+	return o
+}
+
+// Additional [options](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/#name-and-kind-changes).
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput) Options() pulumi.BoolMapOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch) map[string]bool {
+		return v.Options
+	}).(pulumi.BoolMapOutput)
+}
+
+// Inline Kustomize patch to apply.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch) *string {
+		return v.Patch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to a file containing the patch to apply.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch) *string {
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target(s) to patch
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput) Target() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget {
+		return v.Target
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch {
+		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatch)[vs[1].(int)]
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget struct {
+	// Annotation selector to use when matching the Kubernetes resource.
+	AnnotationSelector *string `pulumi:"annotationSelector"`
+	// The Kubernetes resource Group to match for.
+	Group *string `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind *string `pulumi:"kind"`
+	// Label selector to use when matching the Kubernetes resource.
+	LabelSelector *string `pulumi:"labelSelector"`
+	// The Kubernetes resource Name to match for.
+	Name *string `pulumi:"name"`
+	// The Kubernetes resource Namespace to match for.
+	Namespace *string `pulumi:"namespace"`
+	// The Kubernetes resource Version to match for.
+	Version *string `pulumi:"version"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs struct {
+	// Annotation selector to use when matching the Kubernetes resource.
+	AnnotationSelector pulumi.StringPtrInput `pulumi:"annotationSelector"`
+	// The Kubernetes resource Group to match for.
+	Group pulumi.StringPtrInput `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Label selector to use when matching the Kubernetes resource.
+	LabelSelector pulumi.StringPtrInput `pulumi:"labelSelector"`
+	// The Kubernetes resource Name to match for.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The Kubernetes resource Namespace to match for.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// The Kubernetes resource Version to match for.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput {
+	return o
+}
+
+// Annotation selector to use when matching the Kubernetes resource.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput) AnnotationSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget) *string {
+		return v.AnnotationSelector
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Group to match for.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput) Group() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget) *string {
+		return v.Group
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Kind to match for.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget) *string {
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Label selector to use when matching the Kubernetes resource.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput) LabelSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget) *string {
+		return v.LabelSelector
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Name to match for.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Namespace to match for.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget) *string {
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Version to match for.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTarget) *string {
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin struct {
+	// Environment variables passed to the plugin.
+	Envs []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv `pulumi:"envs"`
+	// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+	Name *string `pulumi:"name"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs struct {
+	// Environment variables passed to the plugin.
+	Envs ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayInput `pulumi:"envs"`
+	// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput)
+}
+
+// Environment variables passed to the plugin.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput) Envs() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv {
+		return v.Envs
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput)
+}
+
+// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput)
+}
+
+// Environment variables passed to the plugin.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput) Envs() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin) []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv {
+		if v == nil {
+			return nil
+		}
+		return v.Envs
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput)
+}
+
+// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePlugin) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv struct {
+	// Name of the environment variable.
+	Name *string `pulumi:"name"`
+	// Value of the environment variable.
+	Value *string `pulumi:"value"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs struct {
+	// Name of the environment variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Value of the environment variable.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArray and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArray{ ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs{...} }
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArray []ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvInput
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArray) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput {
+	return o
+}
+
+// Name of the environment variable.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the environment variable.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv) *string {
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv {
+		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnv)[vs[1].(int)]
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy struct {
+	// Whether to automatically keep an application synced to the target revision.
+	Automated *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated `pulumi:"automated"`
+	// Controls metadata in the given namespace (if `CreateNamespace=true`).
+	ManagedNamespaceMetadata *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata `pulumi:"managedNamespaceMetadata"`
+	// Controls failed sync retry behavior.
+	Retry *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry `pulumi:"retry"`
+	// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+	SyncOptions []string `pulumi:"syncOptions"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs struct {
+	// Whether to automatically keep an application synced to the target revision.
+	Automated ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrInput `pulumi:"automated"`
+	// Controls metadata in the given namespace (if `CreateNamespace=true`).
+	ManagedNamespaceMetadata ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput `pulumi:"managedNamespaceMetadata"`
+	// Controls failed sync retry behavior.
+	Retry ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrInput `pulumi:"retry"`
+	// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+	SyncOptions pulumi.StringArrayInput `pulumi:"syncOptions"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput)
+}
+
+// Whether to automatically keep an application synced to the target revision.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput) Automated() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated {
+		return v.Automated
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput)
+}
+
+// Controls metadata in the given namespace (if `CreateNamespace=true`).
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput) ManagedNamespaceMetadata() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+		return v.ManagedNamespaceMetadata
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput)
+}
+
+// Controls failed sync retry behavior.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput) Retry() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry {
+		return v.Retry
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput)
+}
+
+// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput) SyncOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy) []string {
+		return v.SyncOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput)
+}
+
+// Whether to automatically keep an application synced to the target revision.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput) Automated() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated {
+		if v == nil {
+			return nil
+		}
+		return v.Automated
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput)
+}
+
+// Controls metadata in the given namespace (if `CreateNamespace=true`).
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput) ManagedNamespaceMetadata() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedNamespaceMetadata
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput)
+}
+
+// Controls failed sync retry behavior.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput) Retry() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry {
+		if v == nil {
+			return nil
+		}
+		return v.Retry
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput)
+}
+
+// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput) SyncOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SyncOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated struct {
+	// Allows apps have zero live resources.
+	AllowEmpty *bool `pulumi:"allowEmpty"`
+	// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+	Prune *bool `pulumi:"prune"`
+	// Whether to revert resources back to their desired state upon modification in the cluster.
+	SelfHeal *bool `pulumi:"selfHeal"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs struct {
+	// Allows apps have zero live resources.
+	AllowEmpty pulumi.BoolPtrInput `pulumi:"allowEmpty"`
+	// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+	Prune pulumi.BoolPtrInput `pulumi:"prune"`
+	// Whether to revert resources back to their desired state upon modification in the cluster.
+	SelfHeal pulumi.BoolPtrInput `pulumi:"selfHeal"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput)
+}
+
+// Allows apps have zero live resources.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput) AllowEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated) *bool {
+		return v.AllowEmpty
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput) Prune() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated) *bool {
+		return v.Prune
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to revert resources back to their desired state upon modification in the cluster.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput) SelfHeal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated) *bool {
+		return v.SelfHeal
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput)
+}
+
+// Allows apps have zero live resources.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput) AllowEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowEmpty
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput) Prune() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Prune
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to revert resources back to their desired state upon modification in the cluster.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput) SelfHeal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomated) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SelfHeal
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata struct {
+	// Annotations to apply to the namespace.
+	Annotations map[string]string `pulumi:"annotations"`
+	// Labels to apply to the namespace.
+	Labels map[string]string `pulumi:"labels"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs struct {
+	// Annotations to apply to the namespace.
+	Annotations pulumi.StringMapInput `pulumi:"annotations"`
+	// Labels to apply to the namespace.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput)
+}
+
+// Annotations to apply to the namespace.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) Annotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata) map[string]string {
+		return v.Annotations
+	}).(pulumi.StringMapOutput)
+}
+
+// Labels to apply to the namespace.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata) map[string]string {
+		return v.Labels
+	}).(pulumi.StringMapOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput)
+}
+
+// Annotations to apply to the namespace.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) Annotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Annotations
+	}).(pulumi.StringMapOutput)
+}
+
+// Labels to apply to the namespace.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringMapOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry struct {
+	// Controls how to backoff on subsequent retries of failed syncs.
+	Backoff *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff `pulumi:"backoff"`
+	// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+	Limit *string `pulumi:"limit"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs struct {
+	// Controls how to backoff on subsequent retries of failed syncs.
+	Backoff ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrInput `pulumi:"backoff"`
+	// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+	Limit pulumi.StringPtrInput `pulumi:"limit"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput)
+}
+
+// Controls how to backoff on subsequent retries of failed syncs.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput) Backoff() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+		return v.Backoff
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput)
+}
+
+// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput) Limit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry) *string {
+		return v.Limit
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput)
+}
+
+// Controls how to backoff on subsequent retries of failed syncs.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput) Backoff() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+		if v == nil {
+			return nil
+		}
+		return v.Backoff
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput)
+}
+
+// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput) Limit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetry) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff struct {
+	// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+	Duration *string `pulumi:"duration"`
+	// Factor to multiply the base duration after each failed retry.
+	Factor *string `pulumi:"factor"`
+	// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+	MaxDuration *string `pulumi:"maxDuration"`
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffInput` via:
+//
+//	ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs{...}
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs struct {
+	// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// Factor to multiply the base duration after each failed retry.
+	Factor pulumi.StringPtrInput `pulumi:"factor"`
+	// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+	MaxDuration pulumi.StringPtrInput `pulumi:"maxDuration"`
+}
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff)(nil)).Elem()
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput)
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(ctx)
+}
+
+// ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs, ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtr and ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput values.
+// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrInput` via:
+//
+//	        ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput
+	ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput
+}
+
+type applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrType ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs
+
+func ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrInput {
+	return (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrType)(v)
+}
+
+func (*applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff)(nil)).Elem()
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput {
+	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput {
+	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff) *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+		return &v
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput)
+}
+
+// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff) *string {
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Factor to multiply the base duration after each failed retry.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput) Factor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff) *string {
+		return v.Factor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput) MaxDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff) *string {
+		return v.MaxDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff)(nil)).Elem()
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput {
+	return o
+}
+
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff) ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff
+		return ret
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput)
+}
+
+// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Factor to multiply the base duration after each failed retry.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput) Factor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Factor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput) MaxDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoff) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDuration
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequest struct {
 	// Fetch pull requests from a repo hosted on a Bitbucket Server.
 	BitbucketServer *ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestBitbucketServer `pulumi:"bitbucketServer"`
@@ -71951,6 +76387,8 @@ type ApplicationSetSpecGeneratorMatrixGeneratorMergeGenerator struct {
 	Gits []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit `pulumi:"gits"`
 	// [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
 	Lists []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorList `pulumi:"lists"`
+	// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+	Plugins []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin `pulumi:"plugins"`
 	// [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
 	PullRequests []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPullRequest `pulumi:"pullRequests"`
 	// [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
@@ -71979,6 +76417,8 @@ type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorArgs struct {
 	Gits ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayInput `pulumi:"gits"`
 	// [List generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-List/) generate parameters based on an arbitrary list of key/value pairs (as long as the values are string values).
 	Lists ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorListArrayInput `pulumi:"lists"`
+	// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+	Plugins ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginArrayInput `pulumi:"plugins"`
 	// [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
 	PullRequests ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPullRequestArrayInput `pulumi:"pullRequests"`
 	// [SCM Provider generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-SCM-Provider/) uses the API of an SCMaaS provider to automatically discover repositories within an organization.
@@ -72064,6 +76504,13 @@ func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorOutput) Lists() 
 	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGenerator) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorList {
 		return v.Lists
 	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorListArrayOutput)
+}
+
+// [Plugin generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Plugin/) generates parameters using a custom plugin.
+func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorOutput) Plugins() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginArrayOutput {
+	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGenerator) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPlugin {
+		return v.Plugins
+	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorPluginArrayOutput)
 }
 
 // [Pull Request generators](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Pull-Request/) uses the API of an SCMaaS provider to automatically discover open pull requests within a repository.
@@ -79929,4359 +84376,6 @@ func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateS
 	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchOutput)
 }
 
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTarget struct {
-	// Annotation selector to use when matching the Kubernetes resource.
-	AnnotationSelector *string `pulumi:"annotationSelector"`
-	// The Kubernetes resource Group to match for.
-	Group *string `pulumi:"group"`
-	// The Kubernetes resource Kind to match for.
-	Kind *string `pulumi:"kind"`
-	// Label selector to use when matching the Kubernetes resource.
-	LabelSelector *string `pulumi:"labelSelector"`
-	// The Kubernetes resource Name to match for.
-	Name *string `pulumi:"name"`
-	// The Kubernetes resource Namespace to match for.
-	Namespace *string `pulumi:"namespace"`
-	// The Kubernetes resource Version to match for.
-	Version *string `pulumi:"version"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetArgs struct {
-	// Annotation selector to use when matching the Kubernetes resource.
-	AnnotationSelector pulumi.StringPtrInput `pulumi:"annotationSelector"`
-	// The Kubernetes resource Group to match for.
-	Group pulumi.StringPtrInput `pulumi:"group"`
-	// The Kubernetes resource Kind to match for.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Label selector to use when matching the Kubernetes resource.
-	LabelSelector pulumi.StringPtrInput `pulumi:"labelSelector"`
-	// The Kubernetes resource Name to match for.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Kubernetes resource Namespace to match for.
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// The Kubernetes resource Version to match for.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTarget)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTarget)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput {
-	return o
-}
-
-// Annotation selector to use when matching the Kubernetes resource.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput) AnnotationSelector() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTarget) *string {
-		return v.AnnotationSelector
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Kubernetes resource Group to match for.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput) Group() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTarget) *string {
-		return v.Group
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Kubernetes resource Kind to match for.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTarget) *string {
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// Label selector to use when matching the Kubernetes resource.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput) LabelSelector() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTarget) *string {
-		return v.LabelSelector
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Kubernetes resource Name to match for.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTarget) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Kubernetes resource Namespace to match for.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTarget) *string {
-		return v.Namespace
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Kubernetes resource Version to match for.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTarget) *string {
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin struct {
-	// Environment variables passed to the plugin.
-	Envs []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv `pulumi:"envs"`
-	// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
-	Name *string `pulumi:"name"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs struct {
-	// Environment variables passed to the plugin.
-	Envs ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayInput `pulumi:"envs"`
-	// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput)
-}
-
-// Environment variables passed to the plugin.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput) Envs() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv {
-		return v.Envs
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput)
-}
-
-// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput)
-}
-
-// Environment variables passed to the plugin.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput) Envs() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv {
-		if v == nil {
-			return nil
-		}
-		return v.Envs
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput)
-}
-
-// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePlugin) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv struct {
-	// Name of the environment variable.
-	Name *string `pulumi:"name"`
-	// Value of the environment variable.
-	Value *string `pulumi:"value"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArgs struct {
-	// Name of the environment variable.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of the environment variable.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput {
-	return o
-}
-
-// Name of the environment variable.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the environment variable.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv) *string {
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnv)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy struct {
-	// Whether to automatically keep an application synced to the target revision.
-	Automated *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated `pulumi:"automated"`
-	// Controls metadata in the given namespace (if `CreateNamespace=true`).
-	ManagedNamespaceMetadata *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata `pulumi:"managedNamespaceMetadata"`
-	// Controls failed sync retry behavior.
-	Retry *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry `pulumi:"retry"`
-	// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
-	SyncOptions []string `pulumi:"syncOptions"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs struct {
-	// Whether to automatically keep an application synced to the target revision.
-	Automated ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrInput `pulumi:"automated"`
-	// Controls metadata in the given namespace (if `CreateNamespace=true`).
-	ManagedNamespaceMetadata ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput `pulumi:"managedNamespaceMetadata"`
-	// Controls failed sync retry behavior.
-	Retry ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrInput `pulumi:"retry"`
-	// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
-	SyncOptions pulumi.StringArrayInput `pulumi:"syncOptions"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput)
-}
-
-// Whether to automatically keep an application synced to the target revision.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput) Automated() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated {
-		return v.Automated
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput)
-}
-
-// Controls metadata in the given namespace (if `CreateNamespace=true`).
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput) ManagedNamespaceMetadata() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata {
-		return v.ManagedNamespaceMetadata
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput)
-}
-
-// Controls failed sync retry behavior.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput) Retry() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry {
-		return v.Retry
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput)
-}
-
-// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput) SyncOptions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy) []string {
-		return v.SyncOptions
-	}).(pulumi.StringArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput)
-}
-
-// Whether to automatically keep an application synced to the target revision.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput) Automated() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated {
-		if v == nil {
-			return nil
-		}
-		return v.Automated
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput)
-}
-
-// Controls metadata in the given namespace (if `CreateNamespace=true`).
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput) ManagedNamespaceMetadata() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedNamespaceMetadata
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput)
-}
-
-// Controls failed sync retry behavior.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput) Retry() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry {
-		if v == nil {
-			return nil
-		}
-		return v.Retry
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput)
-}
-
-// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput) SyncOptions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicy) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SyncOptions
-	}).(pulumi.StringArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated struct {
-	// Allows apps have zero live resources.
-	AllowEmpty *bool `pulumi:"allowEmpty"`
-	// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
-	Prune *bool `pulumi:"prune"`
-	// Whether to revert resources back to their desired state upon modification in the cluster.
-	SelfHeal *bool `pulumi:"selfHeal"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs struct {
-	// Allows apps have zero live resources.
-	AllowEmpty pulumi.BoolPtrInput `pulumi:"allowEmpty"`
-	// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
-	Prune pulumi.BoolPtrInput `pulumi:"prune"`
-	// Whether to revert resources back to their desired state upon modification in the cluster.
-	SelfHeal pulumi.BoolPtrInput `pulumi:"selfHeal"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput)
-}
-
-// Allows apps have zero live resources.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput) AllowEmpty() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated) *bool {
-		return v.AllowEmpty
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput) Prune() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated) *bool {
-		return v.Prune
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether to revert resources back to their desired state upon modification in the cluster.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput) SelfHeal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated) *bool {
-		return v.SelfHeal
-	}).(pulumi.BoolPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput)
-}
-
-// Allows apps have zero live resources.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput) AllowEmpty() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowEmpty
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput) Prune() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Prune
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether to revert resources back to their desired state upon modification in the cluster.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput) SelfHeal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomated) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SelfHeal
-	}).(pulumi.BoolPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata struct {
-	// Annotations to apply to the namespace.
-	Annotations map[string]string `pulumi:"annotations"`
-	// Labels to apply to the namespace.
-	Labels map[string]string `pulumi:"labels"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs struct {
-	// Annotations to apply to the namespace.
-	Annotations pulumi.StringMapInput `pulumi:"annotations"`
-	// Labels to apply to the namespace.
-	Labels pulumi.StringMapInput `pulumi:"labels"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput)
-}
-
-// Annotations to apply to the namespace.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) Annotations() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata) map[string]string {
-		return v.Annotations
-	}).(pulumi.StringMapOutput)
-}
-
-// Labels to apply to the namespace.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput) Labels() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata) map[string]string {
-		return v.Labels
-	}).(pulumi.StringMapOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput)
-}
-
-// Annotations to apply to the namespace.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) Annotations() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Annotations
-	}).(pulumi.StringMapOutput)
-}
-
-// Labels to apply to the namespace.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput) Labels() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadata) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Labels
-	}).(pulumi.StringMapOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry struct {
-	// Controls how to backoff on subsequent retries of failed syncs.
-	Backoff *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff `pulumi:"backoff"`
-	// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
-	Limit *string `pulumi:"limit"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs struct {
-	// Controls how to backoff on subsequent retries of failed syncs.
-	Backoff ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrInput `pulumi:"backoff"`
-	// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
-	Limit pulumi.StringPtrInput `pulumi:"limit"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput)
-}
-
-// Controls how to backoff on subsequent retries of failed syncs.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput) Backoff() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff {
-		return v.Backoff
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput)
-}
-
-// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput) Limit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry) *string {
-		return v.Limit
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput)
-}
-
-// Controls how to backoff on subsequent retries of failed syncs.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput) Backoff() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff {
-		if v == nil {
-			return nil
-		}
-		return v.Backoff
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput)
-}
-
-// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput) Limit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetry) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Limit
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff struct {
-	// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
-	Duration *string `pulumi:"duration"`
-	// Factor to multiply the base duration after each failed retry.
-	Factor *string `pulumi:"factor"`
-	// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
-	MaxDuration *string `pulumi:"maxDuration"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs struct {
-	// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
-	Duration pulumi.StringPtrInput `pulumi:"duration"`
-	// Factor to multiply the base duration after each failed retry.
-	Factor pulumi.StringPtrInput `pulumi:"factor"`
-	// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
-	MaxDuration pulumi.StringPtrInput `pulumi:"maxDuration"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput)
-}
-
-// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput) Duration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff) *string {
-		return v.Duration
-	}).(pulumi.StringPtrOutput)
-}
-
-// Factor to multiply the base duration after each failed retry.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput) Factor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff) *string {
-		return v.Factor
-	}).(pulumi.StringPtrOutput)
-}
-
-// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput) MaxDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff) *string {
-		return v.MaxDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput)
-}
-
-// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput) Duration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Duration
-	}).(pulumi.StringPtrOutput)
-}
-
-// Factor to multiply the base duration after each failed retry.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput) Factor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Factor
-	}).(pulumi.StringPtrOutput)
-}
-
-// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput) MaxDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoff) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MaxDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit struct {
-	// List of directories in the source repository to use when template the Application..
-	Directories []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory `pulumi:"directories"`
-	// List of files in the source repository to use when template the Application.
-	Files []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFile `pulumi:"files"`
-	// Prefix for all path-related parameter names.
-	PathParamPrefix *string `pulumi:"pathParamPrefix"`
-	// URL to the repository to use.
-	RepoUrl string `pulumi:"repoUrl"`
-	// Revision of the source repository to use.
-	Revision *string `pulumi:"revision"`
-	// Generator template. Used to override the values of the spec-level template.
-	Template *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate `pulumi:"template"`
-	// Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
-	Values map[string]string `pulumi:"values"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArgs struct {
-	// List of directories in the source repository to use when template the Application..
-	Directories ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayInput `pulumi:"directories"`
-	// List of files in the source repository to use when template the Application.
-	Files ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayInput `pulumi:"files"`
-	// Prefix for all path-related parameter names.
-	PathParamPrefix pulumi.StringPtrInput `pulumi:"pathParamPrefix"`
-	// URL to the repository to use.
-	RepoUrl pulumi.StringInput `pulumi:"repoUrl"`
-	// Revision of the source repository to use.
-	Revision pulumi.StringPtrInput `pulumi:"revision"`
-	// Generator template. Used to override the values of the spec-level template.
-	Template ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrInput `pulumi:"template"`
-	// Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
-	Values pulumi.StringMapInput `pulumi:"values"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput {
-	return o
-}
-
-// List of directories in the source repository to use when template the Application..
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput) Directories() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory {
-		return v.Directories
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput)
-}
-
-// List of files in the source repository to use when template the Application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput) Files() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFile {
-		return v.Files
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput)
-}
-
-// Prefix for all path-related parameter names.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput) PathParamPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit) *string { return v.PathParamPrefix }).(pulumi.StringPtrOutput)
-}
-
-// URL to the repository to use.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput) RepoUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit) string { return v.RepoUrl }).(pulumi.StringOutput)
-}
-
-// Revision of the source repository to use.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput) Revision() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit) *string { return v.Revision }).(pulumi.StringPtrOutput)
-}
-
-// Generator template. Used to override the values of the spec-level template.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput) Template() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate {
-		return v.Template
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput)
-}
-
-// Arbitrary string key-value pairs to pass to the template via the values field of the git generator.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput) Values() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit) map[string]string { return v.Values }).(pulumi.StringMapOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGit)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory struct {
-	// Flag indicating whether or not the directory should be excluded when templating.
-	Exclude *bool `pulumi:"exclude"`
-	// Path in the repository.
-	Path string `pulumi:"path"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArgs struct {
-	// Flag indicating whether or not the directory should be excluded when templating.
-	Exclude pulumi.BoolPtrInput `pulumi:"exclude"`
-	// Path in the repository.
-	Path pulumi.StringInput `pulumi:"path"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput {
-	return o
-}
-
-// Flag indicating whether or not the directory should be excluded when templating.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput) Exclude() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory) *bool { return v.Exclude }).(pulumi.BoolPtrOutput)
-}
-
-// Path in the repository.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory) string { return v.Path }).(pulumi.StringOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectory)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFile struct {
-	// Path to the file in the repository.
-	Path string `pulumi:"path"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArgs struct {
-	// Path to the file in the repository.
-	Path pulumi.StringInput `pulumi:"path"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFile)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFile)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFile)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput {
-	return o
-}
-
-// Path to the file in the repository.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFile) string { return v.Path }).(pulumi.StringOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFile)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFile {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFile)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate struct {
-	// Kubernetes object metadata for templated Application.
-	Metadata *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata `pulumi:"metadata"`
-	// The application specification.
-	Spec *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec `pulumi:"spec"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs struct {
-	// Kubernetes object metadata for templated Application.
-	Metadata ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrInput `pulumi:"metadata"`
-	// The application specification.
-	Spec ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrInput `pulumi:"spec"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput)
-}
-
-// Kubernetes object metadata for templated Application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput) Metadata() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata {
-		return v.Metadata
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput)
-}
-
-// The application specification.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput) Spec() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec {
-		return v.Spec
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput)
-}
-
-// Kubernetes object metadata for templated Application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput) Metadata() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput)
-}
-
-// The application specification.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput) Spec() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplate) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec {
-		if v == nil {
-			return nil
-		}
-		return v.Spec
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata struct {
-	// An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
-	Annotations map[string]string `pulumi:"annotations"`
-	// List of finalizers to apply to the resulting Application.
-	Finalizers []string `pulumi:"finalizers"`
-	// Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
-	Labels map[string]string `pulumi:"labels"`
-	// Name of the resulting Application
-	Name *string `pulumi:"name"`
-	// Namespace of the resulting Application
-	Namespace *string `pulumi:"namespace"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs struct {
-	// An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
-	Annotations pulumi.StringMapInput `pulumi:"annotations"`
-	// List of finalizers to apply to the resulting Application.
-	Finalizers pulumi.StringArrayInput `pulumi:"finalizers"`
-	// Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
-	Labels pulumi.StringMapInput `pulumi:"labels"`
-	// Name of the resulting Application
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Namespace of the resulting Application
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput)
-}
-
-// An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput) Annotations() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) map[string]string {
-		return v.Annotations
-	}).(pulumi.StringMapOutput)
-}
-
-// List of finalizers to apply to the resulting Application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput) Finalizers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) []string {
-		return v.Finalizers
-	}).(pulumi.StringArrayOutput)
-}
-
-// Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput) Labels() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) map[string]string {
-		return v.Labels
-	}).(pulumi.StringMapOutput)
-}
-
-// Name of the resulting Application
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Namespace of the resulting Application
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) *string {
-		return v.Namespace
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput)
-}
-
-// An unstructured key value map that may be used to store arbitrary metadata for the resulting Application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput) Annotations() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Annotations
-	}).(pulumi.StringMapOutput)
-}
-
-// List of finalizers to apply to the resulting Application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput) Finalizers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Finalizers
-	}).(pulumi.StringArrayOutput)
-}
-
-// Map of string keys and values that can be used to organize and categorize (scope and select) the resulting Application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput) Labels() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Labels
-	}).(pulumi.StringMapOutput)
-}
-
-// Name of the resulting Application
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Namespace of the resulting Application
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Namespace
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec struct {
-	// Reference to the Kubernetes server and namespace in which the application will be deployed.
-	Destination *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination `pulumi:"destination"`
-	// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
-	IgnoreDifferences []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference `pulumi:"ignoreDifferences"`
-	// List of information (URLs, email addresses, and plain text) that relates to the application.
-	Infos []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo `pulumi:"infos"`
-	// The project the application belongs to. Defaults to `default`.
-	Project *string `pulumi:"project"`
-	// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
-	RevisionHistoryLimit *int `pulumi:"revisionHistoryLimit"`
-	// Location of the application's manifests or chart.
-	Sources []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource `pulumi:"sources"`
-	// Controls when and how a sync will be performed.
-	SyncPolicy *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSyncPolicy `pulumi:"syncPolicy"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs struct {
-	// Reference to the Kubernetes server and namespace in which the application will be deployed.
-	Destination ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrInput `pulumi:"destination"`
-	// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
-	IgnoreDifferences ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayInput `pulumi:"ignoreDifferences"`
-	// List of information (URLs, email addresses, and plain text) that relates to the application.
-	Infos ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayInput `pulumi:"infos"`
-	// The project the application belongs to. Defaults to `default`.
-	Project pulumi.StringPtrInput `pulumi:"project"`
-	// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
-	RevisionHistoryLimit pulumi.IntPtrInput `pulumi:"revisionHistoryLimit"`
-	// Location of the application's manifests or chart.
-	Sources ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayInput `pulumi:"sources"`
-	// Controls when and how a sync will be performed.
-	SyncPolicy ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSyncPolicyPtrInput `pulumi:"syncPolicy"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput)
-}
-
-// Reference to the Kubernetes server and namespace in which the application will be deployed.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) Destination() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination {
-		return v.Destination
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput)
-}
-
-// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) IgnoreDifferences() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference {
-		return v.IgnoreDifferences
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput)
-}
-
-// List of information (URLs, email addresses, and plain text) that relates to the application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) Infos() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo {
-		return v.Infos
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput)
-}
-
-// The project the application belongs to. Defaults to `default`.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) *string {
-		return v.Project
-	}).(pulumi.StringPtrOutput)
-}
-
-// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) RevisionHistoryLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) *int {
-		return v.RevisionHistoryLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-// Location of the application's manifests or chart.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) Sources() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource {
-		return v.Sources
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput)
-}
-
-// Controls when and how a sync will be performed.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput) SyncPolicy() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSyncPolicyPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSyncPolicy {
-		return v.SyncPolicy
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSyncPolicyPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput)
-}
-
-// Reference to the Kubernetes server and namespace in which the application will be deployed.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) Destination() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination {
-		if v == nil {
-			return nil
-		}
-		return v.Destination
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput)
-}
-
-// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) IgnoreDifferences() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference {
-		if v == nil {
-			return nil
-		}
-		return v.IgnoreDifferences
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput)
-}
-
-// List of information (URLs, email addresses, and plain text) that relates to the application.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) Infos() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo {
-		if v == nil {
-			return nil
-		}
-		return v.Infos
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput)
-}
-
-// The project the application belongs to. Defaults to `default`.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Project
-	}).(pulumi.StringPtrOutput)
-}
-
-// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) RevisionHistoryLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RevisionHistoryLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-// Location of the application's manifests or chart.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) Sources() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource {
-		if v == nil {
-			return nil
-		}
-		return v.Sources
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput)
-}
-
-// Controls when and how a sync will be performed.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput) SyncPolicy() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSyncPolicyPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpec) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSyncPolicy {
-		if v == nil {
-			return nil
-		}
-		return v.SyncPolicy
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSyncPolicyPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination struct {
-	// Name of the target cluster. Can be used instead of `server`.
-	Name *string `pulumi:"name"`
-	// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
-	Namespace *string `pulumi:"namespace"`
-	// URL of the target cluster and must be set to the Kubernetes control plane API.
-	Server *string `pulumi:"server"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs struct {
-	// Name of the target cluster. Can be used instead of `server`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// URL of the target cluster and must be set to the Kubernetes control plane API.
-	Server pulumi.StringPtrInput `pulumi:"server"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput)
-}
-
-// Name of the target cluster. Can be used instead of `server`.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination) *string {
-		return v.Namespace
-	}).(pulumi.StringPtrOutput)
-}
-
-// URL of the target cluster and must be set to the Kubernetes control plane API.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput) Server() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination) *string {
-		return v.Server
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput)
-}
-
-// Name of the target cluster. Can be used instead of `server`.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Namespace
-	}).(pulumi.StringPtrOutput)
-}
-
-// URL of the target cluster and must be set to the Kubernetes control plane API.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput) Server() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Server
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference struct {
-	// The Kubernetes resource Group to match for.
-	Group *string `pulumi:"group"`
-	// List of JQ path expression strings targeting the field(s) to ignore.
-	JqPathExpressions []string `pulumi:"jqPathExpressions"`
-	// List of JSONPaths strings targeting the field(s) to ignore.
-	JsonPointers []string `pulumi:"jsonPointers"`
-	// The Kubernetes resource Kind to match for.
-	Kind *string `pulumi:"kind"`
-	// List of external controller manager names whose changes to fields should be ignored.
-	ManagedFieldsManagers []string `pulumi:"managedFieldsManagers"`
-	// The Kubernetes resource Name to match for.
-	Name *string `pulumi:"name"`
-	// The Kubernetes resource Namespace to match for.
-	Namespace *string `pulumi:"namespace"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArgs struct {
-	// The Kubernetes resource Group to match for.
-	Group pulumi.StringPtrInput `pulumi:"group"`
-	// List of JQ path expression strings targeting the field(s) to ignore.
-	JqPathExpressions pulumi.StringArrayInput `pulumi:"jqPathExpressions"`
-	// List of JSONPaths strings targeting the field(s) to ignore.
-	JsonPointers pulumi.StringArrayInput `pulumi:"jsonPointers"`
-	// The Kubernetes resource Kind to match for.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// List of external controller manager names whose changes to fields should be ignored.
-	ManagedFieldsManagers pulumi.StringArrayInput `pulumi:"managedFieldsManagers"`
-	// The Kubernetes resource Name to match for.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Kubernetes resource Namespace to match for.
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput {
-	return o
-}
-
-// The Kubernetes resource Group to match for.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput) Group() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference) *string {
-		return v.Group
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of JQ path expression strings targeting the field(s) to ignore.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput) JqPathExpressions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference) []string {
-		return v.JqPathExpressions
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of JSONPaths strings targeting the field(s) to ignore.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput) JsonPointers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference) []string {
-		return v.JsonPointers
-	}).(pulumi.StringArrayOutput)
-}
-
-// The Kubernetes resource Kind to match for.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference) *string {
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of external controller manager names whose changes to fields should be ignored.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput) ManagedFieldsManagers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference) []string {
-		return v.ManagedFieldsManagers
-	}).(pulumi.StringArrayOutput)
-}
-
-// The Kubernetes resource Name to match for.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Kubernetes resource Namespace to match for.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference) *string {
-		return v.Namespace
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifference)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo struct {
-	// Name of the information.
-	Name *string `pulumi:"name"`
-	// Value of the information.
-	Value *string `pulumi:"value"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArgs struct {
-	// Name of the information.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of the information.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput {
-	return o
-}
-
-// Name of the information.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the information.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo) *string {
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfo)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource struct {
-	// Helm chart name. Must be specified for applications sourced from a Helm repo.
-	Chart *string `pulumi:"chart"`
-	// Path/directory specific options.
-	Directory *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory `pulumi:"directory"`
-	// Helm specific options.
-	Helm *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm `pulumi:"helm"`
-	// Kustomize specific options.
-	Kustomize *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize `pulumi:"kustomize"`
-	// Directory path within the repository. Only valid for applications sourced from Git.
-	Path *string `pulumi:"path"`
-	// Config management plugin specific options.
-	Plugin *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourcePlugin `pulumi:"plugin"`
-	// Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
-	Ref *string `pulumi:"ref"`
-	// URL to the repository (Git or Helm) that contains the application manifests.
-	RepoUrl *string `pulumi:"repoUrl"`
-	// Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
-	TargetRevision *string `pulumi:"targetRevision"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArgs struct {
-	// Helm chart name. Must be specified for applications sourced from a Helm repo.
-	Chart pulumi.StringPtrInput `pulumi:"chart"`
-	// Path/directory specific options.
-	Directory ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrInput `pulumi:"directory"`
-	// Helm specific options.
-	Helm ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrInput `pulumi:"helm"`
-	// Kustomize specific options.
-	Kustomize ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrInput `pulumi:"kustomize"`
-	// Directory path within the repository. Only valid for applications sourced from Git.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Config management plugin specific options.
-	Plugin ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourcePluginPtrInput `pulumi:"plugin"`
-	// Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
-	Ref pulumi.StringPtrInput `pulumi:"ref"`
-	// URL to the repository (Git or Helm) that contains the application manifests.
-	RepoUrl pulumi.StringPtrInput `pulumi:"repoUrl"`
-	// Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
-	TargetRevision pulumi.StringPtrInput `pulumi:"targetRevision"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput {
-	return o
-}
-
-// Helm chart name. Must be specified for applications sourced from a Helm repo.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) Chart() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource) *string {
-		return v.Chart
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path/directory specific options.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) Directory() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory {
-		return v.Directory
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput)
-}
-
-// Helm specific options.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) Helm() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm {
-		return v.Helm
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput)
-}
-
-// Kustomize specific options.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) Kustomize() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize {
-		return v.Kustomize
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput)
-}
-
-// Directory path within the repository. Only valid for applications sourced from Git.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource) *string {
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// Config management plugin specific options.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) Plugin() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourcePluginPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourcePlugin {
-		return v.Plugin
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourcePluginPtrOutput)
-}
-
-// Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) Ref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource) *string {
-		return v.Ref
-	}).(pulumi.StringPtrOutput)
-}
-
-// URL to the repository (Git or Helm) that contains the application manifests.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) RepoUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource) *string {
-		return v.RepoUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput) TargetRevision() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource) *string {
-		return v.TargetRevision
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSource)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory struct {
-	// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
-	Exclude *string `pulumi:"exclude"`
-	// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
-	Include *string `pulumi:"include"`
-	// Jsonnet specific options.
-	Jsonnet *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet `pulumi:"jsonnet"`
-	// Whether to scan a directory recursively for manifests.
-	Recurse *bool `pulumi:"recurse"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs struct {
-	// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
-	Exclude pulumi.StringPtrInput `pulumi:"exclude"`
-	// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
-	Include pulumi.StringPtrInput `pulumi:"include"`
-	// Jsonnet specific options.
-	Jsonnet ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrInput `pulumi:"jsonnet"`
-	// Whether to scan a directory recursively for manifests.
-	Recurse pulumi.BoolPtrInput `pulumi:"recurse"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput)
-}
-
-// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput) Exclude() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory) *string {
-		return v.Exclude
-	}).(pulumi.StringPtrOutput)
-}
-
-// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput) Include() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory) *string {
-		return v.Include
-	}).(pulumi.StringPtrOutput)
-}
-
-// Jsonnet specific options.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput) Jsonnet() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet {
-		return v.Jsonnet
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput)
-}
-
-// Whether to scan a directory recursively for manifests.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput) Recurse() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory) *bool {
-		return v.Recurse
-	}).(pulumi.BoolPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput)
-}
-
-// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput) Exclude() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Exclude
-	}).(pulumi.StringPtrOutput)
-}
-
-// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput) Include() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Include
-	}).(pulumi.StringPtrOutput)
-}
-
-// Jsonnet specific options.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput) Jsonnet() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet {
-		if v == nil {
-			return nil
-		}
-		return v.Jsonnet
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput)
-}
-
-// Whether to scan a directory recursively for manifests.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput) Recurse() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectory) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Recurse
-	}).(pulumi.BoolPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet struct {
-	// List of Jsonnet External Variables.
-	ExtVars []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar `pulumi:"extVars"`
-	// Additional library search dirs.
-	Libs []string `pulumi:"libs"`
-	// List of Jsonnet Top-level Arguments
-	Tlas []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla `pulumi:"tlas"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs struct {
-	// List of Jsonnet External Variables.
-	ExtVars ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayInput `pulumi:"extVars"`
-	// Additional library search dirs.
-	Libs pulumi.StringArrayInput `pulumi:"libs"`
-	// List of Jsonnet Top-level Arguments
-	Tlas ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayInput `pulumi:"tlas"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput)
-}
-
-// List of Jsonnet External Variables.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput) ExtVars() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar {
-		return v.ExtVars
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput)
-}
-
-// Additional library search dirs.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput) Libs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet) []string {
-		return v.Libs
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of Jsonnet Top-level Arguments
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput) Tlas() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla {
-		return v.Tlas
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput)
-}
-
-// List of Jsonnet External Variables.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput) ExtVars() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar {
-		if v == nil {
-			return nil
-		}
-		return v.ExtVars
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput)
-}
-
-// Additional library search dirs.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput) Libs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Libs
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of Jsonnet Top-level Arguments
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput) Tlas() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnet) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla {
-		if v == nil {
-			return nil
-		}
-		return v.Tlas
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar struct {
-	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
-	Code *bool `pulumi:"code"`
-	// Name of Jsonnet variable.
-	Name *string `pulumi:"name"`
-	// Value of Jsonnet variable.
-	Value *string `pulumi:"value"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArgs struct {
-	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
-	Code pulumi.BoolPtrInput `pulumi:"code"`
-	// Name of Jsonnet variable.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of Jsonnet variable.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput {
-	return o
-}
-
-// Determines whether the variable should be evaluated as jsonnet code or treated as string.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput) Code() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar) *bool {
-		return v.Code
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name of Jsonnet variable.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of Jsonnet variable.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar) *string {
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVar)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla struct {
-	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
-	Code *bool `pulumi:"code"`
-	// Name of Jsonnet variable.
-	Name *string `pulumi:"name"`
-	// Value of Jsonnet variable.
-	Value *string `pulumi:"value"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArgs struct {
-	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
-	Code pulumi.BoolPtrInput `pulumi:"code"`
-	// Name of Jsonnet variable.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of Jsonnet variable.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput {
-	return o
-}
-
-// Determines whether the variable should be evaluated as jsonnet code or treated as string.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput) Code() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla) *bool {
-		return v.Code
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name of Jsonnet variable.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of Jsonnet variable.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla) *string {
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTla)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm struct {
-	// File parameters for the helm template.
-	FileParameters []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter `pulumi:"fileParameters"`
-	// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
-	IgnoreMissingValueFiles *bool `pulumi:"ignoreMissingValueFiles"`
-	// Helm parameters which are passed to the helm template command upon manifest generation.
-	Parameters []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter `pulumi:"parameters"`
-	// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
-	PassCredentials *bool `pulumi:"passCredentials"`
-	// Helm release name. If omitted it will use the application name.
-	ReleaseName *string `pulumi:"releaseName"`
-	// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
-	SkipCrds *bool `pulumi:"skipCrds"`
-	// List of Helm value files to use when generating a template.
-	ValueFiles []string `pulumi:"valueFiles"`
-	// Helm values to be passed to 'helm template', typically defined as a block.
-	Values *string `pulumi:"values"`
-	// The Helm version to use for templating. Accepts either `v2` or `v3`
-	Version *string `pulumi:"version"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs struct {
-	// File parameters for the helm template.
-	FileParameters ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayInput `pulumi:"fileParameters"`
-	// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
-	IgnoreMissingValueFiles pulumi.BoolPtrInput `pulumi:"ignoreMissingValueFiles"`
-	// Helm parameters which are passed to the helm template command upon manifest generation.
-	Parameters ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayInput `pulumi:"parameters"`
-	// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
-	PassCredentials pulumi.BoolPtrInput `pulumi:"passCredentials"`
-	// Helm release name. If omitted it will use the application name.
-	ReleaseName pulumi.StringPtrInput `pulumi:"releaseName"`
-	// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
-	SkipCrds pulumi.BoolPtrInput `pulumi:"skipCrds"`
-	// List of Helm value files to use when generating a template.
-	ValueFiles pulumi.StringArrayInput `pulumi:"valueFiles"`
-	// Helm values to be passed to 'helm template', typically defined as a block.
-	Values pulumi.StringPtrInput `pulumi:"values"`
-	// The Helm version to use for templating. Accepts either `v2` or `v3`
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput)
-}
-
-// File parameters for the helm template.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) FileParameters() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter {
-		return v.FileParameters
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput)
-}
-
-// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) IgnoreMissingValueFiles() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *bool {
-		return v.IgnoreMissingValueFiles
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Helm parameters which are passed to the helm template command upon manifest generation.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) Parameters() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter {
-		return v.Parameters
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput)
-}
-
-// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) PassCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *bool {
-		return v.PassCredentials
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Helm release name. If omitted it will use the application name.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) ReleaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *string {
-		return v.ReleaseName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) SkipCrds() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *bool {
-		return v.SkipCrds
-	}).(pulumi.BoolPtrOutput)
-}
-
-// List of Helm value files to use when generating a template.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) ValueFiles() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) []string {
-		return v.ValueFiles
-	}).(pulumi.StringArrayOutput)
-}
-
-// Helm values to be passed to 'helm template', typically defined as a block.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) Values() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *string {
-		return v.Values
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Helm version to use for templating. Accepts either `v2` or `v3`
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *string {
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput)
-}
-
-// File parameters for the helm template.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) FileParameters() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter {
-		if v == nil {
-			return nil
-		}
-		return v.FileParameters
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput)
-}
-
-// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) IgnoreMissingValueFiles() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IgnoreMissingValueFiles
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Helm parameters which are passed to the helm template command upon manifest generation.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) Parameters() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput)
-}
-
-// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) PassCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PassCredentials
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Helm release name. If omitted it will use the application name.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) ReleaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReleaseName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) SkipCrds() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SkipCrds
-	}).(pulumi.BoolPtrOutput)
-}
-
-// List of Helm value files to use when generating a template.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) ValueFiles() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ValueFiles
-	}).(pulumi.StringArrayOutput)
-}
-
-// Helm values to be passed to 'helm template', typically defined as a block.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) Values() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Values
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Helm version to use for templating. Accepts either `v2` or `v3`
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelm) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter struct {
-	// Name of the Helm parameter.
-	Name string `pulumi:"name"`
-	// Path to the file containing the values for the Helm parameter.
-	Path string `pulumi:"path"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArgs struct {
-	// Name of the Helm parameter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Path to the file containing the values for the Helm parameter.
-	Path pulumi.StringInput `pulumi:"path"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput {
-	return o
-}
-
-// Name of the Helm parameter.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter) string {
-		return v.Name
-	}).(pulumi.StringOutput)
-}
-
-// Path to the file containing the values for the Helm parameter.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter) string {
-		return v.Path
-	}).(pulumi.StringOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameter)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter struct {
-	// Determines whether to tell Helm to interpret booleans and numbers as strings.
-	ForceString *bool `pulumi:"forceString"`
-	// Name of the Helm parameter.
-	Name *string `pulumi:"name"`
-	// Value of the Helm parameter.
-	Value *string `pulumi:"value"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArgs struct {
-	// Determines whether to tell Helm to interpret booleans and numbers as strings.
-	ForceString pulumi.BoolPtrInput `pulumi:"forceString"`
-	// Name of the Helm parameter.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of the Helm parameter.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArray and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArray{ ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArgs{...} }
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArray []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterInput
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArray) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput {
-	return o
-}
-
-// Determines whether to tell Helm to interpret booleans and numbers as strings.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput) ForceString() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter) *bool {
-		return v.ForceString
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name of the Helm parameter.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the Helm parameter.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter) *string {
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput) Index(i pulumi.IntInput) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter {
-		return vs[0].([]ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameter)[vs[1].(int)]
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize struct {
-	// List of additional annotations to add to rendered manifests.
-	CommonAnnotations map[string]string `pulumi:"commonAnnotations"`
-	// List of additional labels to add to rendered manifests.
-	CommonLabels map[string]string `pulumi:"commonLabels"`
-	// List of Kustomize image override specifications.
-	Images []string `pulumi:"images"`
-	// Prefix appended to resources for Kustomize apps.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Suffix appended to resources for Kustomize apps.
-	NameSuffix *string `pulumi:"nameSuffix"`
-	// A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
-	Patches []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePatch `pulumi:"patches"`
-	// Version of Kustomize to use for rendering manifests.
-	Version *string `pulumi:"version"`
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeInput` via:
-//
-//	ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs{...}
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs struct {
-	// List of additional annotations to add to rendered manifests.
-	CommonAnnotations pulumi.StringMapInput `pulumi:"commonAnnotations"`
-	// List of additional labels to add to rendered manifests.
-	CommonLabels pulumi.StringMapInput `pulumi:"commonLabels"`
-	// List of Kustomize image override specifications.
-	Images pulumi.StringArrayInput `pulumi:"images"`
-	// Prefix appended to resources for Kustomize apps.
-	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
-	// Suffix appended to resources for Kustomize apps.
-	NameSuffix pulumi.StringPtrInput `pulumi:"nameSuffix"`
-	// A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
-	Patches ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePatchArrayInput `pulumi:"patches"`
-	// Version of Kustomize to use for rendering manifests.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize)(nil)).Elem()
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput)
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput).ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutputWithContext(ctx)
-}
-
-// ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrInput is an input type that accepts ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs, ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtr and ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput values.
-// You can construct a concrete instance of `ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrInput` via:
-//
-//	        ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrInput interface {
-	pulumi.Input
-
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput
-	ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutputWithContext(context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput
-}
-
-type applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrType ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs
-
-func ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtr(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrInput {
-	return (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrType)(v)
-}
-
-func (*applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize)(nil)).Elem()
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput {
-	return i.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrType) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput {
-	return o.ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize {
-		return &v
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput)
-}
-
-// List of additional annotations to add to rendered manifests.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) CommonAnnotations() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) map[string]string {
-		return v.CommonAnnotations
-	}).(pulumi.StringMapOutput)
-}
-
-// List of additional labels to add to rendered manifests.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) CommonLabels() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) map[string]string {
-		return v.CommonLabels
-	}).(pulumi.StringMapOutput)
-}
-
-// List of Kustomize image override specifications.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) Images() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) []string {
-		return v.Images
-	}).(pulumi.StringArrayOutput)
-}
-
-// Prefix appended to resources for Kustomize apps.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) NamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) *string {
-		return v.NamePrefix
-	}).(pulumi.StringPtrOutput)
-}
-
-// Suffix appended to resources for Kustomize apps.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) NameSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) *string {
-		return v.NameSuffix
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) Patches() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePatchArrayOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePatch {
-		return v.Patches
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePatchArrayOutput)
-}
-
-// Version of Kustomize to use for rendering manifests.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) *string {
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize)(nil)).Elem()
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) ToApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutputWithContext(ctx context.Context) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput {
-	return o
-}
-
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) Elem() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize
-		return ret
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput)
-}
-
-// List of additional annotations to add to rendered manifests.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) CommonAnnotations() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.CommonAnnotations
-	}).(pulumi.StringMapOutput)
-}
-
-// List of additional labels to add to rendered manifests.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) CommonLabels() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.CommonLabels
-	}).(pulumi.StringMapOutput)
-}
-
-// List of Kustomize image override specifications.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) Images() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Images
-	}).(pulumi.StringArrayOutput)
-}
-
-// Prefix appended to resources for Kustomize apps.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) NamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NamePrefix
-	}).(pulumi.StringPtrOutput)
-}
-
-// Suffix appended to resources for Kustomize apps.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) NameSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NameSuffix
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of [Kustomize patches](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/) to apply.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) Patches() ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePatchArrayOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) []ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePatch {
-		if v == nil {
-			return nil
-		}
-		return v.Patches
-	}).(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePatchArrayOutput)
-}
-
-// Version of Kustomize to use for rendering manifests.
-func (o ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomize) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMetadataInput)(nil)).Elem(), ApplicationMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMetadataPtrInput)(nil)).Elem(), ApplicationMetadataArgs{})
@@ -84923,6 +85017,57 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryBackoffInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryBackoffArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryBackoffPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryBackoffArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestBitbucketServerInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestBitbucketServerArgs{})
@@ -85215,57 +85360,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrInput)(nil)).Elem(), ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeArgs{})
 	pulumi.RegisterOutputType(ApplicationMetadataOutput{})
 	pulumi.RegisterOutputType(ApplicationMetadataPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSetMetadataOutput{})
@@ -85906,6 +86000,57 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryBackoffOutput{})
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorListTemplateSpecSyncPolicyRetryBackoffPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginInputTypePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplatePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateMetadataPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecIgnoreDifferenceArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecInfoArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceDirectoryJsonnetTlaArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmFileParameterArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceHelmParameterArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizeOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourceKustomizePatchTargetOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSourcePluginEnvArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyAutomatedPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffOutput{})
+	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPluginTemplateSpecSyncPolicyRetryBackoffPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestOutput{})
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMatrixGeneratorPullRequestBitbucketServerOutput{})
@@ -86198,55 +86343,4 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchOutput{})
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourceKustomizePatchTargetOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSourcePluginEnvArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyAutomatedPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyManagedNamespaceMetadataPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorClusterTemplateSpecSyncPolicyRetryBackoffPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitDirectoryArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitFileArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplatePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateMetadataPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecDestinationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecIgnoreDifferenceArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecInfoArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetExtVarArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceDirectoryJsonnetTlaArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmFileParameterArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceHelmParameterArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizeOutput{})
-	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMatrixGeneratorMergeGeneratorGitTemplateSpecSourceKustomizePtrOutput{})
 }
