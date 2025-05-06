@@ -5,7 +5,7 @@ go 1.24
 toolchain go1.24.1
 
 require (
-	github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250424080236-5daf9737af30
+	github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250505121343-c675f80998a2
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.36.1
 )
 

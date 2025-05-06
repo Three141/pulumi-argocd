@@ -10,8 +10,8 @@ replace github.com/argoproj-labs/terraform-provider-argocd/shim => ./shim
 
 require (
 	github.com/argoproj-labs/terraform-provider-argocd/shim v0.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.106.0
-	github.com/pulumi/pulumi/pkg/v3 v3.160.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.107.0
+	github.com/pulumi/pulumi/pkg/v3 v3.163.0
 )
 
 require (
@@ -40,7 +40,7 @@ require (
 	github.com/antonmedv/expr v1.15.2 // indirect
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
-	github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250424080236-5daf9737af30 // indirect
+	github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20250505121343-c675f80998a2 // indirect
 	github.com/argoproj/argo-cd/v2 v2.14.10 // indirect
 	github.com/argoproj/gitops-engine v0.7.1-0.20250328191959-6d3cf122b03f // indirect
 	github.com/argoproj/notifications-engine v0.4.1-0.20241007194503-2fef5c9049fd // indirect
@@ -246,11 +246,11 @@ require (
 	github.com/prometheus/common v0.55.0 // indirect
 	github.com/prometheus/procfs v0.15.1 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.10.0 // indirect
+	github.com/pulumi/esc v0.13.0 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v1.8.0 // indirect
 	github.com/pulumi/pulumi-yaml v1.15.1 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.160.0 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.163.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/r3labs/diff v1.1.0 // indirect
