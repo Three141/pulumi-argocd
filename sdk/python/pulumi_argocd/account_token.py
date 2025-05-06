@@ -210,6 +210,9 @@ class _AccountTokenState:
 
 
 class AccountToken(pulumi.CustomResource):
+
+    pulumi_type = "argocd:index/accountToken:AccountToken"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

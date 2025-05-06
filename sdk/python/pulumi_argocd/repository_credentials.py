@@ -385,6 +385,9 @@ class _RepositoryCredentialsState:
 
 
 class RepositoryCredentials(pulumi.CustomResource):
+
+    pulumi_type = "argocd:index/repositoryCredentials:RepositoryCredentials"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

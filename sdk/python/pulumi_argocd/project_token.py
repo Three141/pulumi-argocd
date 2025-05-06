@@ -272,6 +272,9 @@ class _ProjectTokenState:
 
 
 class ProjectToken(pulumi.CustomResource):
+
+    pulumi_type = "argocd:index/projectToken:ProjectToken"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -98,6 +98,9 @@ class _ApplicationSetState:
 
 
 class ApplicationSet(pulumi.CustomResource):
+
+    pulumi_type = "argocd:index/applicationSet:ApplicationSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
