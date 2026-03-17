@@ -1,2 +1,3 @@
 [tools]
 golangci-lint = "2.11.3"
+"vfox-pulumi:pulumi/pulumi-converter-terraform" = "1.2.4"
