@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "outDir": "bin",
-        "target": "es2016",
+        "target": "ES2020",
         "module": "commonjs",
         "moduleResolution": "node",
         "declaration": true,
@@ -20,12 +20,7 @@
         "config/index.ts",
         "config/vars.ts",
         "index.ts",
-        "project.ts",
-        "projectToken.ts",
         "provider.ts",
-        "repository.ts",
-        "repositoryCertificate.ts",
-        "repositoryCredentials.ts",
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",

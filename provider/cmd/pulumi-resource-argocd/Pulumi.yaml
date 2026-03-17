@@ -1,0 +1,3 @@
+name: argocd
+description: A Pulumi resource provider for argocd.
+language: schema

@@ -2376,6 +2376,19 @@
                                                                                                 "maxItemsOne": false,
                                                                                                 "elem": {
                                                                                                     "fields": {
+                                                                                                        "azure_devops": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "labels": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "token_ref": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "bitbucket_server": {
                                                                                                             "maxItemsOne": true,
                                                                                                             "elem": {
@@ -2423,6 +2436,9 @@
                                                                                                             "maxItemsOne": true,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "ca_ref": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
                                                                                                                     "labels": {
                                                                                                                         "maxItemsOne": false
                                                                                                                     },
@@ -3822,6 +3838,19 @@
                                                                                                 "maxItemsOne": false,
                                                                                                 "elem": {
                                                                                                     "fields": {
+                                                                                                        "azure_devops": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "labels": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "token_ref": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "bitbucket_server": {
                                                                                                             "maxItemsOne": true,
                                                                                                             "elem": {
@@ -3869,6 +3898,9 @@
                                                                                                             "maxItemsOne": true,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "ca_ref": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
                                                                                                                     "labels": {
                                                                                                                         "maxItemsOne": false
                                                                                                                     },
@@ -4600,6 +4632,19 @@
                                                                         "maxItemsOne": false,
                                                                         "elem": {
                                                                             "fields": {
+                                                                                "azure_devops": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "labels": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "token_ref": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "bitbucket_server": {
                                                                                     "maxItemsOne": true,
                                                                                     "elem": {
@@ -4647,6 +4692,9 @@
                                                                                     "maxItemsOne": true,
                                                                                     "elem": {
                                                                                         "fields": {
+                                                                                            "ca_ref": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
                                                                                             "labels": {
                                                                                                 "maxItemsOne": false
                                                                                             },
@@ -6717,6 +6765,19 @@
                                                                                                 "maxItemsOne": false,
                                                                                                 "elem": {
                                                                                                     "fields": {
+                                                                                                        "azure_devops": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "labels": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "token_ref": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "bitbucket_server": {
                                                                                                             "maxItemsOne": true,
                                                                                                             "elem": {
@@ -6764,6 +6825,9 @@
                                                                                                             "maxItemsOne": true,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "ca_ref": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
                                                                                                                     "labels": {
                                                                                                                         "maxItemsOne": false
                                                                                                                     },
@@ -8163,6 +8227,19 @@
                                                                                                 "maxItemsOne": false,
                                                                                                 "elem": {
                                                                                                     "fields": {
+                                                                                                        "azure_devops": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "labels": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "token_ref": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "bitbucket_server": {
                                                                                                             "maxItemsOne": true,
                                                                                                             "elem": {
@@ -8210,6 +8287,9 @@
                                                                                                             "maxItemsOne": true,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "ca_ref": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    },
                                                                                                                     "labels": {
                                                                                                                         "maxItemsOne": false
                                                                                                                     },
@@ -8941,6 +9021,19 @@
                                                                         "maxItemsOne": false,
                                                                         "elem": {
                                                                             "fields": {
+                                                                                "azure_devops": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "labels": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "token_ref": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "bitbucket_server": {
                                                                                     "maxItemsOne": true,
                                                                                     "elem": {
@@ -8988,6 +9081,9 @@
                                                                                     "maxItemsOne": true,
                                                                                     "elem": {
                                                                                         "fields": {
+                                                                                            "ca_ref": {
+                                                                                                "maxItemsOne": true
+                                                                                            },
                                                                                             "labels": {
                                                                                                 "maxItemsOne": false
                                                                                             },
@@ -9719,6 +9815,19 @@
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
+                                                        "azure_devops": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "labels": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "token_ref": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "bitbucket_server": {
                                                             "maxItemsOne": true,
                                                             "elem": {
@@ -9766,6 +9875,9 @@
                                                             "maxItemsOne": true,
                                                             "elem": {
                                                                 "fields": {
+                                                                    "ca_ref": {
+                                                                        "maxItemsOne": true
+                                                                    },
                                                                     "labels": {
                                                                         "maxItemsOne": false
                                                                     },
@@ -10428,109 +10540,6 @@
                         "maxItemsOne": false
                     }
                 }
-            },
-            "argocd_project": {
-                "current": "argocd:index/project:Project",
-                "majorVersion": 1,
-                "fields": {
-                    "metadata": {
-                        "maxItemsOne": true
-                    },
-                    "spec": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "cluster_resource_blacklist": {
-                                    "maxItemsOne": false
-                                },
-                                "cluster_resource_whitelist": {
-                                    "maxItemsOne": false
-                                },
-                                "destination": {
-                                    "maxItemsOne": false
-                                },
-                                "namespace_resource_blacklist": {
-                                    "maxItemsOne": false
-                                },
-                                "namespace_resource_whitelist": {
-                                    "maxItemsOne": false
-                                },
-                                "orphaned_resources": {
-                                    "maxItemsOne": true,
-                                    "elem": {
-                                        "fields": {
-                                            "ignore": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    }
-                                },
-                                "role": {
-                                    "maxItemsOne": false,
-                                    "elem": {
-                                        "fields": {
-                                            "groups": {
-                                                "maxItemsOne": false
-                                            },
-                                            "policies": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    }
-                                },
-                                "signature_keys": {
-                                    "maxItemsOne": false
-                                },
-                                "source_namespaces": {
-                                    "maxItemsOne": false
-                                },
-                                "source_repos": {
-                                    "maxItemsOne": false
-                                },
-                                "sync_window": {
-                                    "maxItemsOne": false,
-                                    "elem": {
-                                        "fields": {
-                                            "applications": {
-                                                "maxItemsOne": false
-                                            },
-                                            "clusters": {
-                                                "maxItemsOne": false
-                                            },
-                                            "namespaces": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "argocd_project_token": {
-                "current": "argocd:index/projectToken:ProjectToken",
-                "majorVersion": 1
-            },
-            "argocd_repository": {
-                "current": "argocd:index/repository:Repository",
-                "majorVersion": 1
-            },
-            "argocd_repository_certificate": {
-                "current": "argocd:index/repositoryCertificate:RepositoryCertificate",
-                "majorVersion": 1,
-                "fields": {
-                    "https": {
-                        "maxItemsOne": true
-                    },
-                    "ssh": {
-                        "maxItemsOne": true
-                    }
-                }
-            },
-            "argocd_repository_credentials": {
-                "current": "argocd:index/repositoryCredentials:RepositoryCredentials",
-                "majorVersion": 1
             }
         }
     },
