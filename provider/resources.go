@@ -20,14 +20,13 @@ import (
 	// Allow embedding bridge-metadata.json in the provider.
 	_ "embed"
 
+	"github.com/Three141/pulumi-argocd/provider/pkg/version"
 	argocd "github.com/argoproj-labs/terraform-provider-argocd/shim" // Import the upstream provider
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-
-	"github.com/Three141/pulumi-argocd/provider/pkg/version"
 )
 
 // all of the token components used below.
