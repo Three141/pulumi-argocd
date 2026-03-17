@@ -32,6 +32,11 @@ publish:
 # Disables a pulumi-internal-only step for running create_docs_build during the release
 publishRegistry: false
 
+license:
+  ignore:
+    # Internal shim package
+    - github.com/argoproj-labs/terraform-provider-argocd/shim
+
 # Enables ESC for CI secrets. Optional.
 esc:
     enabled: false
