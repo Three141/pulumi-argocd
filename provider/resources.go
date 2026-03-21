@@ -15,6 +15,7 @@
 package argocd
 
 import (
+	"context"
 	"path"
 
 	// Allow embedding bridge-metadata.json in the provider.
@@ -22,6 +23,7 @@ import (
 
 	argocd "github.com/argoproj-labs/terraform-provider-argocd/shim" // Import the upstream provider
 
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -106,7 +108,11 @@ func Provider() tfbridge.ProviderInfo {
 		// - "github.com/hashicorp/terraform-plugin-framework/provider".Provider (for plugin-framework)
 		//
 		//nolint:lll
-		P: shimv2.NewProvider(argocd.Provider()),
+
+		P: pfbridge.MuxShimWithPF(context.Background(),
+			shimv2.NewProvider(argocd.Provider()),
+			argocd.PFProvider(version.Version),
+		),
 
 		Name:    "argocd",
 		Version: version.Version,

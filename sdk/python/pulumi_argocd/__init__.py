@@ -10,7 +10,14 @@ from .account_token import *
 from .application import *
 from .application_set import *
 from .cluster import *
+from .get_application import *
+from .gpg_key import *
+from .project import *
+from .project_token import *
 from .provider import *
+from .repository import *
+from .repository_certificate import *
+from .repository_credentials import *
 from ._inputs import *
 from . import outputs
 
@@ -54,6 +61,54 @@ _utilities.register(
   "fqn": "pulumi_argocd",
   "classes": {
    "argocd:index/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "argocd",
+  "mod": "index/gpgKey",
+  "fqn": "pulumi_argocd",
+  "classes": {
+   "argocd:index/gpgKey:GpgKey": "GpgKey"
+  }
+ },
+ {
+  "pkg": "argocd",
+  "mod": "index/project",
+  "fqn": "pulumi_argocd",
+  "classes": {
+   "argocd:index/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "argocd",
+  "mod": "index/projectToken",
+  "fqn": "pulumi_argocd",
+  "classes": {
+   "argocd:index/projectToken:ProjectToken": "ProjectToken"
+  }
+ },
+ {
+  "pkg": "argocd",
+  "mod": "index/repository",
+  "fqn": "pulumi_argocd",
+  "classes": {
+   "argocd:index/repository:Repository": "Repository"
+  }
+ },
+ {
+  "pkg": "argocd",
+  "mod": "index/repositoryCertificate",
+  "fqn": "pulumi_argocd",
+  "classes": {
+   "argocd:index/repositoryCertificate:RepositoryCertificate": "RepositoryCertificate"
+  }
+ },
+ {
+  "pkg": "argocd",
+  "mod": "index/repositoryCredentials",
+  "fqn": "pulumi_argocd",
+  "classes": {
+   "argocd:index/repositoryCredentials:RepositoryCredentials": "RepositoryCredentials"
   }
  }
 ]

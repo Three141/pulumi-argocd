@@ -10540,8 +10540,261 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "argocd_gpg_key": {
+                "current": "argocd:index/gpgKey:GpgKey",
+                "majorVersion": 1
+            },
+            "argocd_project": {
+                "current": "argocd:index/project:Project",
+                "majorVersion": 1,
+                "fields": {
+                    "metadata": {
+                        "maxItemsOne": true
+                    },
+                    "spec": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "cluster_resource_blacklist": {
+                                    "maxItemsOne": false
+                                },
+                                "cluster_resource_whitelist": {
+                                    "maxItemsOne": false
+                                },
+                                "destination": {
+                                    "maxItemsOne": false
+                                },
+                                "destination_service_account": {
+                                    "maxItemsOne": false
+                                },
+                                "namespace_resource_blacklist": {
+                                    "maxItemsOne": false
+                                },
+                                "namespace_resource_whitelist": {
+                                    "maxItemsOne": false
+                                },
+                                "orphaned_resources": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "ignore": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "role": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "groups": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jwt_tokens": {
+                                                "maxItemsOne": false
+                                            },
+                                            "policies": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "signature_keys": {
+                                    "maxItemsOne": false
+                                },
+                                "source_namespaces": {
+                                    "maxItemsOne": false
+                                },
+                                "source_repos": {
+                                    "maxItemsOne": false
+                                },
+                                "sync_window": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "applications": {
+                                                "maxItemsOne": false
+                                            },
+                                            "clusters": {
+                                                "maxItemsOne": false
+                                            },
+                                            "namespaces": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "argocd_project_token": {
+                "current": "argocd:index/projectToken:ProjectToken",
+                "majorVersion": 1
+            },
+            "argocd_repository": {
+                "current": "argocd:index/repository:Repository",
+                "majorVersion": 1
+            },
+            "argocd_repository_certificate": {
+                "current": "argocd:index/repositoryCertificate:RepositoryCertificate",
+                "majorVersion": 1,
+                "fields": {
+                    "https": {
+                        "maxItemsOne": false
+                    },
+                    "ssh": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "argocd_repository_credentials": {
+                "current": "argocd:index/repositoryCredentials:RepositoryCredentials",
+                "majorVersion": 1
+            }
+        },
+        "datasources": {
+            "argocd_application": {
+                "current": "argocd:index/getApplication:getApplication",
+                "majorVersion": 1,
+                "fields": {
+                    "spec": {
+                        "fields": {
+                            "ignore_differences": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "jq_path_expressions": {
+                                            "maxItemsOne": false
+                                        },
+                                        "json_pointers": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "infos": {
+                                "maxItemsOne": false
+                            },
+                            "sources": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "directory": {
+                                            "fields": {
+                                                "jsonnet": {
+                                                    "fields": {
+                                                        "ext_vars": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "libs": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "tlas": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "helm": {
+                                            "fields": {
+                                                "file_parameters": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "parameters": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "value_files": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "kustomize": {
+                                            "fields": {
+                                                "images": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "plugin": {
+                                            "fields": {
+                                                "env": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "parameters": {
+                                                    "maxItemsOne": false,
+                                                    "elem": {
+                                                        "fields": {
+                                                            "array": {
+                                                                "maxItemsOne": false
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "sync_policy": {
+                                "fields": {
+                                    "sync_options": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "status": {
+                        "fields": {
+                            "conditions": {
+                                "maxItemsOne": false
+                            },
+                            "resources": {
+                                "maxItemsOne": false
+                            },
+                            "summary": {
+                                "fields": {
+                                    "external_urls": {
+                                        "maxItemsOne": false
+                                    },
+                                    "images": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "sync": {
+                                "fields": {
+                                    "revisions": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     },
-    "auto-settings": {}
+    "auto-settings": {},
+    "mux": {
+        "resources": {
+            "argocd:index/accountToken:AccountToken": 0,
+            "argocd:index/application:Application": 0,
+            "argocd:index/applicationSet:ApplicationSet": 0,
+            "argocd:index/cluster:Cluster": 0,
+            "argocd:index/gpgKey:GpgKey": 1,
+            "argocd:index/project:Project": 1,
+            "argocd:index/projectToken:ProjectToken": 1,
+            "argocd:index/repository:Repository": 1,
+            "argocd:index/repositoryCertificate:RepositoryCertificate": 1,
+            "argocd:index/repositoryCredentials:RepositoryCredentials": 1
+        },
+        "functions": {
+            "argocd:index/getApplication:getApplication": 1
+        }
+    }
 }

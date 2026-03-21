@@ -32854,6 +32854,331 @@ export interface ClusterMetadata {
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
+export interface GetApplicationMetadata {
+    /**
+     * An unstructured key value map stored with the applications.argoproj.io that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+     */
+    annotations?: {[key: string]: string};
+    /**
+     * A sequence number representing a specific generation of the desired state.
+     */
+    generation?: number;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the applications.argoproj.io. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+     */
+    labels?: {[key: string]: string};
+    /**
+     * Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+     */
+    name: string;
+    /**
+     * Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+     */
+    namespace?: string;
+    /**
+     * An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when the applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+     */
+    resourceVersion?: string;
+    /**
+     * The unique in time and space value for this applications.argoproj.io. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+     */
+    uid?: string;
+}
+
+export interface GetApplicationMetadataArgs {
+    /**
+     * An unstructured key value map stored with the applications.argoproj.io that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A sequence number representing a specific generation of the desired state.
+     */
+    generation?: pulumi.Input<number>;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the applications.argoproj.io. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when the applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+     */
+    resourceVersion?: pulumi.Input<string>;
+    /**
+     * The unique in time and space value for this applications.argoproj.io. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+     */
+    uid?: pulumi.Input<string>;
+}
+
+export interface ProjectMetadata {
+    /**
+     * An unstructured key value map stored with the appproject that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+     */
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A sequence number representing a specific generation of the desired state.
+     */
+    generation?: pulumi.Input<number>;
+    /**
+     * Map of string keys and values that can be used to organize and categorize (scope and select) the appproject. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+     */
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Namespace of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * An opaque value that represents the internal version of this appproject that can be used by clients to determine when the appproject has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+     */
+    resourceVersion?: pulumi.Input<string>;
+    /**
+     * The unique in time and space value for this appproject. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+     */
+    uid?: pulumi.Input<string>;
+}
+
+export interface ProjectSpec {
+    /**
+     * Blacklisted cluster level resources.
+     */
+    clusterResourceBlacklists?: pulumi.Input<pulumi.Input<inputs.ProjectSpecClusterResourceBlacklist>[]>;
+    /**
+     * Whitelisted cluster level resources.
+     */
+    clusterResourceWhitelists?: pulumi.Input<pulumi.Input<inputs.ProjectSpecClusterResourceWhitelist>[]>;
+    /**
+     * Project description.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Service accounts to be impersonated for the application sync operation for each destination.
+     */
+    destinationServiceAccounts?: pulumi.Input<pulumi.Input<inputs.ProjectSpecDestinationServiceAccount>[]>;
+    /**
+     * Destinations available for deployment.
+     */
+    destinations?: pulumi.Input<pulumi.Input<inputs.ProjectSpecDestination>[]>;
+    /**
+     * Blacklisted namespace level resources.
+     */
+    namespaceResourceBlacklists?: pulumi.Input<pulumi.Input<inputs.ProjectSpecNamespaceResourceBlacklist>[]>;
+    /**
+     * Whitelisted namespace level resources.
+     */
+    namespaceResourceWhitelists?: pulumi.Input<pulumi.Input<inputs.ProjectSpecNamespaceResourceWhitelist>[]>;
+    /**
+     * Configuration for orphaned resources tracking.
+     */
+    orphanedResources?: pulumi.Input<pulumi.Input<inputs.ProjectSpecOrphanedResource>[]>;
+    /**
+     * Project roles.
+     */
+    roles?: pulumi.Input<pulumi.Input<inputs.ProjectSpecRole>[]>;
+    /**
+     * Signature keys for verifying the integrity of applications.
+     */
+    signatureKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of source namespaces for applications.
+     */
+    sourceNamespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of repositories from which applications may be created.
+     */
+    sourceRepos?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Controls when sync operations are allowed for the project.
+     */
+    syncWindows?: pulumi.Input<pulumi.Input<inputs.ProjectSpecSyncWindow>[]>;
+}
+
+export interface ProjectSpecClusterResourceBlacklist {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+}
+
+export interface ProjectSpecClusterResourceWhitelist {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+}
+
+export interface ProjectSpecDestination {
+    /**
+     * Name of the destination cluster which can be used instead of server.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Target namespace for applications' resources.
+     */
+    namespace: pulumi.Input<string>;
+    /**
+     * URL of the target cluster and must be set to the Kubernetes control plane API.
+     */
+    server?: pulumi.Input<string>;
+}
+
+export interface ProjectSpecDestinationServiceAccount {
+    /**
+     * Used for impersonation during the sync operation
+     */
+    defaultServiceAccount: pulumi.Input<string>;
+    /**
+     * Specifies the target namespace for the application's resources.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * Specifies the URL of the target cluster's Kubernetes control plane API.
+     */
+    server?: pulumi.Input<string>;
+}
+
+export interface ProjectSpecNamespaceResourceBlacklist {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+}
+
+export interface ProjectSpecNamespaceResourceWhitelist {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+}
+
+export interface ProjectSpecOrphanedResource {
+    /**
+     * List of resources to ignore during orphaned resources detection.
+     */
+    ignores?: pulumi.Input<pulumi.Input<inputs.ProjectSpecOrphanedResourceIgnore>[]>;
+    /**
+     * Whether a warning condition should be created for apps which have orphaned resources.
+     */
+    warn?: pulumi.Input<boolean>;
+}
+
+export interface ProjectSpecOrphanedResourceIgnore {
+    /**
+     * The Kubernetes resource Group to match for.
+     */
+    group?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource Kind to match for.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * The Kubernetes resource name to match for.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface ProjectSpecRole {
+    /**
+     * Description of the role.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * List of OIDC group claims bound to this role.
+     */
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of JWT tokens issued for this role.
+     */
+    jwtTokens?: pulumi.Input<pulumi.Input<inputs.ProjectSpecRoleJwtToken>[]>;
+    /**
+     * The name of the role.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * List of casbin formatted strings that define access policies for the role in the project. For more information, see the [ArgoCD RBAC reference](https://argoproj.github.io/argo-cd/operator-manual/rbac/#rbac-permission-structure).
+     */
+    policies: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ProjectSpecRoleJwtToken {
+    /**
+     * Token expiration (timestamp).
+     */
+    exp?: pulumi.Input<number>;
+    /**
+     * Token issued at (timestamp).
+     */
+    iat: pulumi.Input<number>;
+    /**
+     * Token identifier.
+     */
+    id?: pulumi.Input<string>;
+}
+
+export interface ProjectSpecSyncWindow {
+    /**
+     * List of applications that the window will apply to.
+     */
+    applications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of clusters that the window will apply to.
+     */
+    clusters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Amount of time the sync window will be open.
+     */
+    duration?: pulumi.Input<string>;
+    /**
+     * Defines if the window allows or blocks syncs, allowed values are `allow` or `deny`.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * Enables manual syncs when they would otherwise be blocked.
+     */
+    manualSync?: pulumi.Input<boolean>;
+    /**
+     * List of namespaces that the window will apply to.
+     */
+    namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Time the window will begin, specified in cron format.
+     */
+    schedule?: pulumi.Input<string>;
+    /**
+     * Timezone that the schedule will be evaluated in.
+     */
+    timezone?: pulumi.Input<string>;
+    /**
+     * Defines if the AND operator should be used among the various conditions for the sync window.
+     */
+    useAndOperator?: pulumi.Input<boolean>;
+}
+
 export interface ProviderKubernetes {
     /**
      * PEM-encoded client certificate for TLS authentication. Can be sourced from `KUBE_CLIENT_CERT_DATA`.
@@ -32916,6 +33241,44 @@ export interface ProviderKubernetesExec {
      * List of arguments to pass when executing the plugin.
      */
     env?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface RepositoryCertificateHttp {
+    /**
+     * The actual certificate data, dependent on the certificate type
+     */
+    certData: pulumi.Input<string>;
+    /**
+     * Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+     */
+    certInfo?: pulumi.Input<string>;
+    /**
+     * The sub type of the cert, i.e. `ssh-rsa`
+     */
+    certSubtype?: pulumi.Input<string>;
+    /**
+     * DNS name of the server this certificate is intended for
+     */
+    serverName: pulumi.Input<string>;
+}
+
+export interface RepositoryCertificateSsh {
+    /**
+     * The actual certificate data, dependent on the certificate type
+     */
+    certData: pulumi.Input<string>;
+    /**
+     * Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+     */
+    certInfo?: pulumi.Input<string>;
+    /**
+     * The sub type of the cert, i.e. `ssh-rsa`
+     */
+    certSubtype: pulumi.Input<string>;
+    /**
+     * DNS name of the server this certificate is intended for
+     */
+    serverName: pulumi.Input<string>;
 }
 export namespace config {
 }

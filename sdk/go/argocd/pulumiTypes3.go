@@ -33630,6 +33630,1914 @@ func (o ClusterMetadataArrayOutput) Index(i pulumi.IntInput) ClusterMetadataOutp
 	}).(ClusterMetadataOutput)
 }
 
+type ProjectMetadata struct {
+	// An unstructured key value map stored with the appproject that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+	Annotations map[string]string `pulumi:"annotations"`
+	// A sequence number representing a specific generation of the desired state.
+	Generation *int `pulumi:"generation"`
+	// Map of string keys and values that can be used to organize and categorize (scope and select) the appproject. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+	Labels map[string]string `pulumi:"labels"`
+	// Name of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+	Name string `pulumi:"name"`
+	// Namespace of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+	Namespace *string `pulumi:"namespace"`
+	// An opaque value that represents the internal version of this appproject that can be used by clients to determine when the appproject has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+	ResourceVersion *string `pulumi:"resourceVersion"`
+	// The unique in time and space value for this appproject. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+	Uid *string `pulumi:"uid"`
+}
+
+// ProjectMetadataInput is an input type that accepts ProjectMetadataArgs and ProjectMetadataOutput values.
+// You can construct a concrete instance of `ProjectMetadataInput` via:
+//
+//	ProjectMetadataArgs{...}
+type ProjectMetadataInput interface {
+	pulumi.Input
+
+	ToProjectMetadataOutput() ProjectMetadataOutput
+	ToProjectMetadataOutputWithContext(context.Context) ProjectMetadataOutput
+}
+
+type ProjectMetadataArgs struct {
+	// An unstructured key value map stored with the appproject that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+	Annotations pulumi.StringMapInput `pulumi:"annotations"`
+	// A sequence number representing a specific generation of the desired state.
+	Generation pulumi.IntPtrInput `pulumi:"generation"`
+	// Map of string keys and values that can be used to organize and categorize (scope and select) the appproject. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Name of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+	Name pulumi.StringInput `pulumi:"name"`
+	// Namespace of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// An opaque value that represents the internal version of this appproject that can be used by clients to determine when the appproject has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+	ResourceVersion pulumi.StringPtrInput `pulumi:"resourceVersion"`
+	// The unique in time and space value for this appproject. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+	Uid pulumi.StringPtrInput `pulumi:"uid"`
+}
+
+func (ProjectMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMetadata)(nil)).Elem()
+}
+
+func (i ProjectMetadataArgs) ToProjectMetadataOutput() ProjectMetadataOutput {
+	return i.ToProjectMetadataOutputWithContext(context.Background())
+}
+
+func (i ProjectMetadataArgs) ToProjectMetadataOutputWithContext(ctx context.Context) ProjectMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectMetadataOutput)
+}
+
+func (i ProjectMetadataArgs) ToProjectMetadataPtrOutput() ProjectMetadataPtrOutput {
+	return i.ToProjectMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectMetadataArgs) ToProjectMetadataPtrOutputWithContext(ctx context.Context) ProjectMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectMetadataOutput).ToProjectMetadataPtrOutputWithContext(ctx)
+}
+
+// ProjectMetadataPtrInput is an input type that accepts ProjectMetadataArgs, ProjectMetadataPtr and ProjectMetadataPtrOutput values.
+// You can construct a concrete instance of `ProjectMetadataPtrInput` via:
+//
+//	        ProjectMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectMetadataPtrInput interface {
+	pulumi.Input
+
+	ToProjectMetadataPtrOutput() ProjectMetadataPtrOutput
+	ToProjectMetadataPtrOutputWithContext(context.Context) ProjectMetadataPtrOutput
+}
+
+type projectMetadataPtrType ProjectMetadataArgs
+
+func ProjectMetadataPtr(v *ProjectMetadataArgs) ProjectMetadataPtrInput {
+	return (*projectMetadataPtrType)(v)
+}
+
+func (*projectMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectMetadata)(nil)).Elem()
+}
+
+func (i *projectMetadataPtrType) ToProjectMetadataPtrOutput() ProjectMetadataPtrOutput {
+	return i.ToProjectMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *projectMetadataPtrType) ToProjectMetadataPtrOutputWithContext(ctx context.Context) ProjectMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectMetadataPtrOutput)
+}
+
+type ProjectMetadataOutput struct{ *pulumi.OutputState }
+
+func (ProjectMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMetadata)(nil)).Elem()
+}
+
+func (o ProjectMetadataOutput) ToProjectMetadataOutput() ProjectMetadataOutput {
+	return o
+}
+
+func (o ProjectMetadataOutput) ToProjectMetadataOutputWithContext(ctx context.Context) ProjectMetadataOutput {
+	return o
+}
+
+func (o ProjectMetadataOutput) ToProjectMetadataPtrOutput() ProjectMetadataPtrOutput {
+	return o.ToProjectMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectMetadataOutput) ToProjectMetadataPtrOutputWithContext(ctx context.Context) ProjectMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectMetadata) *ProjectMetadata {
+		return &v
+	}).(ProjectMetadataPtrOutput)
+}
+
+// An unstructured key value map stored with the appproject that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+func (o ProjectMetadataOutput) Annotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ProjectMetadata) map[string]string { return v.Annotations }).(pulumi.StringMapOutput)
+}
+
+// A sequence number representing a specific generation of the desired state.
+func (o ProjectMetadataOutput) Generation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectMetadata) *int { return v.Generation }).(pulumi.IntPtrOutput)
+}
+
+// Map of string keys and values that can be used to organize and categorize (scope and select) the appproject. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+func (o ProjectMetadataOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ProjectMetadata) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Name of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+func (o ProjectMetadataOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectMetadata) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Namespace of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+func (o ProjectMetadataOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectMetadata) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// An opaque value that represents the internal version of this appproject that can be used by clients to determine when the appproject has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+func (o ProjectMetadataOutput) ResourceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectMetadata) *string { return v.ResourceVersion }).(pulumi.StringPtrOutput)
+}
+
+// The unique in time and space value for this appproject. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+func (o ProjectMetadataOutput) Uid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectMetadata) *string { return v.Uid }).(pulumi.StringPtrOutput)
+}
+
+type ProjectMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectMetadata)(nil)).Elem()
+}
+
+func (o ProjectMetadataPtrOutput) ToProjectMetadataPtrOutput() ProjectMetadataPtrOutput {
+	return o
+}
+
+func (o ProjectMetadataPtrOutput) ToProjectMetadataPtrOutputWithContext(ctx context.Context) ProjectMetadataPtrOutput {
+	return o
+}
+
+func (o ProjectMetadataPtrOutput) Elem() ProjectMetadataOutput {
+	return o.ApplyT(func(v *ProjectMetadata) ProjectMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectMetadata
+		return ret
+	}).(ProjectMetadataOutput)
+}
+
+// An unstructured key value map stored with the appproject that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+func (o ProjectMetadataPtrOutput) Annotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ProjectMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Annotations
+	}).(pulumi.StringMapOutput)
+}
+
+// A sequence number representing a specific generation of the desired state.
+func (o ProjectMetadataPtrOutput) Generation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectMetadata) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Generation
+	}).(pulumi.IntPtrOutput)
+}
+
+// Map of string keys and values that can be used to organize and categorize (scope and select) the appproject. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+func (o ProjectMetadataPtrOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ProjectMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringMapOutput)
+}
+
+// Name of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+func (o ProjectMetadataPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Namespace of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+func (o ProjectMetadataPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// An opaque value that represents the internal version of this appproject that can be used by clients to determine when the appproject has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+func (o ProjectMetadataPtrOutput) ResourceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique in time and space value for this appproject. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+func (o ProjectMetadataPtrOutput) Uid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uid
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectSpec struct {
+	// Blacklisted cluster level resources.
+	ClusterResourceBlacklists []ProjectSpecClusterResourceBlacklist `pulumi:"clusterResourceBlacklists"`
+	// Whitelisted cluster level resources.
+	ClusterResourceWhitelists []ProjectSpecClusterResourceWhitelist `pulumi:"clusterResourceWhitelists"`
+	// Project description.
+	Description *string `pulumi:"description"`
+	// Service accounts to be impersonated for the application sync operation for each destination.
+	DestinationServiceAccounts []ProjectSpecDestinationServiceAccount `pulumi:"destinationServiceAccounts"`
+	// Destinations available for deployment.
+	Destinations []ProjectSpecDestination `pulumi:"destinations"`
+	// Blacklisted namespace level resources.
+	NamespaceResourceBlacklists []ProjectSpecNamespaceResourceBlacklist `pulumi:"namespaceResourceBlacklists"`
+	// Whitelisted namespace level resources.
+	NamespaceResourceWhitelists []ProjectSpecNamespaceResourceWhitelist `pulumi:"namespaceResourceWhitelists"`
+	// Configuration for orphaned resources tracking.
+	OrphanedResources []ProjectSpecOrphanedResource `pulumi:"orphanedResources"`
+	// Project roles.
+	Roles []ProjectSpecRole `pulumi:"roles"`
+	// Signature keys for verifying the integrity of applications.
+	SignatureKeys []string `pulumi:"signatureKeys"`
+	// List of source namespaces for applications.
+	SourceNamespaces []string `pulumi:"sourceNamespaces"`
+	// List of repositories from which applications may be created.
+	SourceRepos []string `pulumi:"sourceRepos"`
+	// Controls when sync operations are allowed for the project.
+	SyncWindows []ProjectSpecSyncWindow `pulumi:"syncWindows"`
+}
+
+// ProjectSpecInput is an input type that accepts ProjectSpecArgs and ProjectSpecOutput values.
+// You can construct a concrete instance of `ProjectSpecInput` via:
+//
+//	ProjectSpecArgs{...}
+type ProjectSpecInput interface {
+	pulumi.Input
+
+	ToProjectSpecOutput() ProjectSpecOutput
+	ToProjectSpecOutputWithContext(context.Context) ProjectSpecOutput
+}
+
+type ProjectSpecArgs struct {
+	// Blacklisted cluster level resources.
+	ClusterResourceBlacklists ProjectSpecClusterResourceBlacklistArrayInput `pulumi:"clusterResourceBlacklists"`
+	// Whitelisted cluster level resources.
+	ClusterResourceWhitelists ProjectSpecClusterResourceWhitelistArrayInput `pulumi:"clusterResourceWhitelists"`
+	// Project description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Service accounts to be impersonated for the application sync operation for each destination.
+	DestinationServiceAccounts ProjectSpecDestinationServiceAccountArrayInput `pulumi:"destinationServiceAccounts"`
+	// Destinations available for deployment.
+	Destinations ProjectSpecDestinationArrayInput `pulumi:"destinations"`
+	// Blacklisted namespace level resources.
+	NamespaceResourceBlacklists ProjectSpecNamespaceResourceBlacklistArrayInput `pulumi:"namespaceResourceBlacklists"`
+	// Whitelisted namespace level resources.
+	NamespaceResourceWhitelists ProjectSpecNamespaceResourceWhitelistArrayInput `pulumi:"namespaceResourceWhitelists"`
+	// Configuration for orphaned resources tracking.
+	OrphanedResources ProjectSpecOrphanedResourceArrayInput `pulumi:"orphanedResources"`
+	// Project roles.
+	Roles ProjectSpecRoleArrayInput `pulumi:"roles"`
+	// Signature keys for verifying the integrity of applications.
+	SignatureKeys pulumi.StringArrayInput `pulumi:"signatureKeys"`
+	// List of source namespaces for applications.
+	SourceNamespaces pulumi.StringArrayInput `pulumi:"sourceNamespaces"`
+	// List of repositories from which applications may be created.
+	SourceRepos pulumi.StringArrayInput `pulumi:"sourceRepos"`
+	// Controls when sync operations are allowed for the project.
+	SyncWindows ProjectSpecSyncWindowArrayInput `pulumi:"syncWindows"`
+}
+
+func (ProjectSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpec)(nil)).Elem()
+}
+
+func (i ProjectSpecArgs) ToProjectSpecOutput() ProjectSpecOutput {
+	return i.ToProjectSpecOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecArgs) ToProjectSpecOutputWithContext(ctx context.Context) ProjectSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecOutput)
+}
+
+func (i ProjectSpecArgs) ToProjectSpecPtrOutput() ProjectSpecPtrOutput {
+	return i.ToProjectSpecPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecArgs) ToProjectSpecPtrOutputWithContext(ctx context.Context) ProjectSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecOutput).ToProjectSpecPtrOutputWithContext(ctx)
+}
+
+// ProjectSpecPtrInput is an input type that accepts ProjectSpecArgs, ProjectSpecPtr and ProjectSpecPtrOutput values.
+// You can construct a concrete instance of `ProjectSpecPtrInput` via:
+//
+//	        ProjectSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectSpecPtrInput interface {
+	pulumi.Input
+
+	ToProjectSpecPtrOutput() ProjectSpecPtrOutput
+	ToProjectSpecPtrOutputWithContext(context.Context) ProjectSpecPtrOutput
+}
+
+type projectSpecPtrType ProjectSpecArgs
+
+func ProjectSpecPtr(v *ProjectSpecArgs) ProjectSpecPtrInput {
+	return (*projectSpecPtrType)(v)
+}
+
+func (*projectSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSpec)(nil)).Elem()
+}
+
+func (i *projectSpecPtrType) ToProjectSpecPtrOutput() ProjectSpecPtrOutput {
+	return i.ToProjectSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *projectSpecPtrType) ToProjectSpecPtrOutputWithContext(ctx context.Context) ProjectSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecPtrOutput)
+}
+
+type ProjectSpecOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpec)(nil)).Elem()
+}
+
+func (o ProjectSpecOutput) ToProjectSpecOutput() ProjectSpecOutput {
+	return o
+}
+
+func (o ProjectSpecOutput) ToProjectSpecOutputWithContext(ctx context.Context) ProjectSpecOutput {
+	return o
+}
+
+func (o ProjectSpecOutput) ToProjectSpecPtrOutput() ProjectSpecPtrOutput {
+	return o.ToProjectSpecPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectSpecOutput) ToProjectSpecPtrOutputWithContext(ctx context.Context) ProjectSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSpec) *ProjectSpec {
+		return &v
+	}).(ProjectSpecPtrOutput)
+}
+
+// Blacklisted cluster level resources.
+func (o ProjectSpecOutput) ClusterResourceBlacklists() ProjectSpecClusterResourceBlacklistArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []ProjectSpecClusterResourceBlacklist { return v.ClusterResourceBlacklists }).(ProjectSpecClusterResourceBlacklistArrayOutput)
+}
+
+// Whitelisted cluster level resources.
+func (o ProjectSpecOutput) ClusterResourceWhitelists() ProjectSpecClusterResourceWhitelistArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []ProjectSpecClusterResourceWhitelist { return v.ClusterResourceWhitelists }).(ProjectSpecClusterResourceWhitelistArrayOutput)
+}
+
+// Project description.
+func (o ProjectSpecOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpec) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Service accounts to be impersonated for the application sync operation for each destination.
+func (o ProjectSpecOutput) DestinationServiceAccounts() ProjectSpecDestinationServiceAccountArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []ProjectSpecDestinationServiceAccount { return v.DestinationServiceAccounts }).(ProjectSpecDestinationServiceAccountArrayOutput)
+}
+
+// Destinations available for deployment.
+func (o ProjectSpecOutput) Destinations() ProjectSpecDestinationArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []ProjectSpecDestination { return v.Destinations }).(ProjectSpecDestinationArrayOutput)
+}
+
+// Blacklisted namespace level resources.
+func (o ProjectSpecOutput) NamespaceResourceBlacklists() ProjectSpecNamespaceResourceBlacklistArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []ProjectSpecNamespaceResourceBlacklist { return v.NamespaceResourceBlacklists }).(ProjectSpecNamespaceResourceBlacklistArrayOutput)
+}
+
+// Whitelisted namespace level resources.
+func (o ProjectSpecOutput) NamespaceResourceWhitelists() ProjectSpecNamespaceResourceWhitelistArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []ProjectSpecNamespaceResourceWhitelist { return v.NamespaceResourceWhitelists }).(ProjectSpecNamespaceResourceWhitelistArrayOutput)
+}
+
+// Configuration for orphaned resources tracking.
+func (o ProjectSpecOutput) OrphanedResources() ProjectSpecOrphanedResourceArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []ProjectSpecOrphanedResource { return v.OrphanedResources }).(ProjectSpecOrphanedResourceArrayOutput)
+}
+
+// Project roles.
+func (o ProjectSpecOutput) Roles() ProjectSpecRoleArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []ProjectSpecRole { return v.Roles }).(ProjectSpecRoleArrayOutput)
+}
+
+// Signature keys for verifying the integrity of applications.
+func (o ProjectSpecOutput) SignatureKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []string { return v.SignatureKeys }).(pulumi.StringArrayOutput)
+}
+
+// List of source namespaces for applications.
+func (o ProjectSpecOutput) SourceNamespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []string { return v.SourceNamespaces }).(pulumi.StringArrayOutput)
+}
+
+// List of repositories from which applications may be created.
+func (o ProjectSpecOutput) SourceRepos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []string { return v.SourceRepos }).(pulumi.StringArrayOutput)
+}
+
+// Controls when sync operations are allowed for the project.
+func (o ProjectSpecOutput) SyncWindows() ProjectSpecSyncWindowArrayOutput {
+	return o.ApplyT(func(v ProjectSpec) []ProjectSpecSyncWindow { return v.SyncWindows }).(ProjectSpecSyncWindowArrayOutput)
+}
+
+type ProjectSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSpec)(nil)).Elem()
+}
+
+func (o ProjectSpecPtrOutput) ToProjectSpecPtrOutput() ProjectSpecPtrOutput {
+	return o
+}
+
+func (o ProjectSpecPtrOutput) ToProjectSpecPtrOutputWithContext(ctx context.Context) ProjectSpecPtrOutput {
+	return o
+}
+
+func (o ProjectSpecPtrOutput) Elem() ProjectSpecOutput {
+	return o.ApplyT(func(v *ProjectSpec) ProjectSpec {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSpec
+		return ret
+	}).(ProjectSpecOutput)
+}
+
+// Blacklisted cluster level resources.
+func (o ProjectSpecPtrOutput) ClusterResourceBlacklists() ProjectSpecClusterResourceBlacklistArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []ProjectSpecClusterResourceBlacklist {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterResourceBlacklists
+	}).(ProjectSpecClusterResourceBlacklistArrayOutput)
+}
+
+// Whitelisted cluster level resources.
+func (o ProjectSpecPtrOutput) ClusterResourceWhitelists() ProjectSpecClusterResourceWhitelistArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []ProjectSpecClusterResourceWhitelist {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterResourceWhitelists
+	}).(ProjectSpecClusterResourceWhitelistArrayOutput)
+}
+
+// Project description.
+func (o ProjectSpecPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Service accounts to be impersonated for the application sync operation for each destination.
+func (o ProjectSpecPtrOutput) DestinationServiceAccounts() ProjectSpecDestinationServiceAccountArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []ProjectSpecDestinationServiceAccount {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationServiceAccounts
+	}).(ProjectSpecDestinationServiceAccountArrayOutput)
+}
+
+// Destinations available for deployment.
+func (o ProjectSpecPtrOutput) Destinations() ProjectSpecDestinationArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []ProjectSpecDestination {
+		if v == nil {
+			return nil
+		}
+		return v.Destinations
+	}).(ProjectSpecDestinationArrayOutput)
+}
+
+// Blacklisted namespace level resources.
+func (o ProjectSpecPtrOutput) NamespaceResourceBlacklists() ProjectSpecNamespaceResourceBlacklistArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []ProjectSpecNamespaceResourceBlacklist {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceResourceBlacklists
+	}).(ProjectSpecNamespaceResourceBlacklistArrayOutput)
+}
+
+// Whitelisted namespace level resources.
+func (o ProjectSpecPtrOutput) NamespaceResourceWhitelists() ProjectSpecNamespaceResourceWhitelistArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []ProjectSpecNamespaceResourceWhitelist {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceResourceWhitelists
+	}).(ProjectSpecNamespaceResourceWhitelistArrayOutput)
+}
+
+// Configuration for orphaned resources tracking.
+func (o ProjectSpecPtrOutput) OrphanedResources() ProjectSpecOrphanedResourceArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []ProjectSpecOrphanedResource {
+		if v == nil {
+			return nil
+		}
+		return v.OrphanedResources
+	}).(ProjectSpecOrphanedResourceArrayOutput)
+}
+
+// Project roles.
+func (o ProjectSpecPtrOutput) Roles() ProjectSpecRoleArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []ProjectSpecRole {
+		if v == nil {
+			return nil
+		}
+		return v.Roles
+	}).(ProjectSpecRoleArrayOutput)
+}
+
+// Signature keys for verifying the integrity of applications.
+func (o ProjectSpecPtrOutput) SignatureKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SignatureKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of source namespaces for applications.
+func (o ProjectSpecPtrOutput) SourceNamespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceNamespaces
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of repositories from which applications may be created.
+func (o ProjectSpecPtrOutput) SourceRepos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceRepos
+	}).(pulumi.StringArrayOutput)
+}
+
+// Controls when sync operations are allowed for the project.
+func (o ProjectSpecPtrOutput) SyncWindows() ProjectSpecSyncWindowArrayOutput {
+	return o.ApplyT(func(v *ProjectSpec) []ProjectSpecSyncWindow {
+		if v == nil {
+			return nil
+		}
+		return v.SyncWindows
+	}).(ProjectSpecSyncWindowArrayOutput)
+}
+
+type ProjectSpecClusterResourceBlacklist struct {
+	// The Kubernetes resource Group to match for.
+	Group *string `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind *string `pulumi:"kind"`
+}
+
+// ProjectSpecClusterResourceBlacklistInput is an input type that accepts ProjectSpecClusterResourceBlacklistArgs and ProjectSpecClusterResourceBlacklistOutput values.
+// You can construct a concrete instance of `ProjectSpecClusterResourceBlacklistInput` via:
+//
+//	ProjectSpecClusterResourceBlacklistArgs{...}
+type ProjectSpecClusterResourceBlacklistInput interface {
+	pulumi.Input
+
+	ToProjectSpecClusterResourceBlacklistOutput() ProjectSpecClusterResourceBlacklistOutput
+	ToProjectSpecClusterResourceBlacklistOutputWithContext(context.Context) ProjectSpecClusterResourceBlacklistOutput
+}
+
+type ProjectSpecClusterResourceBlacklistArgs struct {
+	// The Kubernetes resource Group to match for.
+	Group pulumi.StringPtrInput `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+}
+
+func (ProjectSpecClusterResourceBlacklistArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecClusterResourceBlacklist)(nil)).Elem()
+}
+
+func (i ProjectSpecClusterResourceBlacklistArgs) ToProjectSpecClusterResourceBlacklistOutput() ProjectSpecClusterResourceBlacklistOutput {
+	return i.ToProjectSpecClusterResourceBlacklistOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecClusterResourceBlacklistArgs) ToProjectSpecClusterResourceBlacklistOutputWithContext(ctx context.Context) ProjectSpecClusterResourceBlacklistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecClusterResourceBlacklistOutput)
+}
+
+// ProjectSpecClusterResourceBlacklistArrayInput is an input type that accepts ProjectSpecClusterResourceBlacklistArray and ProjectSpecClusterResourceBlacklistArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecClusterResourceBlacklistArrayInput` via:
+//
+//	ProjectSpecClusterResourceBlacklistArray{ ProjectSpecClusterResourceBlacklistArgs{...} }
+type ProjectSpecClusterResourceBlacklistArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecClusterResourceBlacklistArrayOutput() ProjectSpecClusterResourceBlacklistArrayOutput
+	ToProjectSpecClusterResourceBlacklistArrayOutputWithContext(context.Context) ProjectSpecClusterResourceBlacklistArrayOutput
+}
+
+type ProjectSpecClusterResourceBlacklistArray []ProjectSpecClusterResourceBlacklistInput
+
+func (ProjectSpecClusterResourceBlacklistArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecClusterResourceBlacklist)(nil)).Elem()
+}
+
+func (i ProjectSpecClusterResourceBlacklistArray) ToProjectSpecClusterResourceBlacklistArrayOutput() ProjectSpecClusterResourceBlacklistArrayOutput {
+	return i.ToProjectSpecClusterResourceBlacklistArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecClusterResourceBlacklistArray) ToProjectSpecClusterResourceBlacklistArrayOutputWithContext(ctx context.Context) ProjectSpecClusterResourceBlacklistArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecClusterResourceBlacklistArrayOutput)
+}
+
+type ProjectSpecClusterResourceBlacklistOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecClusterResourceBlacklistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecClusterResourceBlacklist)(nil)).Elem()
+}
+
+func (o ProjectSpecClusterResourceBlacklistOutput) ToProjectSpecClusterResourceBlacklistOutput() ProjectSpecClusterResourceBlacklistOutput {
+	return o
+}
+
+func (o ProjectSpecClusterResourceBlacklistOutput) ToProjectSpecClusterResourceBlacklistOutputWithContext(ctx context.Context) ProjectSpecClusterResourceBlacklistOutput {
+	return o
+}
+
+// The Kubernetes resource Group to match for.
+func (o ProjectSpecClusterResourceBlacklistOutput) Group() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecClusterResourceBlacklist) *string { return v.Group }).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Kind to match for.
+func (o ProjectSpecClusterResourceBlacklistOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecClusterResourceBlacklist) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSpecClusterResourceBlacklistArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecClusterResourceBlacklistArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecClusterResourceBlacklist)(nil)).Elem()
+}
+
+func (o ProjectSpecClusterResourceBlacklistArrayOutput) ToProjectSpecClusterResourceBlacklistArrayOutput() ProjectSpecClusterResourceBlacklistArrayOutput {
+	return o
+}
+
+func (o ProjectSpecClusterResourceBlacklistArrayOutput) ToProjectSpecClusterResourceBlacklistArrayOutputWithContext(ctx context.Context) ProjectSpecClusterResourceBlacklistArrayOutput {
+	return o
+}
+
+func (o ProjectSpecClusterResourceBlacklistArrayOutput) Index(i pulumi.IntInput) ProjectSpecClusterResourceBlacklistOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecClusterResourceBlacklist {
+		return vs[0].([]ProjectSpecClusterResourceBlacklist)[vs[1].(int)]
+	}).(ProjectSpecClusterResourceBlacklistOutput)
+}
+
+type ProjectSpecClusterResourceWhitelist struct {
+	// The Kubernetes resource Group to match for.
+	Group *string `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind *string `pulumi:"kind"`
+}
+
+// ProjectSpecClusterResourceWhitelistInput is an input type that accepts ProjectSpecClusterResourceWhitelistArgs and ProjectSpecClusterResourceWhitelistOutput values.
+// You can construct a concrete instance of `ProjectSpecClusterResourceWhitelistInput` via:
+//
+//	ProjectSpecClusterResourceWhitelistArgs{...}
+type ProjectSpecClusterResourceWhitelistInput interface {
+	pulumi.Input
+
+	ToProjectSpecClusterResourceWhitelistOutput() ProjectSpecClusterResourceWhitelistOutput
+	ToProjectSpecClusterResourceWhitelistOutputWithContext(context.Context) ProjectSpecClusterResourceWhitelistOutput
+}
+
+type ProjectSpecClusterResourceWhitelistArgs struct {
+	// The Kubernetes resource Group to match for.
+	Group pulumi.StringPtrInput `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+}
+
+func (ProjectSpecClusterResourceWhitelistArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecClusterResourceWhitelist)(nil)).Elem()
+}
+
+func (i ProjectSpecClusterResourceWhitelistArgs) ToProjectSpecClusterResourceWhitelistOutput() ProjectSpecClusterResourceWhitelistOutput {
+	return i.ToProjectSpecClusterResourceWhitelistOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecClusterResourceWhitelistArgs) ToProjectSpecClusterResourceWhitelistOutputWithContext(ctx context.Context) ProjectSpecClusterResourceWhitelistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecClusterResourceWhitelistOutput)
+}
+
+// ProjectSpecClusterResourceWhitelistArrayInput is an input type that accepts ProjectSpecClusterResourceWhitelistArray and ProjectSpecClusterResourceWhitelistArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecClusterResourceWhitelistArrayInput` via:
+//
+//	ProjectSpecClusterResourceWhitelistArray{ ProjectSpecClusterResourceWhitelistArgs{...} }
+type ProjectSpecClusterResourceWhitelistArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecClusterResourceWhitelistArrayOutput() ProjectSpecClusterResourceWhitelistArrayOutput
+	ToProjectSpecClusterResourceWhitelistArrayOutputWithContext(context.Context) ProjectSpecClusterResourceWhitelistArrayOutput
+}
+
+type ProjectSpecClusterResourceWhitelistArray []ProjectSpecClusterResourceWhitelistInput
+
+func (ProjectSpecClusterResourceWhitelistArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecClusterResourceWhitelist)(nil)).Elem()
+}
+
+func (i ProjectSpecClusterResourceWhitelistArray) ToProjectSpecClusterResourceWhitelistArrayOutput() ProjectSpecClusterResourceWhitelistArrayOutput {
+	return i.ToProjectSpecClusterResourceWhitelistArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecClusterResourceWhitelistArray) ToProjectSpecClusterResourceWhitelistArrayOutputWithContext(ctx context.Context) ProjectSpecClusterResourceWhitelistArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecClusterResourceWhitelistArrayOutput)
+}
+
+type ProjectSpecClusterResourceWhitelistOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecClusterResourceWhitelistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecClusterResourceWhitelist)(nil)).Elem()
+}
+
+func (o ProjectSpecClusterResourceWhitelistOutput) ToProjectSpecClusterResourceWhitelistOutput() ProjectSpecClusterResourceWhitelistOutput {
+	return o
+}
+
+func (o ProjectSpecClusterResourceWhitelistOutput) ToProjectSpecClusterResourceWhitelistOutputWithContext(ctx context.Context) ProjectSpecClusterResourceWhitelistOutput {
+	return o
+}
+
+// The Kubernetes resource Group to match for.
+func (o ProjectSpecClusterResourceWhitelistOutput) Group() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecClusterResourceWhitelist) *string { return v.Group }).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Kind to match for.
+func (o ProjectSpecClusterResourceWhitelistOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecClusterResourceWhitelist) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSpecClusterResourceWhitelistArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecClusterResourceWhitelistArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecClusterResourceWhitelist)(nil)).Elem()
+}
+
+func (o ProjectSpecClusterResourceWhitelistArrayOutput) ToProjectSpecClusterResourceWhitelistArrayOutput() ProjectSpecClusterResourceWhitelistArrayOutput {
+	return o
+}
+
+func (o ProjectSpecClusterResourceWhitelistArrayOutput) ToProjectSpecClusterResourceWhitelistArrayOutputWithContext(ctx context.Context) ProjectSpecClusterResourceWhitelistArrayOutput {
+	return o
+}
+
+func (o ProjectSpecClusterResourceWhitelistArrayOutput) Index(i pulumi.IntInput) ProjectSpecClusterResourceWhitelistOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecClusterResourceWhitelist {
+		return vs[0].([]ProjectSpecClusterResourceWhitelist)[vs[1].(int)]
+	}).(ProjectSpecClusterResourceWhitelistOutput)
+}
+
+type ProjectSpecDestination struct {
+	// Name of the destination cluster which can be used instead of server.
+	Name *string `pulumi:"name"`
+	// Target namespace for applications' resources.
+	Namespace string `pulumi:"namespace"`
+	// URL of the target cluster and must be set to the Kubernetes control plane API.
+	Server *string `pulumi:"server"`
+}
+
+// ProjectSpecDestinationInput is an input type that accepts ProjectSpecDestinationArgs and ProjectSpecDestinationOutput values.
+// You can construct a concrete instance of `ProjectSpecDestinationInput` via:
+//
+//	ProjectSpecDestinationArgs{...}
+type ProjectSpecDestinationInput interface {
+	pulumi.Input
+
+	ToProjectSpecDestinationOutput() ProjectSpecDestinationOutput
+	ToProjectSpecDestinationOutputWithContext(context.Context) ProjectSpecDestinationOutput
+}
+
+type ProjectSpecDestinationArgs struct {
+	// Name of the destination cluster which can be used instead of server.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Target namespace for applications' resources.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// URL of the target cluster and must be set to the Kubernetes control plane API.
+	Server pulumi.StringPtrInput `pulumi:"server"`
+}
+
+func (ProjectSpecDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecDestination)(nil)).Elem()
+}
+
+func (i ProjectSpecDestinationArgs) ToProjectSpecDestinationOutput() ProjectSpecDestinationOutput {
+	return i.ToProjectSpecDestinationOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecDestinationArgs) ToProjectSpecDestinationOutputWithContext(ctx context.Context) ProjectSpecDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecDestinationOutput)
+}
+
+// ProjectSpecDestinationArrayInput is an input type that accepts ProjectSpecDestinationArray and ProjectSpecDestinationArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecDestinationArrayInput` via:
+//
+//	ProjectSpecDestinationArray{ ProjectSpecDestinationArgs{...} }
+type ProjectSpecDestinationArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecDestinationArrayOutput() ProjectSpecDestinationArrayOutput
+	ToProjectSpecDestinationArrayOutputWithContext(context.Context) ProjectSpecDestinationArrayOutput
+}
+
+type ProjectSpecDestinationArray []ProjectSpecDestinationInput
+
+func (ProjectSpecDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecDestination)(nil)).Elem()
+}
+
+func (i ProjectSpecDestinationArray) ToProjectSpecDestinationArrayOutput() ProjectSpecDestinationArrayOutput {
+	return i.ToProjectSpecDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecDestinationArray) ToProjectSpecDestinationArrayOutputWithContext(ctx context.Context) ProjectSpecDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecDestinationArrayOutput)
+}
+
+type ProjectSpecDestinationOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecDestination)(nil)).Elem()
+}
+
+func (o ProjectSpecDestinationOutput) ToProjectSpecDestinationOutput() ProjectSpecDestinationOutput {
+	return o
+}
+
+func (o ProjectSpecDestinationOutput) ToProjectSpecDestinationOutputWithContext(ctx context.Context) ProjectSpecDestinationOutput {
+	return o
+}
+
+// Name of the destination cluster which can be used instead of server.
+func (o ProjectSpecDestinationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Target namespace for applications' resources.
+func (o ProjectSpecDestinationOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSpecDestination) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// URL of the target cluster and must be set to the Kubernetes control plane API.
+func (o ProjectSpecDestinationOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecDestination) *string { return v.Server }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSpecDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecDestination)(nil)).Elem()
+}
+
+func (o ProjectSpecDestinationArrayOutput) ToProjectSpecDestinationArrayOutput() ProjectSpecDestinationArrayOutput {
+	return o
+}
+
+func (o ProjectSpecDestinationArrayOutput) ToProjectSpecDestinationArrayOutputWithContext(ctx context.Context) ProjectSpecDestinationArrayOutput {
+	return o
+}
+
+func (o ProjectSpecDestinationArrayOutput) Index(i pulumi.IntInput) ProjectSpecDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecDestination {
+		return vs[0].([]ProjectSpecDestination)[vs[1].(int)]
+	}).(ProjectSpecDestinationOutput)
+}
+
+type ProjectSpecDestinationServiceAccount struct {
+	// Used for impersonation during the sync operation
+	DefaultServiceAccount string `pulumi:"defaultServiceAccount"`
+	// Specifies the target namespace for the application's resources.
+	Namespace *string `pulumi:"namespace"`
+	// Specifies the URL of the target cluster's Kubernetes control plane API.
+	Server *string `pulumi:"server"`
+}
+
+// ProjectSpecDestinationServiceAccountInput is an input type that accepts ProjectSpecDestinationServiceAccountArgs and ProjectSpecDestinationServiceAccountOutput values.
+// You can construct a concrete instance of `ProjectSpecDestinationServiceAccountInput` via:
+//
+//	ProjectSpecDestinationServiceAccountArgs{...}
+type ProjectSpecDestinationServiceAccountInput interface {
+	pulumi.Input
+
+	ToProjectSpecDestinationServiceAccountOutput() ProjectSpecDestinationServiceAccountOutput
+	ToProjectSpecDestinationServiceAccountOutputWithContext(context.Context) ProjectSpecDestinationServiceAccountOutput
+}
+
+type ProjectSpecDestinationServiceAccountArgs struct {
+	// Used for impersonation during the sync operation
+	DefaultServiceAccount pulumi.StringInput `pulumi:"defaultServiceAccount"`
+	// Specifies the target namespace for the application's resources.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// Specifies the URL of the target cluster's Kubernetes control plane API.
+	Server pulumi.StringPtrInput `pulumi:"server"`
+}
+
+func (ProjectSpecDestinationServiceAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecDestinationServiceAccount)(nil)).Elem()
+}
+
+func (i ProjectSpecDestinationServiceAccountArgs) ToProjectSpecDestinationServiceAccountOutput() ProjectSpecDestinationServiceAccountOutput {
+	return i.ToProjectSpecDestinationServiceAccountOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecDestinationServiceAccountArgs) ToProjectSpecDestinationServiceAccountOutputWithContext(ctx context.Context) ProjectSpecDestinationServiceAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecDestinationServiceAccountOutput)
+}
+
+// ProjectSpecDestinationServiceAccountArrayInput is an input type that accepts ProjectSpecDestinationServiceAccountArray and ProjectSpecDestinationServiceAccountArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecDestinationServiceAccountArrayInput` via:
+//
+//	ProjectSpecDestinationServiceAccountArray{ ProjectSpecDestinationServiceAccountArgs{...} }
+type ProjectSpecDestinationServiceAccountArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecDestinationServiceAccountArrayOutput() ProjectSpecDestinationServiceAccountArrayOutput
+	ToProjectSpecDestinationServiceAccountArrayOutputWithContext(context.Context) ProjectSpecDestinationServiceAccountArrayOutput
+}
+
+type ProjectSpecDestinationServiceAccountArray []ProjectSpecDestinationServiceAccountInput
+
+func (ProjectSpecDestinationServiceAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecDestinationServiceAccount)(nil)).Elem()
+}
+
+func (i ProjectSpecDestinationServiceAccountArray) ToProjectSpecDestinationServiceAccountArrayOutput() ProjectSpecDestinationServiceAccountArrayOutput {
+	return i.ToProjectSpecDestinationServiceAccountArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecDestinationServiceAccountArray) ToProjectSpecDestinationServiceAccountArrayOutputWithContext(ctx context.Context) ProjectSpecDestinationServiceAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecDestinationServiceAccountArrayOutput)
+}
+
+type ProjectSpecDestinationServiceAccountOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecDestinationServiceAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecDestinationServiceAccount)(nil)).Elem()
+}
+
+func (o ProjectSpecDestinationServiceAccountOutput) ToProjectSpecDestinationServiceAccountOutput() ProjectSpecDestinationServiceAccountOutput {
+	return o
+}
+
+func (o ProjectSpecDestinationServiceAccountOutput) ToProjectSpecDestinationServiceAccountOutputWithContext(ctx context.Context) ProjectSpecDestinationServiceAccountOutput {
+	return o
+}
+
+// Used for impersonation during the sync operation
+func (o ProjectSpecDestinationServiceAccountOutput) DefaultServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSpecDestinationServiceAccount) string { return v.DefaultServiceAccount }).(pulumi.StringOutput)
+}
+
+// Specifies the target namespace for the application's resources.
+func (o ProjectSpecDestinationServiceAccountOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecDestinationServiceAccount) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URL of the target cluster's Kubernetes control plane API.
+func (o ProjectSpecDestinationServiceAccountOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecDestinationServiceAccount) *string { return v.Server }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSpecDestinationServiceAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecDestinationServiceAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecDestinationServiceAccount)(nil)).Elem()
+}
+
+func (o ProjectSpecDestinationServiceAccountArrayOutput) ToProjectSpecDestinationServiceAccountArrayOutput() ProjectSpecDestinationServiceAccountArrayOutput {
+	return o
+}
+
+func (o ProjectSpecDestinationServiceAccountArrayOutput) ToProjectSpecDestinationServiceAccountArrayOutputWithContext(ctx context.Context) ProjectSpecDestinationServiceAccountArrayOutput {
+	return o
+}
+
+func (o ProjectSpecDestinationServiceAccountArrayOutput) Index(i pulumi.IntInput) ProjectSpecDestinationServiceAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecDestinationServiceAccount {
+		return vs[0].([]ProjectSpecDestinationServiceAccount)[vs[1].(int)]
+	}).(ProjectSpecDestinationServiceAccountOutput)
+}
+
+type ProjectSpecNamespaceResourceBlacklist struct {
+	// The Kubernetes resource Group to match for.
+	Group *string `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind *string `pulumi:"kind"`
+}
+
+// ProjectSpecNamespaceResourceBlacklistInput is an input type that accepts ProjectSpecNamespaceResourceBlacklistArgs and ProjectSpecNamespaceResourceBlacklistOutput values.
+// You can construct a concrete instance of `ProjectSpecNamespaceResourceBlacklistInput` via:
+//
+//	ProjectSpecNamespaceResourceBlacklistArgs{...}
+type ProjectSpecNamespaceResourceBlacklistInput interface {
+	pulumi.Input
+
+	ToProjectSpecNamespaceResourceBlacklistOutput() ProjectSpecNamespaceResourceBlacklistOutput
+	ToProjectSpecNamespaceResourceBlacklistOutputWithContext(context.Context) ProjectSpecNamespaceResourceBlacklistOutput
+}
+
+type ProjectSpecNamespaceResourceBlacklistArgs struct {
+	// The Kubernetes resource Group to match for.
+	Group pulumi.StringPtrInput `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+}
+
+func (ProjectSpecNamespaceResourceBlacklistArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecNamespaceResourceBlacklist)(nil)).Elem()
+}
+
+func (i ProjectSpecNamespaceResourceBlacklistArgs) ToProjectSpecNamespaceResourceBlacklistOutput() ProjectSpecNamespaceResourceBlacklistOutput {
+	return i.ToProjectSpecNamespaceResourceBlacklistOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecNamespaceResourceBlacklistArgs) ToProjectSpecNamespaceResourceBlacklistOutputWithContext(ctx context.Context) ProjectSpecNamespaceResourceBlacklistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecNamespaceResourceBlacklistOutput)
+}
+
+// ProjectSpecNamespaceResourceBlacklistArrayInput is an input type that accepts ProjectSpecNamespaceResourceBlacklistArray and ProjectSpecNamespaceResourceBlacklistArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecNamespaceResourceBlacklistArrayInput` via:
+//
+//	ProjectSpecNamespaceResourceBlacklistArray{ ProjectSpecNamespaceResourceBlacklistArgs{...} }
+type ProjectSpecNamespaceResourceBlacklistArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecNamespaceResourceBlacklistArrayOutput() ProjectSpecNamespaceResourceBlacklistArrayOutput
+	ToProjectSpecNamespaceResourceBlacklistArrayOutputWithContext(context.Context) ProjectSpecNamespaceResourceBlacklistArrayOutput
+}
+
+type ProjectSpecNamespaceResourceBlacklistArray []ProjectSpecNamespaceResourceBlacklistInput
+
+func (ProjectSpecNamespaceResourceBlacklistArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecNamespaceResourceBlacklist)(nil)).Elem()
+}
+
+func (i ProjectSpecNamespaceResourceBlacklistArray) ToProjectSpecNamespaceResourceBlacklistArrayOutput() ProjectSpecNamespaceResourceBlacklistArrayOutput {
+	return i.ToProjectSpecNamespaceResourceBlacklistArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecNamespaceResourceBlacklistArray) ToProjectSpecNamespaceResourceBlacklistArrayOutputWithContext(ctx context.Context) ProjectSpecNamespaceResourceBlacklistArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecNamespaceResourceBlacklistArrayOutput)
+}
+
+type ProjectSpecNamespaceResourceBlacklistOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecNamespaceResourceBlacklistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecNamespaceResourceBlacklist)(nil)).Elem()
+}
+
+func (o ProjectSpecNamespaceResourceBlacklistOutput) ToProjectSpecNamespaceResourceBlacklistOutput() ProjectSpecNamespaceResourceBlacklistOutput {
+	return o
+}
+
+func (o ProjectSpecNamespaceResourceBlacklistOutput) ToProjectSpecNamespaceResourceBlacklistOutputWithContext(ctx context.Context) ProjectSpecNamespaceResourceBlacklistOutput {
+	return o
+}
+
+// The Kubernetes resource Group to match for.
+func (o ProjectSpecNamespaceResourceBlacklistOutput) Group() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecNamespaceResourceBlacklist) *string { return v.Group }).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Kind to match for.
+func (o ProjectSpecNamespaceResourceBlacklistOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecNamespaceResourceBlacklist) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSpecNamespaceResourceBlacklistArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecNamespaceResourceBlacklistArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecNamespaceResourceBlacklist)(nil)).Elem()
+}
+
+func (o ProjectSpecNamespaceResourceBlacklistArrayOutput) ToProjectSpecNamespaceResourceBlacklistArrayOutput() ProjectSpecNamespaceResourceBlacklistArrayOutput {
+	return o
+}
+
+func (o ProjectSpecNamespaceResourceBlacklistArrayOutput) ToProjectSpecNamespaceResourceBlacklistArrayOutputWithContext(ctx context.Context) ProjectSpecNamespaceResourceBlacklistArrayOutput {
+	return o
+}
+
+func (o ProjectSpecNamespaceResourceBlacklistArrayOutput) Index(i pulumi.IntInput) ProjectSpecNamespaceResourceBlacklistOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecNamespaceResourceBlacklist {
+		return vs[0].([]ProjectSpecNamespaceResourceBlacklist)[vs[1].(int)]
+	}).(ProjectSpecNamespaceResourceBlacklistOutput)
+}
+
+type ProjectSpecNamespaceResourceWhitelist struct {
+	// The Kubernetes resource Group to match for.
+	Group *string `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind *string `pulumi:"kind"`
+}
+
+// ProjectSpecNamespaceResourceWhitelistInput is an input type that accepts ProjectSpecNamespaceResourceWhitelistArgs and ProjectSpecNamespaceResourceWhitelistOutput values.
+// You can construct a concrete instance of `ProjectSpecNamespaceResourceWhitelistInput` via:
+//
+//	ProjectSpecNamespaceResourceWhitelistArgs{...}
+type ProjectSpecNamespaceResourceWhitelistInput interface {
+	pulumi.Input
+
+	ToProjectSpecNamespaceResourceWhitelistOutput() ProjectSpecNamespaceResourceWhitelistOutput
+	ToProjectSpecNamespaceResourceWhitelistOutputWithContext(context.Context) ProjectSpecNamespaceResourceWhitelistOutput
+}
+
+type ProjectSpecNamespaceResourceWhitelistArgs struct {
+	// The Kubernetes resource Group to match for.
+	Group pulumi.StringPtrInput `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+}
+
+func (ProjectSpecNamespaceResourceWhitelistArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecNamespaceResourceWhitelist)(nil)).Elem()
+}
+
+func (i ProjectSpecNamespaceResourceWhitelistArgs) ToProjectSpecNamespaceResourceWhitelistOutput() ProjectSpecNamespaceResourceWhitelistOutput {
+	return i.ToProjectSpecNamespaceResourceWhitelistOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecNamespaceResourceWhitelistArgs) ToProjectSpecNamespaceResourceWhitelistOutputWithContext(ctx context.Context) ProjectSpecNamespaceResourceWhitelistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecNamespaceResourceWhitelistOutput)
+}
+
+// ProjectSpecNamespaceResourceWhitelistArrayInput is an input type that accepts ProjectSpecNamespaceResourceWhitelistArray and ProjectSpecNamespaceResourceWhitelistArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecNamespaceResourceWhitelistArrayInput` via:
+//
+//	ProjectSpecNamespaceResourceWhitelistArray{ ProjectSpecNamespaceResourceWhitelistArgs{...} }
+type ProjectSpecNamespaceResourceWhitelistArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecNamespaceResourceWhitelistArrayOutput() ProjectSpecNamespaceResourceWhitelistArrayOutput
+	ToProjectSpecNamespaceResourceWhitelistArrayOutputWithContext(context.Context) ProjectSpecNamespaceResourceWhitelistArrayOutput
+}
+
+type ProjectSpecNamespaceResourceWhitelistArray []ProjectSpecNamespaceResourceWhitelistInput
+
+func (ProjectSpecNamespaceResourceWhitelistArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecNamespaceResourceWhitelist)(nil)).Elem()
+}
+
+func (i ProjectSpecNamespaceResourceWhitelistArray) ToProjectSpecNamespaceResourceWhitelistArrayOutput() ProjectSpecNamespaceResourceWhitelistArrayOutput {
+	return i.ToProjectSpecNamespaceResourceWhitelistArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecNamespaceResourceWhitelistArray) ToProjectSpecNamespaceResourceWhitelistArrayOutputWithContext(ctx context.Context) ProjectSpecNamespaceResourceWhitelistArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecNamespaceResourceWhitelistArrayOutput)
+}
+
+type ProjectSpecNamespaceResourceWhitelistOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecNamespaceResourceWhitelistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecNamespaceResourceWhitelist)(nil)).Elem()
+}
+
+func (o ProjectSpecNamespaceResourceWhitelistOutput) ToProjectSpecNamespaceResourceWhitelistOutput() ProjectSpecNamespaceResourceWhitelistOutput {
+	return o
+}
+
+func (o ProjectSpecNamespaceResourceWhitelistOutput) ToProjectSpecNamespaceResourceWhitelistOutputWithContext(ctx context.Context) ProjectSpecNamespaceResourceWhitelistOutput {
+	return o
+}
+
+// The Kubernetes resource Group to match for.
+func (o ProjectSpecNamespaceResourceWhitelistOutput) Group() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecNamespaceResourceWhitelist) *string { return v.Group }).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Kind to match for.
+func (o ProjectSpecNamespaceResourceWhitelistOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecNamespaceResourceWhitelist) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSpecNamespaceResourceWhitelistArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecNamespaceResourceWhitelistArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecNamespaceResourceWhitelist)(nil)).Elem()
+}
+
+func (o ProjectSpecNamespaceResourceWhitelistArrayOutput) ToProjectSpecNamespaceResourceWhitelistArrayOutput() ProjectSpecNamespaceResourceWhitelistArrayOutput {
+	return o
+}
+
+func (o ProjectSpecNamespaceResourceWhitelistArrayOutput) ToProjectSpecNamespaceResourceWhitelistArrayOutputWithContext(ctx context.Context) ProjectSpecNamespaceResourceWhitelistArrayOutput {
+	return o
+}
+
+func (o ProjectSpecNamespaceResourceWhitelistArrayOutput) Index(i pulumi.IntInput) ProjectSpecNamespaceResourceWhitelistOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecNamespaceResourceWhitelist {
+		return vs[0].([]ProjectSpecNamespaceResourceWhitelist)[vs[1].(int)]
+	}).(ProjectSpecNamespaceResourceWhitelistOutput)
+}
+
+type ProjectSpecOrphanedResource struct {
+	// List of resources to ignore during orphaned resources detection.
+	Ignores []ProjectSpecOrphanedResourceIgnore `pulumi:"ignores"`
+	// Whether a warning condition should be created for apps which have orphaned resources.
+	Warn *bool `pulumi:"warn"`
+}
+
+// ProjectSpecOrphanedResourceInput is an input type that accepts ProjectSpecOrphanedResourceArgs and ProjectSpecOrphanedResourceOutput values.
+// You can construct a concrete instance of `ProjectSpecOrphanedResourceInput` via:
+//
+//	ProjectSpecOrphanedResourceArgs{...}
+type ProjectSpecOrphanedResourceInput interface {
+	pulumi.Input
+
+	ToProjectSpecOrphanedResourceOutput() ProjectSpecOrphanedResourceOutput
+	ToProjectSpecOrphanedResourceOutputWithContext(context.Context) ProjectSpecOrphanedResourceOutput
+}
+
+type ProjectSpecOrphanedResourceArgs struct {
+	// List of resources to ignore during orphaned resources detection.
+	Ignores ProjectSpecOrphanedResourceIgnoreArrayInput `pulumi:"ignores"`
+	// Whether a warning condition should be created for apps which have orphaned resources.
+	Warn pulumi.BoolPtrInput `pulumi:"warn"`
+}
+
+func (ProjectSpecOrphanedResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecOrphanedResource)(nil)).Elem()
+}
+
+func (i ProjectSpecOrphanedResourceArgs) ToProjectSpecOrphanedResourceOutput() ProjectSpecOrphanedResourceOutput {
+	return i.ToProjectSpecOrphanedResourceOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecOrphanedResourceArgs) ToProjectSpecOrphanedResourceOutputWithContext(ctx context.Context) ProjectSpecOrphanedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecOrphanedResourceOutput)
+}
+
+// ProjectSpecOrphanedResourceArrayInput is an input type that accepts ProjectSpecOrphanedResourceArray and ProjectSpecOrphanedResourceArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecOrphanedResourceArrayInput` via:
+//
+//	ProjectSpecOrphanedResourceArray{ ProjectSpecOrphanedResourceArgs{...} }
+type ProjectSpecOrphanedResourceArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecOrphanedResourceArrayOutput() ProjectSpecOrphanedResourceArrayOutput
+	ToProjectSpecOrphanedResourceArrayOutputWithContext(context.Context) ProjectSpecOrphanedResourceArrayOutput
+}
+
+type ProjectSpecOrphanedResourceArray []ProjectSpecOrphanedResourceInput
+
+func (ProjectSpecOrphanedResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecOrphanedResource)(nil)).Elem()
+}
+
+func (i ProjectSpecOrphanedResourceArray) ToProjectSpecOrphanedResourceArrayOutput() ProjectSpecOrphanedResourceArrayOutput {
+	return i.ToProjectSpecOrphanedResourceArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecOrphanedResourceArray) ToProjectSpecOrphanedResourceArrayOutputWithContext(ctx context.Context) ProjectSpecOrphanedResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecOrphanedResourceArrayOutput)
+}
+
+type ProjectSpecOrphanedResourceOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecOrphanedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecOrphanedResource)(nil)).Elem()
+}
+
+func (o ProjectSpecOrphanedResourceOutput) ToProjectSpecOrphanedResourceOutput() ProjectSpecOrphanedResourceOutput {
+	return o
+}
+
+func (o ProjectSpecOrphanedResourceOutput) ToProjectSpecOrphanedResourceOutputWithContext(ctx context.Context) ProjectSpecOrphanedResourceOutput {
+	return o
+}
+
+// List of resources to ignore during orphaned resources detection.
+func (o ProjectSpecOrphanedResourceOutput) Ignores() ProjectSpecOrphanedResourceIgnoreArrayOutput {
+	return o.ApplyT(func(v ProjectSpecOrphanedResource) []ProjectSpecOrphanedResourceIgnore { return v.Ignores }).(ProjectSpecOrphanedResourceIgnoreArrayOutput)
+}
+
+// Whether a warning condition should be created for apps which have orphaned resources.
+func (o ProjectSpecOrphanedResourceOutput) Warn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectSpecOrphanedResource) *bool { return v.Warn }).(pulumi.BoolPtrOutput)
+}
+
+type ProjectSpecOrphanedResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecOrphanedResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecOrphanedResource)(nil)).Elem()
+}
+
+func (o ProjectSpecOrphanedResourceArrayOutput) ToProjectSpecOrphanedResourceArrayOutput() ProjectSpecOrphanedResourceArrayOutput {
+	return o
+}
+
+func (o ProjectSpecOrphanedResourceArrayOutput) ToProjectSpecOrphanedResourceArrayOutputWithContext(ctx context.Context) ProjectSpecOrphanedResourceArrayOutput {
+	return o
+}
+
+func (o ProjectSpecOrphanedResourceArrayOutput) Index(i pulumi.IntInput) ProjectSpecOrphanedResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecOrphanedResource {
+		return vs[0].([]ProjectSpecOrphanedResource)[vs[1].(int)]
+	}).(ProjectSpecOrphanedResourceOutput)
+}
+
+type ProjectSpecOrphanedResourceIgnore struct {
+	// The Kubernetes resource Group to match for.
+	Group *string `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind *string `pulumi:"kind"`
+	// The Kubernetes resource name to match for.
+	Name *string `pulumi:"name"`
+}
+
+// ProjectSpecOrphanedResourceIgnoreInput is an input type that accepts ProjectSpecOrphanedResourceIgnoreArgs and ProjectSpecOrphanedResourceIgnoreOutput values.
+// You can construct a concrete instance of `ProjectSpecOrphanedResourceIgnoreInput` via:
+//
+//	ProjectSpecOrphanedResourceIgnoreArgs{...}
+type ProjectSpecOrphanedResourceIgnoreInput interface {
+	pulumi.Input
+
+	ToProjectSpecOrphanedResourceIgnoreOutput() ProjectSpecOrphanedResourceIgnoreOutput
+	ToProjectSpecOrphanedResourceIgnoreOutputWithContext(context.Context) ProjectSpecOrphanedResourceIgnoreOutput
+}
+
+type ProjectSpecOrphanedResourceIgnoreArgs struct {
+	// The Kubernetes resource Group to match for.
+	Group pulumi.StringPtrInput `pulumi:"group"`
+	// The Kubernetes resource Kind to match for.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The Kubernetes resource name to match for.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ProjectSpecOrphanedResourceIgnoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecOrphanedResourceIgnore)(nil)).Elem()
+}
+
+func (i ProjectSpecOrphanedResourceIgnoreArgs) ToProjectSpecOrphanedResourceIgnoreOutput() ProjectSpecOrphanedResourceIgnoreOutput {
+	return i.ToProjectSpecOrphanedResourceIgnoreOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecOrphanedResourceIgnoreArgs) ToProjectSpecOrphanedResourceIgnoreOutputWithContext(ctx context.Context) ProjectSpecOrphanedResourceIgnoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecOrphanedResourceIgnoreOutput)
+}
+
+// ProjectSpecOrphanedResourceIgnoreArrayInput is an input type that accepts ProjectSpecOrphanedResourceIgnoreArray and ProjectSpecOrphanedResourceIgnoreArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecOrphanedResourceIgnoreArrayInput` via:
+//
+//	ProjectSpecOrphanedResourceIgnoreArray{ ProjectSpecOrphanedResourceIgnoreArgs{...} }
+type ProjectSpecOrphanedResourceIgnoreArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecOrphanedResourceIgnoreArrayOutput() ProjectSpecOrphanedResourceIgnoreArrayOutput
+	ToProjectSpecOrphanedResourceIgnoreArrayOutputWithContext(context.Context) ProjectSpecOrphanedResourceIgnoreArrayOutput
+}
+
+type ProjectSpecOrphanedResourceIgnoreArray []ProjectSpecOrphanedResourceIgnoreInput
+
+func (ProjectSpecOrphanedResourceIgnoreArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecOrphanedResourceIgnore)(nil)).Elem()
+}
+
+func (i ProjectSpecOrphanedResourceIgnoreArray) ToProjectSpecOrphanedResourceIgnoreArrayOutput() ProjectSpecOrphanedResourceIgnoreArrayOutput {
+	return i.ToProjectSpecOrphanedResourceIgnoreArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecOrphanedResourceIgnoreArray) ToProjectSpecOrphanedResourceIgnoreArrayOutputWithContext(ctx context.Context) ProjectSpecOrphanedResourceIgnoreArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecOrphanedResourceIgnoreArrayOutput)
+}
+
+type ProjectSpecOrphanedResourceIgnoreOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecOrphanedResourceIgnoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecOrphanedResourceIgnore)(nil)).Elem()
+}
+
+func (o ProjectSpecOrphanedResourceIgnoreOutput) ToProjectSpecOrphanedResourceIgnoreOutput() ProjectSpecOrphanedResourceIgnoreOutput {
+	return o
+}
+
+func (o ProjectSpecOrphanedResourceIgnoreOutput) ToProjectSpecOrphanedResourceIgnoreOutputWithContext(ctx context.Context) ProjectSpecOrphanedResourceIgnoreOutput {
+	return o
+}
+
+// The Kubernetes resource Group to match for.
+func (o ProjectSpecOrphanedResourceIgnoreOutput) Group() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecOrphanedResourceIgnore) *string { return v.Group }).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource Kind to match for.
+func (o ProjectSpecOrphanedResourceIgnoreOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecOrphanedResourceIgnore) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes resource name to match for.
+func (o ProjectSpecOrphanedResourceIgnoreOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecOrphanedResourceIgnore) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSpecOrphanedResourceIgnoreArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecOrphanedResourceIgnoreArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecOrphanedResourceIgnore)(nil)).Elem()
+}
+
+func (o ProjectSpecOrphanedResourceIgnoreArrayOutput) ToProjectSpecOrphanedResourceIgnoreArrayOutput() ProjectSpecOrphanedResourceIgnoreArrayOutput {
+	return o
+}
+
+func (o ProjectSpecOrphanedResourceIgnoreArrayOutput) ToProjectSpecOrphanedResourceIgnoreArrayOutputWithContext(ctx context.Context) ProjectSpecOrphanedResourceIgnoreArrayOutput {
+	return o
+}
+
+func (o ProjectSpecOrphanedResourceIgnoreArrayOutput) Index(i pulumi.IntInput) ProjectSpecOrphanedResourceIgnoreOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecOrphanedResourceIgnore {
+		return vs[0].([]ProjectSpecOrphanedResourceIgnore)[vs[1].(int)]
+	}).(ProjectSpecOrphanedResourceIgnoreOutput)
+}
+
+type ProjectSpecRole struct {
+	// Description of the role.
+	Description *string `pulumi:"description"`
+	// List of OIDC group claims bound to this role.
+	Groups []string `pulumi:"groups"`
+	// List of JWT tokens issued for this role.
+	JwtTokens []ProjectSpecRoleJwtToken `pulumi:"jwtTokens"`
+	// The name of the role.
+	Name string `pulumi:"name"`
+	// List of casbin formatted strings that define access policies for the role in the project. For more information, see the [ArgoCD RBAC reference](https://argoproj.github.io/argo-cd/operator-manual/rbac/#rbac-permission-structure).
+	Policies []string `pulumi:"policies"`
+}
+
+// ProjectSpecRoleInput is an input type that accepts ProjectSpecRoleArgs and ProjectSpecRoleOutput values.
+// You can construct a concrete instance of `ProjectSpecRoleInput` via:
+//
+//	ProjectSpecRoleArgs{...}
+type ProjectSpecRoleInput interface {
+	pulumi.Input
+
+	ToProjectSpecRoleOutput() ProjectSpecRoleOutput
+	ToProjectSpecRoleOutputWithContext(context.Context) ProjectSpecRoleOutput
+}
+
+type ProjectSpecRoleArgs struct {
+	// Description of the role.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// List of OIDC group claims bound to this role.
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// List of JWT tokens issued for this role.
+	JwtTokens ProjectSpecRoleJwtTokenArrayInput `pulumi:"jwtTokens"`
+	// The name of the role.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of casbin formatted strings that define access policies for the role in the project. For more information, see the [ArgoCD RBAC reference](https://argoproj.github.io/argo-cd/operator-manual/rbac/#rbac-permission-structure).
+	Policies pulumi.StringArrayInput `pulumi:"policies"`
+}
+
+func (ProjectSpecRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecRole)(nil)).Elem()
+}
+
+func (i ProjectSpecRoleArgs) ToProjectSpecRoleOutput() ProjectSpecRoleOutput {
+	return i.ToProjectSpecRoleOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecRoleArgs) ToProjectSpecRoleOutputWithContext(ctx context.Context) ProjectSpecRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecRoleOutput)
+}
+
+// ProjectSpecRoleArrayInput is an input type that accepts ProjectSpecRoleArray and ProjectSpecRoleArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecRoleArrayInput` via:
+//
+//	ProjectSpecRoleArray{ ProjectSpecRoleArgs{...} }
+type ProjectSpecRoleArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecRoleArrayOutput() ProjectSpecRoleArrayOutput
+	ToProjectSpecRoleArrayOutputWithContext(context.Context) ProjectSpecRoleArrayOutput
+}
+
+type ProjectSpecRoleArray []ProjectSpecRoleInput
+
+func (ProjectSpecRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecRole)(nil)).Elem()
+}
+
+func (i ProjectSpecRoleArray) ToProjectSpecRoleArrayOutput() ProjectSpecRoleArrayOutput {
+	return i.ToProjectSpecRoleArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecRoleArray) ToProjectSpecRoleArrayOutputWithContext(ctx context.Context) ProjectSpecRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecRoleArrayOutput)
+}
+
+type ProjectSpecRoleOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecRole)(nil)).Elem()
+}
+
+func (o ProjectSpecRoleOutput) ToProjectSpecRoleOutput() ProjectSpecRoleOutput {
+	return o
+}
+
+func (o ProjectSpecRoleOutput) ToProjectSpecRoleOutputWithContext(ctx context.Context) ProjectSpecRoleOutput {
+	return o
+}
+
+// Description of the role.
+func (o ProjectSpecRoleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecRole) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of OIDC group claims bound to this role.
+func (o ProjectSpecRoleOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectSpecRole) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// List of JWT tokens issued for this role.
+func (o ProjectSpecRoleOutput) JwtTokens() ProjectSpecRoleJwtTokenArrayOutput {
+	return o.ApplyT(func(v ProjectSpecRole) []ProjectSpecRoleJwtToken { return v.JwtTokens }).(ProjectSpecRoleJwtTokenArrayOutput)
+}
+
+// The name of the role.
+func (o ProjectSpecRoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSpecRole) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of casbin formatted strings that define access policies for the role in the project. For more information, see the [ArgoCD RBAC reference](https://argoproj.github.io/argo-cd/operator-manual/rbac/#rbac-permission-structure).
+func (o ProjectSpecRoleOutput) Policies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectSpecRole) []string { return v.Policies }).(pulumi.StringArrayOutput)
+}
+
+type ProjectSpecRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecRole)(nil)).Elem()
+}
+
+func (o ProjectSpecRoleArrayOutput) ToProjectSpecRoleArrayOutput() ProjectSpecRoleArrayOutput {
+	return o
+}
+
+func (o ProjectSpecRoleArrayOutput) ToProjectSpecRoleArrayOutputWithContext(ctx context.Context) ProjectSpecRoleArrayOutput {
+	return o
+}
+
+func (o ProjectSpecRoleArrayOutput) Index(i pulumi.IntInput) ProjectSpecRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecRole {
+		return vs[0].([]ProjectSpecRole)[vs[1].(int)]
+	}).(ProjectSpecRoleOutput)
+}
+
+type ProjectSpecRoleJwtToken struct {
+	// Token expiration (timestamp).
+	Exp *int `pulumi:"exp"`
+	// Token issued at (timestamp).
+	Iat int `pulumi:"iat"`
+	// Token identifier.
+	Id *string `pulumi:"id"`
+}
+
+// ProjectSpecRoleJwtTokenInput is an input type that accepts ProjectSpecRoleJwtTokenArgs and ProjectSpecRoleJwtTokenOutput values.
+// You can construct a concrete instance of `ProjectSpecRoleJwtTokenInput` via:
+//
+//	ProjectSpecRoleJwtTokenArgs{...}
+type ProjectSpecRoleJwtTokenInput interface {
+	pulumi.Input
+
+	ToProjectSpecRoleJwtTokenOutput() ProjectSpecRoleJwtTokenOutput
+	ToProjectSpecRoleJwtTokenOutputWithContext(context.Context) ProjectSpecRoleJwtTokenOutput
+}
+
+type ProjectSpecRoleJwtTokenArgs struct {
+	// Token expiration (timestamp).
+	Exp pulumi.IntPtrInput `pulumi:"exp"`
+	// Token issued at (timestamp).
+	Iat pulumi.IntInput `pulumi:"iat"`
+	// Token identifier.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ProjectSpecRoleJwtTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecRoleJwtToken)(nil)).Elem()
+}
+
+func (i ProjectSpecRoleJwtTokenArgs) ToProjectSpecRoleJwtTokenOutput() ProjectSpecRoleJwtTokenOutput {
+	return i.ToProjectSpecRoleJwtTokenOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecRoleJwtTokenArgs) ToProjectSpecRoleJwtTokenOutputWithContext(ctx context.Context) ProjectSpecRoleJwtTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecRoleJwtTokenOutput)
+}
+
+// ProjectSpecRoleJwtTokenArrayInput is an input type that accepts ProjectSpecRoleJwtTokenArray and ProjectSpecRoleJwtTokenArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecRoleJwtTokenArrayInput` via:
+//
+//	ProjectSpecRoleJwtTokenArray{ ProjectSpecRoleJwtTokenArgs{...} }
+type ProjectSpecRoleJwtTokenArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecRoleJwtTokenArrayOutput() ProjectSpecRoleJwtTokenArrayOutput
+	ToProjectSpecRoleJwtTokenArrayOutputWithContext(context.Context) ProjectSpecRoleJwtTokenArrayOutput
+}
+
+type ProjectSpecRoleJwtTokenArray []ProjectSpecRoleJwtTokenInput
+
+func (ProjectSpecRoleJwtTokenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecRoleJwtToken)(nil)).Elem()
+}
+
+func (i ProjectSpecRoleJwtTokenArray) ToProjectSpecRoleJwtTokenArrayOutput() ProjectSpecRoleJwtTokenArrayOutput {
+	return i.ToProjectSpecRoleJwtTokenArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecRoleJwtTokenArray) ToProjectSpecRoleJwtTokenArrayOutputWithContext(ctx context.Context) ProjectSpecRoleJwtTokenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecRoleJwtTokenArrayOutput)
+}
+
+type ProjectSpecRoleJwtTokenOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecRoleJwtTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecRoleJwtToken)(nil)).Elem()
+}
+
+func (o ProjectSpecRoleJwtTokenOutput) ToProjectSpecRoleJwtTokenOutput() ProjectSpecRoleJwtTokenOutput {
+	return o
+}
+
+func (o ProjectSpecRoleJwtTokenOutput) ToProjectSpecRoleJwtTokenOutputWithContext(ctx context.Context) ProjectSpecRoleJwtTokenOutput {
+	return o
+}
+
+// Token expiration (timestamp).
+func (o ProjectSpecRoleJwtTokenOutput) Exp() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectSpecRoleJwtToken) *int { return v.Exp }).(pulumi.IntPtrOutput)
+}
+
+// Token issued at (timestamp).
+func (o ProjectSpecRoleJwtTokenOutput) Iat() pulumi.IntOutput {
+	return o.ApplyT(func(v ProjectSpecRoleJwtToken) int { return v.Iat }).(pulumi.IntOutput)
+}
+
+// Token identifier.
+func (o ProjectSpecRoleJwtTokenOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecRoleJwtToken) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSpecRoleJwtTokenArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecRoleJwtTokenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecRoleJwtToken)(nil)).Elem()
+}
+
+func (o ProjectSpecRoleJwtTokenArrayOutput) ToProjectSpecRoleJwtTokenArrayOutput() ProjectSpecRoleJwtTokenArrayOutput {
+	return o
+}
+
+func (o ProjectSpecRoleJwtTokenArrayOutput) ToProjectSpecRoleJwtTokenArrayOutputWithContext(ctx context.Context) ProjectSpecRoleJwtTokenArrayOutput {
+	return o
+}
+
+func (o ProjectSpecRoleJwtTokenArrayOutput) Index(i pulumi.IntInput) ProjectSpecRoleJwtTokenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecRoleJwtToken {
+		return vs[0].([]ProjectSpecRoleJwtToken)[vs[1].(int)]
+	}).(ProjectSpecRoleJwtTokenOutput)
+}
+
+type ProjectSpecSyncWindow struct {
+	// List of applications that the window will apply to.
+	Applications []string `pulumi:"applications"`
+	// List of clusters that the window will apply to.
+	Clusters []string `pulumi:"clusters"`
+	// Amount of time the sync window will be open.
+	Duration *string `pulumi:"duration"`
+	// Defines if the window allows or blocks syncs, allowed values are `allow` or `deny`.
+	Kind *string `pulumi:"kind"`
+	// Enables manual syncs when they would otherwise be blocked.
+	ManualSync *bool `pulumi:"manualSync"`
+	// List of namespaces that the window will apply to.
+	Namespaces []string `pulumi:"namespaces"`
+	// Time the window will begin, specified in cron format.
+	Schedule *string `pulumi:"schedule"`
+	// Timezone that the schedule will be evaluated in.
+	Timezone *string `pulumi:"timezone"`
+	// Defines if the AND operator should be used among the various conditions for the sync window.
+	UseAndOperator *bool `pulumi:"useAndOperator"`
+}
+
+// ProjectSpecSyncWindowInput is an input type that accepts ProjectSpecSyncWindowArgs and ProjectSpecSyncWindowOutput values.
+// You can construct a concrete instance of `ProjectSpecSyncWindowInput` via:
+//
+//	ProjectSpecSyncWindowArgs{...}
+type ProjectSpecSyncWindowInput interface {
+	pulumi.Input
+
+	ToProjectSpecSyncWindowOutput() ProjectSpecSyncWindowOutput
+	ToProjectSpecSyncWindowOutputWithContext(context.Context) ProjectSpecSyncWindowOutput
+}
+
+type ProjectSpecSyncWindowArgs struct {
+	// List of applications that the window will apply to.
+	Applications pulumi.StringArrayInput `pulumi:"applications"`
+	// List of clusters that the window will apply to.
+	Clusters pulumi.StringArrayInput `pulumi:"clusters"`
+	// Amount of time the sync window will be open.
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// Defines if the window allows or blocks syncs, allowed values are `allow` or `deny`.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Enables manual syncs when they would otherwise be blocked.
+	ManualSync pulumi.BoolPtrInput `pulumi:"manualSync"`
+	// List of namespaces that the window will apply to.
+	Namespaces pulumi.StringArrayInput `pulumi:"namespaces"`
+	// Time the window will begin, specified in cron format.
+	Schedule pulumi.StringPtrInput `pulumi:"schedule"`
+	// Timezone that the schedule will be evaluated in.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	// Defines if the AND operator should be used among the various conditions for the sync window.
+	UseAndOperator pulumi.BoolPtrInput `pulumi:"useAndOperator"`
+}
+
+func (ProjectSpecSyncWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecSyncWindow)(nil)).Elem()
+}
+
+func (i ProjectSpecSyncWindowArgs) ToProjectSpecSyncWindowOutput() ProjectSpecSyncWindowOutput {
+	return i.ToProjectSpecSyncWindowOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecSyncWindowArgs) ToProjectSpecSyncWindowOutputWithContext(ctx context.Context) ProjectSpecSyncWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecSyncWindowOutput)
+}
+
+// ProjectSpecSyncWindowArrayInput is an input type that accepts ProjectSpecSyncWindowArray and ProjectSpecSyncWindowArrayOutput values.
+// You can construct a concrete instance of `ProjectSpecSyncWindowArrayInput` via:
+//
+//	ProjectSpecSyncWindowArray{ ProjectSpecSyncWindowArgs{...} }
+type ProjectSpecSyncWindowArrayInput interface {
+	pulumi.Input
+
+	ToProjectSpecSyncWindowArrayOutput() ProjectSpecSyncWindowArrayOutput
+	ToProjectSpecSyncWindowArrayOutputWithContext(context.Context) ProjectSpecSyncWindowArrayOutput
+}
+
+type ProjectSpecSyncWindowArray []ProjectSpecSyncWindowInput
+
+func (ProjectSpecSyncWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecSyncWindow)(nil)).Elem()
+}
+
+func (i ProjectSpecSyncWindowArray) ToProjectSpecSyncWindowArrayOutput() ProjectSpecSyncWindowArrayOutput {
+	return i.ToProjectSpecSyncWindowArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSpecSyncWindowArray) ToProjectSpecSyncWindowArrayOutputWithContext(ctx context.Context) ProjectSpecSyncWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSpecSyncWindowArrayOutput)
+}
+
+type ProjectSpecSyncWindowOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecSyncWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSpecSyncWindow)(nil)).Elem()
+}
+
+func (o ProjectSpecSyncWindowOutput) ToProjectSpecSyncWindowOutput() ProjectSpecSyncWindowOutput {
+	return o
+}
+
+func (o ProjectSpecSyncWindowOutput) ToProjectSpecSyncWindowOutputWithContext(ctx context.Context) ProjectSpecSyncWindowOutput {
+	return o
+}
+
+// List of applications that the window will apply to.
+func (o ProjectSpecSyncWindowOutput) Applications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectSpecSyncWindow) []string { return v.Applications }).(pulumi.StringArrayOutput)
+}
+
+// List of clusters that the window will apply to.
+func (o ProjectSpecSyncWindowOutput) Clusters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectSpecSyncWindow) []string { return v.Clusters }).(pulumi.StringArrayOutput)
+}
+
+// Amount of time the sync window will be open.
+func (o ProjectSpecSyncWindowOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecSyncWindow) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+// Defines if the window allows or blocks syncs, allowed values are `allow` or `deny`.
+func (o ProjectSpecSyncWindowOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecSyncWindow) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Enables manual syncs when they would otherwise be blocked.
+func (o ProjectSpecSyncWindowOutput) ManualSync() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectSpecSyncWindow) *bool { return v.ManualSync }).(pulumi.BoolPtrOutput)
+}
+
+// List of namespaces that the window will apply to.
+func (o ProjectSpecSyncWindowOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectSpecSyncWindow) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
+}
+
+// Time the window will begin, specified in cron format.
+func (o ProjectSpecSyncWindowOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecSyncWindow) *string { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+// Timezone that the schedule will be evaluated in.
+func (o ProjectSpecSyncWindowOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSpecSyncWindow) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+// Defines if the AND operator should be used among the various conditions for the sync window.
+func (o ProjectSpecSyncWindowOutput) UseAndOperator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectSpecSyncWindow) *bool { return v.UseAndOperator }).(pulumi.BoolPtrOutput)
+}
+
+type ProjectSpecSyncWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSpecSyncWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSpecSyncWindow)(nil)).Elem()
+}
+
+func (o ProjectSpecSyncWindowArrayOutput) ToProjectSpecSyncWindowArrayOutput() ProjectSpecSyncWindowArrayOutput {
+	return o
+}
+
+func (o ProjectSpecSyncWindowArrayOutput) ToProjectSpecSyncWindowArrayOutputWithContext(ctx context.Context) ProjectSpecSyncWindowArrayOutput {
+	return o
+}
+
+func (o ProjectSpecSyncWindowArrayOutput) Index(i pulumi.IntInput) ProjectSpecSyncWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSpecSyncWindow {
+		return vs[0].([]ProjectSpecSyncWindow)[vs[1].(int)]
+	}).(ProjectSpecSyncWindowOutput)
+}
+
 type ProviderKubernetes struct {
 	// PEM-encoded client certificate for TLS authentication. Can be sourced from `KUBE_CLIENT_CERT_DATA`.
 	ClientCertificate *string `pulumi:"clientCertificate"`
@@ -34162,6 +36070,3091 @@ func (o ProviderKubernetesExecPtrOutput) Env() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+type RepositoryCertificateHttp struct {
+	// The actual certificate data, dependent on the certificate type
+	CertData string `pulumi:"certData"`
+	// Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+	CertInfo *string `pulumi:"certInfo"`
+	// The sub type of the cert, i.e. `ssh-rsa`
+	CertSubtype *string `pulumi:"certSubtype"`
+	// DNS name of the server this certificate is intended for
+	ServerName string `pulumi:"serverName"`
+}
+
+// RepositoryCertificateHttpInput is an input type that accepts RepositoryCertificateHttpArgs and RepositoryCertificateHttpOutput values.
+// You can construct a concrete instance of `RepositoryCertificateHttpInput` via:
+//
+//	RepositoryCertificateHttpArgs{...}
+type RepositoryCertificateHttpInput interface {
+	pulumi.Input
+
+	ToRepositoryCertificateHttpOutput() RepositoryCertificateHttpOutput
+	ToRepositoryCertificateHttpOutputWithContext(context.Context) RepositoryCertificateHttpOutput
+}
+
+type RepositoryCertificateHttpArgs struct {
+	// The actual certificate data, dependent on the certificate type
+	CertData pulumi.StringInput `pulumi:"certData"`
+	// Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+	CertInfo pulumi.StringPtrInput `pulumi:"certInfo"`
+	// The sub type of the cert, i.e. `ssh-rsa`
+	CertSubtype pulumi.StringPtrInput `pulumi:"certSubtype"`
+	// DNS name of the server this certificate is intended for
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (RepositoryCertificateHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCertificateHttp)(nil)).Elem()
+}
+
+func (i RepositoryCertificateHttpArgs) ToRepositoryCertificateHttpOutput() RepositoryCertificateHttpOutput {
+	return i.ToRepositoryCertificateHttpOutputWithContext(context.Background())
+}
+
+func (i RepositoryCertificateHttpArgs) ToRepositoryCertificateHttpOutputWithContext(ctx context.Context) RepositoryCertificateHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCertificateHttpOutput)
+}
+
+// RepositoryCertificateHttpArrayInput is an input type that accepts RepositoryCertificateHttpArray and RepositoryCertificateHttpArrayOutput values.
+// You can construct a concrete instance of `RepositoryCertificateHttpArrayInput` via:
+//
+//	RepositoryCertificateHttpArray{ RepositoryCertificateHttpArgs{...} }
+type RepositoryCertificateHttpArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryCertificateHttpArrayOutput() RepositoryCertificateHttpArrayOutput
+	ToRepositoryCertificateHttpArrayOutputWithContext(context.Context) RepositoryCertificateHttpArrayOutput
+}
+
+type RepositoryCertificateHttpArray []RepositoryCertificateHttpInput
+
+func (RepositoryCertificateHttpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCertificateHttp)(nil)).Elem()
+}
+
+func (i RepositoryCertificateHttpArray) ToRepositoryCertificateHttpArrayOutput() RepositoryCertificateHttpArrayOutput {
+	return i.ToRepositoryCertificateHttpArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryCertificateHttpArray) ToRepositoryCertificateHttpArrayOutputWithContext(ctx context.Context) RepositoryCertificateHttpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCertificateHttpArrayOutput)
+}
+
+type RepositoryCertificateHttpOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCertificateHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCertificateHttp)(nil)).Elem()
+}
+
+func (o RepositoryCertificateHttpOutput) ToRepositoryCertificateHttpOutput() RepositoryCertificateHttpOutput {
+	return o
+}
+
+func (o RepositoryCertificateHttpOutput) ToRepositoryCertificateHttpOutputWithContext(ctx context.Context) RepositoryCertificateHttpOutput {
+	return o
+}
+
+// The actual certificate data, dependent on the certificate type
+func (o RepositoryCertificateHttpOutput) CertData() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryCertificateHttp) string { return v.CertData }).(pulumi.StringOutput)
+}
+
+// Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+func (o RepositoryCertificateHttpOutput) CertInfo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCertificateHttp) *string { return v.CertInfo }).(pulumi.StringPtrOutput)
+}
+
+// The sub type of the cert, i.e. `ssh-rsa`
+func (o RepositoryCertificateHttpOutput) CertSubtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCertificateHttp) *string { return v.CertSubtype }).(pulumi.StringPtrOutput)
+}
+
+// DNS name of the server this certificate is intended for
+func (o RepositoryCertificateHttpOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryCertificateHttp) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+type RepositoryCertificateHttpArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCertificateHttpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCertificateHttp)(nil)).Elem()
+}
+
+func (o RepositoryCertificateHttpArrayOutput) ToRepositoryCertificateHttpArrayOutput() RepositoryCertificateHttpArrayOutput {
+	return o
+}
+
+func (o RepositoryCertificateHttpArrayOutput) ToRepositoryCertificateHttpArrayOutputWithContext(ctx context.Context) RepositoryCertificateHttpArrayOutput {
+	return o
+}
+
+func (o RepositoryCertificateHttpArrayOutput) Index(i pulumi.IntInput) RepositoryCertificateHttpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryCertificateHttp {
+		return vs[0].([]RepositoryCertificateHttp)[vs[1].(int)]
+	}).(RepositoryCertificateHttpOutput)
+}
+
+type RepositoryCertificateSsh struct {
+	// The actual certificate data, dependent on the certificate type
+	CertData string `pulumi:"certData"`
+	// Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+	CertInfo *string `pulumi:"certInfo"`
+	// The sub type of the cert, i.e. `ssh-rsa`
+	CertSubtype string `pulumi:"certSubtype"`
+	// DNS name of the server this certificate is intended for
+	ServerName string `pulumi:"serverName"`
+}
+
+// RepositoryCertificateSshInput is an input type that accepts RepositoryCertificateSshArgs and RepositoryCertificateSshOutput values.
+// You can construct a concrete instance of `RepositoryCertificateSshInput` via:
+//
+//	RepositoryCertificateSshArgs{...}
+type RepositoryCertificateSshInput interface {
+	pulumi.Input
+
+	ToRepositoryCertificateSshOutput() RepositoryCertificateSshOutput
+	ToRepositoryCertificateSshOutputWithContext(context.Context) RepositoryCertificateSshOutput
+}
+
+type RepositoryCertificateSshArgs struct {
+	// The actual certificate data, dependent on the certificate type
+	CertData pulumi.StringInput `pulumi:"certData"`
+	// Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+	CertInfo pulumi.StringPtrInput `pulumi:"certInfo"`
+	// The sub type of the cert, i.e. `ssh-rsa`
+	CertSubtype pulumi.StringInput `pulumi:"certSubtype"`
+	// DNS name of the server this certificate is intended for
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (RepositoryCertificateSshArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCertificateSsh)(nil)).Elem()
+}
+
+func (i RepositoryCertificateSshArgs) ToRepositoryCertificateSshOutput() RepositoryCertificateSshOutput {
+	return i.ToRepositoryCertificateSshOutputWithContext(context.Background())
+}
+
+func (i RepositoryCertificateSshArgs) ToRepositoryCertificateSshOutputWithContext(ctx context.Context) RepositoryCertificateSshOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCertificateSshOutput)
+}
+
+// RepositoryCertificateSshArrayInput is an input type that accepts RepositoryCertificateSshArray and RepositoryCertificateSshArrayOutput values.
+// You can construct a concrete instance of `RepositoryCertificateSshArrayInput` via:
+//
+//	RepositoryCertificateSshArray{ RepositoryCertificateSshArgs{...} }
+type RepositoryCertificateSshArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryCertificateSshArrayOutput() RepositoryCertificateSshArrayOutput
+	ToRepositoryCertificateSshArrayOutputWithContext(context.Context) RepositoryCertificateSshArrayOutput
+}
+
+type RepositoryCertificateSshArray []RepositoryCertificateSshInput
+
+func (RepositoryCertificateSshArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCertificateSsh)(nil)).Elem()
+}
+
+func (i RepositoryCertificateSshArray) ToRepositoryCertificateSshArrayOutput() RepositoryCertificateSshArrayOutput {
+	return i.ToRepositoryCertificateSshArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryCertificateSshArray) ToRepositoryCertificateSshArrayOutputWithContext(ctx context.Context) RepositoryCertificateSshArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCertificateSshArrayOutput)
+}
+
+type RepositoryCertificateSshOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCertificateSshOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCertificateSsh)(nil)).Elem()
+}
+
+func (o RepositoryCertificateSshOutput) ToRepositoryCertificateSshOutput() RepositoryCertificateSshOutput {
+	return o
+}
+
+func (o RepositoryCertificateSshOutput) ToRepositoryCertificateSshOutputWithContext(ctx context.Context) RepositoryCertificateSshOutput {
+	return o
+}
+
+// The actual certificate data, dependent on the certificate type
+func (o RepositoryCertificateSshOutput) CertData() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryCertificateSsh) string { return v.CertData }).(pulumi.StringOutput)
+}
+
+// Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+func (o RepositoryCertificateSshOutput) CertInfo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCertificateSsh) *string { return v.CertInfo }).(pulumi.StringPtrOutput)
+}
+
+// The sub type of the cert, i.e. `ssh-rsa`
+func (o RepositoryCertificateSshOutput) CertSubtype() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryCertificateSsh) string { return v.CertSubtype }).(pulumi.StringOutput)
+}
+
+// DNS name of the server this certificate is intended for
+func (o RepositoryCertificateSshOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryCertificateSsh) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+type RepositoryCertificateSshArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCertificateSshArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCertificateSsh)(nil)).Elem()
+}
+
+func (o RepositoryCertificateSshArrayOutput) ToRepositoryCertificateSshArrayOutput() RepositoryCertificateSshArrayOutput {
+	return o
+}
+
+func (o RepositoryCertificateSshArrayOutput) ToRepositoryCertificateSshArrayOutputWithContext(ctx context.Context) RepositoryCertificateSshArrayOutput {
+	return o
+}
+
+func (o RepositoryCertificateSshArrayOutput) Index(i pulumi.IntInput) RepositoryCertificateSshOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryCertificateSsh {
+		return vs[0].([]RepositoryCertificateSsh)[vs[1].(int)]
+	}).(RepositoryCertificateSshOutput)
+}
+
+type GetApplicationMetadata struct {
+	// An unstructured key value map stored with the applications.argoproj.io that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+	Annotations map[string]string `pulumi:"annotations"`
+	// A sequence number representing a specific generation of the desired state.
+	Generation int `pulumi:"generation"`
+	// Map of string keys and values that can be used to organize and categorize (scope and select) the applications.argoproj.io. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+	Labels map[string]string `pulumi:"labels"`
+	// Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+	Name string `pulumi:"name"`
+	// Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+	Namespace string `pulumi:"namespace"`
+	// An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when the applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+	ResourceVersion string `pulumi:"resourceVersion"`
+	// The unique in time and space value for this applications.argoproj.io. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+	Uid string `pulumi:"uid"`
+}
+
+// GetApplicationMetadataInput is an input type that accepts GetApplicationMetadataArgs and GetApplicationMetadataOutput values.
+// You can construct a concrete instance of `GetApplicationMetadataInput` via:
+//
+//	GetApplicationMetadataArgs{...}
+type GetApplicationMetadataInput interface {
+	pulumi.Input
+
+	ToGetApplicationMetadataOutput() GetApplicationMetadataOutput
+	ToGetApplicationMetadataOutputWithContext(context.Context) GetApplicationMetadataOutput
+}
+
+type GetApplicationMetadataArgs struct {
+	// An unstructured key value map stored with the applications.argoproj.io that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+	Annotations pulumi.StringMapInput `pulumi:"annotations"`
+	// A sequence number representing a specific generation of the desired state.
+	Generation pulumi.IntInput `pulumi:"generation"`
+	// Map of string keys and values that can be used to organize and categorize (scope and select) the applications.argoproj.io. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+	Name pulumi.StringInput `pulumi:"name"`
+	// Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when the applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+	ResourceVersion pulumi.StringInput `pulumi:"resourceVersion"`
+	// The unique in time and space value for this applications.argoproj.io. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+	Uid pulumi.StringInput `pulumi:"uid"`
+}
+
+func (GetApplicationMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationMetadata)(nil)).Elem()
+}
+
+func (i GetApplicationMetadataArgs) ToGetApplicationMetadataOutput() GetApplicationMetadataOutput {
+	return i.ToGetApplicationMetadataOutputWithContext(context.Background())
+}
+
+func (i GetApplicationMetadataArgs) ToGetApplicationMetadataOutputWithContext(ctx context.Context) GetApplicationMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationMetadataOutput)
+}
+
+type GetApplicationMetadataOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationMetadata)(nil)).Elem()
+}
+
+func (o GetApplicationMetadataOutput) ToGetApplicationMetadataOutput() GetApplicationMetadataOutput {
+	return o
+}
+
+func (o GetApplicationMetadataOutput) ToGetApplicationMetadataOutputWithContext(ctx context.Context) GetApplicationMetadataOutput {
+	return o
+}
+
+// An unstructured key value map stored with the applications.argoproj.io that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+func (o GetApplicationMetadataOutput) Annotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetApplicationMetadata) map[string]string { return v.Annotations }).(pulumi.StringMapOutput)
+}
+
+// A sequence number representing a specific generation of the desired state.
+func (o GetApplicationMetadataOutput) Generation() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationMetadata) int { return v.Generation }).(pulumi.IntOutput)
+}
+
+// Map of string keys and values that can be used to organize and categorize (scope and select) the applications.argoproj.io. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+func (o GetApplicationMetadataOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetApplicationMetadata) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+func (o GetApplicationMetadataOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationMetadata) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+func (o GetApplicationMetadataOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationMetadata) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when the applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+func (o GetApplicationMetadataOutput) ResourceVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationMetadata) string { return v.ResourceVersion }).(pulumi.StringOutput)
+}
+
+// The unique in time and space value for this applications.argoproj.io. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+func (o GetApplicationMetadataOutput) Uid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationMetadata) string { return v.Uid }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpec struct {
+	// Reference to the Kubernetes server and namespace in which the application will be deployed.
+	Destination GetApplicationSpecDestination `pulumi:"destination"`
+	// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+	IgnoreDifferences []GetApplicationSpecIgnoreDifference `pulumi:"ignoreDifferences"`
+	// List of information (URLs, email addresses, and plain text) that relates to the application.
+	Infos []GetApplicationSpecInfo `pulumi:"infos"`
+	// The project the application belongs to. Defaults to `default`.
+	Project string `pulumi:"project"`
+	// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+	RevisionHistoryLimit int `pulumi:"revisionHistoryLimit"`
+	// Location of the application's manifests or chart.
+	Sources []GetApplicationSpecSource `pulumi:"sources"`
+	// Controls when and how a sync will be performed.
+	SyncPolicy GetApplicationSpecSyncPolicy `pulumi:"syncPolicy"`
+}
+
+// GetApplicationSpecInput is an input type that accepts GetApplicationSpecArgs and GetApplicationSpecOutput values.
+// You can construct a concrete instance of `GetApplicationSpecInput` via:
+//
+//	GetApplicationSpecArgs{...}
+type GetApplicationSpecInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecOutput() GetApplicationSpecOutput
+	ToGetApplicationSpecOutputWithContext(context.Context) GetApplicationSpecOutput
+}
+
+type GetApplicationSpecArgs struct {
+	// Reference to the Kubernetes server and namespace in which the application will be deployed.
+	Destination GetApplicationSpecDestinationInput `pulumi:"destination"`
+	// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+	IgnoreDifferences GetApplicationSpecIgnoreDifferenceArrayInput `pulumi:"ignoreDifferences"`
+	// List of information (URLs, email addresses, and plain text) that relates to the application.
+	Infos GetApplicationSpecInfoArrayInput `pulumi:"infos"`
+	// The project the application belongs to. Defaults to `default`.
+	Project pulumi.StringInput `pulumi:"project"`
+	// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+	RevisionHistoryLimit pulumi.IntInput `pulumi:"revisionHistoryLimit"`
+	// Location of the application's manifests or chart.
+	Sources GetApplicationSpecSourceArrayInput `pulumi:"sources"`
+	// Controls when and how a sync will be performed.
+	SyncPolicy GetApplicationSpecSyncPolicyInput `pulumi:"syncPolicy"`
+}
+
+func (GetApplicationSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpec)(nil)).Elem()
+}
+
+func (i GetApplicationSpecArgs) ToGetApplicationSpecOutput() GetApplicationSpecOutput {
+	return i.ToGetApplicationSpecOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecArgs) ToGetApplicationSpecOutputWithContext(ctx context.Context) GetApplicationSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecOutput)
+}
+
+type GetApplicationSpecOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpec)(nil)).Elem()
+}
+
+func (o GetApplicationSpecOutput) ToGetApplicationSpecOutput() GetApplicationSpecOutput {
+	return o
+}
+
+func (o GetApplicationSpecOutput) ToGetApplicationSpecOutputWithContext(ctx context.Context) GetApplicationSpecOutput {
+	return o
+}
+
+// Reference to the Kubernetes server and namespace in which the application will be deployed.
+func (o GetApplicationSpecOutput) Destination() GetApplicationSpecDestinationOutput {
+	return o.ApplyT(func(v GetApplicationSpec) GetApplicationSpecDestination { return v.Destination }).(GetApplicationSpecDestinationOutput)
+}
+
+// Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+func (o GetApplicationSpecOutput) IgnoreDifferences() GetApplicationSpecIgnoreDifferenceArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpec) []GetApplicationSpecIgnoreDifference { return v.IgnoreDifferences }).(GetApplicationSpecIgnoreDifferenceArrayOutput)
+}
+
+// List of information (URLs, email addresses, and plain text) that relates to the application.
+func (o GetApplicationSpecOutput) Infos() GetApplicationSpecInfoArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpec) []GetApplicationSpecInfo { return v.Infos }).(GetApplicationSpecInfoArrayOutput)
+}
+
+// The project the application belongs to. Defaults to `default`.
+func (o GetApplicationSpecOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpec) string { return v.Project }).(pulumi.StringOutput)
+}
+
+// Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+func (o GetApplicationSpecOutput) RevisionHistoryLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationSpec) int { return v.RevisionHistoryLimit }).(pulumi.IntOutput)
+}
+
+// Location of the application's manifests or chart.
+func (o GetApplicationSpecOutput) Sources() GetApplicationSpecSourceArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpec) []GetApplicationSpecSource { return v.Sources }).(GetApplicationSpecSourceArrayOutput)
+}
+
+// Controls when and how a sync will be performed.
+func (o GetApplicationSpecOutput) SyncPolicy() GetApplicationSpecSyncPolicyOutput {
+	return o.ApplyT(func(v GetApplicationSpec) GetApplicationSpecSyncPolicy { return v.SyncPolicy }).(GetApplicationSpecSyncPolicyOutput)
+}
+
+type GetApplicationSpecDestination struct {
+	// Name of the target cluster. Can be used instead of `server`.
+	Name string `pulumi:"name"`
+	// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+	Namespace string `pulumi:"namespace"`
+	// URL of the target cluster and must be set to the Kubernetes control plane API.
+	Server string `pulumi:"server"`
+}
+
+// GetApplicationSpecDestinationInput is an input type that accepts GetApplicationSpecDestinationArgs and GetApplicationSpecDestinationOutput values.
+// You can construct a concrete instance of `GetApplicationSpecDestinationInput` via:
+//
+//	GetApplicationSpecDestinationArgs{...}
+type GetApplicationSpecDestinationInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecDestinationOutput() GetApplicationSpecDestinationOutput
+	ToGetApplicationSpecDestinationOutputWithContext(context.Context) GetApplicationSpecDestinationOutput
+}
+
+type GetApplicationSpecDestinationArgs struct {
+	// Name of the target cluster. Can be used instead of `server`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// URL of the target cluster and must be set to the Kubernetes control plane API.
+	Server pulumi.StringInput `pulumi:"server"`
+}
+
+func (GetApplicationSpecDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecDestination)(nil)).Elem()
+}
+
+func (i GetApplicationSpecDestinationArgs) ToGetApplicationSpecDestinationOutput() GetApplicationSpecDestinationOutput {
+	return i.ToGetApplicationSpecDestinationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecDestinationArgs) ToGetApplicationSpecDestinationOutputWithContext(ctx context.Context) GetApplicationSpecDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecDestinationOutput)
+}
+
+type GetApplicationSpecDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecDestination)(nil)).Elem()
+}
+
+func (o GetApplicationSpecDestinationOutput) ToGetApplicationSpecDestinationOutput() GetApplicationSpecDestinationOutput {
+	return o
+}
+
+func (o GetApplicationSpecDestinationOutput) ToGetApplicationSpecDestinationOutputWithContext(ctx context.Context) GetApplicationSpecDestinationOutput {
+	return o
+}
+
+// Name of the target cluster. Can be used instead of `server`.
+func (o GetApplicationSpecDestinationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecDestination) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+func (o GetApplicationSpecDestinationOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecDestination) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// URL of the target cluster and must be set to the Kubernetes control plane API.
+func (o GetApplicationSpecDestinationOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecDestination) string { return v.Server }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecIgnoreDifference struct {
+	// The Kubernetes resource Group to match for.
+	Group string `pulumi:"group"`
+	// List of JQ path expression strings targeting the field(s) to ignore.
+	JqPathExpressions []string `pulumi:"jqPathExpressions"`
+	// List of JSONPaths strings targeting the field(s) to ignore.
+	JsonPointers []string `pulumi:"jsonPointers"`
+	// The Kubernetes resource Kind to match for.
+	Kind string `pulumi:"kind"`
+	// The Kubernetes resource Name to match for.
+	Name string `pulumi:"name"`
+	// The Kubernetes resource Namespace to match for.
+	Namespace string `pulumi:"namespace"`
+}
+
+// GetApplicationSpecIgnoreDifferenceInput is an input type that accepts GetApplicationSpecIgnoreDifferenceArgs and GetApplicationSpecIgnoreDifferenceOutput values.
+// You can construct a concrete instance of `GetApplicationSpecIgnoreDifferenceInput` via:
+//
+//	GetApplicationSpecIgnoreDifferenceArgs{...}
+type GetApplicationSpecIgnoreDifferenceInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecIgnoreDifferenceOutput() GetApplicationSpecIgnoreDifferenceOutput
+	ToGetApplicationSpecIgnoreDifferenceOutputWithContext(context.Context) GetApplicationSpecIgnoreDifferenceOutput
+}
+
+type GetApplicationSpecIgnoreDifferenceArgs struct {
+	// The Kubernetes resource Group to match for.
+	Group pulumi.StringInput `pulumi:"group"`
+	// List of JQ path expression strings targeting the field(s) to ignore.
+	JqPathExpressions pulumi.StringArrayInput `pulumi:"jqPathExpressions"`
+	// List of JSONPaths strings targeting the field(s) to ignore.
+	JsonPointers pulumi.StringArrayInput `pulumi:"jsonPointers"`
+	// The Kubernetes resource Kind to match for.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The Kubernetes resource Name to match for.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Kubernetes resource Namespace to match for.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (GetApplicationSpecIgnoreDifferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecIgnoreDifference)(nil)).Elem()
+}
+
+func (i GetApplicationSpecIgnoreDifferenceArgs) ToGetApplicationSpecIgnoreDifferenceOutput() GetApplicationSpecIgnoreDifferenceOutput {
+	return i.ToGetApplicationSpecIgnoreDifferenceOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecIgnoreDifferenceArgs) ToGetApplicationSpecIgnoreDifferenceOutputWithContext(ctx context.Context) GetApplicationSpecIgnoreDifferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecIgnoreDifferenceOutput)
+}
+
+// GetApplicationSpecIgnoreDifferenceArrayInput is an input type that accepts GetApplicationSpecIgnoreDifferenceArray and GetApplicationSpecIgnoreDifferenceArrayOutput values.
+// You can construct a concrete instance of `GetApplicationSpecIgnoreDifferenceArrayInput` via:
+//
+//	GetApplicationSpecIgnoreDifferenceArray{ GetApplicationSpecIgnoreDifferenceArgs{...} }
+type GetApplicationSpecIgnoreDifferenceArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecIgnoreDifferenceArrayOutput() GetApplicationSpecIgnoreDifferenceArrayOutput
+	ToGetApplicationSpecIgnoreDifferenceArrayOutputWithContext(context.Context) GetApplicationSpecIgnoreDifferenceArrayOutput
+}
+
+type GetApplicationSpecIgnoreDifferenceArray []GetApplicationSpecIgnoreDifferenceInput
+
+func (GetApplicationSpecIgnoreDifferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecIgnoreDifference)(nil)).Elem()
+}
+
+func (i GetApplicationSpecIgnoreDifferenceArray) ToGetApplicationSpecIgnoreDifferenceArrayOutput() GetApplicationSpecIgnoreDifferenceArrayOutput {
+	return i.ToGetApplicationSpecIgnoreDifferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecIgnoreDifferenceArray) ToGetApplicationSpecIgnoreDifferenceArrayOutputWithContext(ctx context.Context) GetApplicationSpecIgnoreDifferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecIgnoreDifferenceArrayOutput)
+}
+
+type GetApplicationSpecIgnoreDifferenceOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecIgnoreDifferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecIgnoreDifference)(nil)).Elem()
+}
+
+func (o GetApplicationSpecIgnoreDifferenceOutput) ToGetApplicationSpecIgnoreDifferenceOutput() GetApplicationSpecIgnoreDifferenceOutput {
+	return o
+}
+
+func (o GetApplicationSpecIgnoreDifferenceOutput) ToGetApplicationSpecIgnoreDifferenceOutputWithContext(ctx context.Context) GetApplicationSpecIgnoreDifferenceOutput {
+	return o
+}
+
+// The Kubernetes resource Group to match for.
+func (o GetApplicationSpecIgnoreDifferenceOutput) Group() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecIgnoreDifference) string { return v.Group }).(pulumi.StringOutput)
+}
+
+// List of JQ path expression strings targeting the field(s) to ignore.
+func (o GetApplicationSpecIgnoreDifferenceOutput) JqPathExpressions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecIgnoreDifference) []string { return v.JqPathExpressions }).(pulumi.StringArrayOutput)
+}
+
+// List of JSONPaths strings targeting the field(s) to ignore.
+func (o GetApplicationSpecIgnoreDifferenceOutput) JsonPointers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecIgnoreDifference) []string { return v.JsonPointers }).(pulumi.StringArrayOutput)
+}
+
+// The Kubernetes resource Kind to match for.
+func (o GetApplicationSpecIgnoreDifferenceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecIgnoreDifference) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The Kubernetes resource Name to match for.
+func (o GetApplicationSpecIgnoreDifferenceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecIgnoreDifference) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Kubernetes resource Namespace to match for.
+func (o GetApplicationSpecIgnoreDifferenceOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecIgnoreDifference) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecIgnoreDifferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecIgnoreDifferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecIgnoreDifference)(nil)).Elem()
+}
+
+func (o GetApplicationSpecIgnoreDifferenceArrayOutput) ToGetApplicationSpecIgnoreDifferenceArrayOutput() GetApplicationSpecIgnoreDifferenceArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecIgnoreDifferenceArrayOutput) ToGetApplicationSpecIgnoreDifferenceArrayOutputWithContext(ctx context.Context) GetApplicationSpecIgnoreDifferenceArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecIgnoreDifferenceArrayOutput) Index(i pulumi.IntInput) GetApplicationSpecIgnoreDifferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationSpecIgnoreDifference {
+		return vs[0].([]GetApplicationSpecIgnoreDifference)[vs[1].(int)]
+	}).(GetApplicationSpecIgnoreDifferenceOutput)
+}
+
+type GetApplicationSpecInfo struct {
+	// Name of the information.
+	Name string `pulumi:"name"`
+	// Value of the information.
+	Value string `pulumi:"value"`
+}
+
+// GetApplicationSpecInfoInput is an input type that accepts GetApplicationSpecInfoArgs and GetApplicationSpecInfoOutput values.
+// You can construct a concrete instance of `GetApplicationSpecInfoInput` via:
+//
+//	GetApplicationSpecInfoArgs{...}
+type GetApplicationSpecInfoInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecInfoOutput() GetApplicationSpecInfoOutput
+	ToGetApplicationSpecInfoOutputWithContext(context.Context) GetApplicationSpecInfoOutput
+}
+
+type GetApplicationSpecInfoArgs struct {
+	// Name of the information.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the information.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetApplicationSpecInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecInfo)(nil)).Elem()
+}
+
+func (i GetApplicationSpecInfoArgs) ToGetApplicationSpecInfoOutput() GetApplicationSpecInfoOutput {
+	return i.ToGetApplicationSpecInfoOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecInfoArgs) ToGetApplicationSpecInfoOutputWithContext(ctx context.Context) GetApplicationSpecInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecInfoOutput)
+}
+
+// GetApplicationSpecInfoArrayInput is an input type that accepts GetApplicationSpecInfoArray and GetApplicationSpecInfoArrayOutput values.
+// You can construct a concrete instance of `GetApplicationSpecInfoArrayInput` via:
+//
+//	GetApplicationSpecInfoArray{ GetApplicationSpecInfoArgs{...} }
+type GetApplicationSpecInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecInfoArrayOutput() GetApplicationSpecInfoArrayOutput
+	ToGetApplicationSpecInfoArrayOutputWithContext(context.Context) GetApplicationSpecInfoArrayOutput
+}
+
+type GetApplicationSpecInfoArray []GetApplicationSpecInfoInput
+
+func (GetApplicationSpecInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecInfo)(nil)).Elem()
+}
+
+func (i GetApplicationSpecInfoArray) ToGetApplicationSpecInfoArrayOutput() GetApplicationSpecInfoArrayOutput {
+	return i.ToGetApplicationSpecInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecInfoArray) ToGetApplicationSpecInfoArrayOutputWithContext(ctx context.Context) GetApplicationSpecInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecInfoArrayOutput)
+}
+
+type GetApplicationSpecInfoOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecInfo)(nil)).Elem()
+}
+
+func (o GetApplicationSpecInfoOutput) ToGetApplicationSpecInfoOutput() GetApplicationSpecInfoOutput {
+	return o
+}
+
+func (o GetApplicationSpecInfoOutput) ToGetApplicationSpecInfoOutputWithContext(ctx context.Context) GetApplicationSpecInfoOutput {
+	return o
+}
+
+// Name of the information.
+func (o GetApplicationSpecInfoOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecInfo) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the information.
+func (o GetApplicationSpecInfoOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecInfo) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecInfo)(nil)).Elem()
+}
+
+func (o GetApplicationSpecInfoArrayOutput) ToGetApplicationSpecInfoArrayOutput() GetApplicationSpecInfoArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecInfoArrayOutput) ToGetApplicationSpecInfoArrayOutputWithContext(ctx context.Context) GetApplicationSpecInfoArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecInfoArrayOutput) Index(i pulumi.IntInput) GetApplicationSpecInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationSpecInfo {
+		return vs[0].([]GetApplicationSpecInfo)[vs[1].(int)]
+	}).(GetApplicationSpecInfoOutput)
+}
+
+type GetApplicationSpecSource struct {
+	// Helm chart name. Must be specified for applications sourced from a Helm repo.
+	Chart string `pulumi:"chart"`
+	// Path/directory specific options.
+	Directory GetApplicationSpecSourceDirectory `pulumi:"directory"`
+	// Helm specific options.
+	Helm GetApplicationSpecSourceHelm `pulumi:"helm"`
+	// Kustomize specific options.
+	Kustomize GetApplicationSpecSourceKustomize `pulumi:"kustomize"`
+	// Name is used to refer to a source and is displayed in the UI. It is supported in multi-source Applications since version 2.14
+	Name string `pulumi:"name"`
+	// Directory path within the repository. Only valid for applications sourced from Git.
+	Path string `pulumi:"path"`
+	// Config management plugin specific options.
+	Plugin GetApplicationSpecSourcePlugin `pulumi:"plugin"`
+	// Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+	Ref string `pulumi:"ref"`
+	// URL to the repository (Git or Helm) that contains the application manifests.
+	RepoUrl string `pulumi:"repoUrl"`
+	// Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+	TargetRevision string `pulumi:"targetRevision"`
+}
+
+// GetApplicationSpecSourceInput is an input type that accepts GetApplicationSpecSourceArgs and GetApplicationSpecSourceOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceInput` via:
+//
+//	GetApplicationSpecSourceArgs{...}
+type GetApplicationSpecSourceInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceOutput() GetApplicationSpecSourceOutput
+	ToGetApplicationSpecSourceOutputWithContext(context.Context) GetApplicationSpecSourceOutput
+}
+
+type GetApplicationSpecSourceArgs struct {
+	// Helm chart name. Must be specified for applications sourced from a Helm repo.
+	Chart pulumi.StringInput `pulumi:"chart"`
+	// Path/directory specific options.
+	Directory GetApplicationSpecSourceDirectoryInput `pulumi:"directory"`
+	// Helm specific options.
+	Helm GetApplicationSpecSourceHelmInput `pulumi:"helm"`
+	// Kustomize specific options.
+	Kustomize GetApplicationSpecSourceKustomizeInput `pulumi:"kustomize"`
+	// Name is used to refer to a source and is displayed in the UI. It is supported in multi-source Applications since version 2.14
+	Name pulumi.StringInput `pulumi:"name"`
+	// Directory path within the repository. Only valid for applications sourced from Git.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Config management plugin specific options.
+	Plugin GetApplicationSpecSourcePluginInput `pulumi:"plugin"`
+	// Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+	Ref pulumi.StringInput `pulumi:"ref"`
+	// URL to the repository (Git or Helm) that contains the application manifests.
+	RepoUrl pulumi.StringInput `pulumi:"repoUrl"`
+	// Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+	TargetRevision pulumi.StringInput `pulumi:"targetRevision"`
+}
+
+func (GetApplicationSpecSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSource)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceArgs) ToGetApplicationSpecSourceOutput() GetApplicationSpecSourceOutput {
+	return i.ToGetApplicationSpecSourceOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceArgs) ToGetApplicationSpecSourceOutputWithContext(ctx context.Context) GetApplicationSpecSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceOutput)
+}
+
+// GetApplicationSpecSourceArrayInput is an input type that accepts GetApplicationSpecSourceArray and GetApplicationSpecSourceArrayOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceArrayInput` via:
+//
+//	GetApplicationSpecSourceArray{ GetApplicationSpecSourceArgs{...} }
+type GetApplicationSpecSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceArrayOutput() GetApplicationSpecSourceArrayOutput
+	ToGetApplicationSpecSourceArrayOutputWithContext(context.Context) GetApplicationSpecSourceArrayOutput
+}
+
+type GetApplicationSpecSourceArray []GetApplicationSpecSourceInput
+
+func (GetApplicationSpecSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSource)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceArray) ToGetApplicationSpecSourceArrayOutput() GetApplicationSpecSourceArrayOutput {
+	return i.ToGetApplicationSpecSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceArray) ToGetApplicationSpecSourceArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceArrayOutput)
+}
+
+type GetApplicationSpecSourceOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSource)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceOutput) ToGetApplicationSpecSourceOutput() GetApplicationSpecSourceOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceOutput) ToGetApplicationSpecSourceOutputWithContext(ctx context.Context) GetApplicationSpecSourceOutput {
+	return o
+}
+
+// Helm chart name. Must be specified for applications sourced from a Helm repo.
+func (o GetApplicationSpecSourceOutput) Chart() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSource) string { return v.Chart }).(pulumi.StringOutput)
+}
+
+// Path/directory specific options.
+func (o GetApplicationSpecSourceOutput) Directory() GetApplicationSpecSourceDirectoryOutput {
+	return o.ApplyT(func(v GetApplicationSpecSource) GetApplicationSpecSourceDirectory { return v.Directory }).(GetApplicationSpecSourceDirectoryOutput)
+}
+
+// Helm specific options.
+func (o GetApplicationSpecSourceOutput) Helm() GetApplicationSpecSourceHelmOutput {
+	return o.ApplyT(func(v GetApplicationSpecSource) GetApplicationSpecSourceHelm { return v.Helm }).(GetApplicationSpecSourceHelmOutput)
+}
+
+// Kustomize specific options.
+func (o GetApplicationSpecSourceOutput) Kustomize() GetApplicationSpecSourceKustomizeOutput {
+	return o.ApplyT(func(v GetApplicationSpecSource) GetApplicationSpecSourceKustomize { return v.Kustomize }).(GetApplicationSpecSourceKustomizeOutput)
+}
+
+// Name is used to refer to a source and is displayed in the UI. It is supported in multi-source Applications since version 2.14
+func (o GetApplicationSpecSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Directory path within the repository. Only valid for applications sourced from Git.
+func (o GetApplicationSpecSourceOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSource) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Config management plugin specific options.
+func (o GetApplicationSpecSourceOutput) Plugin() GetApplicationSpecSourcePluginOutput {
+	return o.ApplyT(func(v GetApplicationSpecSource) GetApplicationSpecSourcePlugin { return v.Plugin }).(GetApplicationSpecSourcePluginOutput)
+}
+
+// Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+func (o GetApplicationSpecSourceOutput) Ref() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSource) string { return v.Ref }).(pulumi.StringOutput)
+}
+
+// URL to the repository (Git or Helm) that contains the application manifests.
+func (o GetApplicationSpecSourceOutput) RepoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSource) string { return v.RepoUrl }).(pulumi.StringOutput)
+}
+
+// Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+func (o GetApplicationSpecSourceOutput) TargetRevision() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSource) string { return v.TargetRevision }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSource)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceArrayOutput) ToGetApplicationSpecSourceArrayOutput() GetApplicationSpecSourceArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceArrayOutput) ToGetApplicationSpecSourceArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourceArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceArrayOutput) Index(i pulumi.IntInput) GetApplicationSpecSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationSpecSource {
+		return vs[0].([]GetApplicationSpecSource)[vs[1].(int)]
+	}).(GetApplicationSpecSourceOutput)
+}
+
+type GetApplicationSpecSourceDirectory struct {
+	// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+	Exclude string `pulumi:"exclude"`
+	// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+	Include string `pulumi:"include"`
+	// Jsonnet specific options.
+	Jsonnet GetApplicationSpecSourceDirectoryJsonnet `pulumi:"jsonnet"`
+	// Whether to scan a directory recursively for manifests.
+	Recurse bool `pulumi:"recurse"`
+}
+
+// GetApplicationSpecSourceDirectoryInput is an input type that accepts GetApplicationSpecSourceDirectoryArgs and GetApplicationSpecSourceDirectoryOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceDirectoryInput` via:
+//
+//	GetApplicationSpecSourceDirectoryArgs{...}
+type GetApplicationSpecSourceDirectoryInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceDirectoryOutput() GetApplicationSpecSourceDirectoryOutput
+	ToGetApplicationSpecSourceDirectoryOutputWithContext(context.Context) GetApplicationSpecSourceDirectoryOutput
+}
+
+type GetApplicationSpecSourceDirectoryArgs struct {
+	// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+	Exclude pulumi.StringInput `pulumi:"exclude"`
+	// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+	Include pulumi.StringInput `pulumi:"include"`
+	// Jsonnet specific options.
+	Jsonnet GetApplicationSpecSourceDirectoryJsonnetInput `pulumi:"jsonnet"`
+	// Whether to scan a directory recursively for manifests.
+	Recurse pulumi.BoolInput `pulumi:"recurse"`
+}
+
+func (GetApplicationSpecSourceDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceDirectory)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceDirectoryArgs) ToGetApplicationSpecSourceDirectoryOutput() GetApplicationSpecSourceDirectoryOutput {
+	return i.ToGetApplicationSpecSourceDirectoryOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceDirectoryArgs) ToGetApplicationSpecSourceDirectoryOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceDirectoryOutput)
+}
+
+type GetApplicationSpecSourceDirectoryOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceDirectory)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceDirectoryOutput) ToGetApplicationSpecSourceDirectoryOutput() GetApplicationSpecSourceDirectoryOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceDirectoryOutput) ToGetApplicationSpecSourceDirectoryOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryOutput {
+	return o
+}
+
+// Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+func (o GetApplicationSpecSourceDirectoryOutput) Exclude() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectory) string { return v.Exclude }).(pulumi.StringOutput)
+}
+
+// Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+func (o GetApplicationSpecSourceDirectoryOutput) Include() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectory) string { return v.Include }).(pulumi.StringOutput)
+}
+
+// Jsonnet specific options.
+func (o GetApplicationSpecSourceDirectoryOutput) Jsonnet() GetApplicationSpecSourceDirectoryJsonnetOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectory) GetApplicationSpecSourceDirectoryJsonnet { return v.Jsonnet }).(GetApplicationSpecSourceDirectoryJsonnetOutput)
+}
+
+// Whether to scan a directory recursively for manifests.
+func (o GetApplicationSpecSourceDirectoryOutput) Recurse() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectory) bool { return v.Recurse }).(pulumi.BoolOutput)
+}
+
+type GetApplicationSpecSourceDirectoryJsonnet struct {
+	// List of Jsonnet External Variables.
+	ExtVars []GetApplicationSpecSourceDirectoryJsonnetExtVar `pulumi:"extVars"`
+	// Additional library search dirs.
+	Libs []string `pulumi:"libs"`
+	// List of Jsonnet Top-level Arguments
+	Tlas []GetApplicationSpecSourceDirectoryJsonnetTla `pulumi:"tlas"`
+}
+
+// GetApplicationSpecSourceDirectoryJsonnetInput is an input type that accepts GetApplicationSpecSourceDirectoryJsonnetArgs and GetApplicationSpecSourceDirectoryJsonnetOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceDirectoryJsonnetInput` via:
+//
+//	GetApplicationSpecSourceDirectoryJsonnetArgs{...}
+type GetApplicationSpecSourceDirectoryJsonnetInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceDirectoryJsonnetOutput() GetApplicationSpecSourceDirectoryJsonnetOutput
+	ToGetApplicationSpecSourceDirectoryJsonnetOutputWithContext(context.Context) GetApplicationSpecSourceDirectoryJsonnetOutput
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetArgs struct {
+	// List of Jsonnet External Variables.
+	ExtVars GetApplicationSpecSourceDirectoryJsonnetExtVarArrayInput `pulumi:"extVars"`
+	// Additional library search dirs.
+	Libs pulumi.StringArrayInput `pulumi:"libs"`
+	// List of Jsonnet Top-level Arguments
+	Tlas GetApplicationSpecSourceDirectoryJsonnetTlaArrayInput `pulumi:"tlas"`
+}
+
+func (GetApplicationSpecSourceDirectoryJsonnetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnet)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceDirectoryJsonnetArgs) ToGetApplicationSpecSourceDirectoryJsonnetOutput() GetApplicationSpecSourceDirectoryJsonnetOutput {
+	return i.ToGetApplicationSpecSourceDirectoryJsonnetOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceDirectoryJsonnetArgs) ToGetApplicationSpecSourceDirectoryJsonnetOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryJsonnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceDirectoryJsonnetOutput)
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceDirectoryJsonnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnet)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetOutput) ToGetApplicationSpecSourceDirectoryJsonnetOutput() GetApplicationSpecSourceDirectoryJsonnetOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetOutput) ToGetApplicationSpecSourceDirectoryJsonnetOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryJsonnetOutput {
+	return o
+}
+
+// List of Jsonnet External Variables.
+func (o GetApplicationSpecSourceDirectoryJsonnetOutput) ExtVars() GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectoryJsonnet) []GetApplicationSpecSourceDirectoryJsonnetExtVar {
+		return v.ExtVars
+	}).(GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput)
+}
+
+// Additional library search dirs.
+func (o GetApplicationSpecSourceDirectoryJsonnetOutput) Libs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectoryJsonnet) []string { return v.Libs }).(pulumi.StringArrayOutput)
+}
+
+// List of Jsonnet Top-level Arguments
+func (o GetApplicationSpecSourceDirectoryJsonnetOutput) Tlas() GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectoryJsonnet) []GetApplicationSpecSourceDirectoryJsonnetTla {
+		return v.Tlas
+	}).(GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput)
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetExtVar struct {
+	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+	Code bool `pulumi:"code"`
+	// Name of Jsonnet variable.
+	Name string `pulumi:"name"`
+	// Value of Jsonnet variable.
+	Value string `pulumi:"value"`
+}
+
+// GetApplicationSpecSourceDirectoryJsonnetExtVarInput is an input type that accepts GetApplicationSpecSourceDirectoryJsonnetExtVarArgs and GetApplicationSpecSourceDirectoryJsonnetExtVarOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceDirectoryJsonnetExtVarInput` via:
+//
+//	GetApplicationSpecSourceDirectoryJsonnetExtVarArgs{...}
+type GetApplicationSpecSourceDirectoryJsonnetExtVarInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceDirectoryJsonnetExtVarOutput() GetApplicationSpecSourceDirectoryJsonnetExtVarOutput
+	ToGetApplicationSpecSourceDirectoryJsonnetExtVarOutputWithContext(context.Context) GetApplicationSpecSourceDirectoryJsonnetExtVarOutput
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetExtVarArgs struct {
+	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+	Code pulumi.BoolInput `pulumi:"code"`
+	// Name of Jsonnet variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of Jsonnet variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetApplicationSpecSourceDirectoryJsonnetExtVarArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceDirectoryJsonnetExtVarArgs) ToGetApplicationSpecSourceDirectoryJsonnetExtVarOutput() GetApplicationSpecSourceDirectoryJsonnetExtVarOutput {
+	return i.ToGetApplicationSpecSourceDirectoryJsonnetExtVarOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceDirectoryJsonnetExtVarArgs) ToGetApplicationSpecSourceDirectoryJsonnetExtVarOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryJsonnetExtVarOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceDirectoryJsonnetExtVarOutput)
+}
+
+// GetApplicationSpecSourceDirectoryJsonnetExtVarArrayInput is an input type that accepts GetApplicationSpecSourceDirectoryJsonnetExtVarArray and GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceDirectoryJsonnetExtVarArrayInput` via:
+//
+//	GetApplicationSpecSourceDirectoryJsonnetExtVarArray{ GetApplicationSpecSourceDirectoryJsonnetExtVarArgs{...} }
+type GetApplicationSpecSourceDirectoryJsonnetExtVarArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput() GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput
+	ToGetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(context.Context) GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetExtVarArray []GetApplicationSpecSourceDirectoryJsonnetExtVarInput
+
+func (GetApplicationSpecSourceDirectoryJsonnetExtVarArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceDirectoryJsonnetExtVarArray) ToGetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput() GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return i.ToGetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceDirectoryJsonnetExtVarArray) ToGetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput)
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetExtVarOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceDirectoryJsonnetExtVarOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetExtVarOutput) ToGetApplicationSpecSourceDirectoryJsonnetExtVarOutput() GetApplicationSpecSourceDirectoryJsonnetExtVarOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetExtVarOutput) ToGetApplicationSpecSourceDirectoryJsonnetExtVarOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryJsonnetExtVarOutput {
+	return o
+}
+
+// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+func (o GetApplicationSpecSourceDirectoryJsonnetExtVarOutput) Code() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectoryJsonnetExtVar) bool { return v.Code }).(pulumi.BoolOutput)
+}
+
+// Name of Jsonnet variable.
+func (o GetApplicationSpecSourceDirectoryJsonnetExtVarOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectoryJsonnetExtVar) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of Jsonnet variable.
+func (o GetApplicationSpecSourceDirectoryJsonnetExtVarOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectoryJsonnetExtVar) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourceDirectoryJsonnetExtVar)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput) ToGetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput() GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput) ToGetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput) Index(i pulumi.IntInput) GetApplicationSpecSourceDirectoryJsonnetExtVarOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationSpecSourceDirectoryJsonnetExtVar {
+		return vs[0].([]GetApplicationSpecSourceDirectoryJsonnetExtVar)[vs[1].(int)]
+	}).(GetApplicationSpecSourceDirectoryJsonnetExtVarOutput)
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetTla struct {
+	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+	Code bool `pulumi:"code"`
+	// Name of Jsonnet variable.
+	Name string `pulumi:"name"`
+	// Value of Jsonnet variable.
+	Value string `pulumi:"value"`
+}
+
+// GetApplicationSpecSourceDirectoryJsonnetTlaInput is an input type that accepts GetApplicationSpecSourceDirectoryJsonnetTlaArgs and GetApplicationSpecSourceDirectoryJsonnetTlaOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceDirectoryJsonnetTlaInput` via:
+//
+//	GetApplicationSpecSourceDirectoryJsonnetTlaArgs{...}
+type GetApplicationSpecSourceDirectoryJsonnetTlaInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceDirectoryJsonnetTlaOutput() GetApplicationSpecSourceDirectoryJsonnetTlaOutput
+	ToGetApplicationSpecSourceDirectoryJsonnetTlaOutputWithContext(context.Context) GetApplicationSpecSourceDirectoryJsonnetTlaOutput
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetTlaArgs struct {
+	// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+	Code pulumi.BoolInput `pulumi:"code"`
+	// Name of Jsonnet variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of Jsonnet variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetApplicationSpecSourceDirectoryJsonnetTlaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnetTla)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceDirectoryJsonnetTlaArgs) ToGetApplicationSpecSourceDirectoryJsonnetTlaOutput() GetApplicationSpecSourceDirectoryJsonnetTlaOutput {
+	return i.ToGetApplicationSpecSourceDirectoryJsonnetTlaOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceDirectoryJsonnetTlaArgs) ToGetApplicationSpecSourceDirectoryJsonnetTlaOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryJsonnetTlaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceDirectoryJsonnetTlaOutput)
+}
+
+// GetApplicationSpecSourceDirectoryJsonnetTlaArrayInput is an input type that accepts GetApplicationSpecSourceDirectoryJsonnetTlaArray and GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceDirectoryJsonnetTlaArrayInput` via:
+//
+//	GetApplicationSpecSourceDirectoryJsonnetTlaArray{ GetApplicationSpecSourceDirectoryJsonnetTlaArgs{...} }
+type GetApplicationSpecSourceDirectoryJsonnetTlaArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput() GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput
+	ToGetApplicationSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(context.Context) GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetTlaArray []GetApplicationSpecSourceDirectoryJsonnetTlaInput
+
+func (GetApplicationSpecSourceDirectoryJsonnetTlaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourceDirectoryJsonnetTla)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceDirectoryJsonnetTlaArray) ToGetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput() GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return i.ToGetApplicationSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceDirectoryJsonnetTlaArray) ToGetApplicationSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput)
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetTlaOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceDirectoryJsonnetTlaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnetTla)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetTlaOutput) ToGetApplicationSpecSourceDirectoryJsonnetTlaOutput() GetApplicationSpecSourceDirectoryJsonnetTlaOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetTlaOutput) ToGetApplicationSpecSourceDirectoryJsonnetTlaOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryJsonnetTlaOutput {
+	return o
+}
+
+// Determines whether the variable should be evaluated as jsonnet code or treated as string.
+func (o GetApplicationSpecSourceDirectoryJsonnetTlaOutput) Code() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectoryJsonnetTla) bool { return v.Code }).(pulumi.BoolOutput)
+}
+
+// Name of Jsonnet variable.
+func (o GetApplicationSpecSourceDirectoryJsonnetTlaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectoryJsonnetTla) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of Jsonnet variable.
+func (o GetApplicationSpecSourceDirectoryJsonnetTlaOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceDirectoryJsonnetTla) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourceDirectoryJsonnetTla)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput) ToGetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput() GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput) ToGetApplicationSpecSourceDirectoryJsonnetTlaArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput) Index(i pulumi.IntInput) GetApplicationSpecSourceDirectoryJsonnetTlaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationSpecSourceDirectoryJsonnetTla {
+		return vs[0].([]GetApplicationSpecSourceDirectoryJsonnetTla)[vs[1].(int)]
+	}).(GetApplicationSpecSourceDirectoryJsonnetTlaOutput)
+}
+
+type GetApplicationSpecSourceHelm struct {
+	// File parameters for the helm template.
+	FileParameters []GetApplicationSpecSourceHelmFileParameter `pulumi:"fileParameters"`
+	// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+	IgnoreMissingValueFiles bool `pulumi:"ignoreMissingValueFiles"`
+	// Helm parameters which are passed to the helm template command upon manifest generation.
+	Parameters []GetApplicationSpecSourceHelmParameter `pulumi:"parameters"`
+	// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+	PassCredentials bool `pulumi:"passCredentials"`
+	// Helm release name. If omitted it will use the application name.
+	ReleaseName string `pulumi:"releaseName"`
+	// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+	SkipCrds bool `pulumi:"skipCrds"`
+	// Whether to skip the schema validation step (Helm's [--skip-schema-validation](https://helm.sh/docs/helm/helm_template/)).
+	SkipSchemaValidation bool `pulumi:"skipSchemaValidation"`
+	// List of Helm value files to use when generating a template.
+	ValueFiles []string `pulumi:"valueFiles"`
+	// Helm values to be passed to 'helm template', typically defined as a Attribute.
+	Values string `pulumi:"values"`
+}
+
+// GetApplicationSpecSourceHelmInput is an input type that accepts GetApplicationSpecSourceHelmArgs and GetApplicationSpecSourceHelmOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceHelmInput` via:
+//
+//	GetApplicationSpecSourceHelmArgs{...}
+type GetApplicationSpecSourceHelmInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceHelmOutput() GetApplicationSpecSourceHelmOutput
+	ToGetApplicationSpecSourceHelmOutputWithContext(context.Context) GetApplicationSpecSourceHelmOutput
+}
+
+type GetApplicationSpecSourceHelmArgs struct {
+	// File parameters for the helm template.
+	FileParameters GetApplicationSpecSourceHelmFileParameterArrayInput `pulumi:"fileParameters"`
+	// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+	IgnoreMissingValueFiles pulumi.BoolInput `pulumi:"ignoreMissingValueFiles"`
+	// Helm parameters which are passed to the helm template command upon manifest generation.
+	Parameters GetApplicationSpecSourceHelmParameterArrayInput `pulumi:"parameters"`
+	// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+	PassCredentials pulumi.BoolInput `pulumi:"passCredentials"`
+	// Helm release name. If omitted it will use the application name.
+	ReleaseName pulumi.StringInput `pulumi:"releaseName"`
+	// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+	SkipCrds pulumi.BoolInput `pulumi:"skipCrds"`
+	// Whether to skip the schema validation step (Helm's [--skip-schema-validation](https://helm.sh/docs/helm/helm_template/)).
+	SkipSchemaValidation pulumi.BoolInput `pulumi:"skipSchemaValidation"`
+	// List of Helm value files to use when generating a template.
+	ValueFiles pulumi.StringArrayInput `pulumi:"valueFiles"`
+	// Helm values to be passed to 'helm template', typically defined as a Attribute.
+	Values pulumi.StringInput `pulumi:"values"`
+}
+
+func (GetApplicationSpecSourceHelmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceHelm)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceHelmArgs) ToGetApplicationSpecSourceHelmOutput() GetApplicationSpecSourceHelmOutput {
+	return i.ToGetApplicationSpecSourceHelmOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceHelmArgs) ToGetApplicationSpecSourceHelmOutputWithContext(ctx context.Context) GetApplicationSpecSourceHelmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceHelmOutput)
+}
+
+type GetApplicationSpecSourceHelmOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceHelmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceHelm)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceHelmOutput) ToGetApplicationSpecSourceHelmOutput() GetApplicationSpecSourceHelmOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceHelmOutput) ToGetApplicationSpecSourceHelmOutputWithContext(ctx context.Context) GetApplicationSpecSourceHelmOutput {
+	return o
+}
+
+// File parameters for the helm template.
+func (o GetApplicationSpecSourceHelmOutput) FileParameters() GetApplicationSpecSourceHelmFileParameterArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelm) []GetApplicationSpecSourceHelmFileParameter {
+		return v.FileParameters
+	}).(GetApplicationSpecSourceHelmFileParameterArrayOutput)
+}
+
+// Prevents 'helm template' from failing when `valueFiles` do not exist locally by not appending them to 'helm template --values'.
+func (o GetApplicationSpecSourceHelmOutput) IgnoreMissingValueFiles() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelm) bool { return v.IgnoreMissingValueFiles }).(pulumi.BoolOutput)
+}
+
+// Helm parameters which are passed to the helm template command upon manifest generation.
+func (o GetApplicationSpecSourceHelmOutput) Parameters() GetApplicationSpecSourceHelmParameterArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelm) []GetApplicationSpecSourceHelmParameter { return v.Parameters }).(GetApplicationSpecSourceHelmParameterArrayOutput)
+}
+
+// If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+func (o GetApplicationSpecSourceHelmOutput) PassCredentials() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelm) bool { return v.PassCredentials }).(pulumi.BoolOutput)
+}
+
+// Helm release name. If omitted it will use the application name.
+func (o GetApplicationSpecSourceHelmOutput) ReleaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelm) string { return v.ReleaseName }).(pulumi.StringOutput)
+}
+
+// Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+func (o GetApplicationSpecSourceHelmOutput) SkipCrds() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelm) bool { return v.SkipCrds }).(pulumi.BoolOutput)
+}
+
+// Whether to skip the schema validation step (Helm's [--skip-schema-validation](https://helm.sh/docs/helm/helm_template/)).
+func (o GetApplicationSpecSourceHelmOutput) SkipSchemaValidation() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelm) bool { return v.SkipSchemaValidation }).(pulumi.BoolOutput)
+}
+
+// List of Helm value files to use when generating a template.
+func (o GetApplicationSpecSourceHelmOutput) ValueFiles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelm) []string { return v.ValueFiles }).(pulumi.StringArrayOutput)
+}
+
+// Helm values to be passed to 'helm template', typically defined as a Attribute.
+func (o GetApplicationSpecSourceHelmOutput) Values() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelm) string { return v.Values }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecSourceHelmFileParameter struct {
+	// Name of the Helm parameters.
+	Name string `pulumi:"name"`
+	// Path to the file containing the values for the Helm parameters.
+	Path string `pulumi:"path"`
+}
+
+// GetApplicationSpecSourceHelmFileParameterInput is an input type that accepts GetApplicationSpecSourceHelmFileParameterArgs and GetApplicationSpecSourceHelmFileParameterOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceHelmFileParameterInput` via:
+//
+//	GetApplicationSpecSourceHelmFileParameterArgs{...}
+type GetApplicationSpecSourceHelmFileParameterInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceHelmFileParameterOutput() GetApplicationSpecSourceHelmFileParameterOutput
+	ToGetApplicationSpecSourceHelmFileParameterOutputWithContext(context.Context) GetApplicationSpecSourceHelmFileParameterOutput
+}
+
+type GetApplicationSpecSourceHelmFileParameterArgs struct {
+	// Name of the Helm parameters.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Path to the file containing the values for the Helm parameters.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (GetApplicationSpecSourceHelmFileParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceHelmFileParameter)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceHelmFileParameterArgs) ToGetApplicationSpecSourceHelmFileParameterOutput() GetApplicationSpecSourceHelmFileParameterOutput {
+	return i.ToGetApplicationSpecSourceHelmFileParameterOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceHelmFileParameterArgs) ToGetApplicationSpecSourceHelmFileParameterOutputWithContext(ctx context.Context) GetApplicationSpecSourceHelmFileParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceHelmFileParameterOutput)
+}
+
+// GetApplicationSpecSourceHelmFileParameterArrayInput is an input type that accepts GetApplicationSpecSourceHelmFileParameterArray and GetApplicationSpecSourceHelmFileParameterArrayOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceHelmFileParameterArrayInput` via:
+//
+//	GetApplicationSpecSourceHelmFileParameterArray{ GetApplicationSpecSourceHelmFileParameterArgs{...} }
+type GetApplicationSpecSourceHelmFileParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceHelmFileParameterArrayOutput() GetApplicationSpecSourceHelmFileParameterArrayOutput
+	ToGetApplicationSpecSourceHelmFileParameterArrayOutputWithContext(context.Context) GetApplicationSpecSourceHelmFileParameterArrayOutput
+}
+
+type GetApplicationSpecSourceHelmFileParameterArray []GetApplicationSpecSourceHelmFileParameterInput
+
+func (GetApplicationSpecSourceHelmFileParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourceHelmFileParameter)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceHelmFileParameterArray) ToGetApplicationSpecSourceHelmFileParameterArrayOutput() GetApplicationSpecSourceHelmFileParameterArrayOutput {
+	return i.ToGetApplicationSpecSourceHelmFileParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceHelmFileParameterArray) ToGetApplicationSpecSourceHelmFileParameterArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourceHelmFileParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceHelmFileParameterArrayOutput)
+}
+
+type GetApplicationSpecSourceHelmFileParameterOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceHelmFileParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceHelmFileParameter)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceHelmFileParameterOutput) ToGetApplicationSpecSourceHelmFileParameterOutput() GetApplicationSpecSourceHelmFileParameterOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceHelmFileParameterOutput) ToGetApplicationSpecSourceHelmFileParameterOutputWithContext(ctx context.Context) GetApplicationSpecSourceHelmFileParameterOutput {
+	return o
+}
+
+// Name of the Helm parameters.
+func (o GetApplicationSpecSourceHelmFileParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelmFileParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Path to the file containing the values for the Helm parameters.
+func (o GetApplicationSpecSourceHelmFileParameterOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelmFileParameter) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecSourceHelmFileParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceHelmFileParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourceHelmFileParameter)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceHelmFileParameterArrayOutput) ToGetApplicationSpecSourceHelmFileParameterArrayOutput() GetApplicationSpecSourceHelmFileParameterArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceHelmFileParameterArrayOutput) ToGetApplicationSpecSourceHelmFileParameterArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourceHelmFileParameterArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceHelmFileParameterArrayOutput) Index(i pulumi.IntInput) GetApplicationSpecSourceHelmFileParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationSpecSourceHelmFileParameter {
+		return vs[0].([]GetApplicationSpecSourceHelmFileParameter)[vs[1].(int)]
+	}).(GetApplicationSpecSourceHelmFileParameterOutput)
+}
+
+type GetApplicationSpecSourceHelmParameter struct {
+	// Determines whether to tell Helm to interpret booleans and numbers as strings.
+	ForceString bool `pulumi:"forceString"`
+	// Name of the Helm parameters.
+	Name string `pulumi:"name"`
+	// Value of the Helm parameters.
+	Value string `pulumi:"value"`
+}
+
+// GetApplicationSpecSourceHelmParameterInput is an input type that accepts GetApplicationSpecSourceHelmParameterArgs and GetApplicationSpecSourceHelmParameterOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceHelmParameterInput` via:
+//
+//	GetApplicationSpecSourceHelmParameterArgs{...}
+type GetApplicationSpecSourceHelmParameterInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceHelmParameterOutput() GetApplicationSpecSourceHelmParameterOutput
+	ToGetApplicationSpecSourceHelmParameterOutputWithContext(context.Context) GetApplicationSpecSourceHelmParameterOutput
+}
+
+type GetApplicationSpecSourceHelmParameterArgs struct {
+	// Determines whether to tell Helm to interpret booleans and numbers as strings.
+	ForceString pulumi.BoolInput `pulumi:"forceString"`
+	// Name of the Helm parameters.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the Helm parameters.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetApplicationSpecSourceHelmParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceHelmParameter)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceHelmParameterArgs) ToGetApplicationSpecSourceHelmParameterOutput() GetApplicationSpecSourceHelmParameterOutput {
+	return i.ToGetApplicationSpecSourceHelmParameterOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceHelmParameterArgs) ToGetApplicationSpecSourceHelmParameterOutputWithContext(ctx context.Context) GetApplicationSpecSourceHelmParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceHelmParameterOutput)
+}
+
+// GetApplicationSpecSourceHelmParameterArrayInput is an input type that accepts GetApplicationSpecSourceHelmParameterArray and GetApplicationSpecSourceHelmParameterArrayOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceHelmParameterArrayInput` via:
+//
+//	GetApplicationSpecSourceHelmParameterArray{ GetApplicationSpecSourceHelmParameterArgs{...} }
+type GetApplicationSpecSourceHelmParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceHelmParameterArrayOutput() GetApplicationSpecSourceHelmParameterArrayOutput
+	ToGetApplicationSpecSourceHelmParameterArrayOutputWithContext(context.Context) GetApplicationSpecSourceHelmParameterArrayOutput
+}
+
+type GetApplicationSpecSourceHelmParameterArray []GetApplicationSpecSourceHelmParameterInput
+
+func (GetApplicationSpecSourceHelmParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourceHelmParameter)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceHelmParameterArray) ToGetApplicationSpecSourceHelmParameterArrayOutput() GetApplicationSpecSourceHelmParameterArrayOutput {
+	return i.ToGetApplicationSpecSourceHelmParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceHelmParameterArray) ToGetApplicationSpecSourceHelmParameterArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourceHelmParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceHelmParameterArrayOutput)
+}
+
+type GetApplicationSpecSourceHelmParameterOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceHelmParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceHelmParameter)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceHelmParameterOutput) ToGetApplicationSpecSourceHelmParameterOutput() GetApplicationSpecSourceHelmParameterOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceHelmParameterOutput) ToGetApplicationSpecSourceHelmParameterOutputWithContext(ctx context.Context) GetApplicationSpecSourceHelmParameterOutput {
+	return o
+}
+
+// Determines whether to tell Helm to interpret booleans and numbers as strings.
+func (o GetApplicationSpecSourceHelmParameterOutput) ForceString() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelmParameter) bool { return v.ForceString }).(pulumi.BoolOutput)
+}
+
+// Name of the Helm parameters.
+func (o GetApplicationSpecSourceHelmParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelmParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the Helm parameters.
+func (o GetApplicationSpecSourceHelmParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceHelmParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecSourceHelmParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceHelmParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourceHelmParameter)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceHelmParameterArrayOutput) ToGetApplicationSpecSourceHelmParameterArrayOutput() GetApplicationSpecSourceHelmParameterArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceHelmParameterArrayOutput) ToGetApplicationSpecSourceHelmParameterArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourceHelmParameterArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceHelmParameterArrayOutput) Index(i pulumi.IntInput) GetApplicationSpecSourceHelmParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationSpecSourceHelmParameter {
+		return vs[0].([]GetApplicationSpecSourceHelmParameter)[vs[1].(int)]
+	}).(GetApplicationSpecSourceHelmParameterOutput)
+}
+
+type GetApplicationSpecSourceKustomize struct {
+	// List of additional annotations to add to rendered manifests.
+	CommonAnnotations map[string]string `pulumi:"commonAnnotations"`
+	// List of additional labels to add to rendered manifests.
+	CommonLabels map[string]string `pulumi:"commonLabels"`
+	// List of Kustomize image override specifications.
+	Images []string `pulumi:"images"`
+	// Prefix appended to resources for Kustomize apps.
+	NamePrefix string `pulumi:"namePrefix"`
+	// Suffix appended to resources for Kustomize apps.
+	NameSuffix string `pulumi:"nameSuffix"`
+	// Version of Kustomize to use for rendering manifests.
+	Version string `pulumi:"version"`
+}
+
+// GetApplicationSpecSourceKustomizeInput is an input type that accepts GetApplicationSpecSourceKustomizeArgs and GetApplicationSpecSourceKustomizeOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourceKustomizeInput` via:
+//
+//	GetApplicationSpecSourceKustomizeArgs{...}
+type GetApplicationSpecSourceKustomizeInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourceKustomizeOutput() GetApplicationSpecSourceKustomizeOutput
+	ToGetApplicationSpecSourceKustomizeOutputWithContext(context.Context) GetApplicationSpecSourceKustomizeOutput
+}
+
+type GetApplicationSpecSourceKustomizeArgs struct {
+	// List of additional annotations to add to rendered manifests.
+	CommonAnnotations pulumi.StringMapInput `pulumi:"commonAnnotations"`
+	// List of additional labels to add to rendered manifests.
+	CommonLabels pulumi.StringMapInput `pulumi:"commonLabels"`
+	// List of Kustomize image override specifications.
+	Images pulumi.StringArrayInput `pulumi:"images"`
+	// Prefix appended to resources for Kustomize apps.
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
+	// Suffix appended to resources for Kustomize apps.
+	NameSuffix pulumi.StringInput `pulumi:"nameSuffix"`
+	// Version of Kustomize to use for rendering manifests.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetApplicationSpecSourceKustomizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceKustomize)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourceKustomizeArgs) ToGetApplicationSpecSourceKustomizeOutput() GetApplicationSpecSourceKustomizeOutput {
+	return i.ToGetApplicationSpecSourceKustomizeOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourceKustomizeArgs) ToGetApplicationSpecSourceKustomizeOutputWithContext(ctx context.Context) GetApplicationSpecSourceKustomizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourceKustomizeOutput)
+}
+
+type GetApplicationSpecSourceKustomizeOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourceKustomizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourceKustomize)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourceKustomizeOutput) ToGetApplicationSpecSourceKustomizeOutput() GetApplicationSpecSourceKustomizeOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourceKustomizeOutput) ToGetApplicationSpecSourceKustomizeOutputWithContext(ctx context.Context) GetApplicationSpecSourceKustomizeOutput {
+	return o
+}
+
+// List of additional annotations to add to rendered manifests.
+func (o GetApplicationSpecSourceKustomizeOutput) CommonAnnotations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceKustomize) map[string]string { return v.CommonAnnotations }).(pulumi.StringMapOutput)
+}
+
+// List of additional labels to add to rendered manifests.
+func (o GetApplicationSpecSourceKustomizeOutput) CommonLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceKustomize) map[string]string { return v.CommonLabels }).(pulumi.StringMapOutput)
+}
+
+// List of Kustomize image override specifications.
+func (o GetApplicationSpecSourceKustomizeOutput) Images() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceKustomize) []string { return v.Images }).(pulumi.StringArrayOutput)
+}
+
+// Prefix appended to resources for Kustomize apps.
+func (o GetApplicationSpecSourceKustomizeOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceKustomize) string { return v.NamePrefix }).(pulumi.StringOutput)
+}
+
+// Suffix appended to resources for Kustomize apps.
+func (o GetApplicationSpecSourceKustomizeOutput) NameSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceKustomize) string { return v.NameSuffix }).(pulumi.StringOutput)
+}
+
+// Version of Kustomize to use for rendering manifests.
+func (o GetApplicationSpecSourceKustomizeOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourceKustomize) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecSourcePlugin struct {
+	// Environment variables passed to the plugin.
+	Envs []GetApplicationSpecSourcePluginEnv `pulumi:"envs"`
+	// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+	Name string `pulumi:"name"`
+	// Parameters to supply to config management plugin.
+	Parameters []GetApplicationSpecSourcePluginParameter `pulumi:"parameters"`
+}
+
+// GetApplicationSpecSourcePluginInput is an input type that accepts GetApplicationSpecSourcePluginArgs and GetApplicationSpecSourcePluginOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourcePluginInput` via:
+//
+//	GetApplicationSpecSourcePluginArgs{...}
+type GetApplicationSpecSourcePluginInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourcePluginOutput() GetApplicationSpecSourcePluginOutput
+	ToGetApplicationSpecSourcePluginOutputWithContext(context.Context) GetApplicationSpecSourcePluginOutput
+}
+
+type GetApplicationSpecSourcePluginArgs struct {
+	// Environment variables passed to the plugin.
+	Envs GetApplicationSpecSourcePluginEnvArrayInput `pulumi:"envs"`
+	// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Parameters to supply to config management plugin.
+	Parameters GetApplicationSpecSourcePluginParameterArrayInput `pulumi:"parameters"`
+}
+
+func (GetApplicationSpecSourcePluginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourcePlugin)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourcePluginArgs) ToGetApplicationSpecSourcePluginOutput() GetApplicationSpecSourcePluginOutput {
+	return i.ToGetApplicationSpecSourcePluginOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourcePluginArgs) ToGetApplicationSpecSourcePluginOutputWithContext(ctx context.Context) GetApplicationSpecSourcePluginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourcePluginOutput)
+}
+
+type GetApplicationSpecSourcePluginOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourcePluginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourcePlugin)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourcePluginOutput) ToGetApplicationSpecSourcePluginOutput() GetApplicationSpecSourcePluginOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourcePluginOutput) ToGetApplicationSpecSourcePluginOutputWithContext(ctx context.Context) GetApplicationSpecSourcePluginOutput {
+	return o
+}
+
+// Environment variables passed to the plugin.
+func (o GetApplicationSpecSourcePluginOutput) Envs() GetApplicationSpecSourcePluginEnvArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourcePlugin) []GetApplicationSpecSourcePluginEnv { return v.Envs }).(GetApplicationSpecSourcePluginEnvArrayOutput)
+}
+
+// Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+func (o GetApplicationSpecSourcePluginOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourcePlugin) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Parameters to supply to config management plugin.
+func (o GetApplicationSpecSourcePluginOutput) Parameters() GetApplicationSpecSourcePluginParameterArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourcePlugin) []GetApplicationSpecSourcePluginParameter { return v.Parameters }).(GetApplicationSpecSourcePluginParameterArrayOutput)
+}
+
+type GetApplicationSpecSourcePluginEnv struct {
+	// Name of the environment variable.
+	Name string `pulumi:"name"`
+	// Value of the environment variable.
+	Value string `pulumi:"value"`
+}
+
+// GetApplicationSpecSourcePluginEnvInput is an input type that accepts GetApplicationSpecSourcePluginEnvArgs and GetApplicationSpecSourcePluginEnvOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourcePluginEnvInput` via:
+//
+//	GetApplicationSpecSourcePluginEnvArgs{...}
+type GetApplicationSpecSourcePluginEnvInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourcePluginEnvOutput() GetApplicationSpecSourcePluginEnvOutput
+	ToGetApplicationSpecSourcePluginEnvOutputWithContext(context.Context) GetApplicationSpecSourcePluginEnvOutput
+}
+
+type GetApplicationSpecSourcePluginEnvArgs struct {
+	// Name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetApplicationSpecSourcePluginEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourcePluginEnv)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourcePluginEnvArgs) ToGetApplicationSpecSourcePluginEnvOutput() GetApplicationSpecSourcePluginEnvOutput {
+	return i.ToGetApplicationSpecSourcePluginEnvOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourcePluginEnvArgs) ToGetApplicationSpecSourcePluginEnvOutputWithContext(ctx context.Context) GetApplicationSpecSourcePluginEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourcePluginEnvOutput)
+}
+
+// GetApplicationSpecSourcePluginEnvArrayInput is an input type that accepts GetApplicationSpecSourcePluginEnvArray and GetApplicationSpecSourcePluginEnvArrayOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourcePluginEnvArrayInput` via:
+//
+//	GetApplicationSpecSourcePluginEnvArray{ GetApplicationSpecSourcePluginEnvArgs{...} }
+type GetApplicationSpecSourcePluginEnvArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourcePluginEnvArrayOutput() GetApplicationSpecSourcePluginEnvArrayOutput
+	ToGetApplicationSpecSourcePluginEnvArrayOutputWithContext(context.Context) GetApplicationSpecSourcePluginEnvArrayOutput
+}
+
+type GetApplicationSpecSourcePluginEnvArray []GetApplicationSpecSourcePluginEnvInput
+
+func (GetApplicationSpecSourcePluginEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourcePluginEnv)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourcePluginEnvArray) ToGetApplicationSpecSourcePluginEnvArrayOutput() GetApplicationSpecSourcePluginEnvArrayOutput {
+	return i.ToGetApplicationSpecSourcePluginEnvArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourcePluginEnvArray) ToGetApplicationSpecSourcePluginEnvArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourcePluginEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourcePluginEnvArrayOutput)
+}
+
+type GetApplicationSpecSourcePluginEnvOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourcePluginEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourcePluginEnv)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourcePluginEnvOutput) ToGetApplicationSpecSourcePluginEnvOutput() GetApplicationSpecSourcePluginEnvOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourcePluginEnvOutput) ToGetApplicationSpecSourcePluginEnvOutputWithContext(ctx context.Context) GetApplicationSpecSourcePluginEnvOutput {
+	return o
+}
+
+// Name of the environment variable.
+func (o GetApplicationSpecSourcePluginEnvOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourcePluginEnv) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the environment variable.
+func (o GetApplicationSpecSourcePluginEnvOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourcePluginEnv) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecSourcePluginEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourcePluginEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourcePluginEnv)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourcePluginEnvArrayOutput) ToGetApplicationSpecSourcePluginEnvArrayOutput() GetApplicationSpecSourcePluginEnvArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourcePluginEnvArrayOutput) ToGetApplicationSpecSourcePluginEnvArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourcePluginEnvArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourcePluginEnvArrayOutput) Index(i pulumi.IntInput) GetApplicationSpecSourcePluginEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationSpecSourcePluginEnv {
+		return vs[0].([]GetApplicationSpecSourcePluginEnv)[vs[1].(int)]
+	}).(GetApplicationSpecSourcePluginEnvOutput)
+}
+
+type GetApplicationSpecSourcePluginParameter struct {
+	// Value of an array type parameters.
+	Arrays []string `pulumi:"arrays"`
+	// Value of a map type parameters.
+	Map map[string]string `pulumi:"map"`
+	// Name identifying a parameters.
+	Name string `pulumi:"name"`
+	// Value of a string type parameters.
+	String string `pulumi:"string"`
+}
+
+// GetApplicationSpecSourcePluginParameterInput is an input type that accepts GetApplicationSpecSourcePluginParameterArgs and GetApplicationSpecSourcePluginParameterOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourcePluginParameterInput` via:
+//
+//	GetApplicationSpecSourcePluginParameterArgs{...}
+type GetApplicationSpecSourcePluginParameterInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourcePluginParameterOutput() GetApplicationSpecSourcePluginParameterOutput
+	ToGetApplicationSpecSourcePluginParameterOutputWithContext(context.Context) GetApplicationSpecSourcePluginParameterOutput
+}
+
+type GetApplicationSpecSourcePluginParameterArgs struct {
+	// Value of an array type parameters.
+	Arrays pulumi.StringArrayInput `pulumi:"arrays"`
+	// Value of a map type parameters.
+	Map pulumi.StringMapInput `pulumi:"map"`
+	// Name identifying a parameters.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of a string type parameters.
+	String pulumi.StringInput `pulumi:"string"`
+}
+
+func (GetApplicationSpecSourcePluginParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourcePluginParameter)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourcePluginParameterArgs) ToGetApplicationSpecSourcePluginParameterOutput() GetApplicationSpecSourcePluginParameterOutput {
+	return i.ToGetApplicationSpecSourcePluginParameterOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourcePluginParameterArgs) ToGetApplicationSpecSourcePluginParameterOutputWithContext(ctx context.Context) GetApplicationSpecSourcePluginParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourcePluginParameterOutput)
+}
+
+// GetApplicationSpecSourcePluginParameterArrayInput is an input type that accepts GetApplicationSpecSourcePluginParameterArray and GetApplicationSpecSourcePluginParameterArrayOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSourcePluginParameterArrayInput` via:
+//
+//	GetApplicationSpecSourcePluginParameterArray{ GetApplicationSpecSourcePluginParameterArgs{...} }
+type GetApplicationSpecSourcePluginParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSourcePluginParameterArrayOutput() GetApplicationSpecSourcePluginParameterArrayOutput
+	ToGetApplicationSpecSourcePluginParameterArrayOutputWithContext(context.Context) GetApplicationSpecSourcePluginParameterArrayOutput
+}
+
+type GetApplicationSpecSourcePluginParameterArray []GetApplicationSpecSourcePluginParameterInput
+
+func (GetApplicationSpecSourcePluginParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourcePluginParameter)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSourcePluginParameterArray) ToGetApplicationSpecSourcePluginParameterArrayOutput() GetApplicationSpecSourcePluginParameterArrayOutput {
+	return i.ToGetApplicationSpecSourcePluginParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSourcePluginParameterArray) ToGetApplicationSpecSourcePluginParameterArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourcePluginParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSourcePluginParameterArrayOutput)
+}
+
+type GetApplicationSpecSourcePluginParameterOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourcePluginParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSourcePluginParameter)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourcePluginParameterOutput) ToGetApplicationSpecSourcePluginParameterOutput() GetApplicationSpecSourcePluginParameterOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourcePluginParameterOutput) ToGetApplicationSpecSourcePluginParameterOutputWithContext(ctx context.Context) GetApplicationSpecSourcePluginParameterOutput {
+	return o
+}
+
+// Value of an array type parameters.
+func (o GetApplicationSpecSourcePluginParameterOutput) Arrays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourcePluginParameter) []string { return v.Arrays }).(pulumi.StringArrayOutput)
+}
+
+// Value of a map type parameters.
+func (o GetApplicationSpecSourcePluginParameterOutput) Map() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourcePluginParameter) map[string]string { return v.Map }).(pulumi.StringMapOutput)
+}
+
+// Name identifying a parameters.
+func (o GetApplicationSpecSourcePluginParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourcePluginParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of a string type parameters.
+func (o GetApplicationSpecSourcePluginParameterOutput) String() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSourcePluginParameter) string { return v.String }).(pulumi.StringOutput)
+}
+
+type GetApplicationSpecSourcePluginParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSourcePluginParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationSpecSourcePluginParameter)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSourcePluginParameterArrayOutput) ToGetApplicationSpecSourcePluginParameterArrayOutput() GetApplicationSpecSourcePluginParameterArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourcePluginParameterArrayOutput) ToGetApplicationSpecSourcePluginParameterArrayOutputWithContext(ctx context.Context) GetApplicationSpecSourcePluginParameterArrayOutput {
+	return o
+}
+
+func (o GetApplicationSpecSourcePluginParameterArrayOutput) Index(i pulumi.IntInput) GetApplicationSpecSourcePluginParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationSpecSourcePluginParameter {
+		return vs[0].([]GetApplicationSpecSourcePluginParameter)[vs[1].(int)]
+	}).(GetApplicationSpecSourcePluginParameterOutput)
+}
+
+type GetApplicationSpecSyncPolicy struct {
+	// Whether to automatically keep an application synced to the target revision.
+	Automated GetApplicationSpecSyncPolicyAutomated `pulumi:"automated"`
+	// Controls failed sync retry behavior.
+	Retry GetApplicationSpecSyncPolicyRetry `pulumi:"retry"`
+	// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+	SyncOptions []string `pulumi:"syncOptions"`
+}
+
+// GetApplicationSpecSyncPolicyInput is an input type that accepts GetApplicationSpecSyncPolicyArgs and GetApplicationSpecSyncPolicyOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSyncPolicyInput` via:
+//
+//	GetApplicationSpecSyncPolicyArgs{...}
+type GetApplicationSpecSyncPolicyInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSyncPolicyOutput() GetApplicationSpecSyncPolicyOutput
+	ToGetApplicationSpecSyncPolicyOutputWithContext(context.Context) GetApplicationSpecSyncPolicyOutput
+}
+
+type GetApplicationSpecSyncPolicyArgs struct {
+	// Whether to automatically keep an application synced to the target revision.
+	Automated GetApplicationSpecSyncPolicyAutomatedInput `pulumi:"automated"`
+	// Controls failed sync retry behavior.
+	Retry GetApplicationSpecSyncPolicyRetryInput `pulumi:"retry"`
+	// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+	SyncOptions pulumi.StringArrayInput `pulumi:"syncOptions"`
+}
+
+func (GetApplicationSpecSyncPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSyncPolicy)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSyncPolicyArgs) ToGetApplicationSpecSyncPolicyOutput() GetApplicationSpecSyncPolicyOutput {
+	return i.ToGetApplicationSpecSyncPolicyOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSyncPolicyArgs) ToGetApplicationSpecSyncPolicyOutputWithContext(ctx context.Context) GetApplicationSpecSyncPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSyncPolicyOutput)
+}
+
+type GetApplicationSpecSyncPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSyncPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSyncPolicy)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSyncPolicyOutput) ToGetApplicationSpecSyncPolicyOutput() GetApplicationSpecSyncPolicyOutput {
+	return o
+}
+
+func (o GetApplicationSpecSyncPolicyOutput) ToGetApplicationSpecSyncPolicyOutputWithContext(ctx context.Context) GetApplicationSpecSyncPolicyOutput {
+	return o
+}
+
+// Whether to automatically keep an application synced to the target revision.
+func (o GetApplicationSpecSyncPolicyOutput) Automated() GetApplicationSpecSyncPolicyAutomatedOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicy) GetApplicationSpecSyncPolicyAutomated { return v.Automated }).(GetApplicationSpecSyncPolicyAutomatedOutput)
+}
+
+// Controls failed sync retry behavior.
+func (o GetApplicationSpecSyncPolicyOutput) Retry() GetApplicationSpecSyncPolicyRetryOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicy) GetApplicationSpecSyncPolicyRetry { return v.Retry }).(GetApplicationSpecSyncPolicyRetryOutput)
+}
+
+// List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+func (o GetApplicationSpecSyncPolicyOutput) SyncOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicy) []string { return v.SyncOptions }).(pulumi.StringArrayOutput)
+}
+
+type GetApplicationSpecSyncPolicyAutomated struct {
+	// Allows apps have zero live resources.
+	AllowEmpty bool `pulumi:"allowEmpty"`
+	// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+	Prune bool `pulumi:"prune"`
+	// Whether to revert resources back to their desired state upon modification in the cluster.
+	SelfHeal bool `pulumi:"selfHeal"`
+}
+
+// GetApplicationSpecSyncPolicyAutomatedInput is an input type that accepts GetApplicationSpecSyncPolicyAutomatedArgs and GetApplicationSpecSyncPolicyAutomatedOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSyncPolicyAutomatedInput` via:
+//
+//	GetApplicationSpecSyncPolicyAutomatedArgs{...}
+type GetApplicationSpecSyncPolicyAutomatedInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSyncPolicyAutomatedOutput() GetApplicationSpecSyncPolicyAutomatedOutput
+	ToGetApplicationSpecSyncPolicyAutomatedOutputWithContext(context.Context) GetApplicationSpecSyncPolicyAutomatedOutput
+}
+
+type GetApplicationSpecSyncPolicyAutomatedArgs struct {
+	// Allows apps have zero live resources.
+	AllowEmpty pulumi.BoolInput `pulumi:"allowEmpty"`
+	// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+	Prune pulumi.BoolInput `pulumi:"prune"`
+	// Whether to revert resources back to their desired state upon modification in the cluster.
+	SelfHeal pulumi.BoolInput `pulumi:"selfHeal"`
+}
+
+func (GetApplicationSpecSyncPolicyAutomatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSyncPolicyAutomated)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSyncPolicyAutomatedArgs) ToGetApplicationSpecSyncPolicyAutomatedOutput() GetApplicationSpecSyncPolicyAutomatedOutput {
+	return i.ToGetApplicationSpecSyncPolicyAutomatedOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSyncPolicyAutomatedArgs) ToGetApplicationSpecSyncPolicyAutomatedOutputWithContext(ctx context.Context) GetApplicationSpecSyncPolicyAutomatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSyncPolicyAutomatedOutput)
+}
+
+type GetApplicationSpecSyncPolicyAutomatedOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSyncPolicyAutomatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSyncPolicyAutomated)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSyncPolicyAutomatedOutput) ToGetApplicationSpecSyncPolicyAutomatedOutput() GetApplicationSpecSyncPolicyAutomatedOutput {
+	return o
+}
+
+func (o GetApplicationSpecSyncPolicyAutomatedOutput) ToGetApplicationSpecSyncPolicyAutomatedOutputWithContext(ctx context.Context) GetApplicationSpecSyncPolicyAutomatedOutput {
+	return o
+}
+
+// Allows apps have zero live resources.
+func (o GetApplicationSpecSyncPolicyAutomatedOutput) AllowEmpty() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicyAutomated) bool { return v.AllowEmpty }).(pulumi.BoolOutput)
+}
+
+// Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+func (o GetApplicationSpecSyncPolicyAutomatedOutput) Prune() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicyAutomated) bool { return v.Prune }).(pulumi.BoolOutput)
+}
+
+// Whether to revert resources back to their desired state upon modification in the cluster.
+func (o GetApplicationSpecSyncPolicyAutomatedOutput) SelfHeal() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicyAutomated) bool { return v.SelfHeal }).(pulumi.BoolOutput)
+}
+
+type GetApplicationSpecSyncPolicyRetry struct {
+	// Controls how to backoff on subsequent retries of failed syncs.
+	Backoff GetApplicationSpecSyncPolicyRetryBackoff `pulumi:"backoff"`
+	// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+	Limit int `pulumi:"limit"`
+}
+
+// GetApplicationSpecSyncPolicyRetryInput is an input type that accepts GetApplicationSpecSyncPolicyRetryArgs and GetApplicationSpecSyncPolicyRetryOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSyncPolicyRetryInput` via:
+//
+//	GetApplicationSpecSyncPolicyRetryArgs{...}
+type GetApplicationSpecSyncPolicyRetryInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSyncPolicyRetryOutput() GetApplicationSpecSyncPolicyRetryOutput
+	ToGetApplicationSpecSyncPolicyRetryOutputWithContext(context.Context) GetApplicationSpecSyncPolicyRetryOutput
+}
+
+type GetApplicationSpecSyncPolicyRetryArgs struct {
+	// Controls how to backoff on subsequent retries of failed syncs.
+	Backoff GetApplicationSpecSyncPolicyRetryBackoffInput `pulumi:"backoff"`
+	// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+	Limit pulumi.IntInput `pulumi:"limit"`
+}
+
+func (GetApplicationSpecSyncPolicyRetryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSyncPolicyRetry)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSyncPolicyRetryArgs) ToGetApplicationSpecSyncPolicyRetryOutput() GetApplicationSpecSyncPolicyRetryOutput {
+	return i.ToGetApplicationSpecSyncPolicyRetryOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSyncPolicyRetryArgs) ToGetApplicationSpecSyncPolicyRetryOutputWithContext(ctx context.Context) GetApplicationSpecSyncPolicyRetryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSyncPolicyRetryOutput)
+}
+
+type GetApplicationSpecSyncPolicyRetryOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSyncPolicyRetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSyncPolicyRetry)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSyncPolicyRetryOutput) ToGetApplicationSpecSyncPolicyRetryOutput() GetApplicationSpecSyncPolicyRetryOutput {
+	return o
+}
+
+func (o GetApplicationSpecSyncPolicyRetryOutput) ToGetApplicationSpecSyncPolicyRetryOutputWithContext(ctx context.Context) GetApplicationSpecSyncPolicyRetryOutput {
+	return o
+}
+
+// Controls how to backoff on subsequent retries of failed syncs.
+func (o GetApplicationSpecSyncPolicyRetryOutput) Backoff() GetApplicationSpecSyncPolicyRetryBackoffOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicyRetry) GetApplicationSpecSyncPolicyRetryBackoff { return v.Backoff }).(GetApplicationSpecSyncPolicyRetryBackoffOutput)
+}
+
+// Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+func (o GetApplicationSpecSyncPolicyRetryOutput) Limit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicyRetry) int { return v.Limit }).(pulumi.IntOutput)
+}
+
+type GetApplicationSpecSyncPolicyRetryBackoff struct {
+	// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+	Duration string `pulumi:"duration"`
+	// Factor to multiply the base duration after each failed retry.
+	Factor int `pulumi:"factor"`
+	// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+	MaxDuration string `pulumi:"maxDuration"`
+}
+
+// GetApplicationSpecSyncPolicyRetryBackoffInput is an input type that accepts GetApplicationSpecSyncPolicyRetryBackoffArgs and GetApplicationSpecSyncPolicyRetryBackoffOutput values.
+// You can construct a concrete instance of `GetApplicationSpecSyncPolicyRetryBackoffInput` via:
+//
+//	GetApplicationSpecSyncPolicyRetryBackoffArgs{...}
+type GetApplicationSpecSyncPolicyRetryBackoffInput interface {
+	pulumi.Input
+
+	ToGetApplicationSpecSyncPolicyRetryBackoffOutput() GetApplicationSpecSyncPolicyRetryBackoffOutput
+	ToGetApplicationSpecSyncPolicyRetryBackoffOutputWithContext(context.Context) GetApplicationSpecSyncPolicyRetryBackoffOutput
+}
+
+type GetApplicationSpecSyncPolicyRetryBackoffArgs struct {
+	// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// Factor to multiply the base duration after each failed retry.
+	Factor pulumi.IntInput `pulumi:"factor"`
+	// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+	MaxDuration pulumi.StringInput `pulumi:"maxDuration"`
+}
+
+func (GetApplicationSpecSyncPolicyRetryBackoffArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSyncPolicyRetryBackoff)(nil)).Elem()
+}
+
+func (i GetApplicationSpecSyncPolicyRetryBackoffArgs) ToGetApplicationSpecSyncPolicyRetryBackoffOutput() GetApplicationSpecSyncPolicyRetryBackoffOutput {
+	return i.ToGetApplicationSpecSyncPolicyRetryBackoffOutputWithContext(context.Background())
+}
+
+func (i GetApplicationSpecSyncPolicyRetryBackoffArgs) ToGetApplicationSpecSyncPolicyRetryBackoffOutputWithContext(ctx context.Context) GetApplicationSpecSyncPolicyRetryBackoffOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationSpecSyncPolicyRetryBackoffOutput)
+}
+
+type GetApplicationSpecSyncPolicyRetryBackoffOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationSpecSyncPolicyRetryBackoffOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationSpecSyncPolicyRetryBackoff)(nil)).Elem()
+}
+
+func (o GetApplicationSpecSyncPolicyRetryBackoffOutput) ToGetApplicationSpecSyncPolicyRetryBackoffOutput() GetApplicationSpecSyncPolicyRetryBackoffOutput {
+	return o
+}
+
+func (o GetApplicationSpecSyncPolicyRetryBackoffOutput) ToGetApplicationSpecSyncPolicyRetryBackoffOutputWithContext(ctx context.Context) GetApplicationSpecSyncPolicyRetryBackoffOutput {
+	return o
+}
+
+// Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+func (o GetApplicationSpecSyncPolicyRetryBackoffOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicyRetryBackoff) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// Factor to multiply the base duration after each failed retry.
+func (o GetApplicationSpecSyncPolicyRetryBackoffOutput) Factor() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicyRetryBackoff) int { return v.Factor }).(pulumi.IntOutput)
+}
+
+// Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+func (o GetApplicationSpecSyncPolicyRetryBackoffOutput) MaxDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationSpecSyncPolicyRetryBackoff) string { return v.MaxDuration }).(pulumi.StringOutput)
+}
+
+type GetApplicationStatus struct {
+	// List of currently observed application conditions.
+	Conditions []GetApplicationStatusCondition `pulumi:"conditions"`
+	// Application's current health status.
+	Health GetApplicationStatusHealth `pulumi:"health"`
+	// Information about any ongoing operations, such as a sync.
+	OperationState GetApplicationStatusOperationState `pulumi:"operationState"`
+	// When the application state was reconciled using the latest git version.
+	ReconciledAt string `pulumi:"reconciledAt"`
+	// List of Kubernetes resources managed by this application.
+	Resources []GetApplicationStatusResource `pulumi:"resources"`
+	// List of URLs and container images used by this application.
+	Summary GetApplicationStatusSummary `pulumi:"summary"`
+	// Application's current sync status
+	Sync GetApplicationStatusSync `pulumi:"sync"`
+}
+
+// GetApplicationStatusInput is an input type that accepts GetApplicationStatusArgs and GetApplicationStatusOutput values.
+// You can construct a concrete instance of `GetApplicationStatusInput` via:
+//
+//	GetApplicationStatusArgs{...}
+type GetApplicationStatusInput interface {
+	pulumi.Input
+
+	ToGetApplicationStatusOutput() GetApplicationStatusOutput
+	ToGetApplicationStatusOutputWithContext(context.Context) GetApplicationStatusOutput
+}
+
+type GetApplicationStatusArgs struct {
+	// List of currently observed application conditions.
+	Conditions GetApplicationStatusConditionArrayInput `pulumi:"conditions"`
+	// Application's current health status.
+	Health GetApplicationStatusHealthInput `pulumi:"health"`
+	// Information about any ongoing operations, such as a sync.
+	OperationState GetApplicationStatusOperationStateInput `pulumi:"operationState"`
+	// When the application state was reconciled using the latest git version.
+	ReconciledAt pulumi.StringInput `pulumi:"reconciledAt"`
+	// List of Kubernetes resources managed by this application.
+	Resources GetApplicationStatusResourceArrayInput `pulumi:"resources"`
+	// List of URLs and container images used by this application.
+	Summary GetApplicationStatusSummaryInput `pulumi:"summary"`
+	// Application's current sync status
+	Sync GetApplicationStatusSyncInput `pulumi:"sync"`
+}
+
+func (GetApplicationStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatus)(nil)).Elem()
+}
+
+func (i GetApplicationStatusArgs) ToGetApplicationStatusOutput() GetApplicationStatusOutput {
+	return i.ToGetApplicationStatusOutputWithContext(context.Background())
+}
+
+func (i GetApplicationStatusArgs) ToGetApplicationStatusOutputWithContext(ctx context.Context) GetApplicationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationStatusOutput)
+}
+
+type GetApplicationStatusOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatus)(nil)).Elem()
+}
+
+func (o GetApplicationStatusOutput) ToGetApplicationStatusOutput() GetApplicationStatusOutput {
+	return o
+}
+
+func (o GetApplicationStatusOutput) ToGetApplicationStatusOutputWithContext(ctx context.Context) GetApplicationStatusOutput {
+	return o
+}
+
+// List of currently observed application conditions.
+func (o GetApplicationStatusOutput) Conditions() GetApplicationStatusConditionArrayOutput {
+	return o.ApplyT(func(v GetApplicationStatus) []GetApplicationStatusCondition { return v.Conditions }).(GetApplicationStatusConditionArrayOutput)
+}
+
+// Application's current health status.
+func (o GetApplicationStatusOutput) Health() GetApplicationStatusHealthOutput {
+	return o.ApplyT(func(v GetApplicationStatus) GetApplicationStatusHealth { return v.Health }).(GetApplicationStatusHealthOutput)
+}
+
+// Information about any ongoing operations, such as a sync.
+func (o GetApplicationStatusOutput) OperationState() GetApplicationStatusOperationStateOutput {
+	return o.ApplyT(func(v GetApplicationStatus) GetApplicationStatusOperationState { return v.OperationState }).(GetApplicationStatusOperationStateOutput)
+}
+
+// When the application state was reconciled using the latest git version.
+func (o GetApplicationStatusOutput) ReconciledAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatus) string { return v.ReconciledAt }).(pulumi.StringOutput)
+}
+
+// List of Kubernetes resources managed by this application.
+func (o GetApplicationStatusOutput) Resources() GetApplicationStatusResourceArrayOutput {
+	return o.ApplyT(func(v GetApplicationStatus) []GetApplicationStatusResource { return v.Resources }).(GetApplicationStatusResourceArrayOutput)
+}
+
+// List of URLs and container images used by this application.
+func (o GetApplicationStatusOutput) Summary() GetApplicationStatusSummaryOutput {
+	return o.ApplyT(func(v GetApplicationStatus) GetApplicationStatusSummary { return v.Summary }).(GetApplicationStatusSummaryOutput)
+}
+
+// Application's current sync status
+func (o GetApplicationStatusOutput) Sync() GetApplicationStatusSyncOutput {
+	return o.ApplyT(func(v GetApplicationStatus) GetApplicationStatusSync { return v.Sync }).(GetApplicationStatusSyncOutput)
+}
+
+type GetApplicationStatusCondition struct {
+	// The time the condition was last observed.
+	LastTransitionTime string `pulumi:"lastTransitionTime"`
+	// Human-readable message indicating details about condition.
+	Message string `pulumi:"message"`
+	// Application condition type.
+	Type string `pulumi:"type"`
+}
+
+// GetApplicationStatusConditionInput is an input type that accepts GetApplicationStatusConditionArgs and GetApplicationStatusConditionOutput values.
+// You can construct a concrete instance of `GetApplicationStatusConditionInput` via:
+//
+//	GetApplicationStatusConditionArgs{...}
+type GetApplicationStatusConditionInput interface {
+	pulumi.Input
+
+	ToGetApplicationStatusConditionOutput() GetApplicationStatusConditionOutput
+	ToGetApplicationStatusConditionOutputWithContext(context.Context) GetApplicationStatusConditionOutput
+}
+
+type GetApplicationStatusConditionArgs struct {
+	// The time the condition was last observed.
+	LastTransitionTime pulumi.StringInput `pulumi:"lastTransitionTime"`
+	// Human-readable message indicating details about condition.
+	Message pulumi.StringInput `pulumi:"message"`
+	// Application condition type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetApplicationStatusConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusCondition)(nil)).Elem()
+}
+
+func (i GetApplicationStatusConditionArgs) ToGetApplicationStatusConditionOutput() GetApplicationStatusConditionOutput {
+	return i.ToGetApplicationStatusConditionOutputWithContext(context.Background())
+}
+
+func (i GetApplicationStatusConditionArgs) ToGetApplicationStatusConditionOutputWithContext(ctx context.Context) GetApplicationStatusConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationStatusConditionOutput)
+}
+
+// GetApplicationStatusConditionArrayInput is an input type that accepts GetApplicationStatusConditionArray and GetApplicationStatusConditionArrayOutput values.
+// You can construct a concrete instance of `GetApplicationStatusConditionArrayInput` via:
+//
+//	GetApplicationStatusConditionArray{ GetApplicationStatusConditionArgs{...} }
+type GetApplicationStatusConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationStatusConditionArrayOutput() GetApplicationStatusConditionArrayOutput
+	ToGetApplicationStatusConditionArrayOutputWithContext(context.Context) GetApplicationStatusConditionArrayOutput
+}
+
+type GetApplicationStatusConditionArray []GetApplicationStatusConditionInput
+
+func (GetApplicationStatusConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationStatusCondition)(nil)).Elem()
+}
+
+func (i GetApplicationStatusConditionArray) ToGetApplicationStatusConditionArrayOutput() GetApplicationStatusConditionArrayOutput {
+	return i.ToGetApplicationStatusConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationStatusConditionArray) ToGetApplicationStatusConditionArrayOutputWithContext(ctx context.Context) GetApplicationStatusConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationStatusConditionArrayOutput)
+}
+
+type GetApplicationStatusConditionOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationStatusConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusCondition)(nil)).Elem()
+}
+
+func (o GetApplicationStatusConditionOutput) ToGetApplicationStatusConditionOutput() GetApplicationStatusConditionOutput {
+	return o
+}
+
+func (o GetApplicationStatusConditionOutput) ToGetApplicationStatusConditionOutputWithContext(ctx context.Context) GetApplicationStatusConditionOutput {
+	return o
+}
+
+// The time the condition was last observed.
+func (o GetApplicationStatusConditionOutput) LastTransitionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusCondition) string { return v.LastTransitionTime }).(pulumi.StringOutput)
+}
+
+// Human-readable message indicating details about condition.
+func (o GetApplicationStatusConditionOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusCondition) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Application condition type.
+func (o GetApplicationStatusConditionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusCondition) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetApplicationStatusConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationStatusConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationStatusCondition)(nil)).Elem()
+}
+
+func (o GetApplicationStatusConditionArrayOutput) ToGetApplicationStatusConditionArrayOutput() GetApplicationStatusConditionArrayOutput {
+	return o
+}
+
+func (o GetApplicationStatusConditionArrayOutput) ToGetApplicationStatusConditionArrayOutputWithContext(ctx context.Context) GetApplicationStatusConditionArrayOutput {
+	return o
+}
+
+func (o GetApplicationStatusConditionArrayOutput) Index(i pulumi.IntInput) GetApplicationStatusConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationStatusCondition {
+		return vs[0].([]GetApplicationStatusCondition)[vs[1].(int)]
+	}).(GetApplicationStatusConditionOutput)
+}
+
+type GetApplicationStatusHealth struct {
+	// Human-readable informational message describing the health status.
+	Message string `pulumi:"message"`
+	// Status code of the application or resource.
+	Status string `pulumi:"status"`
+}
+
+// GetApplicationStatusHealthInput is an input type that accepts GetApplicationStatusHealthArgs and GetApplicationStatusHealthOutput values.
+// You can construct a concrete instance of `GetApplicationStatusHealthInput` via:
+//
+//	GetApplicationStatusHealthArgs{...}
+type GetApplicationStatusHealthInput interface {
+	pulumi.Input
+
+	ToGetApplicationStatusHealthOutput() GetApplicationStatusHealthOutput
+	ToGetApplicationStatusHealthOutputWithContext(context.Context) GetApplicationStatusHealthOutput
+}
+
+type GetApplicationStatusHealthArgs struct {
+	// Human-readable informational message describing the health status.
+	Message pulumi.StringInput `pulumi:"message"`
+	// Status code of the application or resource.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetApplicationStatusHealthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusHealth)(nil)).Elem()
+}
+
+func (i GetApplicationStatusHealthArgs) ToGetApplicationStatusHealthOutput() GetApplicationStatusHealthOutput {
+	return i.ToGetApplicationStatusHealthOutputWithContext(context.Background())
+}
+
+func (i GetApplicationStatusHealthArgs) ToGetApplicationStatusHealthOutputWithContext(ctx context.Context) GetApplicationStatusHealthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationStatusHealthOutput)
+}
+
+type GetApplicationStatusHealthOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationStatusHealthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusHealth)(nil)).Elem()
+}
+
+func (o GetApplicationStatusHealthOutput) ToGetApplicationStatusHealthOutput() GetApplicationStatusHealthOutput {
+	return o
+}
+
+func (o GetApplicationStatusHealthOutput) ToGetApplicationStatusHealthOutputWithContext(ctx context.Context) GetApplicationStatusHealthOutput {
+	return o
+}
+
+// Human-readable informational message describing the health status.
+func (o GetApplicationStatusHealthOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusHealth) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Status code of the application or resource.
+func (o GetApplicationStatusHealthOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusHealth) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetApplicationStatusOperationState struct {
+	// Time of operation completion.
+	FinishedAt string `pulumi:"finishedAt"`
+	// Any pertinent messages when attempting to perform operation (typically errors).
+	Message string `pulumi:"message"`
+	// The current phase of the operation.
+	Phase string `pulumi:"phase"`
+	// Count of operation retries.
+	RetryCount int `pulumi:"retryCount"`
+	// Time of operation start.
+	StartedAt string `pulumi:"startedAt"`
+}
+
+// GetApplicationStatusOperationStateInput is an input type that accepts GetApplicationStatusOperationStateArgs and GetApplicationStatusOperationStateOutput values.
+// You can construct a concrete instance of `GetApplicationStatusOperationStateInput` via:
+//
+//	GetApplicationStatusOperationStateArgs{...}
+type GetApplicationStatusOperationStateInput interface {
+	pulumi.Input
+
+	ToGetApplicationStatusOperationStateOutput() GetApplicationStatusOperationStateOutput
+	ToGetApplicationStatusOperationStateOutputWithContext(context.Context) GetApplicationStatusOperationStateOutput
+}
+
+type GetApplicationStatusOperationStateArgs struct {
+	// Time of operation completion.
+	FinishedAt pulumi.StringInput `pulumi:"finishedAt"`
+	// Any pertinent messages when attempting to perform operation (typically errors).
+	Message pulumi.StringInput `pulumi:"message"`
+	// The current phase of the operation.
+	Phase pulumi.StringInput `pulumi:"phase"`
+	// Count of operation retries.
+	RetryCount pulumi.IntInput `pulumi:"retryCount"`
+	// Time of operation start.
+	StartedAt pulumi.StringInput `pulumi:"startedAt"`
+}
+
+func (GetApplicationStatusOperationStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusOperationState)(nil)).Elem()
+}
+
+func (i GetApplicationStatusOperationStateArgs) ToGetApplicationStatusOperationStateOutput() GetApplicationStatusOperationStateOutput {
+	return i.ToGetApplicationStatusOperationStateOutputWithContext(context.Background())
+}
+
+func (i GetApplicationStatusOperationStateArgs) ToGetApplicationStatusOperationStateOutputWithContext(ctx context.Context) GetApplicationStatusOperationStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationStatusOperationStateOutput)
+}
+
+type GetApplicationStatusOperationStateOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationStatusOperationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusOperationState)(nil)).Elem()
+}
+
+func (o GetApplicationStatusOperationStateOutput) ToGetApplicationStatusOperationStateOutput() GetApplicationStatusOperationStateOutput {
+	return o
+}
+
+func (o GetApplicationStatusOperationStateOutput) ToGetApplicationStatusOperationStateOutputWithContext(ctx context.Context) GetApplicationStatusOperationStateOutput {
+	return o
+}
+
+// Time of operation completion.
+func (o GetApplicationStatusOperationStateOutput) FinishedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusOperationState) string { return v.FinishedAt }).(pulumi.StringOutput)
+}
+
+// Any pertinent messages when attempting to perform operation (typically errors).
+func (o GetApplicationStatusOperationStateOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusOperationState) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The current phase of the operation.
+func (o GetApplicationStatusOperationStateOutput) Phase() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusOperationState) string { return v.Phase }).(pulumi.StringOutput)
+}
+
+// Count of operation retries.
+func (o GetApplicationStatusOperationStateOutput) RetryCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationStatusOperationState) int { return v.RetryCount }).(pulumi.IntOutput)
+}
+
+// Time of operation start.
+func (o GetApplicationStatusOperationStateOutput) StartedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusOperationState) string { return v.StartedAt }).(pulumi.StringOutput)
+}
+
+type GetApplicationStatusResource struct {
+	// The Kubernetes resource Group.
+	Group string `pulumi:"group"`
+	// Resource health status.
+	Health GetApplicationStatusResourceHealth `pulumi:"health"`
+	// Indicates whether or not this resource has a hook annotation.
+	Hook bool `pulumi:"hook"`
+	// The Kubernetes resource Kind.
+	Kind string `pulumi:"kind"`
+	// The Kubernetes resource Name.
+	Name string `pulumi:"name"`
+	// The Kubernetes resource Namespace.
+	Namespace string `pulumi:"namespace"`
+	// Indicates if the resources requires pruning or not.
+	RequiresPruning bool `pulumi:"requiresPruning"`
+	// Resource sync status.
+	Status string `pulumi:"status"`
+	// Sync wave.
+	SyncWave int `pulumi:"syncWave"`
+	// The Kubernetes resource Version.
+	Version string `pulumi:"version"`
+}
+
+// GetApplicationStatusResourceInput is an input type that accepts GetApplicationStatusResourceArgs and GetApplicationStatusResourceOutput values.
+// You can construct a concrete instance of `GetApplicationStatusResourceInput` via:
+//
+//	GetApplicationStatusResourceArgs{...}
+type GetApplicationStatusResourceInput interface {
+	pulumi.Input
+
+	ToGetApplicationStatusResourceOutput() GetApplicationStatusResourceOutput
+	ToGetApplicationStatusResourceOutputWithContext(context.Context) GetApplicationStatusResourceOutput
+}
+
+type GetApplicationStatusResourceArgs struct {
+	// The Kubernetes resource Group.
+	Group pulumi.StringInput `pulumi:"group"`
+	// Resource health status.
+	Health GetApplicationStatusResourceHealthInput `pulumi:"health"`
+	// Indicates whether or not this resource has a hook annotation.
+	Hook pulumi.BoolInput `pulumi:"hook"`
+	// The Kubernetes resource Kind.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The Kubernetes resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Kubernetes resource Namespace.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// Indicates if the resources requires pruning or not.
+	RequiresPruning pulumi.BoolInput `pulumi:"requiresPruning"`
+	// Resource sync status.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Sync wave.
+	SyncWave pulumi.IntInput `pulumi:"syncWave"`
+	// The Kubernetes resource Version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetApplicationStatusResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusResource)(nil)).Elem()
+}
+
+func (i GetApplicationStatusResourceArgs) ToGetApplicationStatusResourceOutput() GetApplicationStatusResourceOutput {
+	return i.ToGetApplicationStatusResourceOutputWithContext(context.Background())
+}
+
+func (i GetApplicationStatusResourceArgs) ToGetApplicationStatusResourceOutputWithContext(ctx context.Context) GetApplicationStatusResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationStatusResourceOutput)
+}
+
+// GetApplicationStatusResourceArrayInput is an input type that accepts GetApplicationStatusResourceArray and GetApplicationStatusResourceArrayOutput values.
+// You can construct a concrete instance of `GetApplicationStatusResourceArrayInput` via:
+//
+//	GetApplicationStatusResourceArray{ GetApplicationStatusResourceArgs{...} }
+type GetApplicationStatusResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationStatusResourceArrayOutput() GetApplicationStatusResourceArrayOutput
+	ToGetApplicationStatusResourceArrayOutputWithContext(context.Context) GetApplicationStatusResourceArrayOutput
+}
+
+type GetApplicationStatusResourceArray []GetApplicationStatusResourceInput
+
+func (GetApplicationStatusResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationStatusResource)(nil)).Elem()
+}
+
+func (i GetApplicationStatusResourceArray) ToGetApplicationStatusResourceArrayOutput() GetApplicationStatusResourceArrayOutput {
+	return i.ToGetApplicationStatusResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationStatusResourceArray) ToGetApplicationStatusResourceArrayOutputWithContext(ctx context.Context) GetApplicationStatusResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationStatusResourceArrayOutput)
+}
+
+type GetApplicationStatusResourceOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationStatusResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusResource)(nil)).Elem()
+}
+
+func (o GetApplicationStatusResourceOutput) ToGetApplicationStatusResourceOutput() GetApplicationStatusResourceOutput {
+	return o
+}
+
+func (o GetApplicationStatusResourceOutput) ToGetApplicationStatusResourceOutputWithContext(ctx context.Context) GetApplicationStatusResourceOutput {
+	return o
+}
+
+// The Kubernetes resource Group.
+func (o GetApplicationStatusResourceOutput) Group() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusResource) string { return v.Group }).(pulumi.StringOutput)
+}
+
+// Resource health status.
+func (o GetApplicationStatusResourceOutput) Health() GetApplicationStatusResourceHealthOutput {
+	return o.ApplyT(func(v GetApplicationStatusResource) GetApplicationStatusResourceHealth { return v.Health }).(GetApplicationStatusResourceHealthOutput)
+}
+
+// Indicates whether or not this resource has a hook annotation.
+func (o GetApplicationStatusResourceOutput) Hook() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationStatusResource) bool { return v.Hook }).(pulumi.BoolOutput)
+}
+
+// The Kubernetes resource Kind.
+func (o GetApplicationStatusResourceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusResource) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The Kubernetes resource Name.
+func (o GetApplicationStatusResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Kubernetes resource Namespace.
+func (o GetApplicationStatusResourceOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusResource) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// Indicates if the resources requires pruning or not.
+func (o GetApplicationStatusResourceOutput) RequiresPruning() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationStatusResource) bool { return v.RequiresPruning }).(pulumi.BoolOutput)
+}
+
+// Resource sync status.
+func (o GetApplicationStatusResourceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusResource) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Sync wave.
+func (o GetApplicationStatusResourceOutput) SyncWave() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationStatusResource) int { return v.SyncWave }).(pulumi.IntOutput)
+}
+
+// The Kubernetes resource Version.
+func (o GetApplicationStatusResourceOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusResource) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetApplicationStatusResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationStatusResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationStatusResource)(nil)).Elem()
+}
+
+func (o GetApplicationStatusResourceArrayOutput) ToGetApplicationStatusResourceArrayOutput() GetApplicationStatusResourceArrayOutput {
+	return o
+}
+
+func (o GetApplicationStatusResourceArrayOutput) ToGetApplicationStatusResourceArrayOutputWithContext(ctx context.Context) GetApplicationStatusResourceArrayOutput {
+	return o
+}
+
+func (o GetApplicationStatusResourceArrayOutput) Index(i pulumi.IntInput) GetApplicationStatusResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationStatusResource {
+		return vs[0].([]GetApplicationStatusResource)[vs[1].(int)]
+	}).(GetApplicationStatusResourceOutput)
+}
+
+type GetApplicationStatusResourceHealth struct {
+	// Human-readable informational message describing the health status.
+	Message string `pulumi:"message"`
+	// Status code of the application or resource.
+	Status string `pulumi:"status"`
+}
+
+// GetApplicationStatusResourceHealthInput is an input type that accepts GetApplicationStatusResourceHealthArgs and GetApplicationStatusResourceHealthOutput values.
+// You can construct a concrete instance of `GetApplicationStatusResourceHealthInput` via:
+//
+//	GetApplicationStatusResourceHealthArgs{...}
+type GetApplicationStatusResourceHealthInput interface {
+	pulumi.Input
+
+	ToGetApplicationStatusResourceHealthOutput() GetApplicationStatusResourceHealthOutput
+	ToGetApplicationStatusResourceHealthOutputWithContext(context.Context) GetApplicationStatusResourceHealthOutput
+}
+
+type GetApplicationStatusResourceHealthArgs struct {
+	// Human-readable informational message describing the health status.
+	Message pulumi.StringInput `pulumi:"message"`
+	// Status code of the application or resource.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetApplicationStatusResourceHealthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusResourceHealth)(nil)).Elem()
+}
+
+func (i GetApplicationStatusResourceHealthArgs) ToGetApplicationStatusResourceHealthOutput() GetApplicationStatusResourceHealthOutput {
+	return i.ToGetApplicationStatusResourceHealthOutputWithContext(context.Background())
+}
+
+func (i GetApplicationStatusResourceHealthArgs) ToGetApplicationStatusResourceHealthOutputWithContext(ctx context.Context) GetApplicationStatusResourceHealthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationStatusResourceHealthOutput)
+}
+
+type GetApplicationStatusResourceHealthOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationStatusResourceHealthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusResourceHealth)(nil)).Elem()
+}
+
+func (o GetApplicationStatusResourceHealthOutput) ToGetApplicationStatusResourceHealthOutput() GetApplicationStatusResourceHealthOutput {
+	return o
+}
+
+func (o GetApplicationStatusResourceHealthOutput) ToGetApplicationStatusResourceHealthOutputWithContext(ctx context.Context) GetApplicationStatusResourceHealthOutput {
+	return o
+}
+
+// Human-readable informational message describing the health status.
+func (o GetApplicationStatusResourceHealthOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusResourceHealth) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Status code of the application or resource.
+func (o GetApplicationStatusResourceHealthOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusResourceHealth) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetApplicationStatusSummary struct {
+	// All external URLs of application child resources.
+	ExternalUrls []string `pulumi:"externalUrls"`
+	// All images of application child resources.
+	Images []string `pulumi:"images"`
+}
+
+// GetApplicationStatusSummaryInput is an input type that accepts GetApplicationStatusSummaryArgs and GetApplicationStatusSummaryOutput values.
+// You can construct a concrete instance of `GetApplicationStatusSummaryInput` via:
+//
+//	GetApplicationStatusSummaryArgs{...}
+type GetApplicationStatusSummaryInput interface {
+	pulumi.Input
+
+	ToGetApplicationStatusSummaryOutput() GetApplicationStatusSummaryOutput
+	ToGetApplicationStatusSummaryOutputWithContext(context.Context) GetApplicationStatusSummaryOutput
+}
+
+type GetApplicationStatusSummaryArgs struct {
+	// All external URLs of application child resources.
+	ExternalUrls pulumi.StringArrayInput `pulumi:"externalUrls"`
+	// All images of application child resources.
+	Images pulumi.StringArrayInput `pulumi:"images"`
+}
+
+func (GetApplicationStatusSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusSummary)(nil)).Elem()
+}
+
+func (i GetApplicationStatusSummaryArgs) ToGetApplicationStatusSummaryOutput() GetApplicationStatusSummaryOutput {
+	return i.ToGetApplicationStatusSummaryOutputWithContext(context.Background())
+}
+
+func (i GetApplicationStatusSummaryArgs) ToGetApplicationStatusSummaryOutputWithContext(ctx context.Context) GetApplicationStatusSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationStatusSummaryOutput)
+}
+
+type GetApplicationStatusSummaryOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationStatusSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusSummary)(nil)).Elem()
+}
+
+func (o GetApplicationStatusSummaryOutput) ToGetApplicationStatusSummaryOutput() GetApplicationStatusSummaryOutput {
+	return o
+}
+
+func (o GetApplicationStatusSummaryOutput) ToGetApplicationStatusSummaryOutputWithContext(ctx context.Context) GetApplicationStatusSummaryOutput {
+	return o
+}
+
+// All external URLs of application child resources.
+func (o GetApplicationStatusSummaryOutput) ExternalUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationStatusSummary) []string { return v.ExternalUrls }).(pulumi.StringArrayOutput)
+}
+
+// All images of application child resources.
+func (o GetApplicationStatusSummaryOutput) Images() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationStatusSummary) []string { return v.Images }).(pulumi.StringArrayOutput)
+}
+
+type GetApplicationStatusSync struct {
+	// Information about the revision(s) the comparison has been performed to.
+	Revisions []string `pulumi:"revisions"`
+	// Sync state of the comparison.
+	Status string `pulumi:"status"`
+}
+
+// GetApplicationStatusSyncInput is an input type that accepts GetApplicationStatusSyncArgs and GetApplicationStatusSyncOutput values.
+// You can construct a concrete instance of `GetApplicationStatusSyncInput` via:
+//
+//	GetApplicationStatusSyncArgs{...}
+type GetApplicationStatusSyncInput interface {
+	pulumi.Input
+
+	ToGetApplicationStatusSyncOutput() GetApplicationStatusSyncOutput
+	ToGetApplicationStatusSyncOutputWithContext(context.Context) GetApplicationStatusSyncOutput
+}
+
+type GetApplicationStatusSyncArgs struct {
+	// Information about the revision(s) the comparison has been performed to.
+	Revisions pulumi.StringArrayInput `pulumi:"revisions"`
+	// Sync state of the comparison.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetApplicationStatusSyncArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusSync)(nil)).Elem()
+}
+
+func (i GetApplicationStatusSyncArgs) ToGetApplicationStatusSyncOutput() GetApplicationStatusSyncOutput {
+	return i.ToGetApplicationStatusSyncOutputWithContext(context.Background())
+}
+
+func (i GetApplicationStatusSyncArgs) ToGetApplicationStatusSyncOutputWithContext(ctx context.Context) GetApplicationStatusSyncOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationStatusSyncOutput)
+}
+
+type GetApplicationStatusSyncOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationStatusSyncOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationStatusSync)(nil)).Elem()
+}
+
+func (o GetApplicationStatusSyncOutput) ToGetApplicationStatusSyncOutput() GetApplicationStatusSyncOutput {
+	return o
+}
+
+func (o GetApplicationStatusSyncOutput) ToGetApplicationStatusSyncOutputWithContext(ctx context.Context) GetApplicationStatusSyncOutput {
+	return o
+}
+
+// Information about the revision(s) the comparison has been performed to.
+func (o GetApplicationStatusSyncOutput) Revisions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationStatusSync) []string { return v.Revisions }).(pulumi.StringArrayOutput)
+}
+
+// Sync state of the comparison.
+func (o GetApplicationStatusSyncOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationStatusSync) string { return v.Status }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMergeGeneratorScmProviderTemplateSpecSourcePluginEnvInput)(nil)).Elem(), ApplicationSetSpecGeneratorMergeGeneratorScmProviderTemplateSpecSourcePluginEnvArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSetSpecGeneratorMergeGeneratorScmProviderTemplateSpecSourcePluginEnvArrayInput)(nil)).Elem(), ApplicationSetSpecGeneratorMergeGeneratorScmProviderTemplateSpecSourcePluginEnvArray{})
@@ -34565,10 +39558,80 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInfoConnectionStateArrayInput)(nil)).Elem(), ClusterInfoConnectionStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMetadataInput)(nil)).Elem(), ClusterMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMetadataArrayInput)(nil)).Elem(), ClusterMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMetadataInput)(nil)).Elem(), ProjectMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMetadataPtrInput)(nil)).Elem(), ProjectMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecInput)(nil)).Elem(), ProjectSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecPtrInput)(nil)).Elem(), ProjectSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecClusterResourceBlacklistInput)(nil)).Elem(), ProjectSpecClusterResourceBlacklistArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecClusterResourceBlacklistArrayInput)(nil)).Elem(), ProjectSpecClusterResourceBlacklistArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecClusterResourceWhitelistInput)(nil)).Elem(), ProjectSpecClusterResourceWhitelistArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecClusterResourceWhitelistArrayInput)(nil)).Elem(), ProjectSpecClusterResourceWhitelistArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecDestinationInput)(nil)).Elem(), ProjectSpecDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecDestinationArrayInput)(nil)).Elem(), ProjectSpecDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecDestinationServiceAccountInput)(nil)).Elem(), ProjectSpecDestinationServiceAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecDestinationServiceAccountArrayInput)(nil)).Elem(), ProjectSpecDestinationServiceAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecNamespaceResourceBlacklistInput)(nil)).Elem(), ProjectSpecNamespaceResourceBlacklistArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecNamespaceResourceBlacklistArrayInput)(nil)).Elem(), ProjectSpecNamespaceResourceBlacklistArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecNamespaceResourceWhitelistInput)(nil)).Elem(), ProjectSpecNamespaceResourceWhitelistArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecNamespaceResourceWhitelistArrayInput)(nil)).Elem(), ProjectSpecNamespaceResourceWhitelistArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecOrphanedResourceInput)(nil)).Elem(), ProjectSpecOrphanedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecOrphanedResourceArrayInput)(nil)).Elem(), ProjectSpecOrphanedResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecOrphanedResourceIgnoreInput)(nil)).Elem(), ProjectSpecOrphanedResourceIgnoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecOrphanedResourceIgnoreArrayInput)(nil)).Elem(), ProjectSpecOrphanedResourceIgnoreArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecRoleInput)(nil)).Elem(), ProjectSpecRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecRoleArrayInput)(nil)).Elem(), ProjectSpecRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecRoleJwtTokenInput)(nil)).Elem(), ProjectSpecRoleJwtTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecRoleJwtTokenArrayInput)(nil)).Elem(), ProjectSpecRoleJwtTokenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecSyncWindowInput)(nil)).Elem(), ProjectSpecSyncWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSpecSyncWindowArrayInput)(nil)).Elem(), ProjectSpecSyncWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderKubernetesInput)(nil)).Elem(), ProviderKubernetesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderKubernetesPtrInput)(nil)).Elem(), ProviderKubernetesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderKubernetesExecInput)(nil)).Elem(), ProviderKubernetesExecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderKubernetesExecPtrInput)(nil)).Elem(), ProviderKubernetesExecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCertificateHttpInput)(nil)).Elem(), RepositoryCertificateHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCertificateHttpArrayInput)(nil)).Elem(), RepositoryCertificateHttpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCertificateSshInput)(nil)).Elem(), RepositoryCertificateSshArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCertificateSshArrayInput)(nil)).Elem(), RepositoryCertificateSshArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationMetadataInput)(nil)).Elem(), GetApplicationMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecInput)(nil)).Elem(), GetApplicationSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecDestinationInput)(nil)).Elem(), GetApplicationSpecDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecIgnoreDifferenceInput)(nil)).Elem(), GetApplicationSpecIgnoreDifferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecIgnoreDifferenceArrayInput)(nil)).Elem(), GetApplicationSpecIgnoreDifferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecInfoInput)(nil)).Elem(), GetApplicationSpecInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecInfoArrayInput)(nil)).Elem(), GetApplicationSpecInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceInput)(nil)).Elem(), GetApplicationSpecSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceArrayInput)(nil)).Elem(), GetApplicationSpecSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceDirectoryInput)(nil)).Elem(), GetApplicationSpecSourceDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnetInput)(nil)).Elem(), GetApplicationSpecSourceDirectoryJsonnetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnetExtVarInput)(nil)).Elem(), GetApplicationSpecSourceDirectoryJsonnetExtVarArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnetExtVarArrayInput)(nil)).Elem(), GetApplicationSpecSourceDirectoryJsonnetExtVarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnetTlaInput)(nil)).Elem(), GetApplicationSpecSourceDirectoryJsonnetTlaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceDirectoryJsonnetTlaArrayInput)(nil)).Elem(), GetApplicationSpecSourceDirectoryJsonnetTlaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceHelmInput)(nil)).Elem(), GetApplicationSpecSourceHelmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceHelmFileParameterInput)(nil)).Elem(), GetApplicationSpecSourceHelmFileParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceHelmFileParameterArrayInput)(nil)).Elem(), GetApplicationSpecSourceHelmFileParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceHelmParameterInput)(nil)).Elem(), GetApplicationSpecSourceHelmParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceHelmParameterArrayInput)(nil)).Elem(), GetApplicationSpecSourceHelmParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourceKustomizeInput)(nil)).Elem(), GetApplicationSpecSourceKustomizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourcePluginInput)(nil)).Elem(), GetApplicationSpecSourcePluginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourcePluginEnvInput)(nil)).Elem(), GetApplicationSpecSourcePluginEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourcePluginEnvArrayInput)(nil)).Elem(), GetApplicationSpecSourcePluginEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourcePluginParameterInput)(nil)).Elem(), GetApplicationSpecSourcePluginParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSourcePluginParameterArrayInput)(nil)).Elem(), GetApplicationSpecSourcePluginParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSyncPolicyInput)(nil)).Elem(), GetApplicationSpecSyncPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSyncPolicyAutomatedInput)(nil)).Elem(), GetApplicationSpecSyncPolicyAutomatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSyncPolicyRetryInput)(nil)).Elem(), GetApplicationSpecSyncPolicyRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationSpecSyncPolicyRetryBackoffInput)(nil)).Elem(), GetApplicationSpecSyncPolicyRetryBackoffArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStatusInput)(nil)).Elem(), GetApplicationStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStatusConditionInput)(nil)).Elem(), GetApplicationStatusConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStatusConditionArrayInput)(nil)).Elem(), GetApplicationStatusConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStatusHealthInput)(nil)).Elem(), GetApplicationStatusHealthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStatusOperationStateInput)(nil)).Elem(), GetApplicationStatusOperationStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStatusResourceInput)(nil)).Elem(), GetApplicationStatusResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStatusResourceArrayInput)(nil)).Elem(), GetApplicationStatusResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStatusResourceHealthInput)(nil)).Elem(), GetApplicationStatusResourceHealthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStatusSummaryInput)(nil)).Elem(), GetApplicationStatusSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationStatusSyncInput)(nil)).Elem(), GetApplicationStatusSyncArgs{})
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMergeGeneratorScmProviderTemplateSpecSourcePluginEnvOutput{})
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMergeGeneratorScmProviderTemplateSpecSourcePluginEnvArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationSetSpecGeneratorMergeGeneratorScmProviderTemplateSpecSyncPolicyOutput{})
@@ -34971,8 +40034,78 @@ func init() {
 	pulumi.RegisterOutputType(ClusterInfoConnectionStateArrayOutput{})
 	pulumi.RegisterOutputType(ClusterMetadataOutput{})
 	pulumi.RegisterOutputType(ClusterMetadataArrayOutput{})
+	pulumi.RegisterOutputType(ProjectMetadataOutput{})
+	pulumi.RegisterOutputType(ProjectMetadataPtrOutput{})
+	pulumi.RegisterOutputType(ProjectSpecOutput{})
+	pulumi.RegisterOutputType(ProjectSpecPtrOutput{})
+	pulumi.RegisterOutputType(ProjectSpecClusterResourceBlacklistOutput{})
+	pulumi.RegisterOutputType(ProjectSpecClusterResourceBlacklistArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSpecClusterResourceWhitelistOutput{})
+	pulumi.RegisterOutputType(ProjectSpecClusterResourceWhitelistArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSpecDestinationOutput{})
+	pulumi.RegisterOutputType(ProjectSpecDestinationArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSpecDestinationServiceAccountOutput{})
+	pulumi.RegisterOutputType(ProjectSpecDestinationServiceAccountArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSpecNamespaceResourceBlacklistOutput{})
+	pulumi.RegisterOutputType(ProjectSpecNamespaceResourceBlacklistArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSpecNamespaceResourceWhitelistOutput{})
+	pulumi.RegisterOutputType(ProjectSpecNamespaceResourceWhitelistArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSpecOrphanedResourceOutput{})
+	pulumi.RegisterOutputType(ProjectSpecOrphanedResourceArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSpecOrphanedResourceIgnoreOutput{})
+	pulumi.RegisterOutputType(ProjectSpecOrphanedResourceIgnoreArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSpecRoleOutput{})
+	pulumi.RegisterOutputType(ProjectSpecRoleArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSpecRoleJwtTokenOutput{})
+	pulumi.RegisterOutputType(ProjectSpecRoleJwtTokenArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSpecSyncWindowOutput{})
+	pulumi.RegisterOutputType(ProjectSpecSyncWindowArrayOutput{})
 	pulumi.RegisterOutputType(ProviderKubernetesOutput{})
 	pulumi.RegisterOutputType(ProviderKubernetesPtrOutput{})
 	pulumi.RegisterOutputType(ProviderKubernetesExecOutput{})
 	pulumi.RegisterOutputType(ProviderKubernetesExecPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryCertificateHttpOutput{})
+	pulumi.RegisterOutputType(RepositoryCertificateHttpArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryCertificateSshOutput{})
+	pulumi.RegisterOutputType(RepositoryCertificateSshArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationMetadataOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecDestinationOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecIgnoreDifferenceOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecIgnoreDifferenceArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecInfoOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceDirectoryOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceDirectoryJsonnetOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceDirectoryJsonnetExtVarOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceDirectoryJsonnetExtVarArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceDirectoryJsonnetTlaOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceDirectoryJsonnetTlaArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceHelmOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceHelmFileParameterOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceHelmFileParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceHelmParameterOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceHelmParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourceKustomizeOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourcePluginOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourcePluginEnvOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourcePluginEnvArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourcePluginParameterOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSourcePluginParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSyncPolicyOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSyncPolicyAutomatedOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSyncPolicyRetryOutput{})
+	pulumi.RegisterOutputType(GetApplicationSpecSyncPolicyRetryBackoffOutput{})
+	pulumi.RegisterOutputType(GetApplicationStatusOutput{})
+	pulumi.RegisterOutputType(GetApplicationStatusConditionOutput{})
+	pulumi.RegisterOutputType(GetApplicationStatusConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationStatusHealthOutput{})
+	pulumi.RegisterOutputType(GetApplicationStatusOperationStateOutput{})
+	pulumi.RegisterOutputType(GetApplicationStatusResourceOutput{})
+	pulumi.RegisterOutputType(GetApplicationStatusResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationStatusResourceHealthOutput{})
+	pulumi.RegisterOutputType(GetApplicationStatusSummaryOutput{})
+	pulumi.RegisterOutputType(GetApplicationStatusSyncOutput{})
 }

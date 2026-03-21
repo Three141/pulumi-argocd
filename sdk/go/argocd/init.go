@@ -29,6 +29,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApplicationSet{}
 	case "argocd:index/cluster:Cluster":
 		r = &Cluster{}
+	case "argocd:index/gpgKey:GpgKey":
+		r = &GpgKey{}
+	case "argocd:index/project:Project":
+		r = &Project{}
+	case "argocd:index/projectToken:ProjectToken":
+		r = &ProjectToken{}
+	case "argocd:index/repository:Repository":
+		r = &Repository{}
+	case "argocd:index/repositoryCertificate:RepositoryCertificate":
+		r = &RepositoryCertificate{}
+	case "argocd:index/repositoryCredentials:RepositoryCredentials":
+		r = &RepositoryCredentials{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -78,6 +90,36 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"argocd",
 		"index/cluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"argocd",
+		"index/gpgKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"argocd",
+		"index/project",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"argocd",
+		"index/projectToken",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"argocd",
+		"index/repository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"argocd",
+		"index/repositoryCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"argocd",
+		"index/repositoryCredentials",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

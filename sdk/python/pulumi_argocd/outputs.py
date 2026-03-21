@@ -1720,6 +1720,50 @@ __all__ = [
     'ClusterInfo',
     'ClusterInfoConnectionState',
     'ClusterMetadata',
+    'ProjectMetadata',
+    'ProjectSpec',
+    'ProjectSpecClusterResourceBlacklist',
+    'ProjectSpecClusterResourceWhitelist',
+    'ProjectSpecDestination',
+    'ProjectSpecDestinationServiceAccount',
+    'ProjectSpecNamespaceResourceBlacklist',
+    'ProjectSpecNamespaceResourceWhitelist',
+    'ProjectSpecOrphanedResource',
+    'ProjectSpecOrphanedResourceIgnore',
+    'ProjectSpecRole',
+    'ProjectSpecRoleJwtToken',
+    'ProjectSpecSyncWindow',
+    'RepositoryCertificateHttp',
+    'RepositoryCertificateSsh',
+    'GetApplicationMetadataResult',
+    'GetApplicationSpecResult',
+    'GetApplicationSpecDestinationResult',
+    'GetApplicationSpecIgnoreDifferenceResult',
+    'GetApplicationSpecInfoResult',
+    'GetApplicationSpecSourceResult',
+    'GetApplicationSpecSourceDirectoryResult',
+    'GetApplicationSpecSourceDirectoryJsonnetResult',
+    'GetApplicationSpecSourceDirectoryJsonnetExtVarResult',
+    'GetApplicationSpecSourceDirectoryJsonnetTlaResult',
+    'GetApplicationSpecSourceHelmResult',
+    'GetApplicationSpecSourceHelmFileParameterResult',
+    'GetApplicationSpecSourceHelmParameterResult',
+    'GetApplicationSpecSourceKustomizeResult',
+    'GetApplicationSpecSourcePluginResult',
+    'GetApplicationSpecSourcePluginEnvResult',
+    'GetApplicationSpecSourcePluginParameterResult',
+    'GetApplicationSpecSyncPolicyResult',
+    'GetApplicationSpecSyncPolicyAutomatedResult',
+    'GetApplicationSpecSyncPolicyRetryResult',
+    'GetApplicationSpecSyncPolicyRetryBackoffResult',
+    'GetApplicationStatusResult',
+    'GetApplicationStatusConditionResult',
+    'GetApplicationStatusHealthResult',
+    'GetApplicationStatusOperationStateResult',
+    'GetApplicationStatusResourceResult',
+    'GetApplicationStatusResourceHealthResult',
+    'GetApplicationStatusSummaryResult',
+    'GetApplicationStatusSyncResult',
 ]
 
 @pulumi.output_type
@@ -114137,5 +114181,2552 @@ class ClusterMetadata(dict):
         Map of string keys and values that can be used to organize and categorize (scope and select) the cluster secret. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
         """
         return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class ProjectMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceVersion":
+            suggest = "resource_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 annotations: Optional[Mapping[str, _builtins.str]] = None,
+                 generation: Optional[_builtins.int] = None,
+                 labels: Optional[Mapping[str, _builtins.str]] = None,
+                 namespace: Optional[_builtins.str] = None,
+                 resource_version: Optional[_builtins.str] = None,
+                 uid: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: Name of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+        :param Mapping[str, _builtins.str] annotations: An unstructured key value map stored with the appproject that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+        :param _builtins.int generation: A sequence number representing a specific generation of the desired state.
+        :param Mapping[str, _builtins.str] labels: Map of string keys and values that can be used to organize and categorize (scope and select) the appproject. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+        :param _builtins.str namespace: Namespace of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+        :param _builtins.str resource_version: An opaque value that represents the internal version of this appproject that can be used by clients to determine when the appproject has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+        :param _builtins.str uid: The unique in time and space value for this appproject. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+        """
+        pulumi.set(__self__, "name", name)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if generation is not None:
+            pulumi.set(__self__, "generation", generation)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if resource_version is not None:
+            pulumi.set(__self__, "resource_version", resource_version)
+        if uid is not None:
+            pulumi.set(__self__, "uid", uid)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        An unstructured key value map stored with the appproject that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+        """
+        return pulumi.get(self, "annotations")
+
+    @_builtins.property
+    @pulumi.getter
+    def generation(self) -> Optional[_builtins.int]:
+        """
+        A sequence number representing a specific generation of the desired state.
+        """
+        return pulumi.get(self, "generation")
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of string keys and values that can be used to organize and categorize (scope and select) the appproject. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+        """
+        return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        Namespace of the appproject, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceVersion")
+    def resource_version(self) -> Optional[_builtins.str]:
+        """
+        An opaque value that represents the internal version of this appproject that can be used by clients to determine when the appproject has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+        """
+        return pulumi.get(self, "resource_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def uid(self) -> Optional[_builtins.str]:
+        """
+        The unique in time and space value for this appproject. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+        """
+        return pulumi.get(self, "uid")
+
+
+@pulumi.output_type
+class ProjectSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterResourceBlacklists":
+            suggest = "cluster_resource_blacklists"
+        elif key == "clusterResourceWhitelists":
+            suggest = "cluster_resource_whitelists"
+        elif key == "destinationServiceAccounts":
+            suggest = "destination_service_accounts"
+        elif key == "namespaceResourceBlacklists":
+            suggest = "namespace_resource_blacklists"
+        elif key == "namespaceResourceWhitelists":
+            suggest = "namespace_resource_whitelists"
+        elif key == "orphanedResources":
+            suggest = "orphaned_resources"
+        elif key == "signatureKeys":
+            suggest = "signature_keys"
+        elif key == "sourceNamespaces":
+            suggest = "source_namespaces"
+        elif key == "sourceRepos":
+            suggest = "source_repos"
+        elif key == "syncWindows":
+            suggest = "sync_windows"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_resource_blacklists: Optional[Sequence['outputs.ProjectSpecClusterResourceBlacklist']] = None,
+                 cluster_resource_whitelists: Optional[Sequence['outputs.ProjectSpecClusterResourceWhitelist']] = None,
+                 description: Optional[_builtins.str] = None,
+                 destination_service_accounts: Optional[Sequence['outputs.ProjectSpecDestinationServiceAccount']] = None,
+                 destinations: Optional[Sequence['outputs.ProjectSpecDestination']] = None,
+                 namespace_resource_blacklists: Optional[Sequence['outputs.ProjectSpecNamespaceResourceBlacklist']] = None,
+                 namespace_resource_whitelists: Optional[Sequence['outputs.ProjectSpecNamespaceResourceWhitelist']] = None,
+                 orphaned_resources: Optional[Sequence['outputs.ProjectSpecOrphanedResource']] = None,
+                 roles: Optional[Sequence['outputs.ProjectSpecRole']] = None,
+                 signature_keys: Optional[Sequence[_builtins.str]] = None,
+                 source_namespaces: Optional[Sequence[_builtins.str]] = None,
+                 source_repos: Optional[Sequence[_builtins.str]] = None,
+                 sync_windows: Optional[Sequence['outputs.ProjectSpecSyncWindow']] = None):
+        """
+        :param Sequence['ProjectSpecClusterResourceBlacklistArgs'] cluster_resource_blacklists: Blacklisted cluster level resources.
+        :param Sequence['ProjectSpecClusterResourceWhitelistArgs'] cluster_resource_whitelists: Whitelisted cluster level resources.
+        :param _builtins.str description: Project description.
+        :param Sequence['ProjectSpecDestinationServiceAccountArgs'] destination_service_accounts: Service accounts to be impersonated for the application sync operation for each destination.
+        :param Sequence['ProjectSpecDestinationArgs'] destinations: Destinations available for deployment.
+        :param Sequence['ProjectSpecNamespaceResourceBlacklistArgs'] namespace_resource_blacklists: Blacklisted namespace level resources.
+        :param Sequence['ProjectSpecNamespaceResourceWhitelistArgs'] namespace_resource_whitelists: Whitelisted namespace level resources.
+        :param Sequence['ProjectSpecOrphanedResourceArgs'] orphaned_resources: Configuration for orphaned resources tracking.
+        :param Sequence['ProjectSpecRoleArgs'] roles: Project roles.
+        :param Sequence[_builtins.str] signature_keys: Signature keys for verifying the integrity of applications.
+        :param Sequence[_builtins.str] source_namespaces: List of source namespaces for applications.
+        :param Sequence[_builtins.str] source_repos: List of repositories from which applications may be created.
+        :param Sequence['ProjectSpecSyncWindowArgs'] sync_windows: Controls when sync operations are allowed for the project.
+        """
+        if cluster_resource_blacklists is not None:
+            pulumi.set(__self__, "cluster_resource_blacklists", cluster_resource_blacklists)
+        if cluster_resource_whitelists is not None:
+            pulumi.set(__self__, "cluster_resource_whitelists", cluster_resource_whitelists)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_service_accounts is not None:
+            pulumi.set(__self__, "destination_service_accounts", destination_service_accounts)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if namespace_resource_blacklists is not None:
+            pulumi.set(__self__, "namespace_resource_blacklists", namespace_resource_blacklists)
+        if namespace_resource_whitelists is not None:
+            pulumi.set(__self__, "namespace_resource_whitelists", namespace_resource_whitelists)
+        if orphaned_resources is not None:
+            pulumi.set(__self__, "orphaned_resources", orphaned_resources)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if signature_keys is not None:
+            pulumi.set(__self__, "signature_keys", signature_keys)
+        if source_namespaces is not None:
+            pulumi.set(__self__, "source_namespaces", source_namespaces)
+        if source_repos is not None:
+            pulumi.set(__self__, "source_repos", source_repos)
+        if sync_windows is not None:
+            pulumi.set(__self__, "sync_windows", sync_windows)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterResourceBlacklists")
+    def cluster_resource_blacklists(self) -> Optional[Sequence['outputs.ProjectSpecClusterResourceBlacklist']]:
+        """
+        Blacklisted cluster level resources.
+        """
+        return pulumi.get(self, "cluster_resource_blacklists")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterResourceWhitelists")
+    def cluster_resource_whitelists(self) -> Optional[Sequence['outputs.ProjectSpecClusterResourceWhitelist']]:
+        """
+        Whitelisted cluster level resources.
+        """
+        return pulumi.get(self, "cluster_resource_whitelists")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Project description.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationServiceAccounts")
+    def destination_service_accounts(self) -> Optional[Sequence['outputs.ProjectSpecDestinationServiceAccount']]:
+        """
+        Service accounts to be impersonated for the application sync operation for each destination.
+        """
+        return pulumi.get(self, "destination_service_accounts")
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.ProjectSpecDestination']]:
+        """
+        Destinations available for deployment.
+        """
+        return pulumi.get(self, "destinations")
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceResourceBlacklists")
+    def namespace_resource_blacklists(self) -> Optional[Sequence['outputs.ProjectSpecNamespaceResourceBlacklist']]:
+        """
+        Blacklisted namespace level resources.
+        """
+        return pulumi.get(self, "namespace_resource_blacklists")
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceResourceWhitelists")
+    def namespace_resource_whitelists(self) -> Optional[Sequence['outputs.ProjectSpecNamespaceResourceWhitelist']]:
+        """
+        Whitelisted namespace level resources.
+        """
+        return pulumi.get(self, "namespace_resource_whitelists")
+
+    @_builtins.property
+    @pulumi.getter(name="orphanedResources")
+    def orphaned_resources(self) -> Optional[Sequence['outputs.ProjectSpecOrphanedResource']]:
+        """
+        Configuration for orphaned resources tracking.
+        """
+        return pulumi.get(self, "orphaned_resources")
+
+    @_builtins.property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence['outputs.ProjectSpecRole']]:
+        """
+        Project roles.
+        """
+        return pulumi.get(self, "roles")
+
+    @_builtins.property
+    @pulumi.getter(name="signatureKeys")
+    def signature_keys(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Signature keys for verifying the integrity of applications.
+        """
+        return pulumi.get(self, "signature_keys")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceNamespaces")
+    def source_namespaces(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of source namespaces for applications.
+        """
+        return pulumi.get(self, "source_namespaces")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceRepos")
+    def source_repos(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of repositories from which applications may be created.
+        """
+        return pulumi.get(self, "source_repos")
+
+    @_builtins.property
+    @pulumi.getter(name="syncWindows")
+    def sync_windows(self) -> Optional[Sequence['outputs.ProjectSpecSyncWindow']]:
+        """
+        Controls when sync operations are allowed for the project.
+        """
+        return pulumi.get(self, "sync_windows")
+
+
+@pulumi.output_type
+class ProjectSpecClusterResourceBlacklist(dict):
+    def __init__(__self__, *,
+                 group: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str group: The Kubernetes resource Group to match for.
+        :param _builtins.str kind: The Kubernetes resource Kind to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class ProjectSpecClusterResourceWhitelist(dict):
+    def __init__(__self__, *,
+                 group: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str group: The Kubernetes resource Group to match for.
+        :param _builtins.str kind: The Kubernetes resource Kind to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class ProjectSpecDestination(dict):
+    def __init__(__self__, *,
+                 namespace: _builtins.str,
+                 name: Optional[_builtins.str] = None,
+                 server: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str namespace: Target namespace for applications' resources.
+        :param _builtins.str name: Name of the destination cluster which can be used instead of server.
+        :param _builtins.str server: URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> _builtins.str:
+        """
+        Target namespace for applications' resources.
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the destination cluster which can be used instead of server.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def server(self) -> Optional[_builtins.str]:
+        """
+        URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        return pulumi.get(self, "server")
+
+
+@pulumi.output_type
+class ProjectSpecDestinationServiceAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultServiceAccount":
+            suggest = "default_service_account"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSpecDestinationServiceAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSpecDestinationServiceAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSpecDestinationServiceAccount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_service_account: _builtins.str,
+                 namespace: Optional[_builtins.str] = None,
+                 server: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str default_service_account: Used for impersonation during the sync operation
+        :param _builtins.str namespace: Specifies the target namespace for the application's resources.
+        :param _builtins.str server: Specifies the URL of the target cluster's Kubernetes control plane API.
+        """
+        pulumi.set(__self__, "default_service_account", default_service_account)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultServiceAccount")
+    def default_service_account(self) -> _builtins.str:
+        """
+        Used for impersonation during the sync operation
+        """
+        return pulumi.get(self, "default_service_account")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        Specifies the target namespace for the application's resources.
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter
+    def server(self) -> Optional[_builtins.str]:
+        """
+        Specifies the URL of the target cluster's Kubernetes control plane API.
+        """
+        return pulumi.get(self, "server")
+
+
+@pulumi.output_type
+class ProjectSpecNamespaceResourceBlacklist(dict):
+    def __init__(__self__, *,
+                 group: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str group: The Kubernetes resource Group to match for.
+        :param _builtins.str kind: The Kubernetes resource Kind to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class ProjectSpecNamespaceResourceWhitelist(dict):
+    def __init__(__self__, *,
+                 group: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str group: The Kubernetes resource Group to match for.
+        :param _builtins.str kind: The Kubernetes resource Kind to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class ProjectSpecOrphanedResource(dict):
+    def __init__(__self__, *,
+                 ignores: Optional[Sequence['outputs.ProjectSpecOrphanedResourceIgnore']] = None,
+                 warn: Optional[_builtins.bool] = None):
+        """
+        :param Sequence['ProjectSpecOrphanedResourceIgnoreArgs'] ignores: List of resources to ignore during orphaned resources detection.
+        :param _builtins.bool warn: Whether a warning condition should be created for apps which have orphaned resources.
+        """
+        if ignores is not None:
+            pulumi.set(__self__, "ignores", ignores)
+        if warn is not None:
+            pulumi.set(__self__, "warn", warn)
+
+    @_builtins.property
+    @pulumi.getter
+    def ignores(self) -> Optional[Sequence['outputs.ProjectSpecOrphanedResourceIgnore']]:
+        """
+        List of resources to ignore during orphaned resources detection.
+        """
+        return pulumi.get(self, "ignores")
+
+    @_builtins.property
+    @pulumi.getter
+    def warn(self) -> Optional[_builtins.bool]:
+        """
+        Whether a warning condition should be created for apps which have orphaned resources.
+        """
+        return pulumi.get(self, "warn")
+
+
+@pulumi.output_type
+class ProjectSpecOrphanedResourceIgnore(dict):
+    def __init__(__self__, *,
+                 group: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str group: The Kubernetes resource Group to match for.
+        :param _builtins.str kind: The Kubernetes resource Kind to match for.
+        :param _builtins.str name: The Kubernetes resource name to match for.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The Kubernetes resource name to match for.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ProjectSpecRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jwtTokens":
+            suggest = "jwt_tokens"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSpecRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSpecRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSpecRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 policies: Sequence[_builtins.str],
+                 description: Optional[_builtins.str] = None,
+                 groups: Optional[Sequence[_builtins.str]] = None,
+                 jwt_tokens: Optional[Sequence['outputs.ProjectSpecRoleJwtToken']] = None):
+        """
+        :param _builtins.str name: The name of the role.
+        :param Sequence[_builtins.str] policies: List of casbin formatted strings that define access policies for the role in the project. For more information, see the [ArgoCD RBAC reference](https://argoproj.github.io/argo-cd/operator-manual/rbac/#rbac-permission-structure).
+        :param _builtins.str description: Description of the role.
+        :param Sequence[_builtins.str] groups: List of OIDC group claims bound to this role.
+        :param Sequence['ProjectSpecRoleJwtTokenArgs'] jwt_tokens: List of JWT tokens issued for this role.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "policies", policies)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if jwt_tokens is not None:
+            pulumi.set(__self__, "jwt_tokens", jwt_tokens)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the role.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def policies(self) -> Sequence[_builtins.str]:
+        """
+        List of casbin formatted strings that define access policies for the role in the project. For more information, see the [ArgoCD RBAC reference](https://argoproj.github.io/argo-cd/operator-manual/rbac/#rbac-permission-structure).
+        """
+        return pulumi.get(self, "policies")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the role.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of OIDC group claims bound to this role.
+        """
+        return pulumi.get(self, "groups")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtTokens")
+    def jwt_tokens(self) -> Optional[Sequence['outputs.ProjectSpecRoleJwtToken']]:
+        """
+        List of JWT tokens issued for this role.
+        """
+        return pulumi.get(self, "jwt_tokens")
+
+
+@pulumi.output_type
+class ProjectSpecRoleJwtToken(dict):
+    def __init__(__self__, *,
+                 iat: _builtins.int,
+                 exp: Optional[_builtins.int] = None,
+                 id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int iat: Token issued at (timestamp).
+        :param _builtins.int exp: Token expiration (timestamp).
+        :param _builtins.str id: Token identifier.
+        """
+        pulumi.set(__self__, "iat", iat)
+        if exp is not None:
+            pulumi.set(__self__, "exp", exp)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def iat(self) -> _builtins.int:
+        """
+        Token issued at (timestamp).
+        """
+        return pulumi.get(self, "iat")
+
+    @_builtins.property
+    @pulumi.getter
+    def exp(self) -> Optional[_builtins.int]:
+        """
+        Token expiration (timestamp).
+        """
+        return pulumi.get(self, "exp")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        Token identifier.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ProjectSpecSyncWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manualSync":
+            suggest = "manual_sync"
+        elif key == "useAndOperator":
+            suggest = "use_and_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSpecSyncWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSpecSyncWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSpecSyncWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 applications: Optional[Sequence[_builtins.str]] = None,
+                 clusters: Optional[Sequence[_builtins.str]] = None,
+                 duration: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None,
+                 manual_sync: Optional[_builtins.bool] = None,
+                 namespaces: Optional[Sequence[_builtins.str]] = None,
+                 schedule: Optional[_builtins.str] = None,
+                 timezone: Optional[_builtins.str] = None,
+                 use_and_operator: Optional[_builtins.bool] = None):
+        """
+        :param Sequence[_builtins.str] applications: List of applications that the window will apply to.
+        :param Sequence[_builtins.str] clusters: List of clusters that the window will apply to.
+        :param _builtins.str duration: Amount of time the sync window will be open.
+        :param _builtins.str kind: Defines if the window allows or blocks syncs, allowed values are `allow` or `deny`.
+        :param _builtins.bool manual_sync: Enables manual syncs when they would otherwise be blocked.
+        :param Sequence[_builtins.str] namespaces: List of namespaces that the window will apply to.
+        :param _builtins.str schedule: Time the window will begin, specified in cron format.
+        :param _builtins.str timezone: Timezone that the schedule will be evaluated in.
+        :param _builtins.bool use_and_operator: Defines if the AND operator should be used among the various conditions for the sync window.
+        """
+        if applications is not None:
+            pulumi.set(__self__, "applications", applications)
+        if clusters is not None:
+            pulumi.set(__self__, "clusters", clusters)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if manual_sync is not None:
+            pulumi.set(__self__, "manual_sync", manual_sync)
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if use_and_operator is not None:
+            pulumi.set(__self__, "use_and_operator", use_and_operator)
+
+    @_builtins.property
+    @pulumi.getter
+    def applications(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of applications that the window will apply to.
+        """
+        return pulumi.get(self, "applications")
+
+    @_builtins.property
+    @pulumi.getter
+    def clusters(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of clusters that the window will apply to.
+        """
+        return pulumi.get(self, "clusters")
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> Optional[_builtins.str]:
+        """
+        Amount of time the sync window will be open.
+        """
+        return pulumi.get(self, "duration")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        """
+        Defines if the window allows or blocks syncs, allowed values are `allow` or `deny`.
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter(name="manualSync")
+    def manual_sync(self) -> Optional[_builtins.bool]:
+        """
+        Enables manual syncs when they would otherwise be blocked.
+        """
+        return pulumi.get(self, "manual_sync")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespaces(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of namespaces that the window will apply to.
+        """
+        return pulumi.get(self, "namespaces")
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> Optional[_builtins.str]:
+        """
+        Time the window will begin, specified in cron format.
+        """
+        return pulumi.get(self, "schedule")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> Optional[_builtins.str]:
+        """
+        Timezone that the schedule will be evaluated in.
+        """
+        return pulumi.get(self, "timezone")
+
+    @_builtins.property
+    @pulumi.getter(name="useAndOperator")
+    def use_and_operator(self) -> Optional[_builtins.bool]:
+        """
+        Defines if the AND operator should be used among the various conditions for the sync window.
+        """
+        return pulumi.get(self, "use_and_operator")
+
+
+@pulumi.output_type
+class RepositoryCertificateHttp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certData":
+            suggest = "cert_data"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "certInfo":
+            suggest = "cert_info"
+        elif key == "certSubtype":
+            suggest = "cert_subtype"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCertificateHttp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCertificateHttp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCertificateHttp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cert_data: _builtins.str,
+                 server_name: _builtins.str,
+                 cert_info: Optional[_builtins.str] = None,
+                 cert_subtype: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str cert_data: The actual certificate data, dependent on the certificate type
+        :param _builtins.str server_name: DNS name of the server this certificate is intended for
+        :param _builtins.str cert_info: Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+        :param _builtins.str cert_subtype: The sub type of the cert, i.e. `ssh-rsa`
+        """
+        pulumi.set(__self__, "cert_data", cert_data)
+        pulumi.set(__self__, "server_name", server_name)
+        if cert_info is not None:
+            pulumi.set(__self__, "cert_info", cert_info)
+        if cert_subtype is not None:
+            pulumi.set(__self__, "cert_subtype", cert_subtype)
+
+    @_builtins.property
+    @pulumi.getter(name="certData")
+    def cert_data(self) -> _builtins.str:
+        """
+        The actual certificate data, dependent on the certificate type
+        """
+        return pulumi.get(self, "cert_data")
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> _builtins.str:
+        """
+        DNS name of the server this certificate is intended for
+        """
+        return pulumi.get(self, "server_name")
+
+    @_builtins.property
+    @pulumi.getter(name="certInfo")
+    def cert_info(self) -> Optional[_builtins.str]:
+        """
+        Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+        """
+        return pulumi.get(self, "cert_info")
+
+    @_builtins.property
+    @pulumi.getter(name="certSubtype")
+    def cert_subtype(self) -> Optional[_builtins.str]:
+        """
+        The sub type of the cert, i.e. `ssh-rsa`
+        """
+        return pulumi.get(self, "cert_subtype")
+
+
+@pulumi.output_type
+class RepositoryCertificateSsh(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certData":
+            suggest = "cert_data"
+        elif key == "certSubtype":
+            suggest = "cert_subtype"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "certInfo":
+            suggest = "cert_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCertificateSsh. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCertificateSsh.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCertificateSsh.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cert_data: _builtins.str,
+                 cert_subtype: _builtins.str,
+                 server_name: _builtins.str,
+                 cert_info: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str cert_data: The actual certificate data, dependent on the certificate type
+        :param _builtins.str cert_subtype: The sub type of the cert, i.e. `ssh-rsa`
+        :param _builtins.str server_name: DNS name of the server this certificate is intended for
+        :param _builtins.str cert_info: Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+        """
+        pulumi.set(__self__, "cert_data", cert_data)
+        pulumi.set(__self__, "cert_subtype", cert_subtype)
+        pulumi.set(__self__, "server_name", server_name)
+        if cert_info is not None:
+            pulumi.set(__self__, "cert_info", cert_info)
+
+    @_builtins.property
+    @pulumi.getter(name="certData")
+    def cert_data(self) -> _builtins.str:
+        """
+        The actual certificate data, dependent on the certificate type
+        """
+        return pulumi.get(self, "cert_data")
+
+    @_builtins.property
+    @pulumi.getter(name="certSubtype")
+    def cert_subtype(self) -> _builtins.str:
+        """
+        The sub type of the cert, i.e. `ssh-rsa`
+        """
+        return pulumi.get(self, "cert_subtype")
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> _builtins.str:
+        """
+        DNS name of the server this certificate is intended for
+        """
+        return pulumi.get(self, "server_name")
+
+    @_builtins.property
+    @pulumi.getter(name="certInfo")
+    def cert_info(self) -> Optional[_builtins.str]:
+        """
+        Additional certificate info, dependent on the certificate type (e.g. SSH fingerprint, X509 CommonName)
+        """
+        return pulumi.get(self, "cert_info")
+
+
+@pulumi.output_type
+class GetApplicationMetadataResult(dict):
+    def __init__(__self__, *,
+                 annotations: Mapping[str, _builtins.str],
+                 generation: _builtins.int,
+                 labels: Mapping[str, _builtins.str],
+                 name: _builtins.str,
+                 namespace: _builtins.str,
+                 resource_version: _builtins.str,
+                 uid: _builtins.str):
+        """
+        :param Mapping[str, _builtins.str] annotations: An unstructured key value map stored with the applications.argoproj.io that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+        :param _builtins.int generation: A sequence number representing a specific generation of the desired state.
+        :param Mapping[str, _builtins.str] labels: Map of string keys and values that can be used to organize and categorize (scope and select) the applications.argoproj.io. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+        :param _builtins.str name: Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+        :param _builtins.str namespace: Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+        :param _builtins.str resource_version: An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when the applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+        :param _builtins.str uid: The unique in time and space value for this applications.argoproj.io. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+        """
+        pulumi.set(__self__, "annotations", annotations)
+        pulumi.set(__self__, "generation", generation)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "resource_version", resource_version)
+        pulumi.set(__self__, "uid", uid)
+
+    @_builtins.property
+    @pulumi.getter
+    def annotations(self) -> Mapping[str, _builtins.str]:
+        """
+        An unstructured key value map stored with the applications.argoproj.io that may be used to store arbitrary metadata. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+        """
+        return pulumi.get(self, "annotations")
+
+    @_builtins.property
+    @pulumi.getter
+    def generation(self) -> _builtins.int:
+        """
+        A sequence number representing a specific generation of the desired state.
+        """
+        return pulumi.get(self, "generation")
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of string keys and values that can be used to organize and categorize (scope and select) the applications.argoproj.io. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+        """
+        return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> _builtins.str:
+        """
+        Namespace of the applications.argoproj.io, must be unique. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceVersion")
+    def resource_version(self) -> _builtins.str:
+        """
+        An opaque value that represents the internal version of this applications.argoproj.io that can be used by clients to determine when the applications.argoproj.io has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+        """
+        return pulumi.get(self, "resource_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def uid(self) -> _builtins.str:
+        """
+        The unique in time and space value for this applications.argoproj.io. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
+        """
+        return pulumi.get(self, "uid")
+
+
+@pulumi.output_type
+class GetApplicationSpecResult(dict):
+    def __init__(__self__, *,
+                 destination: 'outputs.GetApplicationSpecDestinationResult',
+                 ignore_differences: Sequence['outputs.GetApplicationSpecIgnoreDifferenceResult'],
+                 infos: Sequence['outputs.GetApplicationSpecInfoResult'],
+                 project: _builtins.str,
+                 revision_history_limit: _builtins.int,
+                 sources: Sequence['outputs.GetApplicationSpecSourceResult'],
+                 sync_policy: 'outputs.GetApplicationSpecSyncPolicyResult'):
+        """
+        :param 'GetApplicationSpecDestinationArgs' destination: Reference to the Kubernetes server and namespace in which the application will be deployed.
+        :param Sequence['GetApplicationSpecIgnoreDifferenceArgs'] ignore_differences: Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        :param Sequence['GetApplicationSpecInfoArgs'] infos: List of information (URLs, email addresses, and plain text) that relates to the application.
+        :param _builtins.str project: The project the application belongs to. Defaults to `default`.
+        :param _builtins.int revision_history_limit: Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        :param Sequence['GetApplicationSpecSourceArgs'] sources: Location of the application's manifests or chart.
+        :param 'GetApplicationSpecSyncPolicyArgs' sync_policy: Controls when and how a sync will be performed.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "ignore_differences", ignore_differences)
+        pulumi.set(__self__, "infos", infos)
+        pulumi.set(__self__, "project", project)
+        pulumi.set(__self__, "revision_history_limit", revision_history_limit)
+        pulumi.set(__self__, "sources", sources)
+        pulumi.set(__self__, "sync_policy", sync_policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> 'outputs.GetApplicationSpecDestinationResult':
+        """
+        Reference to the Kubernetes server and namespace in which the application will be deployed.
+        """
+        return pulumi.get(self, "destination")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreDifferences")
+    def ignore_differences(self) -> Sequence['outputs.GetApplicationSpecIgnoreDifferenceResult']:
+        """
+        Resources and their fields which should be ignored during comparison. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration.
+        """
+        return pulumi.get(self, "ignore_differences")
+
+    @_builtins.property
+    @pulumi.getter
+    def infos(self) -> Sequence['outputs.GetApplicationSpecInfoResult']:
+        """
+        List of information (URLs, email addresses, and plain text) that relates to the application.
+        """
+        return pulumi.get(self, "infos")
+
+    @_builtins.property
+    @pulumi.getter
+    def project(self) -> _builtins.str:
+        """
+        The project the application belongs to. Defaults to `default`.
+        """
+        return pulumi.get(self, "project")
+
+    @_builtins.property
+    @pulumi.getter(name="revisionHistoryLimit")
+    def revision_history_limit(self) -> _builtins.int:
+        """
+        Limits the number of items kept in the application's revision history, which is used for informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the space used to store the history, so we do not recommend increasing it. Default is 10.
+        """
+        return pulumi.get(self, "revision_history_limit")
+
+    @_builtins.property
+    @pulumi.getter
+    def sources(self) -> Sequence['outputs.GetApplicationSpecSourceResult']:
+        """
+        Location of the application's manifests or chart.
+        """
+        return pulumi.get(self, "sources")
+
+    @_builtins.property
+    @pulumi.getter(name="syncPolicy")
+    def sync_policy(self) -> 'outputs.GetApplicationSpecSyncPolicyResult':
+        """
+        Controls when and how a sync will be performed.
+        """
+        return pulumi.get(self, "sync_policy")
+
+
+@pulumi.output_type
+class GetApplicationSpecDestinationResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 namespace: _builtins.str,
+                 server: _builtins.str):
+        """
+        :param _builtins.str name: Name of the target cluster. Can be used instead of `server`.
+        :param _builtins.str namespace: Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        :param _builtins.str server: URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "server", server)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the target cluster. Can be used instead of `server`.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> _builtins.str:
+        """
+        Target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter
+    def server(self) -> _builtins.str:
+        """
+        URL of the target cluster and must be set to the Kubernetes control plane API.
+        """
+        return pulumi.get(self, "server")
+
+
+@pulumi.output_type
+class GetApplicationSpecIgnoreDifferenceResult(dict):
+    def __init__(__self__, *,
+                 group: _builtins.str,
+                 jq_path_expressions: Sequence[_builtins.str],
+                 json_pointers: Sequence[_builtins.str],
+                 kind: _builtins.str,
+                 name: _builtins.str,
+                 namespace: _builtins.str):
+        """
+        :param _builtins.str group: The Kubernetes resource Group to match for.
+        :param Sequence[_builtins.str] jq_path_expressions: List of JQ path expression strings targeting the field(s) to ignore.
+        :param Sequence[_builtins.str] json_pointers: List of JSONPaths strings targeting the field(s) to ignore.
+        :param _builtins.str kind: The Kubernetes resource Kind to match for.
+        :param _builtins.str name: The Kubernetes resource Name to match for.
+        :param _builtins.str namespace: The Kubernetes resource Namespace to match for.
+        """
+        pulumi.set(__self__, "group", group)
+        pulumi.set(__self__, "jq_path_expressions", jq_path_expressions)
+        pulumi.set(__self__, "json_pointers", json_pointers)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> _builtins.str:
+        """
+        The Kubernetes resource Group to match for.
+        """
+        return pulumi.get(self, "group")
+
+    @_builtins.property
+    @pulumi.getter(name="jqPathExpressions")
+    def jq_path_expressions(self) -> Sequence[_builtins.str]:
+        """
+        List of JQ path expression strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "jq_path_expressions")
+
+    @_builtins.property
+    @pulumi.getter(name="jsonPointers")
+    def json_pointers(self) -> Sequence[_builtins.str]:
+        """
+        List of JSONPaths strings targeting the field(s) to ignore.
+        """
+        return pulumi.get(self, "json_pointers")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        """
+        The Kubernetes resource Kind to match for.
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The Kubernetes resource Name to match for.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> _builtins.str:
+        """
+        The Kubernetes resource Namespace to match for.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class GetApplicationSpecInfoResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Name of the information.
+        :param _builtins.str value: Value of the information.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the information.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the information.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourceResult(dict):
+    def __init__(__self__, *,
+                 chart: _builtins.str,
+                 directory: 'outputs.GetApplicationSpecSourceDirectoryResult',
+                 helm: 'outputs.GetApplicationSpecSourceHelmResult',
+                 kustomize: 'outputs.GetApplicationSpecSourceKustomizeResult',
+                 name: _builtins.str,
+                 path: _builtins.str,
+                 plugin: 'outputs.GetApplicationSpecSourcePluginResult',
+                 ref: _builtins.str,
+                 repo_url: _builtins.str,
+                 target_revision: _builtins.str):
+        """
+        :param _builtins.str chart: Helm chart name. Must be specified for applications sourced from a Helm repo.
+        :param 'GetApplicationSpecSourceDirectoryArgs' directory: Path/directory specific options.
+        :param 'GetApplicationSpecSourceHelmArgs' helm: Helm specific options.
+        :param 'GetApplicationSpecSourceKustomizeArgs' kustomize: Kustomize specific options.
+        :param _builtins.str name: Name is used to refer to a source and is displayed in the UI. It is supported in multi-source Applications since version 2.14
+        :param _builtins.str path: Directory path within the repository. Only valid for applications sourced from Git.
+        :param 'GetApplicationSpecSourcePluginArgs' plugin: Config management plugin specific options.
+        :param _builtins.str ref: Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        :param _builtins.str repo_url: URL to the repository (Git or Helm) that contains the application manifests.
+        :param _builtins.str target_revision: Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        pulumi.set(__self__, "chart", chart)
+        pulumi.set(__self__, "directory", directory)
+        pulumi.set(__self__, "helm", helm)
+        pulumi.set(__self__, "kustomize", kustomize)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "plugin", plugin)
+        pulumi.set(__self__, "ref", ref)
+        pulumi.set(__self__, "repo_url", repo_url)
+        pulumi.set(__self__, "target_revision", target_revision)
+
+    @_builtins.property
+    @pulumi.getter
+    def chart(self) -> _builtins.str:
+        """
+        Helm chart name. Must be specified for applications sourced from a Helm repo.
+        """
+        return pulumi.get(self, "chart")
+
+    @_builtins.property
+    @pulumi.getter
+    def directory(self) -> 'outputs.GetApplicationSpecSourceDirectoryResult':
+        """
+        Path/directory specific options.
+        """
+        return pulumi.get(self, "directory")
+
+    @_builtins.property
+    @pulumi.getter
+    def helm(self) -> 'outputs.GetApplicationSpecSourceHelmResult':
+        """
+        Helm specific options.
+        """
+        return pulumi.get(self, "helm")
+
+    @_builtins.property
+    @pulumi.getter
+    def kustomize(self) -> 'outputs.GetApplicationSpecSourceKustomizeResult':
+        """
+        Kustomize specific options.
+        """
+        return pulumi.get(self, "kustomize")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name is used to refer to a source and is displayed in the UI. It is supported in multi-source Applications since version 2.14
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        Directory path within the repository. Only valid for applications sourced from Git.
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def plugin(self) -> 'outputs.GetApplicationSpecSourcePluginResult':
+        """
+        Config management plugin specific options.
+        """
+        return pulumi.get(self, "plugin")
+
+    @_builtins.property
+    @pulumi.getter
+    def ref(self) -> _builtins.str:
+        """
+        Reference to another `source` within defined sources. See associated documentation on [Helm value files from external Git repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository) regarding combining `ref` with `path` and/or `chart`.
+        """
+        return pulumi.get(self, "ref")
+
+    @_builtins.property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> _builtins.str:
+        """
+        URL to the repository (Git or Helm) that contains the application manifests.
+        """
+        return pulumi.get(self, "repo_url")
+
+    @_builtins.property
+    @pulumi.getter(name="targetRevision")
+    def target_revision(self) -> _builtins.str:
+        """
+        Revision of the source to sync the application to. In case of Git, this can be commit, tag, or branch. If omitted, will equal to HEAD. In case of Helm, this is a semver tag for the Chart's version.
+        """
+        return pulumi.get(self, "target_revision")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourceDirectoryResult(dict):
+    def __init__(__self__, *,
+                 exclude: _builtins.str,
+                 include: _builtins.str,
+                 jsonnet: 'outputs.GetApplicationSpecSourceDirectoryJsonnetResult',
+                 recurse: _builtins.bool):
+        """
+        :param _builtins.str exclude: Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        :param _builtins.str include: Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        :param 'GetApplicationSpecSourceDirectoryJsonnetArgs' jsonnet: Jsonnet specific options.
+        :param _builtins.bool recurse: Whether to scan a directory recursively for manifests.
+        """
+        pulumi.set(__self__, "exclude", exclude)
+        pulumi.set(__self__, "include", include)
+        pulumi.set(__self__, "jsonnet", jsonnet)
+        pulumi.set(__self__, "recurse", recurse)
+
+    @_builtins.property
+    @pulumi.getter
+    def exclude(self) -> _builtins.str:
+        """
+        Glob pattern to match paths against that should be explicitly excluded from being used during manifest generation. This takes precedence over the `include` field. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{config.yaml,env-use2/*}'
+        """
+        return pulumi.get(self, "exclude")
+
+    @_builtins.property
+    @pulumi.getter
+    def include(self) -> _builtins.str:
+        """
+        Glob pattern to match paths against that should be explicitly included during manifest generation. If this field is set, only matching manifests will be included. To match multiple patterns, wrap the patterns in {} and separate them with commas. For example: '{*.yml,*.yaml}'
+        """
+        return pulumi.get(self, "include")
+
+    @_builtins.property
+    @pulumi.getter
+    def jsonnet(self) -> 'outputs.GetApplicationSpecSourceDirectoryJsonnetResult':
+        """
+        Jsonnet specific options.
+        """
+        return pulumi.get(self, "jsonnet")
+
+    @_builtins.property
+    @pulumi.getter
+    def recurse(self) -> _builtins.bool:
+        """
+        Whether to scan a directory recursively for manifests.
+        """
+        return pulumi.get(self, "recurse")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourceDirectoryJsonnetResult(dict):
+    def __init__(__self__, *,
+                 ext_vars: Sequence['outputs.GetApplicationSpecSourceDirectoryJsonnetExtVarResult'],
+                 libs: Sequence[_builtins.str],
+                 tlas: Sequence['outputs.GetApplicationSpecSourceDirectoryJsonnetTlaResult']):
+        """
+        :param Sequence['GetApplicationSpecSourceDirectoryJsonnetExtVarArgs'] ext_vars: List of Jsonnet External Variables.
+        :param Sequence[_builtins.str] libs: Additional library search dirs.
+        :param Sequence['GetApplicationSpecSourceDirectoryJsonnetTlaArgs'] tlas: List of Jsonnet Top-level Arguments
+        """
+        pulumi.set(__self__, "ext_vars", ext_vars)
+        pulumi.set(__self__, "libs", libs)
+        pulumi.set(__self__, "tlas", tlas)
+
+    @_builtins.property
+    @pulumi.getter(name="extVars")
+    def ext_vars(self) -> Sequence['outputs.GetApplicationSpecSourceDirectoryJsonnetExtVarResult']:
+        """
+        List of Jsonnet External Variables.
+        """
+        return pulumi.get(self, "ext_vars")
+
+    @_builtins.property
+    @pulumi.getter
+    def libs(self) -> Sequence[_builtins.str]:
+        """
+        Additional library search dirs.
+        """
+        return pulumi.get(self, "libs")
+
+    @_builtins.property
+    @pulumi.getter
+    def tlas(self) -> Sequence['outputs.GetApplicationSpecSourceDirectoryJsonnetTlaResult']:
+        """
+        List of Jsonnet Top-level Arguments
+        """
+        return pulumi.get(self, "tlas")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourceDirectoryJsonnetExtVarResult(dict):
+    def __init__(__self__, *,
+                 code: _builtins.bool,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param _builtins.str name: Name of Jsonnet variable.
+        :param _builtins.str value: Value of Jsonnet variable.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.bool:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourceDirectoryJsonnetTlaResult(dict):
+    def __init__(__self__, *,
+                 code: _builtins.bool,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.bool code: Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        :param _builtins.str name: Name of Jsonnet variable.
+        :param _builtins.str value: Value of Jsonnet variable.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.bool:
+        """
+        Determines whether the variable should be evaluated as jsonnet code or treated as string.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of Jsonnet variable.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of Jsonnet variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourceHelmResult(dict):
+    def __init__(__self__, *,
+                 file_parameters: Sequence['outputs.GetApplicationSpecSourceHelmFileParameterResult'],
+                 ignore_missing_value_files: _builtins.bool,
+                 parameters: Sequence['outputs.GetApplicationSpecSourceHelmParameterResult'],
+                 pass_credentials: _builtins.bool,
+                 release_name: _builtins.str,
+                 skip_crds: _builtins.bool,
+                 skip_schema_validation: _builtins.bool,
+                 value_files: Sequence[_builtins.str],
+                 values: _builtins.str):
+        """
+        :param Sequence['GetApplicationSpecSourceHelmFileParameterArgs'] file_parameters: File parameters for the helm template.
+        :param _builtins.bool ignore_missing_value_files: Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        :param Sequence['GetApplicationSpecSourceHelmParameterArgs'] parameters: Helm parameters which are passed to the helm template command upon manifest generation.
+        :param _builtins.bool pass_credentials: If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        :param _builtins.str release_name: Helm release name. If omitted it will use the application name.
+        :param _builtins.bool skip_crds: Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        :param _builtins.bool skip_schema_validation: Whether to skip the schema validation step (Helm's [--skip-schema-validation](https://helm.sh/docs/helm/helm_template/)).
+        :param Sequence[_builtins.str] value_files: List of Helm value files to use when generating a template.
+        :param _builtins.str values: Helm values to be passed to 'helm template', typically defined as a Attribute.
+        """
+        pulumi.set(__self__, "file_parameters", file_parameters)
+        pulumi.set(__self__, "ignore_missing_value_files", ignore_missing_value_files)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "pass_credentials", pass_credentials)
+        pulumi.set(__self__, "release_name", release_name)
+        pulumi.set(__self__, "skip_crds", skip_crds)
+        pulumi.set(__self__, "skip_schema_validation", skip_schema_validation)
+        pulumi.set(__self__, "value_files", value_files)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="fileParameters")
+    def file_parameters(self) -> Sequence['outputs.GetApplicationSpecSourceHelmFileParameterResult']:
+        """
+        File parameters for the helm template.
+        """
+        return pulumi.get(self, "file_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreMissingValueFiles")
+    def ignore_missing_value_files(self) -> _builtins.bool:
+        """
+        Prevents 'helm template' from failing when `value_files` do not exist locally by not appending them to 'helm template --values'.
+        """
+        return pulumi.get(self, "ignore_missing_value_files")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GetApplicationSpecSourceHelmParameterResult']:
+        """
+        Helm parameters which are passed to the helm template command upon manifest generation.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="passCredentials")
+    def pass_credentials(self) -> _builtins.bool:
+        """
+        If true then adds '--pass-credentials' to Helm commands to pass credentials to all domains.
+        """
+        return pulumi.get(self, "pass_credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="releaseName")
+    def release_name(self) -> _builtins.str:
+        """
+        Helm release name. If omitted it will use the application name.
+        """
+        return pulumi.get(self, "release_name")
+
+    @_builtins.property
+    @pulumi.getter(name="skipCrds")
+    def skip_crds(self) -> _builtins.bool:
+        """
+        Whether to skip custom resource definition installation step (Helm's [--skip-crds](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/)).
+        """
+        return pulumi.get(self, "skip_crds")
+
+    @_builtins.property
+    @pulumi.getter(name="skipSchemaValidation")
+    def skip_schema_validation(self) -> _builtins.bool:
+        """
+        Whether to skip the schema validation step (Helm's [--skip-schema-validation](https://helm.sh/docs/helm/helm_template/)).
+        """
+        return pulumi.get(self, "skip_schema_validation")
+
+    @_builtins.property
+    @pulumi.getter(name="valueFiles")
+    def value_files(self) -> Sequence[_builtins.str]:
+        """
+        List of Helm value files to use when generating a template.
+        """
+        return pulumi.get(self, "value_files")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> _builtins.str:
+        """
+        Helm values to be passed to 'helm template', typically defined as a Attribute.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourceHelmFileParameterResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 path: _builtins.str):
+        """
+        :param _builtins.str name: Name of the Helm parameters.
+        :param _builtins.str path: Path to the file containing the values for the Helm parameters.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Helm parameters.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        Path to the file containing the values for the Helm parameters.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourceHelmParameterResult(dict):
+    def __init__(__self__, *,
+                 force_string: _builtins.bool,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.bool force_string: Determines whether to tell Helm to interpret booleans and numbers as strings.
+        :param _builtins.str name: Name of the Helm parameters.
+        :param _builtins.str value: Value of the Helm parameters.
+        """
+        pulumi.set(__self__, "force_string", force_string)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forceString")
+    def force_string(self) -> _builtins.bool:
+        """
+        Determines whether to tell Helm to interpret booleans and numbers as strings.
+        """
+        return pulumi.get(self, "force_string")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the Helm parameters.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the Helm parameters.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourceKustomizeResult(dict):
+    def __init__(__self__, *,
+                 common_annotations: Mapping[str, _builtins.str],
+                 common_labels: Mapping[str, _builtins.str],
+                 images: Sequence[_builtins.str],
+                 name_prefix: _builtins.str,
+                 name_suffix: _builtins.str,
+                 version: _builtins.str):
+        """
+        :param Mapping[str, _builtins.str] common_annotations: List of additional annotations to add to rendered manifests.
+        :param Mapping[str, _builtins.str] common_labels: List of additional labels to add to rendered manifests.
+        :param Sequence[_builtins.str] images: List of Kustomize image override specifications.
+        :param _builtins.str name_prefix: Prefix appended to resources for Kustomize apps.
+        :param _builtins.str name_suffix: Suffix appended to resources for Kustomize apps.
+        :param _builtins.str version: Version of Kustomize to use for rendering manifests.
+        """
+        pulumi.set(__self__, "common_annotations", common_annotations)
+        pulumi.set(__self__, "common_labels", common_labels)
+        pulumi.set(__self__, "images", images)
+        pulumi.set(__self__, "name_prefix", name_prefix)
+        pulumi.set(__self__, "name_suffix", name_suffix)
+        pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="commonAnnotations")
+    def common_annotations(self) -> Mapping[str, _builtins.str]:
+        """
+        List of additional annotations to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_annotations")
+
+    @_builtins.property
+    @pulumi.getter(name="commonLabels")
+    def common_labels(self) -> Mapping[str, _builtins.str]:
+        """
+        List of additional labels to add to rendered manifests.
+        """
+        return pulumi.get(self, "common_labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def images(self) -> Sequence[_builtins.str]:
+        """
+        List of Kustomize image override specifications.
+        """
+        return pulumi.get(self, "images")
+
+    @_builtins.property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> _builtins.str:
+        """
+        Prefix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="nameSuffix")
+    def name_suffix(self) -> _builtins.str:
+        """
+        Suffix appended to resources for Kustomize apps.
+        """
+        return pulumi.get(self, "name_suffix")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        """
+        Version of Kustomize to use for rendering manifests.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourcePluginResult(dict):
+    def __init__(__self__, *,
+                 envs: Sequence['outputs.GetApplicationSpecSourcePluginEnvResult'],
+                 name: _builtins.str,
+                 parameters: Sequence['outputs.GetApplicationSpecSourcePluginParameterResult']):
+        """
+        :param Sequence['GetApplicationSpecSourcePluginEnvArgs'] envs: Environment variables passed to the plugin.
+        :param _builtins.str name: Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        :param Sequence['GetApplicationSpecSourcePluginParameterArgs'] parameters: Parameters to supply to config management plugin.
+        """
+        pulumi.set(__self__, "envs", envs)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parameters", parameters)
+
+    @_builtins.property
+    @pulumi.getter
+    def envs(self) -> Sequence['outputs.GetApplicationSpecSourcePluginEnvResult']:
+        """
+        Environment variables passed to the plugin.
+        """
+        return pulumi.get(self, "envs")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the plugin. Only set the plugin name if the plugin is defined in `argocd-cm`. If the plugin is defined as a sidecar, omit the name. The plugin will be automatically matched with the Application according to the plugin's discovery rules.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GetApplicationSpecSourcePluginParameterResult']:
+        """
+        Parameters to supply to config management plugin.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourcePluginEnvResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Name of the environment variable.
+        :param _builtins.str value: Value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetApplicationSpecSourcePluginParameterResult(dict):
+    def __init__(__self__, *,
+                 arrays: Sequence[_builtins.str],
+                 map: Mapping[str, _builtins.str],
+                 name: _builtins.str,
+                 string: _builtins.str):
+        """
+        :param Sequence[_builtins.str] arrays: Value of an array type parameters.
+        :param Mapping[str, _builtins.str] map: Value of a map type parameters.
+        :param _builtins.str name: Name identifying a parameters.
+        :param _builtins.str string: Value of a string type parameters.
+        """
+        pulumi.set(__self__, "arrays", arrays)
+        pulumi.set(__self__, "map", map)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "string", string)
+
+    @_builtins.property
+    @pulumi.getter
+    def arrays(self) -> Sequence[_builtins.str]:
+        """
+        Value of an array type parameters.
+        """
+        return pulumi.get(self, "arrays")
+
+    @_builtins.property
+    @pulumi.getter
+    def map(self) -> Mapping[str, _builtins.str]:
+        """
+        Value of a map type parameters.
+        """
+        return pulumi.get(self, "map")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name identifying a parameters.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def string(self) -> _builtins.str:
+        """
+        Value of a string type parameters.
+        """
+        return pulumi.get(self, "string")
+
+
+@pulumi.output_type
+class GetApplicationSpecSyncPolicyResult(dict):
+    def __init__(__self__, *,
+                 automated: 'outputs.GetApplicationSpecSyncPolicyAutomatedResult',
+                 retry: 'outputs.GetApplicationSpecSyncPolicyRetryResult',
+                 sync_options: Sequence[_builtins.str]):
+        """
+        :param 'GetApplicationSpecSyncPolicyAutomatedArgs' automated: Whether to automatically keep an application synced to the target revision.
+        :param 'GetApplicationSpecSyncPolicyRetryArgs' retry: Controls failed sync retry behavior.
+        :param Sequence[_builtins.str] sync_options: List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        pulumi.set(__self__, "automated", automated)
+        pulumi.set(__self__, "retry", retry)
+        pulumi.set(__self__, "sync_options", sync_options)
+
+    @_builtins.property
+    @pulumi.getter
+    def automated(self) -> 'outputs.GetApplicationSpecSyncPolicyAutomatedResult':
+        """
+        Whether to automatically keep an application synced to the target revision.
+        """
+        return pulumi.get(self, "automated")
+
+    @_builtins.property
+    @pulumi.getter
+    def retry(self) -> 'outputs.GetApplicationSpecSyncPolicyRetryResult':
+        """
+        Controls failed sync retry behavior.
+        """
+        return pulumi.get(self, "retry")
+
+    @_builtins.property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> Sequence[_builtins.str]:
+        """
+        List of sync options. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/.
+        """
+        return pulumi.get(self, "sync_options")
+
+
+@pulumi.output_type
+class GetApplicationSpecSyncPolicyAutomatedResult(dict):
+    def __init__(__self__, *,
+                 allow_empty: _builtins.bool,
+                 prune: _builtins.bool,
+                 self_heal: _builtins.bool):
+        """
+        :param _builtins.bool allow_empty: Allows apps have zero live resources.
+        :param _builtins.bool prune: Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        :param _builtins.bool self_heal: Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        pulumi.set(__self__, "allow_empty", allow_empty)
+        pulumi.set(__self__, "prune", prune)
+        pulumi.set(__self__, "self_heal", self_heal)
+
+    @_builtins.property
+    @pulumi.getter(name="allowEmpty")
+    def allow_empty(self) -> _builtins.bool:
+        """
+        Allows apps have zero live resources.
+        """
+        return pulumi.get(self, "allow_empty")
+
+    @_builtins.property
+    @pulumi.getter
+    def prune(self) -> _builtins.bool:
+        """
+        Whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync.
+        """
+        return pulumi.get(self, "prune")
+
+    @_builtins.property
+    @pulumi.getter(name="selfHeal")
+    def self_heal(self) -> _builtins.bool:
+        """
+        Whether to revert resources back to their desired state upon modification in the cluster.
+        """
+        return pulumi.get(self, "self_heal")
+
+
+@pulumi.output_type
+class GetApplicationSpecSyncPolicyRetryResult(dict):
+    def __init__(__self__, *,
+                 backoff: 'outputs.GetApplicationSpecSyncPolicyRetryBackoffResult',
+                 limit: _builtins.int):
+        """
+        :param 'GetApplicationSpecSyncPolicyRetryBackoffArgs' backoff: Controls how to backoff on subsequent retries of failed syncs.
+        :param _builtins.int limit: Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        pulumi.set(__self__, "backoff", backoff)
+        pulumi.set(__self__, "limit", limit)
+
+    @_builtins.property
+    @pulumi.getter
+    def backoff(self) -> 'outputs.GetApplicationSpecSyncPolicyRetryBackoffResult':
+        """
+        Controls how to backoff on subsequent retries of failed syncs.
+        """
+        return pulumi.get(self, "backoff")
+
+    @_builtins.property
+    @pulumi.getter
+    def limit(self) -> _builtins.int:
+        """
+        Maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.
+        """
+        return pulumi.get(self, "limit")
+
+
+@pulumi.output_type
+class GetApplicationSpecSyncPolicyRetryBackoffResult(dict):
+    def __init__(__self__, *,
+                 duration: _builtins.str,
+                 factor: _builtins.int,
+                 max_duration: _builtins.str):
+        """
+        :param _builtins.str duration: Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        :param _builtins.int factor: Factor to multiply the base duration after each failed retry.
+        :param _builtins.str max_duration: Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "factor", factor)
+        pulumi.set(__self__, "max_duration", max_duration)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> _builtins.str:
+        """
+        Duration is the amount to back off. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "duration")
+
+    @_builtins.property
+    @pulumi.getter
+    def factor(self) -> _builtins.int:
+        """
+        Factor to multiply the base duration after each failed retry.
+        """
+        return pulumi.get(self, "factor")
+
+    @_builtins.property
+    @pulumi.getter(name="maxDuration")
+    def max_duration(self) -> _builtins.str:
+        """
+        Maximum amount of time allowed for the backoff strategy. Default unit is seconds, but could also be a duration (e.g. `2m`, `1h`), as a string.
+        """
+        return pulumi.get(self, "max_duration")
+
+
+@pulumi.output_type
+class GetApplicationStatusResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetApplicationStatusConditionResult'],
+                 health: 'outputs.GetApplicationStatusHealthResult',
+                 operation_state: 'outputs.GetApplicationStatusOperationStateResult',
+                 reconciled_at: _builtins.str,
+                 resources: Sequence['outputs.GetApplicationStatusResourceResult'],
+                 summary: 'outputs.GetApplicationStatusSummaryResult',
+                 sync: 'outputs.GetApplicationStatusSyncResult'):
+        """
+        :param Sequence['GetApplicationStatusConditionArgs'] conditions: List of currently observed application conditions.
+        :param 'GetApplicationStatusHealthArgs' health: Application's current health status.
+        :param 'GetApplicationStatusOperationStateArgs' operation_state: Information about any ongoing operations, such as a sync.
+        :param _builtins.str reconciled_at: When the application state was reconciled using the latest git version.
+        :param Sequence['GetApplicationStatusResourceArgs'] resources: List of Kubernetes resources managed by this application.
+        :param 'GetApplicationStatusSummaryArgs' summary: List of URLs and container images used by this application.
+        :param 'GetApplicationStatusSyncArgs' sync: Application's current sync status
+        """
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "health", health)
+        pulumi.set(__self__, "operation_state", operation_state)
+        pulumi.set(__self__, "reconciled_at", reconciled_at)
+        pulumi.set(__self__, "resources", resources)
+        pulumi.set(__self__, "summary", summary)
+        pulumi.set(__self__, "sync", sync)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetApplicationStatusConditionResult']:
+        """
+        List of currently observed application conditions.
+        """
+        return pulumi.get(self, "conditions")
+
+    @_builtins.property
+    @pulumi.getter
+    def health(self) -> 'outputs.GetApplicationStatusHealthResult':
+        """
+        Application's current health status.
+        """
+        return pulumi.get(self, "health")
+
+    @_builtins.property
+    @pulumi.getter(name="operationState")
+    def operation_state(self) -> 'outputs.GetApplicationStatusOperationStateResult':
+        """
+        Information about any ongoing operations, such as a sync.
+        """
+        return pulumi.get(self, "operation_state")
+
+    @_builtins.property
+    @pulumi.getter(name="reconciledAt")
+    def reconciled_at(self) -> _builtins.str:
+        """
+        When the application state was reconciled using the latest git version.
+        """
+        return pulumi.get(self, "reconciled_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Sequence['outputs.GetApplicationStatusResourceResult']:
+        """
+        List of Kubernetes resources managed by this application.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter
+    def summary(self) -> 'outputs.GetApplicationStatusSummaryResult':
+        """
+        List of URLs and container images used by this application.
+        """
+        return pulumi.get(self, "summary")
+
+    @_builtins.property
+    @pulumi.getter
+    def sync(self) -> 'outputs.GetApplicationStatusSyncResult':
+        """
+        Application's current sync status
+        """
+        return pulumi.get(self, "sync")
+
+
+@pulumi.output_type
+class GetApplicationStatusConditionResult(dict):
+    def __init__(__self__, *,
+                 last_transition_time: _builtins.str,
+                 message: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str last_transition_time: The time the condition was last observed.
+        :param _builtins.str message: Human-readable message indicating details about condition.
+        :param _builtins.str type: Application condition type.
+        """
+        pulumi.set(__self__, "last_transition_time", last_transition_time)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="lastTransitionTime")
+    def last_transition_time(self) -> _builtins.str:
+        """
+        The time the condition was last observed.
+        """
+        return pulumi.get(self, "last_transition_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Human-readable message indicating details about condition.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Application condition type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetApplicationStatusHealthResult(dict):
+    def __init__(__self__, *,
+                 message: _builtins.str,
+                 status: _builtins.str):
+        """
+        :param _builtins.str message: Human-readable informational message describing the health status.
+        :param _builtins.str status: Status code of the application or resource.
+        """
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Human-readable informational message describing the health status.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status code of the application or resource.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetApplicationStatusOperationStateResult(dict):
+    def __init__(__self__, *,
+                 finished_at: _builtins.str,
+                 message: _builtins.str,
+                 phase: _builtins.str,
+                 retry_count: _builtins.int,
+                 started_at: _builtins.str):
+        """
+        :param _builtins.str finished_at: Time of operation completion.
+        :param _builtins.str message: Any pertinent messages when attempting to perform operation (typically errors).
+        :param _builtins.str phase: The current phase of the operation.
+        :param _builtins.int retry_count: Count of operation retries.
+        :param _builtins.str started_at: Time of operation start.
+        """
+        pulumi.set(__self__, "finished_at", finished_at)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "phase", phase)
+        pulumi.set(__self__, "retry_count", retry_count)
+        pulumi.set(__self__, "started_at", started_at)
+
+    @_builtins.property
+    @pulumi.getter(name="finishedAt")
+    def finished_at(self) -> _builtins.str:
+        """
+        Time of operation completion.
+        """
+        return pulumi.get(self, "finished_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Any pertinent messages when attempting to perform operation (typically errors).
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def phase(self) -> _builtins.str:
+        """
+        The current phase of the operation.
+        """
+        return pulumi.get(self, "phase")
+
+    @_builtins.property
+    @pulumi.getter(name="retryCount")
+    def retry_count(self) -> _builtins.int:
+        """
+        Count of operation retries.
+        """
+        return pulumi.get(self, "retry_count")
+
+    @_builtins.property
+    @pulumi.getter(name="startedAt")
+    def started_at(self) -> _builtins.str:
+        """
+        Time of operation start.
+        """
+        return pulumi.get(self, "started_at")
+
+
+@pulumi.output_type
+class GetApplicationStatusResourceResult(dict):
+    def __init__(__self__, *,
+                 group: _builtins.str,
+                 health: 'outputs.GetApplicationStatusResourceHealthResult',
+                 hook: _builtins.bool,
+                 kind: _builtins.str,
+                 name: _builtins.str,
+                 namespace: _builtins.str,
+                 requires_pruning: _builtins.bool,
+                 status: _builtins.str,
+                 sync_wave: _builtins.int,
+                 version: _builtins.str):
+        """
+        :param _builtins.str group: The Kubernetes resource Group.
+        :param 'GetApplicationStatusResourceHealthArgs' health: Resource health status.
+        :param _builtins.bool hook: Indicates whether or not this resource has a hook annotation.
+        :param _builtins.str kind: The Kubernetes resource Kind.
+        :param _builtins.str name: The Kubernetes resource Name.
+        :param _builtins.str namespace: The Kubernetes resource Namespace.
+        :param _builtins.bool requires_pruning: Indicates if the resources requires pruning or not.
+        :param _builtins.str status: Resource sync status.
+        :param _builtins.int sync_wave: Sync wave.
+        :param _builtins.str version: The Kubernetes resource Version.
+        """
+        pulumi.set(__self__, "group", group)
+        pulumi.set(__self__, "health", health)
+        pulumi.set(__self__, "hook", hook)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "requires_pruning", requires_pruning)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "sync_wave", sync_wave)
+        pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> _builtins.str:
+        """
+        The Kubernetes resource Group.
+        """
+        return pulumi.get(self, "group")
+
+    @_builtins.property
+    @pulumi.getter
+    def health(self) -> 'outputs.GetApplicationStatusResourceHealthResult':
+        """
+        Resource health status.
+        """
+        return pulumi.get(self, "health")
+
+    @_builtins.property
+    @pulumi.getter
+    def hook(self) -> _builtins.bool:
+        """
+        Indicates whether or not this resource has a hook annotation.
+        """
+        return pulumi.get(self, "hook")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        """
+        The Kubernetes resource Kind.
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The Kubernetes resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> _builtins.str:
+        """
+        The Kubernetes resource Namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="requiresPruning")
+    def requires_pruning(self) -> _builtins.bool:
+        """
+        Indicates if the resources requires pruning or not.
+        """
+        return pulumi.get(self, "requires_pruning")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Resource sync status.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="syncWave")
+    def sync_wave(self) -> _builtins.int:
+        """
+        Sync wave.
+        """
+        return pulumi.get(self, "sync_wave")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        """
+        The Kubernetes resource Version.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GetApplicationStatusResourceHealthResult(dict):
+    def __init__(__self__, *,
+                 message: _builtins.str,
+                 status: _builtins.str):
+        """
+        :param _builtins.str message: Human-readable informational message describing the health status.
+        :param _builtins.str status: Status code of the application or resource.
+        """
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Human-readable informational message describing the health status.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status code of the application or resource.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetApplicationStatusSummaryResult(dict):
+    def __init__(__self__, *,
+                 external_urls: Sequence[_builtins.str],
+                 images: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] external_urls: All external URLs of application child resources.
+        :param Sequence[_builtins.str] images: All images of application child resources.
+        """
+        pulumi.set(__self__, "external_urls", external_urls)
+        pulumi.set(__self__, "images", images)
+
+    @_builtins.property
+    @pulumi.getter(name="externalUrls")
+    def external_urls(self) -> Sequence[_builtins.str]:
+        """
+        All external URLs of application child resources.
+        """
+        return pulumi.get(self, "external_urls")
+
+    @_builtins.property
+    @pulumi.getter
+    def images(self) -> Sequence[_builtins.str]:
+        """
+        All images of application child resources.
+        """
+        return pulumi.get(self, "images")
+
+
+@pulumi.output_type
+class GetApplicationStatusSyncResult(dict):
+    def __init__(__self__, *,
+                 revisions: Sequence[_builtins.str],
+                 status: _builtins.str):
+        """
+        :param Sequence[_builtins.str] revisions: Information about the revision(s) the comparison has been performed to.
+        :param _builtins.str status: Sync state of the comparison.
+        """
+        pulumi.set(__self__, "revisions", revisions)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def revisions(self) -> Sequence[_builtins.str]:
+        """
+        Information about the revision(s) the comparison has been performed to.
+        """
+        return pulumi.get(self, "revisions")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Sync state of the comparison.
+        """
+        return pulumi.get(self, "status")
 
 

@@ -15,13 +15,12 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfgen"
 
 	argocd "github.com/Three141/pulumi-argocd/provider"
-	"github.com/Three141/pulumi-argocd/provider/pkg/version"
 )
 
 func main() {
 	// Modify the path to point to the new provider
-	tfgen.Main("argocd", version.Version, argocd.Provider())
+	tfgen.MainWithMuxer("argocd", argocd.Provider())
 }
