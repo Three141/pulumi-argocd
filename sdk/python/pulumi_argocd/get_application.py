@@ -117,7 +117,7 @@ def get_application(metadata: Optional[Union['GetApplicationMetadataArgs', 'GetA
         metadata=pulumi.get(__ret__, 'metadata'),
         spec=pulumi.get(__ret__, 'spec'),
         status=pulumi.get(__ret__, 'status'))
-def get_application_output(metadata: Optional[pulumi.Input[Union['GetApplicationMetadataArgs', 'GetApplicationMetadataArgsDict']]] = None,
+def get_application_output(metadata: pulumi.Input[Optional[Union['GetApplicationMetadataArgs', 'GetApplicationMetadataArgsDict']]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Reads an existing ArgoCD application.

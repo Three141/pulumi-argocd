@@ -97,11 +97,11 @@ export interface RepositoryCertificateState {
     /**
      * HTTPS certificate configuration
      */
-    https?: pulumi.Input<pulumi.Input<inputs.RepositoryCertificateHttp>[]>;
+    https?: pulumi.Input<pulumi.Input<inputs.RepositoryCertificateHttp>[] | undefined>;
     /**
      * SSH certificate configuration
      */
-    sshes?: pulumi.Input<pulumi.Input<inputs.RepositoryCertificateSsh>[]>;
+    sshes?: pulumi.Input<pulumi.Input<inputs.RepositoryCertificateSsh>[] | undefined>;
 }
 
 /**
@@ -111,9 +111,9 @@ export interface RepositoryCertificateArgs {
     /**
      * HTTPS certificate configuration
      */
-    https?: pulumi.Input<pulumi.Input<inputs.RepositoryCertificateHttp>[]>;
+    https?: pulumi.Input<pulumi.Input<inputs.RepositoryCertificateHttp>[] | undefined>;
     /**
      * SSH certificate configuration
      */
-    sshes?: pulumi.Input<pulumi.Input<inputs.RepositoryCertificateSsh>[]>;
+    sshes?: pulumi.Input<pulumi.Input<inputs.RepositoryCertificateSsh>[] | undefined>;
 }

@@ -21,10 +21,10 @@ class ProjectTokenArgs:
     def __init__(__self__, *,
                  project: pulumi.Input[_builtins.str],
                  role: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_before: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_before: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProjectToken resource.
 
@@ -72,65 +72,65 @@ class ProjectTokenArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the token.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresIn")
-    def expires_in(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_in(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `30m`, `12h`. Default: No expiration.
         """
         return pulumi.get(self, "expires_in")
 
     @expires_in.setter
-    def expires_in(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_in(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_in", value)
 
     @_builtins.property
     @pulumi.getter(name="renewAfter")
-    def renew_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renew_after(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
         """
         return pulumi.get(self, "renew_after")
 
     @renew_after.setter
-    def renew_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renew_after(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renew_after", value)
 
     @_builtins.property
     @pulumi.getter(name="renewBefore")
-    def renew_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renew_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, the provider will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         """
         return pulumi.get(self, "renew_before")
 
     @renew_before.setter
-    def renew_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renew_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renew_before", value)
 
 
 @pulumi.input_type
 class _ProjectTokenState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 issued_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwt: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_before: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 issued_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwt: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_before: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProjectToken resources.
 
@@ -165,110 +165,110 @@ class _ProjectTokenState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the token.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `expires_in` is set, Unix timestamp upon which the token will expire.
         """
         return pulumi.get(self, "expires_at")
 
     @expires_at.setter
-    def expires_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_at", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresIn")
-    def expires_in(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_in(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `30m`, `12h`. Default: No expiration.
         """
         return pulumi.get(self, "expires_in")
 
     @expires_in.setter
-    def expires_in(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_in(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_in", value)
 
     @_builtins.property
     @pulumi.getter(name="issuedAt")
-    def issued_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issued_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unix timestamp at which the token was issued.
         """
         return pulumi.get(self, "issued_at")
 
     @issued_at.setter
-    def issued_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issued_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issued_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def jwt(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jwt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The raw JWT.
         """
         return pulumi.get(self, "jwt")
 
     @jwt.setter
-    def jwt(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jwt(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jwt", value)
 
     @_builtins.property
     @pulumi.getter
-    def project(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project associated with the token.
         """
         return pulumi.get(self, "project")
 
     @project.setter
-    def project(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project", value)
 
     @_builtins.property
     @pulumi.getter(name="renewAfter")
-    def renew_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renew_after(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
         """
         return pulumi.get(self, "renew_after")
 
     @renew_after.setter
-    def renew_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renew_after(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renew_after", value)
 
     @_builtins.property
     @pulumi.getter(name="renewBefore")
-    def renew_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renew_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, the provider will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         """
         return pulumi.get(self, "renew_before")
 
     @renew_before.setter
-    def renew_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renew_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renew_before", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the role in the project associated with the token.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
 
@@ -278,12 +278,12 @@ class ProjectToken(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_before: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_before: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages ArgoCD project role JWT tokens. See [Project Roles](https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-roles) for more info.
@@ -355,12 +355,12 @@ class ProjectToken(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_before: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_before: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,15 +395,15 @@ class ProjectToken(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-            expires_in: Optional[pulumi.Input[_builtins.str]] = None,
-            issued_at: Optional[pulumi.Input[_builtins.str]] = None,
-            jwt: Optional[pulumi.Input[_builtins.str]] = None,
-            project: Optional[pulumi.Input[_builtins.str]] = None,
-            renew_after: Optional[pulumi.Input[_builtins.str]] = None,
-            renew_before: Optional[pulumi.Input[_builtins.str]] = None,
-            role: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProjectToken':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_in: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_at: pulumi.Input[Optional[_builtins.str]] = None,
+            jwt: pulumi.Input[Optional[_builtins.str]] = None,
+            project: pulumi.Input[Optional[_builtins.str]] = None,
+            renew_after: pulumi.Input[Optional[_builtins.str]] = None,
+            renew_before: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProjectToken':
         """
         Get an existing ProjectToken resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

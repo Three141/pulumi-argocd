@@ -60,8 +60,8 @@ class ApplicationSetArgs:
 @pulumi.input_type
 class _ApplicationSetState:
     def __init__(__self__, *,
-                 metadata: Optional[pulumi.Input['ApplicationSetMetadataArgs']] = None,
-                 spec: Optional[pulumi.Input['ApplicationSetSpecArgs']] = None):
+                 metadata: pulumi.Input[Optional['ApplicationSetMetadataArgs']] = None,
+                 spec: pulumi.Input[Optional['ApplicationSetSpecArgs']] = None):
         """
         Input properties used for looking up and filtering ApplicationSet resources.
 
@@ -75,26 +75,26 @@ class _ApplicationSetState:
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['ApplicationSetMetadataArgs']]:
+    def metadata(self) -> pulumi.Input[Optional['ApplicationSetMetadataArgs']]:
         """
         Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['ApplicationSetMetadataArgs']]):
+    def metadata(self, value: pulumi.Input[Optional['ApplicationSetMetadataArgs']]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def spec(self) -> Optional[pulumi.Input['ApplicationSetSpecArgs']]:
+    def spec(self) -> pulumi.Input[Optional['ApplicationSetSpecArgs']]:
         """
         ArgoCD application set resource spec.
         """
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: Optional[pulumi.Input['ApplicationSetSpecArgs']]):
+    def spec(self, value: pulumi.Input[Optional['ApplicationSetSpecArgs']]):
         pulumi.set(self, "spec", value)
 
 
@@ -104,8 +104,8 @@ class ApplicationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metadata: Optional[pulumi.Input[Union['ApplicationSetMetadataArgs', 'ApplicationSetMetadataArgsDict']]] = None,
-                 spec: Optional[pulumi.Input[Union['ApplicationSetSpecArgs', 'ApplicationSetSpecArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[Union['ApplicationSetMetadataArgs', 'ApplicationSetMetadataArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['ApplicationSetSpecArgs', 'ApplicationSetSpecArgsDict']]] = None,
                  __props__=None):
         """
         Manages [application sets](https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/) within ArgoCD.
@@ -1209,8 +1209,8 @@ class ApplicationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metadata: Optional[pulumi.Input[Union['ApplicationSetMetadataArgs', 'ApplicationSetMetadataArgsDict']]] = None,
-                 spec: Optional[pulumi.Input[Union['ApplicationSetSpecArgs', 'ApplicationSetSpecArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[Union['ApplicationSetMetadataArgs', 'ApplicationSetMetadataArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['ApplicationSetSpecArgs', 'ApplicationSetSpecArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1236,8 +1236,8 @@ class ApplicationSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            metadata: Optional[pulumi.Input[Union['ApplicationSetMetadataArgs', 'ApplicationSetMetadataArgsDict']]] = None,
-            spec: Optional[pulumi.Input[Union['ApplicationSetSpecArgs', 'ApplicationSetSpecArgsDict']]] = None) -> 'ApplicationSet':
+            metadata: pulumi.Input[Optional[Union['ApplicationSetMetadataArgs', 'ApplicationSetMetadataArgsDict']]] = None,
+            spec: pulumi.Input[Optional[Union['ApplicationSetSpecArgs', 'ApplicationSetSpecArgsDict']]] = None) -> 'ApplicationSet':
         """
         Get an existing ApplicationSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

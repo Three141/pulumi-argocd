@@ -20,26 +20,26 @@ __all__ = ['RepositoryArgs', 'Repository']
 class RepositoryArgs:
     def __init__(__self__, *,
                  repo: pulumi.Input[_builtins.str],
-                 bearer_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 depth: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_lfs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_oci: Optional[pulumi.Input[_builtins.bool]] = None,
-                 githubapp_enterprise_base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_installation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_client_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_client_cert_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_azure_workload_identity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 bearer_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 depth: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_lfs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_oci: pulumi.Input[Optional[_builtins.bool]] = None,
+                 githubapp_enterprise_base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_client_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_client_cert_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_azure_workload_identity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Repository resource.
 
@@ -121,271 +121,271 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="bearerToken")
-    def bearer_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bearer_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
         """
         return pulumi.get(self, "bearer_token")
 
     @bearer_token.setter
-    def bearer_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bearer_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bearer_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def depth(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
         """
         return pulumi.get(self, "depth")
 
     @depth.setter
-    def depth(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def depth(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "depth", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLfs")
-    def enable_lfs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_lfs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether `git-lfs` support should be enabled for this repository.
         """
         return pulumi.get(self, "enable_lfs")
 
     @enable_lfs.setter
-    def enable_lfs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_lfs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_lfs", value)
 
     @_builtins.property
     @pulumi.getter(name="enableOci")
-    def enable_oci(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_oci(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether `helm-oci` support should be enabled for this repository.
         """
         return pulumi.get(self, "enable_oci")
 
     @enable_oci.setter
-    def enable_oci(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_oci(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_oci", value)
 
     @_builtins.property
     @pulumi.getter(name="githubappEnterpriseBaseUrl")
-    def githubapp_enterprise_base_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def githubapp_enterprise_base_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GitHub API URL for GitHub app authentication.
         """
         return pulumi.get(self, "githubapp_enterprise_base_url")
 
     @githubapp_enterprise_base_url.setter
-    def githubapp_enterprise_base_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def githubapp_enterprise_base_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "githubapp_enterprise_base_url", value)
 
     @_builtins.property
     @pulumi.getter(name="githubappId")
-    def githubapp_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def githubapp_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the GitHub app used to access the repo.
         """
         return pulumi.get(self, "githubapp_id")
 
     @githubapp_id.setter
-    def githubapp_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def githubapp_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "githubapp_id", value)
 
     @_builtins.property
     @pulumi.getter(name="githubappInstallationId")
-    def githubapp_installation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def githubapp_installation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The installation ID of the GitHub App used to access the repo.
         """
         return pulumi.get(self, "githubapp_installation_id")
 
     @githubapp_installation_id.setter
-    def githubapp_installation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def githubapp_installation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "githubapp_installation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="githubappPrivateKey")
-    def githubapp_private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def githubapp_private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private key data (PEM) for authentication via GitHub app.
         """
         return pulumi.get(self, "githubapp_private_key")
 
     @githubapp_private_key.setter
-    def githubapp_private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def githubapp_private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "githubapp_private_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def insecure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the connection to the repository ignores any errors when verifying TLS certificates or SSH host keys.
         """
         return pulumi.get(self, "insecure")
 
     @insecure.setter
-    def insecure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name to be used for this repo. Only used with Helm repos.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="noProxy")
-    def no_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def no_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comma-separated list of hostnames that should be excluded from proxying.
         """
         return pulumi.get(self, "no_proxy")
 
     @no_proxy.setter
-    def no_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def no_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "no_proxy", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password or PAT used for authenticating at the remote repository.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def project(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project name, in case the repository is project scoped.
         """
         return pulumi.get(self, "project")
 
     @project.setter
-    def project(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HTTP/HTTPS proxy to access the repository.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="sshPrivateKey")
-    def ssh_private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PEM data for authenticating at the repo server. Only used with Git repos.
         """
         return pulumi.get(self, "ssh_private_key")
 
     @ssh_private_key.setter
-    def ssh_private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsClientCertData")
-    def tls_client_cert_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_client_cert_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         TLS client certificate in PEM format for authenticating at the repo server.
         """
         return pulumi.get(self, "tls_client_cert_data")
 
     @tls_client_cert_data.setter
-    def tls_client_cert_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_client_cert_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_client_cert_data", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsClientCertKey")
-    def tls_client_cert_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_client_cert_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         TLS client certificate private key in PEM format for authenticating at the repo server.
         """
         return pulumi.get(self, "tls_client_cert_key")
 
     @tls_client_cert_key.setter
-    def tls_client_cert_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_client_cert_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_client_cert_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the repo. Can be either `git`, `helm` or `oci`. `git` is assumed if empty or absent.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="useAzureWorkloadIdentity")
-    def use_azure_workload_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_azure_workload_identity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether `Azure-Workload-identity` should be enabled for this repository.
         """
         return pulumi.get(self, "use_azure_workload_identity")
 
     @use_azure_workload_identity.setter
-    def use_azure_workload_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_azure_workload_identity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_azure_workload_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username used for authenticating at the remote repository.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class _RepositoryState:
     def __init__(__self__, *,
-                 bearer_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_state_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 depth: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_lfs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_oci: Optional[pulumi.Input[_builtins.bool]] = None,
-                 githubapp_enterprise_base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_installation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_creds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_client_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_client_cert_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_azure_workload_identity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 bearer_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_state_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 depth: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_lfs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_oci: pulumi.Input[Optional[_builtins.bool]] = None,
+                 githubapp_enterprise_base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_creds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_client_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_client_cert_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_azure_workload_identity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
 
@@ -462,278 +462,278 @@ class _RepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="bearerToken")
-    def bearer_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bearer_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
         """
         return pulumi.get(self, "bearer_token")
 
     @bearer_token.setter
-    def bearer_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bearer_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bearer_token", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStateStatus")
-    def connection_state_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_state_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains information about the current state of connection to the repository server.
         """
         return pulumi.get(self, "connection_state_status")
 
     @connection_state_status.setter
-    def connection_state_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_state_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_state_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def depth(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
         """
         return pulumi.get(self, "depth")
 
     @depth.setter
-    def depth(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def depth(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "depth", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLfs")
-    def enable_lfs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_lfs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether `git-lfs` support should be enabled for this repository.
         """
         return pulumi.get(self, "enable_lfs")
 
     @enable_lfs.setter
-    def enable_lfs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_lfs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_lfs", value)
 
     @_builtins.property
     @pulumi.getter(name="enableOci")
-    def enable_oci(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_oci(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether `helm-oci` support should be enabled for this repository.
         """
         return pulumi.get(self, "enable_oci")
 
     @enable_oci.setter
-    def enable_oci(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_oci(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_oci", value)
 
     @_builtins.property
     @pulumi.getter(name="githubappEnterpriseBaseUrl")
-    def githubapp_enterprise_base_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def githubapp_enterprise_base_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GitHub API URL for GitHub app authentication.
         """
         return pulumi.get(self, "githubapp_enterprise_base_url")
 
     @githubapp_enterprise_base_url.setter
-    def githubapp_enterprise_base_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def githubapp_enterprise_base_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "githubapp_enterprise_base_url", value)
 
     @_builtins.property
     @pulumi.getter(name="githubappId")
-    def githubapp_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def githubapp_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the GitHub app used to access the repo.
         """
         return pulumi.get(self, "githubapp_id")
 
     @githubapp_id.setter
-    def githubapp_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def githubapp_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "githubapp_id", value)
 
     @_builtins.property
     @pulumi.getter(name="githubappInstallationId")
-    def githubapp_installation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def githubapp_installation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The installation ID of the GitHub App used to access the repo.
         """
         return pulumi.get(self, "githubapp_installation_id")
 
     @githubapp_installation_id.setter
-    def githubapp_installation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def githubapp_installation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "githubapp_installation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="githubappPrivateKey")
-    def githubapp_private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def githubapp_private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private key data (PEM) for authentication via GitHub app.
         """
         return pulumi.get(self, "githubapp_private_key")
 
     @githubapp_private_key.setter
-    def githubapp_private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def githubapp_private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "githubapp_private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritedCreds")
-    def inherited_creds(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inherited_creds(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether credentials were inherited from a credential set.
         """
         return pulumi.get(self, "inherited_creds")
 
     @inherited_creds.setter
-    def inherited_creds(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inherited_creds(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inherited_creds", value)
 
     @_builtins.property
     @pulumi.getter
-    def insecure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the connection to the repository ignores any errors when verifying TLS certificates or SSH host keys.
         """
         return pulumi.get(self, "insecure")
 
     @insecure.setter
-    def insecure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name to be used for this repo. Only used with Helm repos.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="noProxy")
-    def no_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def no_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comma-separated list of hostnames that should be excluded from proxying.
         """
         return pulumi.get(self, "no_proxy")
 
     @no_proxy.setter
-    def no_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def no_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "no_proxy", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password or PAT used for authenticating at the remote repository.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def project(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project name, in case the repository is project scoped.
         """
         return pulumi.get(self, "project")
 
     @project.setter
-    def project(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HTTP/HTTPS proxy to access the repository.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter
-    def repo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the repository.
         """
         return pulumi.get(self, "repo")
 
     @repo.setter
-    def repo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo", value)
 
     @_builtins.property
     @pulumi.getter(name="sshPrivateKey")
-    def ssh_private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PEM data for authenticating at the repo server. Only used with Git repos.
         """
         return pulumi.get(self, "ssh_private_key")
 
     @ssh_private_key.setter
-    def ssh_private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsClientCertData")
-    def tls_client_cert_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_client_cert_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         TLS client certificate in PEM format for authenticating at the repo server.
         """
         return pulumi.get(self, "tls_client_cert_data")
 
     @tls_client_cert_data.setter
-    def tls_client_cert_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_client_cert_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_client_cert_data", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsClientCertKey")
-    def tls_client_cert_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_client_cert_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         TLS client certificate private key in PEM format for authenticating at the repo server.
         """
         return pulumi.get(self, "tls_client_cert_key")
 
     @tls_client_cert_key.setter
-    def tls_client_cert_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_client_cert_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_client_cert_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the repo. Can be either `git`, `helm` or `oci`. `git` is assumed if empty or absent.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="useAzureWorkloadIdentity")
-    def use_azure_workload_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_azure_workload_identity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether `Azure-Workload-identity` should be enabled for this repository.
         """
         return pulumi.get(self, "use_azure_workload_identity")
 
     @use_azure_workload_identity.setter
-    def use_azure_workload_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_azure_workload_identity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_azure_workload_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username used for authenticating at the remote repository.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -743,27 +743,27 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bearer_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 depth: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_lfs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_oci: Optional[pulumi.Input[_builtins.bool]] = None,
-                 githubapp_enterprise_base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_installation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_client_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_client_cert_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_azure_workload_identity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 bearer_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 depth: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_lfs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_oci: pulumi.Input[Optional[_builtins.bool]] = None,
+                 githubapp_enterprise_base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_client_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_client_cert_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_azure_workload_identity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages [repositories](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repositories) within ArgoCD.
@@ -924,27 +924,27 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bearer_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 depth: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_lfs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_oci: Optional[pulumi.Input[_builtins.bool]] = None,
-                 githubapp_enterprise_base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_installation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 githubapp_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_client_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_client_cert_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_azure_workload_identity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 bearer_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 depth: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_lfs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_oci: pulumi.Input[Optional[_builtins.bool]] = None,
+                 githubapp_enterprise_base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 githubapp_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_client_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_client_cert_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_azure_workload_identity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -991,29 +991,29 @@ class Repository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bearer_token: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_state_status: Optional[pulumi.Input[_builtins.str]] = None,
-            depth: Optional[pulumi.Input[_builtins.int]] = None,
-            enable_lfs: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_oci: Optional[pulumi.Input[_builtins.bool]] = None,
-            githubapp_enterprise_base_url: Optional[pulumi.Input[_builtins.str]] = None,
-            githubapp_id: Optional[pulumi.Input[_builtins.str]] = None,
-            githubapp_installation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            githubapp_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-            inherited_creds: Optional[pulumi.Input[_builtins.bool]] = None,
-            insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            project: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy: Optional[pulumi.Input[_builtins.str]] = None,
-            repo: Optional[pulumi.Input[_builtins.str]] = None,
-            ssh_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-            tls_client_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
-            tls_client_cert_key: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            use_azure_workload_identity: Optional[pulumi.Input[_builtins.bool]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'Repository':
+            bearer_token: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_state_status: pulumi.Input[Optional[_builtins.str]] = None,
+            depth: pulumi.Input[Optional[_builtins.int]] = None,
+            enable_lfs: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_oci: pulumi.Input[Optional[_builtins.bool]] = None,
+            githubapp_enterprise_base_url: pulumi.Input[Optional[_builtins.str]] = None,
+            githubapp_id: pulumi.Input[Optional[_builtins.str]] = None,
+            githubapp_installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            githubapp_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            inherited_creds: pulumi.Input[Optional[_builtins.bool]] = None,
+            insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            no_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            project: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy: pulumi.Input[Optional[_builtins.str]] = None,
+            repo: pulumi.Input[Optional[_builtins.str]] = None,
+            ssh_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            tls_client_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
+            tls_client_cert_key: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            use_azure_workload_identity: pulumi.Input[Optional[_builtins.bool]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'Repository':
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

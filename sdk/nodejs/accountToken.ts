@@ -126,31 +126,31 @@ export interface AccountTokenState {
     /**
      * Account name. Defaults to the current account. I.e. the account configured on the `provider` block.
      */
-    account?: pulumi.Input<string>;
+    account?: pulumi.Input<string | undefined>;
     /**
      * If `expiresIn` is set, Unix timestamp upon which the token will expire.
      */
-    expiresAt?: pulumi.Input<string>;
+    expiresAt?: pulumi.Input<string | undefined>;
     /**
      * Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `30m`, `12h`. Default: No expiration.
      */
-    expiresIn?: pulumi.Input<string>;
+    expiresIn?: pulumi.Input<string | undefined>;
     /**
      * Unix timestamp at which the token was issued.
      */
-    issuedAt?: pulumi.Input<string>;
+    issuedAt?: pulumi.Input<string | undefined>;
     /**
      * The raw JWT.
      */
-    jwt?: pulumi.Input<string>;
+    jwt?: pulumi.Input<string | undefined>;
     /**
      * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
      */
-    renewAfter?: pulumi.Input<string>;
+    renewAfter?: pulumi.Input<string | undefined>;
     /**
      * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, Pulumi will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
      */
-    renewBefore?: pulumi.Input<string>;
+    renewBefore?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -160,17 +160,17 @@ export interface AccountTokenArgs {
     /**
      * Account name. Defaults to the current account. I.e. the account configured on the `provider` block.
      */
-    account?: pulumi.Input<string>;
+    account?: pulumi.Input<string | undefined>;
     /**
      * Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `30m`, `12h`. Default: No expiration.
      */
-    expiresIn?: pulumi.Input<string>;
+    expiresIn?: pulumi.Input<string | undefined>;
     /**
      * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
      */
-    renewAfter?: pulumi.Input<string>;
+    renewAfter?: pulumi.Input<string | undefined>;
     /**
      * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, Pulumi will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
      */
-    renewBefore?: pulumi.Input<string>;
+    renewBefore?: pulumi.Input<string | undefined>;
 }

@@ -145,23 +145,23 @@ export interface GpgKeyState {
     /**
      * Fingerprint is the fingerprint of the key
      */
-    fingerprint?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string | undefined>;
     /**
      * Owner holds the owner identification, e.g. a name and e-mail address
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Raw key data of the GPG key to create
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
     /**
      * SubType holds the key's sub type (e.g. rsa4096)
      */
-    subType?: pulumi.Input<string>;
+    subType?: pulumi.Input<string | undefined>;
     /**
      * Trust holds the level of trust assigned to this key
      */
-    trust?: pulumi.Input<string>;
+    trust?: pulumi.Input<string | undefined>;
 }
 
 /**

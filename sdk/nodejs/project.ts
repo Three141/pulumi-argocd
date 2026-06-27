@@ -221,11 +221,11 @@ export interface ProjectState {
     /**
      * Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
      */
-    metadata?: pulumi.Input<inputs.ProjectMetadata>;
+    metadata?: pulumi.Input<inputs.ProjectMetadata | undefined>;
     /**
      * ArgoCD AppProject spec.
      */
-    spec?: pulumi.Input<inputs.ProjectSpec>;
+    spec?: pulumi.Input<inputs.ProjectSpec | undefined>;
 }
 
 /**

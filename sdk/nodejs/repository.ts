@@ -264,95 +264,95 @@ export interface RepositoryState {
     /**
      * BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
      */
-    bearerToken?: pulumi.Input<string>;
+    bearerToken?: pulumi.Input<string | undefined>;
     /**
      * Contains information about the current state of connection to the repository server.
      */
-    connectionStateStatus?: pulumi.Input<string>;
+    connectionStateStatus?: pulumi.Input<string | undefined>;
     /**
      * Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
      */
-    depth?: pulumi.Input<number>;
+    depth?: pulumi.Input<number | undefined>;
     /**
      * Whether `git-lfs` support should be enabled for this repository.
      */
-    enableLfs?: pulumi.Input<boolean>;
+    enableLfs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether `helm-oci` support should be enabled for this repository.
      */
-    enableOci?: pulumi.Input<boolean>;
+    enableOci?: pulumi.Input<boolean | undefined>;
     /**
      * GitHub API URL for GitHub app authentication.
      */
-    githubappEnterpriseBaseUrl?: pulumi.Input<string>;
+    githubappEnterpriseBaseUrl?: pulumi.Input<string | undefined>;
     /**
      * ID of the GitHub app used to access the repo.
      */
-    githubappId?: pulumi.Input<string>;
+    githubappId?: pulumi.Input<string | undefined>;
     /**
      * The installation ID of the GitHub App used to access the repo.
      */
-    githubappInstallationId?: pulumi.Input<string>;
+    githubappInstallationId?: pulumi.Input<string | undefined>;
     /**
      * Private key data (PEM) for authentication via GitHub app.
      */
-    githubappPrivateKey?: pulumi.Input<string>;
+    githubappPrivateKey?: pulumi.Input<string | undefined>;
     /**
      * Whether credentials were inherited from a credential set.
      */
-    inheritedCreds?: pulumi.Input<boolean>;
+    inheritedCreds?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the connection to the repository ignores any errors when verifying TLS certificates or SSH host keys.
      */
-    insecure?: pulumi.Input<boolean>;
+    insecure?: pulumi.Input<boolean | undefined>;
     /**
      * Name to be used for this repo. Only used with Helm repos.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Comma-separated list of hostnames that should be excluded from proxying.
      */
-    noProxy?: pulumi.Input<string>;
+    noProxy?: pulumi.Input<string | undefined>;
     /**
      * Password or PAT used for authenticating at the remote repository.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The project name, in case the repository is project scoped.
      */
-    project?: pulumi.Input<string>;
+    project?: pulumi.Input<string | undefined>;
     /**
      * HTTP/HTTPS proxy to access the repository.
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * URL of the repository.
      */
-    repo?: pulumi.Input<string>;
+    repo?: pulumi.Input<string | undefined>;
     /**
      * PEM data for authenticating at the repo server. Only used with Git repos.
      */
-    sshPrivateKey?: pulumi.Input<string>;
+    sshPrivateKey?: pulumi.Input<string | undefined>;
     /**
      * TLS client certificate in PEM format for authenticating at the repo server.
      */
-    tlsClientCertData?: pulumi.Input<string>;
+    tlsClientCertData?: pulumi.Input<string | undefined>;
     /**
      * TLS client certificate private key in PEM format for authenticating at the repo server.
      */
-    tlsClientCertKey?: pulumi.Input<string>;
+    tlsClientCertKey?: pulumi.Input<string | undefined>;
     /**
      * Type of the repo. Can be either `git`, `helm` or `oci`. `git` is assumed if empty or absent.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Whether `Azure-Workload-identity` should be enabled for this repository.
      */
-    useAzureWorkloadIdentity?: pulumi.Input<boolean>;
+    useAzureWorkloadIdentity?: pulumi.Input<boolean | undefined>;
     /**
      * Username used for authenticating at the remote repository.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -362,59 +362,59 @@ export interface RepositoryArgs {
     /**
      * BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
      */
-    bearerToken?: pulumi.Input<string>;
+    bearerToken?: pulumi.Input<string | undefined>;
     /**
      * Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
      */
-    depth?: pulumi.Input<number>;
+    depth?: pulumi.Input<number | undefined>;
     /**
      * Whether `git-lfs` support should be enabled for this repository.
      */
-    enableLfs?: pulumi.Input<boolean>;
+    enableLfs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether `helm-oci` support should be enabled for this repository.
      */
-    enableOci?: pulumi.Input<boolean>;
+    enableOci?: pulumi.Input<boolean | undefined>;
     /**
      * GitHub API URL for GitHub app authentication.
      */
-    githubappEnterpriseBaseUrl?: pulumi.Input<string>;
+    githubappEnterpriseBaseUrl?: pulumi.Input<string | undefined>;
     /**
      * ID of the GitHub app used to access the repo.
      */
-    githubappId?: pulumi.Input<string>;
+    githubappId?: pulumi.Input<string | undefined>;
     /**
      * The installation ID of the GitHub App used to access the repo.
      */
-    githubappInstallationId?: pulumi.Input<string>;
+    githubappInstallationId?: pulumi.Input<string | undefined>;
     /**
      * Private key data (PEM) for authentication via GitHub app.
      */
-    githubappPrivateKey?: pulumi.Input<string>;
+    githubappPrivateKey?: pulumi.Input<string | undefined>;
     /**
      * Whether the connection to the repository ignores any errors when verifying TLS certificates or SSH host keys.
      */
-    insecure?: pulumi.Input<boolean>;
+    insecure?: pulumi.Input<boolean | undefined>;
     /**
      * Name to be used for this repo. Only used with Helm repos.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Comma-separated list of hostnames that should be excluded from proxying.
      */
-    noProxy?: pulumi.Input<string>;
+    noProxy?: pulumi.Input<string | undefined>;
     /**
      * Password or PAT used for authenticating at the remote repository.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The project name, in case the repository is project scoped.
      */
-    project?: pulumi.Input<string>;
+    project?: pulumi.Input<string | undefined>;
     /**
      * HTTP/HTTPS proxy to access the repository.
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * URL of the repository.
      */
@@ -422,25 +422,25 @@ export interface RepositoryArgs {
     /**
      * PEM data for authenticating at the repo server. Only used with Git repos.
      */
-    sshPrivateKey?: pulumi.Input<string>;
+    sshPrivateKey?: pulumi.Input<string | undefined>;
     /**
      * TLS client certificate in PEM format for authenticating at the repo server.
      */
-    tlsClientCertData?: pulumi.Input<string>;
+    tlsClientCertData?: pulumi.Input<string | undefined>;
     /**
      * TLS client certificate private key in PEM format for authenticating at the repo server.
      */
-    tlsClientCertKey?: pulumi.Input<string>;
+    tlsClientCertKey?: pulumi.Input<string | undefined>;
     /**
      * Type of the repo. Can be either `git`, `helm` or `oci`. `git` is assumed if empty or absent.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Whether `Azure-Workload-identity` should be enabled for this repository.
      */
-    useAzureWorkloadIdentity?: pulumi.Input<boolean>;
+    useAzureWorkloadIdentity?: pulumi.Input<boolean | undefined>;
     /**
      * Username used for authenticating at the remote repository.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

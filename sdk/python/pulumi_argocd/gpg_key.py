@@ -43,11 +43,11 @@ class GpgKeyArgs:
 @pulumi.input_type
 class _GpgKeyState:
     def __init__(__self__, *,
-                 fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust: Optional[pulumi.Input[_builtins.str]] = None):
+                 fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GpgKey resources.
 
@@ -70,62 +70,62 @@ class _GpgKeyState:
 
     @_builtins.property
     @pulumi.getter
-    def fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fingerprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fingerprint is the fingerprint of the key
         """
         return pulumi.get(self, "fingerprint")
 
     @fingerprint.setter
-    def fingerprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fingerprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fingerprint", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner holds the owner identification, e.g. a name and e-mail address
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Raw key data of the GPG key to create
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="subType")
-    def sub_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sub_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SubType holds the key's sub type (e.g. rsa4096)
         """
         return pulumi.get(self, "sub_type")
 
     @sub_type.setter
-    def sub_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sub_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sub_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def trust(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Trust holds the level of trust assigned to this key
         """
         return pulumi.get(self, "trust")
 
     @trust.setter
-    def trust(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust", value)
 
 
@@ -135,7 +135,7 @@ class GpgKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages [GPG keys](https://argo-cd.readthedocs.io/en/stable/user-guide/gpg-verification/) within ArgoCD.
@@ -266,7 +266,7 @@ class GpgKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,11 +293,11 @@ class GpgKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            sub_type: Optional[pulumi.Input[_builtins.str]] = None,
-            trust: Optional[pulumi.Input[_builtins.str]] = None) -> 'GpgKey':
+            fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            sub_type: pulumi.Input[Optional[_builtins.str]] = None,
+            trust: pulumi.Input[Optional[_builtins.str]] = None) -> 'GpgKey':
         """
         Get an existing GpgKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

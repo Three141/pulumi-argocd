@@ -630,11 +630,11 @@ export interface ApplicationSetState {
     /**
      * Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
      */
-    metadata?: pulumi.Input<inputs.ApplicationSetMetadata>;
+    metadata?: pulumi.Input<inputs.ApplicationSetMetadata | undefined>;
     /**
      * ArgoCD application set resource spec.
      */
-    spec?: pulumi.Input<inputs.ApplicationSetSpec>;
+    spec?: pulumi.Input<inputs.ApplicationSetSpec | undefined>;
 }
 
 /**

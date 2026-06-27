@@ -60,8 +60,8 @@ class ProjectArgs:
 @pulumi.input_type
 class _ProjectState:
     def __init__(__self__, *,
-                 metadata: Optional[pulumi.Input['ProjectMetadataArgs']] = None,
-                 spec: Optional[pulumi.Input['ProjectSpecArgs']] = None):
+                 metadata: pulumi.Input[Optional['ProjectMetadataArgs']] = None,
+                 spec: pulumi.Input[Optional['ProjectSpecArgs']] = None):
         """
         Input properties used for looking up and filtering Project resources.
 
@@ -75,26 +75,26 @@ class _ProjectState:
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['ProjectMetadataArgs']]:
+    def metadata(self) -> pulumi.Input[Optional['ProjectMetadataArgs']]:
         """
         Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['ProjectMetadataArgs']]):
+    def metadata(self, value: pulumi.Input[Optional['ProjectMetadataArgs']]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def spec(self) -> Optional[pulumi.Input['ProjectSpecArgs']]:
+    def spec(self) -> pulumi.Input[Optional['ProjectSpecArgs']]:
         """
         ArgoCD AppProject spec.
         """
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: Optional[pulumi.Input['ProjectSpecArgs']]):
+    def spec(self, value: pulumi.Input[Optional['ProjectSpecArgs']]):
         pulumi.set(self, "spec", value)
 
 
@@ -104,8 +104,8 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metadata: Optional[pulumi.Input[Union['ProjectMetadataArgs', 'ProjectMetadataArgsDict']]] = None,
-                 spec: Optional[pulumi.Input[Union['ProjectSpecArgs', 'ProjectSpecArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[Union['ProjectMetadataArgs', 'ProjectMetadataArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['ProjectSpecArgs', 'ProjectSpecArgsDict']]] = None,
                  __props__=None):
         """
         Manages [projects](https://argo-cd.readthedocs.io/en/stable/user-guide/projects/) within ArgoCD.
@@ -413,8 +413,8 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metadata: Optional[pulumi.Input[Union['ProjectMetadataArgs', 'ProjectMetadataArgsDict']]] = None,
-                 spec: Optional[pulumi.Input[Union['ProjectSpecArgs', 'ProjectSpecArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[Union['ProjectMetadataArgs', 'ProjectMetadataArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['ProjectSpecArgs', 'ProjectSpecArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -440,8 +440,8 @@ class Project(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            metadata: Optional[pulumi.Input[Union['ProjectMetadataArgs', 'ProjectMetadataArgsDict']]] = None,
-            spec: Optional[pulumi.Input[Union['ProjectSpecArgs', 'ProjectSpecArgsDict']]] = None) -> 'Project':
+            metadata: pulumi.Input[Optional[Union['ProjectMetadataArgs', 'ProjectMetadataArgsDict']]] = None,
+            spec: pulumi.Input[Optional[Union['ProjectSpecArgs', 'ProjectSpecArgsDict']]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

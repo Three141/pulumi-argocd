@@ -21,8 +21,8 @@ __all__ = ['RepositoryCertificateArgs', 'RepositoryCertificate']
 @pulumi.input_type
 class RepositoryCertificateArgs:
     def __init__(__self__, *,
-                 https: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]] = None,
-                 sshes: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]] = None):
+                 https: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]] = None,
+                 sshes: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]] = None):
         """
         The set of arguments for constructing a RepositoryCertificate resource.
 
@@ -36,34 +36,34 @@ class RepositoryCertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def https(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]]:
+    def https(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]]:
         """
         HTTPS certificate configuration
         """
         return pulumi.get(self, "https")
 
     @https.setter
-    def https(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]]):
+    def https(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]]):
         pulumi.set(self, "https", value)
 
     @_builtins.property
     @pulumi.getter
-    def sshes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]]:
+    def sshes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]]:
         """
         SSH certificate configuration
         """
         return pulumi.get(self, "sshes")
 
     @sshes.setter
-    def sshes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]]):
+    def sshes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]]):
         pulumi.set(self, "sshes", value)
 
 
 @pulumi.input_type
 class _RepositoryCertificateState:
     def __init__(__self__, *,
-                 https: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]] = None,
-                 sshes: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]] = None):
+                 https: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]] = None,
+                 sshes: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]] = None):
         """
         Input properties used for looking up and filtering RepositoryCertificate resources.
 
@@ -77,26 +77,26 @@ class _RepositoryCertificateState:
 
     @_builtins.property
     @pulumi.getter
-    def https(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]]:
+    def https(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]]:
         """
         HTTPS certificate configuration
         """
         return pulumi.get(self, "https")
 
     @https.setter
-    def https(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]]):
+    def https(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateHttpArgs']]]]):
         pulumi.set(self, "https", value)
 
     @_builtins.property
     @pulumi.getter
-    def sshes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]]:
+    def sshes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]]:
         """
         SSH certificate configuration
         """
         return pulumi.get(self, "sshes")
 
     @sshes.setter
-    def sshes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]]):
+    def sshes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryCertificateSshArgs']]]]):
         pulumi.set(self, "sshes", value)
 
 
@@ -106,8 +106,8 @@ class RepositoryCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 https: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCertificateHttpArgs', 'RepositoryCertificateHttpArgsDict']]]]] = None,
-                 sshes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCertificateSshArgs', 'RepositoryCertificateSshArgsDict']]]]] = None,
+                 https: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCertificateHttpArgs', 'RepositoryCertificateHttpArgsDict']]]]] = None,
+                 sshes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCertificateSshArgs', 'RepositoryCertificateSshArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages [custom TLS certificates](https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/#self-signed-untrusted-tls-certificates) used by ArgoCD for connecting Git repositories.
@@ -181,8 +181,8 @@ class RepositoryCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 https: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCertificateHttpArgs', 'RepositoryCertificateHttpArgsDict']]]]] = None,
-                 sshes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCertificateSshArgs', 'RepositoryCertificateSshArgsDict']]]]] = None,
+                 https: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCertificateHttpArgs', 'RepositoryCertificateHttpArgsDict']]]]] = None,
+                 sshes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCertificateSshArgs', 'RepositoryCertificateSshArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -204,8 +204,8 @@ class RepositoryCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            https: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCertificateHttpArgs', 'RepositoryCertificateHttpArgsDict']]]]] = None,
-            sshes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCertificateSshArgs', 'RepositoryCertificateSshArgsDict']]]]] = None) -> 'RepositoryCertificate':
+            https: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCertificateHttpArgs', 'RepositoryCertificateHttpArgsDict']]]]] = None,
+            sshes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCertificateSshArgs', 'RepositoryCertificateSshArgsDict']]]]] = None) -> 'RepositoryCertificate':
         """
         Get an existing RepositoryCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

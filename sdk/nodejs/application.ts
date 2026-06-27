@@ -274,31 +274,31 @@ export interface ApplicationState {
     /**
      * Whether to applying cascading deletion when application is removed.
      */
-    cascade?: pulumi.Input<boolean>;
+    cascade?: pulumi.Input<boolean | undefined>;
     /**
      * Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
      */
-    metadata?: pulumi.Input<inputs.ApplicationMetadata>;
+    metadata?: pulumi.Input<inputs.ApplicationMetadata | undefined>;
     /**
      * The application specification.
      */
-    spec?: pulumi.Input<inputs.ApplicationSpec>;
+    spec?: pulumi.Input<inputs.ApplicationSpec | undefined>;
     /**
      * Status information for the application. **Note**: this is not guaranteed to be up to date immediately after creating/updating an application unless `wait=true`.
      */
-    statuses?: pulumi.Input<pulumi.Input<inputs.ApplicationStatus>[]>;
+    statuses?: pulumi.Input<pulumi.Input<inputs.ApplicationStatus>[] | undefined>;
     /**
      * Trigger sync immediately after create/update. Helps in case when a Sync window is defined. It is required that the sync window is defined with `manualSync = true`.
      */
-    sync?: pulumi.Input<boolean>;
+    sync?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to validate the application spec before creating or updating the application.
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
     /**
      * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
      */
-    wait?: pulumi.Input<boolean>;
+    wait?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -308,7 +308,7 @@ export interface ApplicationArgs {
     /**
      * Whether to applying cascading deletion when application is removed.
      */
-    cascade?: pulumi.Input<boolean>;
+    cascade?: pulumi.Input<boolean | undefined>;
     /**
      * Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
      */
@@ -320,13 +320,13 @@ export interface ApplicationArgs {
     /**
      * Trigger sync immediately after create/update. Helps in case when a Sync window is defined. It is required that the sync window is defined with `manualSync = true`.
      */
-    sync?: pulumi.Input<boolean>;
+    sync?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to validate the application spec before creating or updating the application.
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
     /**
      * Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `syncWindow` applied) then you will experience an expected timeout event if `wait = true`.
      */
-    wait?: pulumi.Input<boolean>;
+    wait?: pulumi.Input<boolean | undefined>;
 }

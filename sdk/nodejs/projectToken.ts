@@ -143,39 +143,39 @@ export interface ProjectTokenState {
     /**
      * Description of the token.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If `expiresIn` is set, Unix timestamp upon which the token will expire.
      */
-    expiresAt?: pulumi.Input<string>;
+    expiresAt?: pulumi.Input<string | undefined>;
     /**
      * Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `30m`, `12h`. Default: No expiration.
      */
-    expiresIn?: pulumi.Input<string>;
+    expiresIn?: pulumi.Input<string | undefined>;
     /**
      * Unix timestamp at which the token was issued.
      */
-    issuedAt?: pulumi.Input<string>;
+    issuedAt?: pulumi.Input<string | undefined>;
     /**
      * The raw JWT.
      */
-    jwt?: pulumi.Input<string>;
+    jwt?: pulumi.Input<string | undefined>;
     /**
      * The project associated with the token.
      */
-    project?: pulumi.Input<string>;
+    project?: pulumi.Input<string | undefined>;
     /**
      * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
      */
-    renewAfter?: pulumi.Input<string>;
+    renewAfter?: pulumi.Input<string | undefined>;
     /**
      * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
      */
-    renewBefore?: pulumi.Input<string>;
+    renewBefore?: pulumi.Input<string | undefined>;
     /**
      * The name of the role in the project associated with the token.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -185,11 +185,11 @@ export interface ProjectTokenArgs {
     /**
      * Description of the token.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `30m`, `12h`. Default: No expiration.
      */
-    expiresIn?: pulumi.Input<string>;
+    expiresIn?: pulumi.Input<string | undefined>;
     /**
      * The project associated with the token.
      */
@@ -197,11 +197,11 @@ export interface ProjectTokenArgs {
     /**
      * Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renewAfter`. I.e. if `currentDate - issuedAt > renewAfter`.
      */
-    renewAfter?: pulumi.Input<string>;
+    renewAfter?: pulumi.Input<string | undefined>;
     /**
      * Duration to control token silent regeneration based on remaining token lifetime. If `expiresIn` is set, the provider will regenerate the token if `expiresAt - currentDate < renewBefore`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
      */
-    renewBefore?: pulumi.Input<string>;
+    renewBefore?: pulumi.Input<string | undefined>;
     /**
      * The name of the role in the project associated with the token.
      */

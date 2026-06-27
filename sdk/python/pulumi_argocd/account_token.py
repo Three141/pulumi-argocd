@@ -19,10 +19,10 @@ __all__ = ['AccountTokenArgs', 'AccountToken']
 @pulumi.input_type
 class AccountTokenArgs:
     def __init__(__self__, *,
-                 account: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_before: Optional[pulumi.Input[_builtins.str]] = None):
+                 account: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_before: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountToken resource.
 
@@ -42,63 +42,63 @@ class AccountTokenArgs:
 
     @_builtins.property
     @pulumi.getter
-    def account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account name. Defaults to the current account. I.e. the account configured on the `provider` block.
         """
         return pulumi.get(self, "account")
 
     @account.setter
-    def account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresIn")
-    def expires_in(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_in(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `30m`, `12h`. Default: No expiration.
         """
         return pulumi.get(self, "expires_in")
 
     @expires_in.setter
-    def expires_in(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_in(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_in", value)
 
     @_builtins.property
     @pulumi.getter(name="renewAfter")
-    def renew_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renew_after(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
         """
         return pulumi.get(self, "renew_after")
 
     @renew_after.setter
-    def renew_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renew_after(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renew_after", value)
 
     @_builtins.property
     @pulumi.getter(name="renewBefore")
-    def renew_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renew_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         """
         return pulumi.get(self, "renew_before")
 
     @renew_before.setter
-    def renew_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renew_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renew_before", value)
 
 
 @pulumi.input_type
 class _AccountTokenState:
     def __init__(__self__, *,
-                 account: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 issued_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwt: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_before: Optional[pulumi.Input[_builtins.str]] = None):
+                 account: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 issued_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwt: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_before: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountToken resources.
 
@@ -127,86 +127,86 @@ class _AccountTokenState:
 
     @_builtins.property
     @pulumi.getter
-    def account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account name. Defaults to the current account. I.e. the account configured on the `provider` block.
         """
         return pulumi.get(self, "account")
 
     @account.setter
-    def account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `expires_in` is set, Unix timestamp upon which the token will expire.
         """
         return pulumi.get(self, "expires_at")
 
     @expires_at.setter
-    def expires_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_at", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresIn")
-    def expires_in(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_in(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration before the token will expire. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. E.g. `30m`, `12h`. Default: No expiration.
         """
         return pulumi.get(self, "expires_in")
 
     @expires_in.setter
-    def expires_in(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_in(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_in", value)
 
     @_builtins.property
     @pulumi.getter(name="issuedAt")
-    def issued_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issued_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unix timestamp at which the token was issued.
         """
         return pulumi.get(self, "issued_at")
 
     @issued_at.setter
-    def issued_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issued_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issued_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def jwt(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jwt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The raw JWT.
         """
         return pulumi.get(self, "jwt")
 
     @jwt.setter
-    def jwt(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jwt(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jwt", value)
 
     @_builtins.property
     @pulumi.getter(name="renewAfter")
-    def renew_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renew_after(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration to control token silent regeneration based on token age. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`. If set, then the token will be regenerated if it is older than `renew_after`. I.e. if `currentDate - issued_at > renew_after`.
         """
         return pulumi.get(self, "renew_after")
 
     @renew_after.setter
-    def renew_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renew_after(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renew_after", value)
 
     @_builtins.property
     @pulumi.getter(name="renewBefore")
-    def renew_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renew_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration to control token silent regeneration based on remaining token lifetime. If `expires_in` is set, Pulumi will regenerate the token if `expires_at - currentDate < renew_before`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
         """
         return pulumi.get(self, "renew_before")
 
     @renew_before.setter
-    def renew_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renew_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renew_before", value)
 
 
@@ -216,10 +216,10 @@ class AccountToken(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_before: Optional[pulumi.Input[_builtins.str]] = None,
+                 account: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_before: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages ArgoCD [account](https://argo-cd.readthedocs.io/en/latest/user-guide/commands/argocd_account/) JWT tokens.
@@ -291,10 +291,10 @@ class AccountToken(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 renew_before: Optional[pulumi.Input[_builtins.str]] = None,
+                 account: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 renew_before: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,13 +323,13 @@ class AccountToken(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account: Optional[pulumi.Input[_builtins.str]] = None,
-            expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-            expires_in: Optional[pulumi.Input[_builtins.str]] = None,
-            issued_at: Optional[pulumi.Input[_builtins.str]] = None,
-            jwt: Optional[pulumi.Input[_builtins.str]] = None,
-            renew_after: Optional[pulumi.Input[_builtins.str]] = None,
-            renew_before: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountToken':
+            account: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_in: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_at: pulumi.Input[Optional[_builtins.str]] = None,
+            jwt: pulumi.Input[Optional[_builtins.str]] = None,
+            renew_after: pulumi.Input[Optional[_builtins.str]] = None,
+            renew_before: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccountToken':
         """
         Get an existing AccountToken resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

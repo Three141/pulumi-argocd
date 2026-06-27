@@ -23,10 +23,10 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  metadata: pulumi.Input['ApplicationMetadataArgs'],
                  spec: pulumi.Input['ApplicationSpecArgs'],
-                 cascade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wait: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cascade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wait: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -74,63 +74,63 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cascade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cascade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to applying cascading deletion when application is removed.
         """
         return pulumi.get(self, "cascade")
 
     @cascade.setter
-    def cascade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cascade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cascade", value)
 
     @_builtins.property
     @pulumi.getter
-    def sync(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Trigger sync immediately after create/update. Helps in case when a Sync window is defined. It is required that the sync window is defined with `manual_sync = true`.
         """
         return pulumi.get(self, "sync")
 
     @sync.setter
-    def sync(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to validate the application spec before creating or updating the application.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
     @_builtins.property
     @pulumi.getter
-    def wait(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
         """
         return pulumi.get(self, "wait")
 
     @wait.setter
-    def wait(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait", value)
 
 
 @pulumi.input_type
 class _ApplicationState:
     def __init__(__self__, *,
-                 cascade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input['ApplicationMetadataArgs']] = None,
-                 spec: Optional[pulumi.Input['ApplicationSpecArgs']] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationStatusArgs']]]] = None,
-                 sync: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wait: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cascade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional['ApplicationMetadataArgs']] = None,
+                 spec: pulumi.Input[Optional['ApplicationSpecArgs']] = None,
+                 statuses: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationStatusArgs']]]] = None,
+                 sync: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wait: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Application resources.
 
@@ -159,86 +159,86 @@ class _ApplicationState:
 
     @_builtins.property
     @pulumi.getter
-    def cascade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cascade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to applying cascading deletion when application is removed.
         """
         return pulumi.get(self, "cascade")
 
     @cascade.setter
-    def cascade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cascade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cascade", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['ApplicationMetadataArgs']]:
+    def metadata(self) -> pulumi.Input[Optional['ApplicationMetadataArgs']]:
         """
         Standard Kubernetes object metadata. For more info see the [Kubernetes reference](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata).
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['ApplicationMetadataArgs']]):
+    def metadata(self, value: pulumi.Input[Optional['ApplicationMetadataArgs']]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def spec(self) -> Optional[pulumi.Input['ApplicationSpecArgs']]:
+    def spec(self) -> pulumi.Input[Optional['ApplicationSpecArgs']]:
         """
         The application specification.
         """
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: Optional[pulumi.Input['ApplicationSpecArgs']]):
+    def spec(self, value: pulumi.Input[Optional['ApplicationSpecArgs']]):
         pulumi.set(self, "spec", value)
 
     @_builtins.property
     @pulumi.getter
-    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationStatusArgs']]]]:
+    def statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationStatusArgs']]]]:
         """
         Status information for the application. **Note**: this is not guaranteed to be up to date immediately after creating/updating an application unless `wait=true`.
         """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
-    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationStatusArgs']]]]):
+    def statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationStatusArgs']]]]):
         pulumi.set(self, "statuses", value)
 
     @_builtins.property
     @pulumi.getter
-    def sync(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Trigger sync immediately after create/update. Helps in case when a Sync window is defined. It is required that the sync window is defined with `manual_sync = true`.
         """
         return pulumi.get(self, "sync")
 
     @sync.setter
-    def sync(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to validate the application spec before creating or updating the application.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
     @_builtins.property
     @pulumi.getter
-    def wait(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Upon application creation or update, wait for application health/sync status to be healthy/Synced, upon application deletion, wait for application to be removed, when set to true. Wait timeouts are controlled by the provider Create, Update and Delete resource timeouts (all default to 5 minutes). **Note**: if ArgoCD decides not to sync an application (e.g. because the project to which the application belongs has a `sync_window` applied) then you will experience an expected timeout event if `wait = true`.
         """
         return pulumi.get(self, "wait")
 
     @wait.setter
-    def wait(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait", value)
 
 
@@ -248,12 +248,12 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cascade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input[Union['ApplicationMetadataArgs', 'ApplicationMetadataArgsDict']]] = None,
-                 spec: Optional[pulumi.Input[Union['ApplicationSpecArgs', 'ApplicationSpecArgsDict']]] = None,
-                 sync: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wait: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cascade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional[Union['ApplicationMetadataArgs', 'ApplicationMetadataArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['ApplicationSpecArgs', 'ApplicationSpecArgsDict']]] = None,
+                 sync: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wait: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages [applications](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#applications) within ArgoCD.
@@ -609,12 +609,12 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cascade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input[Union['ApplicationMetadataArgs', 'ApplicationMetadataArgsDict']]] = None,
-                 spec: Optional[pulumi.Input[Union['ApplicationSpecArgs', 'ApplicationSpecArgsDict']]] = None,
-                 sync: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wait: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cascade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional[Union['ApplicationMetadataArgs', 'ApplicationMetadataArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['ApplicationSpecArgs', 'ApplicationSpecArgsDict']]] = None,
+                 sync: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wait: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -645,13 +645,13 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cascade: Optional[pulumi.Input[_builtins.bool]] = None,
-            metadata: Optional[pulumi.Input[Union['ApplicationMetadataArgs', 'ApplicationMetadataArgsDict']]] = None,
-            spec: Optional[pulumi.Input[Union['ApplicationSpecArgs', 'ApplicationSpecArgsDict']]] = None,
-            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationStatusArgs', 'ApplicationStatusArgsDict']]]]] = None,
-            sync: Optional[pulumi.Input[_builtins.bool]] = None,
-            validate: Optional[pulumi.Input[_builtins.bool]] = None,
-            wait: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Application':
+            cascade: pulumi.Input[Optional[_builtins.bool]] = None,
+            metadata: pulumi.Input[Optional[Union['ApplicationMetadataArgs', 'ApplicationMetadataArgsDict']]] = None,
+            spec: pulumi.Input[Optional[Union['ApplicationSpecArgs', 'ApplicationSpecArgsDict']]] = None,
+            statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationStatusArgs', 'ApplicationStatusArgsDict']]]]] = None,
+            sync: pulumi.Input[Optional[_builtins.bool]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None,
+            wait: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

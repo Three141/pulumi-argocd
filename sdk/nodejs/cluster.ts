@@ -242,35 +242,35 @@ export interface ClusterState {
     /**
      * Cluster information for connecting to a cluster.
      */
-    config?: pulumi.Input<inputs.ClusterConfig>;
+    config?: pulumi.Input<inputs.ClusterConfig | undefined>;
     /**
      * Information about cluster cache and state.
      */
-    infos?: pulumi.Input<pulumi.Input<inputs.ClusterInfo>[]>;
+    infos?: pulumi.Input<pulumi.Input<inputs.ClusterInfo>[] | undefined>;
     /**
      * Standard cluster secret's metadata. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata
      */
-    metadatas?: pulumi.Input<pulumi.Input<inputs.ClusterMetadata>[]>;
+    metadatas?: pulumi.Input<pulumi.Input<inputs.ClusterMetadata>[] | undefined>;
     /**
      * Name of the cluster. If omitted, will use the server address.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of namespaces which are accessible in that cluster. Cluster level resources would be ignored if namespace list is not empty.
      */
-    namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Reference between project and cluster that allow you automatically to be added as item inside Destinations project entity. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-scoped-repositories-and-clusters.
      */
-    project?: pulumi.Input<string>;
+    project?: pulumi.Input<string | undefined>;
     /**
      * Server is the API server URL of the Kubernetes cluster.
      */
-    server?: pulumi.Input<string>;
+    server?: pulumi.Input<string | undefined>;
     /**
      * Optional shard number. Calculated on the fly by the application controller if not specified.
      */
-    shard?: pulumi.Input<string>;
+    shard?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -284,25 +284,25 @@ export interface ClusterArgs {
     /**
      * Standard cluster secret's metadata. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata
      */
-    metadatas?: pulumi.Input<pulumi.Input<inputs.ClusterMetadata>[]>;
+    metadatas?: pulumi.Input<pulumi.Input<inputs.ClusterMetadata>[] | undefined>;
     /**
      * Name of the cluster. If omitted, will use the server address.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of namespaces which are accessible in that cluster. Cluster level resources would be ignored if namespace list is not empty.
      */
-    namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Reference between project and cluster that allow you automatically to be added as item inside Destinations project entity. More info: https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-scoped-repositories-and-clusters.
      */
-    project?: pulumi.Input<string>;
+    project?: pulumi.Input<string | undefined>;
     /**
      * Server is the API server URL of the Kubernetes cluster.
      */
-    server?: pulumi.Input<string>;
+    server?: pulumi.Input<string | undefined>;
     /**
      * Optional shard number. Calculated on the fly by the application controller if not specified.
      */
-    shard?: pulumi.Input<string>;
+    shard?: pulumi.Input<string | undefined>;
 }

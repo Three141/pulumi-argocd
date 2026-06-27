@@ -180,55 +180,55 @@ export interface RepositoryCredentialsState {
     /**
      * Whether `helm-oci` support should be enabled for this repo. Can only be set to `true` when `type` is `helm`.
      */
-    enableOci?: pulumi.Input<boolean>;
+    enableOci?: pulumi.Input<boolean | undefined>;
     /**
      * GitHub API URL for GitHub app authentication
      */
-    githubappEnterpriseBaseUrl?: pulumi.Input<string>;
+    githubappEnterpriseBaseUrl?: pulumi.Input<string | undefined>;
     /**
      * GitHub App ID of the app used to access the repo for GitHub app authentication
      */
-    githubappId?: pulumi.Input<string>;
+    githubappId?: pulumi.Input<string | undefined>;
     /**
      * ID of the installed GitHub App for GitHub app authentication
      */
-    githubappInstallationId?: pulumi.Input<string>;
+    githubappInstallationId?: pulumi.Input<string | undefined>;
     /**
      * Private key data (PEM) for authentication via GitHub app
      */
-    githubappPrivateKey?: pulumi.Input<string>;
+    githubappPrivateKey?: pulumi.Input<string | undefined>;
     /**
      * Password for authenticating at the repo server
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Private key data for authenticating at the repo server using SSH (only Git repos)
      */
-    sshPrivateKey?: pulumi.Input<string>;
+    sshPrivateKey?: pulumi.Input<string | undefined>;
     /**
      * TLS client cert data for authenticating at the repo server
      */
-    tlsClientCertData?: pulumi.Input<string>;
+    tlsClientCertData?: pulumi.Input<string | undefined>;
     /**
      * TLS client cert key for authenticating at the repo server
      */
-    tlsClientCertKey?: pulumi.Input<string>;
+    tlsClientCertKey?: pulumi.Input<string | undefined>;
     /**
      * Type of the repository credentials. Can be either `git`, `oci` or `helm`. `git` is assumed if empty or absent.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * URL that these credentials match to
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * Whether `Azure-Workload-identity` should be enabled for this repository.
      */
-    useAzureWorkloadIdentity?: pulumi.Input<boolean>;
+    useAzureWorkloadIdentity?: pulumi.Input<boolean | undefined>;
     /**
      * Username for authenticating at the repo server
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -238,43 +238,43 @@ export interface RepositoryCredentialsArgs {
     /**
      * Whether `helm-oci` support should be enabled for this repo. Can only be set to `true` when `type` is `helm`.
      */
-    enableOci?: pulumi.Input<boolean>;
+    enableOci?: pulumi.Input<boolean | undefined>;
     /**
      * GitHub API URL for GitHub app authentication
      */
-    githubappEnterpriseBaseUrl?: pulumi.Input<string>;
+    githubappEnterpriseBaseUrl?: pulumi.Input<string | undefined>;
     /**
      * GitHub App ID of the app used to access the repo for GitHub app authentication
      */
-    githubappId?: pulumi.Input<string>;
+    githubappId?: pulumi.Input<string | undefined>;
     /**
      * ID of the installed GitHub App for GitHub app authentication
      */
-    githubappInstallationId?: pulumi.Input<string>;
+    githubappInstallationId?: pulumi.Input<string | undefined>;
     /**
      * Private key data (PEM) for authentication via GitHub app
      */
-    githubappPrivateKey?: pulumi.Input<string>;
+    githubappPrivateKey?: pulumi.Input<string | undefined>;
     /**
      * Password for authenticating at the repo server
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Private key data for authenticating at the repo server using SSH (only Git repos)
      */
-    sshPrivateKey?: pulumi.Input<string>;
+    sshPrivateKey?: pulumi.Input<string | undefined>;
     /**
      * TLS client cert data for authenticating at the repo server
      */
-    tlsClientCertData?: pulumi.Input<string>;
+    tlsClientCertData?: pulumi.Input<string | undefined>;
     /**
      * TLS client cert key for authenticating at the repo server
      */
-    tlsClientCertKey?: pulumi.Input<string>;
+    tlsClientCertKey?: pulumi.Input<string | undefined>;
     /**
      * Type of the repository credentials. Can be either `git`, `oci` or `helm`. `git` is assumed if empty or absent.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * URL that these credentials match to
      */
@@ -282,9 +282,9 @@ export interface RepositoryCredentialsArgs {
     /**
      * Whether `Azure-Workload-identity` should be enabled for this repository.
      */
-    useAzureWorkloadIdentity?: pulumi.Input<boolean>;
+    useAzureWorkloadIdentity?: pulumi.Input<boolean | undefined>;
     /**
      * Username for authenticating at the repo server
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

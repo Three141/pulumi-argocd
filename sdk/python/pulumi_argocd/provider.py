@@ -20,26 +20,26 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 auth_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_cert_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 core: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grpc_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grpc_web_root_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kubernetes: Optional[pulumi.Input['ProviderKubernetesArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 plain_text: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port_forward: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port_forward_with_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_addr: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_local_config: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_agent: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_cert_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 core: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grpc_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grpc_web_root_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kubernetes: pulumi.Input[Optional['ProviderKubernetesArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 plain_text: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port_forward: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port_forward_with_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_addr: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_local_config: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_agent: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -114,79 +114,79 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="authToken")
-    def auth_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ArgoCD authentication token, takes precedence over `username`/`password`. Can be set through the `ARGOCD_AUTH_TOKEN` environment variable.
         """
         return pulumi.get(self, "auth_token")
 
     @auth_token.setter
-    def auth_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_token", value)
 
     @_builtins.property
     @pulumi.getter(name="certFile")
-    def cert_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional root CA certificates file to add to the client TLS connection pool.
         """
         return pulumi.get(self, "cert_file")
 
     @cert_file.setter
-    def cert_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert_file", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertFile")
-    def client_cert_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_cert_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client certificate.
         """
         return pulumi.get(self, "client_cert_file")
 
     @client_cert_file.setter
-    def client_cert_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_cert_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_cert_file", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertKey")
-    def client_cert_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_cert_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client certificate key.
         """
         return pulumi.get(self, "client_cert_key")
 
     @client_cert_key.setter
-    def client_cert_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_cert_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_cert_key", value)
 
     @_builtins.property
     @pulumi.getter(name="configPath")
-    def config_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Override the default config path of `$HOME/.config/argocd/config`. Only relevant when `use_local_config`. Can be set through the `ARGOCD_CONFIG_PATH` environment variable.
         """
         return pulumi.get(self, "config_path")
 
     @config_path.setter
-    def config_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Context to choose when using a local ArgoCD config file. Only relevant when `use_local_config`. Can be set through `ARGOCD_CONTEXT` environment variable.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter
-    def core(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def core(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Configure direct access using Kubernetes API server.
 
@@ -200,163 +200,163 @@ class ProviderArgs:
         return pulumi.get(self, "core")
 
     @core.setter
-    def core(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def core(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "core", value)
 
     @_builtins.property
     @pulumi.getter(name="grpcWeb")
-    def grpc_web(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def grpc_web(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use gRPC web proxy client. Useful if Argo CD server is behind proxy which does not support HTTP2.
         """
         return pulumi.get(self, "grpc_web")
 
     @grpc_web.setter
-    def grpc_web(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def grpc_web(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "grpc_web", value)
 
     @_builtins.property
     @pulumi.getter(name="grpcWebRootPath")
-    def grpc_web_root_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grpc_web_root_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use the gRPC web proxy client and set the web root, e.g. `argo-cd`. Useful if the Argo CD server is behind a proxy at a non-root path.
         """
         return pulumi.get(self, "grpc_web_root_path")
 
     @grpc_web_root_path.setter
-    def grpc_web_root_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grpc_web_root_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grpc_web_root_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Additional headers to add to each request to the ArgoCD server.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def insecure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to skip TLS server certificate. Can be set through the `ARGOCD_INSECURE` environment variable.
         """
         return pulumi.get(self, "insecure")
 
     @insecure.setter
-    def insecure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure", value)
 
     @_builtins.property
     @pulumi.getter
-    def kubernetes(self) -> Optional[pulumi.Input['ProviderKubernetesArgs']]:
+    def kubernetes(self) -> pulumi.Input[Optional['ProviderKubernetesArgs']]:
         """
         Kubernetes configuration overrides.  Only relevant when `port_forward = true` or `port_forward_with_namespace = "foo"`. The kubeconfig file that is used can be overridden using the [`KUBECONFIG` environment variable](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#the-kubeconfig-environment-variable)).
         """
         return pulumi.get(self, "kubernetes")
 
     @kubernetes.setter
-    def kubernetes(self, value: Optional[pulumi.Input['ProviderKubernetesArgs']]):
+    def kubernetes(self, value: pulumi.Input[Optional['ProviderKubernetesArgs']]):
         pulumi.set(self, "kubernetes", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication password. Can be set through the `ARGOCD_AUTH_PASSWORD` environment variable.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="plainText")
-    def plain_text(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def plain_text(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to initiate an unencrypted connection to ArgoCD server.
         """
         return pulumi.get(self, "plain_text")
 
     @plain_text.setter
-    def plain_text(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def plain_text(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "plain_text", value)
 
     @_builtins.property
     @pulumi.getter(name="portForward")
-    def port_forward(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def port_forward(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Connect to a random argocd-server port using port forwarding.
         """
         return pulumi.get(self, "port_forward")
 
     @port_forward.setter
-    def port_forward(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def port_forward(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "port_forward", value)
 
     @_builtins.property
     @pulumi.getter(name="portForwardWithNamespace")
-    def port_forward_with_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port_forward_with_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Namespace name which should be used for port forwarding.
         """
         return pulumi.get(self, "port_forward_with_namespace")
 
     @port_forward_with_namespace.setter
-    def port_forward_with_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port_forward_with_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port_forward_with_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="serverAddr")
-    def server_addr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_addr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ArgoCD server address with port. Can be set through the `ARGOCD_SERVER` environment variable.
         """
         return pulumi.get(self, "server_addr")
 
     @server_addr.setter
-    def server_addr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_addr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_addr", value)
 
     @_builtins.property
     @pulumi.getter(name="useLocalConfig")
-    def use_local_config(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_local_config(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Use the authentication settings found in the local config file. Useful when you have previously logged in using SSO. Conflicts with `auth_token`, `username` and `password`.
         """
         return pulumi.get(self, "use_local_config")
 
     @use_local_config.setter
-    def use_local_config(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_local_config(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_local_config", value)
 
     @_builtins.property
     @pulumi.getter(name="userAgent")
-    def user_agent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_agent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-Agent request header override.
         """
         return pulumi.get(self, "user_agent")
 
     @user_agent.setter
-    def user_agent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_agent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_agent", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication username. Can be set through the `ARGOCD_AUTH_USERNAME` environment variable.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -366,26 +366,26 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_cert_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 core: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grpc_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grpc_web_root_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kubernetes: Optional[pulumi.Input[Union['ProviderKubernetesArgs', 'ProviderKubernetesArgsDict']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 plain_text: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port_forward: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port_forward_with_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_addr: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_local_config: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_agent: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_cert_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 core: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grpc_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grpc_web_root_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kubernetes: pulumi.Input[Optional[Union['ProviderKubernetesArgs', 'ProviderKubernetesArgsDict']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 plain_text: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port_forward: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port_forward_with_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_addr: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_local_config: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_agent: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the argocd package. By default, resources use package-wide configuration
@@ -452,26 +452,26 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_cert_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 core: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grpc_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grpc_web_root_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kubernetes: Optional[pulumi.Input[Union['ProviderKubernetesArgs', 'ProviderKubernetesArgsDict']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 plain_text: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port_forward: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port_forward_with_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_addr: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_local_config: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_agent: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_cert_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 core: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grpc_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grpc_web_root_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kubernetes: pulumi.Input[Optional[Union['ProviderKubernetesArgs', 'ProviderKubernetesArgsDict']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 plain_text: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port_forward: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port_forward_with_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_addr: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_local_config: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_agent: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
