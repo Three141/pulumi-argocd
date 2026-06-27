@@ -107,17 +107,17 @@ import (
 //					ApiGroup: pulumi.String("rbac.authorization.k8s.io"),
 //					Kind:     pulumi.String("ClusterRole"),
 //					Name: argocdManagerClusterRole.Metadata.ApplyT(func(metadata metav1.ObjectMeta) (*string, error) {
-//						return &metadata.Name, nil
+//						return metadata.Name, nil
 //					}).(pulumi.StringPtrOutput),
 //				},
 //				Subjects: rbacv1.SubjectArray{
 //					&rbacv1.SubjectArgs{
 //						Kind: pulumi.String("ServiceAccount"),
 //						Name: argocdManager.Metadata.ApplyT(func(metadata metav1.ObjectMeta) (*string, error) {
-//							return &metadata.Name, nil
+//							return metadata.Name, nil
 //						}).(pulumi.StringPtrOutput),
 //						Namespace: argocdManager.Metadata.ApplyT(func(metadata metav1.ObjectMeta) (*string, error) {
-//							return &metadata.Namespace, nil
+//							return metadata.Namespace, nil
 //						}).(pulumi.StringPtrOutput),
 //					},
 //				},
@@ -129,7 +129,7 @@ import (
 //				Metadata: &metav1.ObjectMetaArgs{
 //					Name: argocdManager.DefaultSecretName,
 //					Namespace: argocdManager.Metadata.ApplyT(func(metadata metav1.ObjectMeta) (*string, error) {
-//						return &metadata.Namespace, nil
+//						return metadata.Namespace, nil
 //					}).(pulumi.StringPtrOutput),
 //				},
 //			})

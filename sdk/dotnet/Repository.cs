@@ -103,6 +103,12 @@ namespace Three14.Argocd
         public Output<string> ConnectionStateStatus { get; private set; } = null!;
 
         /// <summary>
+        /// Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`&gt; 0`) are only supported from ArgoCD 3.3.0 onwards.
+        /// </summary>
+        [Output("depth")]
+        public Output<int> Depth { get; private set; } = null!;
+
+        /// <summary>
         /// Whether `git-lfs` support should be enabled for this repository.
         /// </summary>
         [Output("enableLfs")]
@@ -294,6 +300,12 @@ namespace Three14.Argocd
         }
 
         /// <summary>
+        /// Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`&gt; 0`) are only supported from ArgoCD 3.3.0 onwards.
+        /// </summary>
+        [Input("depth")]
+        public Input<int>? Depth { get; set; }
+
+        /// <summary>
         /// Whether `git-lfs` support should be enabled for this repository.
         /// </summary>
         [Input("enableLfs")]
@@ -476,6 +488,12 @@ namespace Three14.Argocd
         /// </summary>
         [Input("connectionStateStatus")]
         public Input<string>? ConnectionStateStatus { get; set; }
+
+        /// <summary>
+        /// Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`&gt; 0`) are only supported from ArgoCD 3.3.0 onwards.
+        /// </summary>
+        [Input("depth")]
+        public Input<int>? Depth { get; set; }
 
         /// <summary>
         /// Whether `git-lfs` support should be enabled for this repository.

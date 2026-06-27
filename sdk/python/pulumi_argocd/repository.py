@@ -21,6 +21,7 @@ class RepositoryArgs:
     def __init__(__self__, *,
                  repo: pulumi.Input[_builtins.str],
                  bearer_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 depth: Optional[pulumi.Input[_builtins.int]] = None,
                  enable_lfs: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_oci: Optional[pulumi.Input[_builtins.bool]] = None,
                  githubapp_enterprise_base_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -44,6 +45,7 @@ class RepositoryArgs:
 
         :param pulumi.Input[_builtins.str] repo: URL of the repository.
         :param pulumi.Input[_builtins.str] bearer_token: BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
+        :param pulumi.Input[_builtins.int] depth: Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
         :param pulumi.Input[_builtins.bool] enable_lfs: Whether `git-lfs` support should be enabled for this repository.
         :param pulumi.Input[_builtins.bool] enable_oci: Whether `helm-oci` support should be enabled for this repository.
         :param pulumi.Input[_builtins.str] githubapp_enterprise_base_url: GitHub API URL for GitHub app authentication.
@@ -66,6 +68,8 @@ class RepositoryArgs:
         pulumi.set(__self__, "repo", repo)
         if bearer_token is not None:
             pulumi.set(__self__, "bearer_token", bearer_token)
+        if depth is not None:
+            pulumi.set(__self__, "depth", depth)
         if enable_lfs is not None:
             pulumi.set(__self__, "enable_lfs", enable_lfs)
         if enable_oci is not None:
@@ -126,6 +130,18 @@ class RepositoryArgs:
     @bearer_token.setter
     def bearer_token(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "bearer_token", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def depth(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+        """
+        return pulumi.get(self, "depth")
+
+    @depth.setter
+    def depth(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "depth", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLfs")
@@ -349,6 +365,7 @@ class _RepositoryState:
     def __init__(__self__, *,
                  bearer_token: Optional[pulumi.Input[_builtins.str]] = None,
                  connection_state_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 depth: Optional[pulumi.Input[_builtins.int]] = None,
                  enable_lfs: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_oci: Optional[pulumi.Input[_builtins.bool]] = None,
                  githubapp_enterprise_base_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -374,6 +391,7 @@ class _RepositoryState:
 
         :param pulumi.Input[_builtins.str] bearer_token: BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
         :param pulumi.Input[_builtins.str] connection_state_status: Contains information about the current state of connection to the repository server.
+        :param pulumi.Input[_builtins.int] depth: Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
         :param pulumi.Input[_builtins.bool] enable_lfs: Whether `git-lfs` support should be enabled for this repository.
         :param pulumi.Input[_builtins.bool] enable_oci: Whether `helm-oci` support should be enabled for this repository.
         :param pulumi.Input[_builtins.str] githubapp_enterprise_base_url: GitHub API URL for GitHub app authentication.
@@ -399,6 +417,8 @@ class _RepositoryState:
             pulumi.set(__self__, "bearer_token", bearer_token)
         if connection_state_status is not None:
             pulumi.set(__self__, "connection_state_status", connection_state_status)
+        if depth is not None:
+            pulumi.set(__self__, "depth", depth)
         if enable_lfs is not None:
             pulumi.set(__self__, "enable_lfs", enable_lfs)
         if enable_oci is not None:
@@ -463,6 +483,18 @@ class _RepositoryState:
     @connection_state_status.setter
     def connection_state_status(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "connection_state_status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def depth(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+        """
+        return pulumi.get(self, "depth")
+
+    @depth.setter
+    def depth(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "depth", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLfs")
@@ -712,6 +744,7 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bearer_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 depth: Optional[pulumi.Input[_builtins.int]] = None,
                  enable_lfs: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_oci: Optional[pulumi.Input[_builtins.bool]] = None,
                  githubapp_enterprise_base_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -792,6 +825,7 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bearer_token: BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
+        :param pulumi.Input[_builtins.int] depth: Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
         :param pulumi.Input[_builtins.bool] enable_lfs: Whether `git-lfs` support should be enabled for this repository.
         :param pulumi.Input[_builtins.bool] enable_oci: Whether `helm-oci` support should be enabled for this repository.
         :param pulumi.Input[_builtins.str] githubapp_enterprise_base_url: GitHub API URL for GitHub app authentication.
@@ -891,6 +925,7 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bearer_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 depth: Optional[pulumi.Input[_builtins.int]] = None,
                  enable_lfs: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_oci: Optional[pulumi.Input[_builtins.bool]] = None,
                  githubapp_enterprise_base_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -920,6 +955,7 @@ class Repository(pulumi.CustomResource):
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
             __props__.__dict__["bearer_token"] = None if bearer_token is None else pulumi.Output.secret(bearer_token)
+            __props__.__dict__["depth"] = depth
             __props__.__dict__["enable_lfs"] = enable_lfs
             __props__.__dict__["enable_oci"] = enable_oci
             __props__.__dict__["githubapp_enterprise_base_url"] = githubapp_enterprise_base_url
@@ -957,6 +993,7 @@ class Repository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bearer_token: Optional[pulumi.Input[_builtins.str]] = None,
             connection_state_status: Optional[pulumi.Input[_builtins.str]] = None,
+            depth: Optional[pulumi.Input[_builtins.int]] = None,
             enable_lfs: Optional[pulumi.Input[_builtins.bool]] = None,
             enable_oci: Optional[pulumi.Input[_builtins.bool]] = None,
             githubapp_enterprise_base_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -986,6 +1023,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bearer_token: BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
         :param pulumi.Input[_builtins.str] connection_state_status: Contains information about the current state of connection to the repository server.
+        :param pulumi.Input[_builtins.int] depth: Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
         :param pulumi.Input[_builtins.bool] enable_lfs: Whether `git-lfs` support should be enabled for this repository.
         :param pulumi.Input[_builtins.bool] enable_oci: Whether `helm-oci` support should be enabled for this repository.
         :param pulumi.Input[_builtins.str] githubapp_enterprise_base_url: GitHub API URL for GitHub app authentication.
@@ -1013,6 +1051,7 @@ class Repository(pulumi.CustomResource):
 
         __props__.__dict__["bearer_token"] = bearer_token
         __props__.__dict__["connection_state_status"] = connection_state_status
+        __props__.__dict__["depth"] = depth
         __props__.__dict__["enable_lfs"] = enable_lfs
         __props__.__dict__["enable_oci"] = enable_oci
         __props__.__dict__["githubapp_enterprise_base_url"] = githubapp_enterprise_base_url
@@ -1050,6 +1089,14 @@ class Repository(pulumi.CustomResource):
         Contains information about the current state of connection to the repository server.
         """
         return pulumi.get(self, "connection_state_status")
+
+    @_builtins.property
+    @pulumi.getter
+    def depth(self) -> pulumi.Output[_builtins.int]:
+        """
+        Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+        """
+        return pulumi.get(self, "depth")
 
     @_builtins.property
     @pulumi.getter(name="enableLfs")

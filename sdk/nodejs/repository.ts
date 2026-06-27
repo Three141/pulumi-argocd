@@ -101,6 +101,10 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly connectionStateStatus: pulumi.Output<string>;
     /**
+     * Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+     */
+    declare public readonly depth: pulumi.Output<number>;
+    /**
      * Whether `git-lfs` support should be enabled for this repository.
      */
     declare public readonly enableLfs: pulumi.Output<boolean>;
@@ -196,6 +200,7 @@ export class Repository extends pulumi.CustomResource {
             const state = argsOrState as RepositoryState | undefined;
             resourceInputs["bearerToken"] = state?.bearerToken;
             resourceInputs["connectionStateStatus"] = state?.connectionStateStatus;
+            resourceInputs["depth"] = state?.depth;
             resourceInputs["enableLfs"] = state?.enableLfs;
             resourceInputs["enableOci"] = state?.enableOci;
             resourceInputs["githubappEnterpriseBaseUrl"] = state?.githubappEnterpriseBaseUrl;
@@ -222,6 +227,7 @@ export class Repository extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repo'");
             }
             resourceInputs["bearerToken"] = args?.bearerToken ? pulumi.secret(args.bearerToken) : undefined;
+            resourceInputs["depth"] = args?.depth;
             resourceInputs["enableLfs"] = args?.enableLfs;
             resourceInputs["enableOci"] = args?.enableOci;
             resourceInputs["githubappEnterpriseBaseUrl"] = args?.githubappEnterpriseBaseUrl;
@@ -263,6 +269,10 @@ export interface RepositoryState {
      * Contains information about the current state of connection to the repository server.
      */
     connectionStateStatus?: pulumi.Input<string>;
+    /**
+     * Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+     */
+    depth?: pulumi.Input<number>;
     /**
      * Whether `git-lfs` support should be enabled for this repository.
      */
@@ -353,6 +363,10 @@ export interface RepositoryArgs {
      * BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
      */
     bearerToken?: pulumi.Input<string>;
+    /**
+     * Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+     */
+    depth?: pulumi.Input<number>;
     /**
      * Whether `git-lfs` support should be enabled for this repository.
      */

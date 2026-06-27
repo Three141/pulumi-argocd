@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * import * as std from "@pulumi/std";
  *
  * //# Bearer token Authentication
- * const kubernetes = new argocd.Cluster("kubernetes", {
+ * const kubernetes2 = new argocd.Cluster("kubernetes", {
  *     server: "https://1.2.3.4:12345",
  *     config: {
  *         bearerToken: "eyJhbGciOiJSUzI...",

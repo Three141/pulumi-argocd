@@ -10780,6 +10780,16 @@
         }
     },
     "auto-settings": {},
+    "default-resource-schema-fixups": {
+        "resources": {
+            "argocd_gpg_key": {},
+            "argocd_project": {},
+            "argocd_project_token": {},
+            "argocd_repository": {},
+            "argocd_repository_certificate": {},
+            "argocd_repository_credentials": {}
+        }
+    },
     "mux": {
         "resources": {
             "argocd:index/accountToken:AccountToken": 0,

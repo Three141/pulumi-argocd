@@ -157,7 +157,7 @@ import (
 //								ValueFiles: pulumi.StringArray{
 //									pulumi.String("values-test.yml"),
 //								},
-//								Values: pulumi.String(pulumi.String(json0)),
+//								Values: pulumi.String(json0),
 //							},
 //						},
 //					},

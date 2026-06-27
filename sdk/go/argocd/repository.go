@@ -103,6 +103,8 @@ type Repository struct {
 	BearerToken pulumi.StringPtrOutput `pulumi:"bearerToken"`
 	// Contains information about the current state of connection to the repository server.
 	ConnectionStateStatus pulumi.StringOutput `pulumi:"connectionStateStatus"`
+	// Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+	Depth pulumi.IntOutput `pulumi:"depth"`
 	// Whether `git-lfs` support should be enabled for this repository.
 	EnableLfs pulumi.BoolOutput `pulumi:"enableLfs"`
 	// Whether `helm-oci` support should be enabled for this repository.
@@ -205,6 +207,8 @@ type repositoryState struct {
 	BearerToken *string `pulumi:"bearerToken"`
 	// Contains information about the current state of connection to the repository server.
 	ConnectionStateStatus *string `pulumi:"connectionStateStatus"`
+	// Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+	Depth *int `pulumi:"depth"`
 	// Whether `git-lfs` support should be enabled for this repository.
 	EnableLfs *bool `pulumi:"enableLfs"`
 	// Whether `helm-oci` support should be enabled for this repository.
@@ -252,6 +256,8 @@ type RepositoryState struct {
 	BearerToken pulumi.StringPtrInput
 	// Contains information about the current state of connection to the repository server.
 	ConnectionStateStatus pulumi.StringPtrInput
+	// Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+	Depth pulumi.IntPtrInput
 	// Whether `git-lfs` support should be enabled for this repository.
 	EnableLfs pulumi.BoolPtrInput
 	// Whether `helm-oci` support should be enabled for this repository.
@@ -301,6 +307,8 @@ func (RepositoryState) ElementType() reflect.Type {
 type repositoryArgs struct {
 	// BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
 	BearerToken *string `pulumi:"bearerToken"`
+	// Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+	Depth *int `pulumi:"depth"`
 	// Whether `git-lfs` support should be enabled for this repository.
 	EnableLfs *bool `pulumi:"enableLfs"`
 	// Whether `helm-oci` support should be enabled for this repository.
@@ -345,6 +353,8 @@ type repositoryArgs struct {
 type RepositoryArgs struct {
 	// BearerToken contains the bearer token used for Git BitBucket Data Center auth at the repo server
 	BearerToken pulumi.StringPtrInput
+	// Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+	Depth pulumi.IntPtrInput
 	// Whether `git-lfs` support should be enabled for this repository.
 	EnableLfs pulumi.BoolPtrInput
 	// Whether `helm-oci` support should be enabled for this repository.
@@ -480,6 +490,11 @@ func (o RepositoryOutput) BearerToken() pulumi.StringPtrOutput {
 // Contains information about the current state of connection to the repository server.
 func (o RepositoryOutput) ConnectionStateStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.ConnectionStateStatus }).(pulumi.StringOutput)
+}
+
+// Depth specifies the depth for [shallow clones](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/#shallow-clone). A value of `0` means a full clone (the default). Shallow clone depths (`> 0`) are only supported from ArgoCD 3.3.0 onwards.
+func (o RepositoryOutput) Depth() pulumi.IntOutput {
+	return o.ApplyT(func(v *Repository) pulumi.IntOutput { return v.Depth }).(pulumi.IntOutput)
 }
 
 // Whether `git-lfs` support should be enabled for this repository.

@@ -303,7 +303,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_std as std
 
         ## Bearer token Authentication
-        kubernetes = argocd.Cluster("kubernetes",
+        kubernetes_1 = argocd.Cluster("kubernetes",
             server="https://1.2.3.4:12345",
             config={
                 "bearer_token": "eyJhbGciOiJSUzI...",
@@ -429,7 +429,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_std as std
 
         ## Bearer token Authentication
-        kubernetes = argocd.Cluster("kubernetes",
+        kubernetes_1 = argocd.Cluster("kubernetes",
             server="https://1.2.3.4:12345",
             config={
                 "bearer_token": "eyJhbGciOiJSUzI...",

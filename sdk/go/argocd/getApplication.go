@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := argocd.LookupApplication(ctx, &argocd.LookupApplicationArgs{
+//			_, err := argocd.GetApplication(ctx, &argocd.LookupApplicationArgs{
 //				Metadata: argocd.GetApplicationMetadata{
 //					Name:      "foo",
 //					Namespace: "argocd",

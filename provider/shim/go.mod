@@ -3,8 +3,9 @@ module github.com/argoproj-labs/terraform-provider-argocd/shim
 go 1.25.8
 
 require (
-	github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20260317091642-80bb8e6f1a5d
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.39.0
+	github.com/argoproj-labs/terraform-provider-argocd v1.2.3-0.20260402110856-5850f41d7356
+	github.com/hashicorp/terraform-plugin-framework v1.19.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.40.0
 )
 
 require (
@@ -27,12 +28,13 @@ require (
 	github.com/Microsoft/go-winio v0.6.2 // indirect
 	github.com/OvyFlash/telegram-bot-api v0.0.0-20241219171906-3f2ca0c14ada // indirect
 	github.com/PagerDuty/go-pagerduty v1.8.0 // indirect
-	github.com/ProtonMail/go-crypto v1.3.0 // indirect
+	github.com/ProtonMail/go-crypto v1.4.1 // indirect
+	github.com/ProtonMail/gopenpgp/v3 v3.4.0 // indirect
 	github.com/RocketChat/Rocket.Chat.Go.SDK v0.0.0-20240116134246-a8cbe886bab0 // indirect
 	github.com/agext/levenshtein v1.2.2 // indirect
 	github.com/alicebob/miniredis/v2 v2.35.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
-	github.com/argoproj/argo-cd/v3 v3.3.4 // indirect
+	github.com/argoproj/argo-cd/v3 v3.3.6 // indirect
 	github.com/argoproj/gitops-engine v0.7.1-0.20251217140045-5baed5604d2d // indirect
 	github.com/argoproj/notifications-engine v0.5.1-0.20260119155007-a23b5827d630 // indirect
 	github.com/argoproj/pkg v0.13.7-0.20250305113207-cbc37dc61de5 // indirect
@@ -64,7 +66,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/chai2010/gettext-go v1.0.3 // indirect
 	github.com/chainguard-dev/git-urls v1.0.2 // indirect
-	github.com/cloudflare/circl v1.6.1 // indirect
+	github.com/cloudflare/circl v1.6.2 // indirect
 	github.com/coreos/go-oidc/v3 v3.14.1 // indirect
 	github.com/cristalhq/jwt/v5 v5.4.0 // indirect
 	github.com/cyphar/filepath-securejoin v0.6.1 // indirect
@@ -74,6 +76,7 @@ require (
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/distribution/reference v0.6.0 // indirect
 	github.com/dlclark/regexp2 v1.11.5 // indirect
+	github.com/elliotchance/pie/v2 v2.9.1 // indirect
 	github.com/emicklei/go-restful/v3 v3.12.2 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/evanphx/json-patch v5.9.11+incompatible // indirect
@@ -151,8 +154,8 @@ require (
 	github.com/hashicorp/go-version v1.8.0 // indirect
 	github.com/hashicorp/hcl/v2 v2.24.0 // indirect
 	github.com/hashicorp/logutils v1.0.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework v1.18.0 // indirect
-	github.com/hashicorp/terraform-plugin-go v0.30.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework-validators v0.19.0 // indirect
+	github.com/hashicorp/terraform-plugin-go v0.31.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.10.0 // indirect
 	github.com/huandu/xstrings v1.5.0 // indirect
 	github.com/improbable-eng/grpc-web v0.15.1-0.20230209220825-1d9bbb09a099 // indirect
@@ -238,6 +241,7 @@ require (
 	go.yaml.in/yaml/v2 v2.4.2 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/crypto v0.48.0 // indirect
+	golang.org/x/exp v0.0.0-20250813145105-42675adae3e6 // indirect
 	golang.org/x/mod v0.33.0 // indirect
 	golang.org/x/net v0.49.0 // indirect
 	golang.org/x/oauth2 v0.34.0 // indirect
@@ -254,7 +258,7 @@ require (
 	google.golang.org/genproto v0.0.0-20240227224415-6ceb2ff114de // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20251202230838-ff82c1b0f217 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20251202230838-ff82c1b0f217 // indirect
-	google.golang.org/grpc v1.79.1 // indirect
+	google.golang.org/grpc v1.79.3 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
 	gopkg.in/evanphx/json-patch.v4 v4.12.0 // indirect
